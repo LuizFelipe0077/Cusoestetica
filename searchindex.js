@@ -1,8 +1,8 @@
 /* =====================================================================
    SEARCHINDEX.JS — GERADO AUTOMATICAMENTE. NÃO EDITE À MÃO.
    ---------------------------------------------------------------------
-   Produzido por build_index.py em 2026-07-17 01:50
-   Módulos indexados: 2   Itens: 143
+   Produzido por build_index.py em 2026-07-17 13:17
+   Módulos indexados: 3   Itens: 206
 
    Existe porque fetch() não funciona em file://: busca global entre
    módulos exige índice pré-construído.
@@ -12,8 +12,8 @@
    ===================================================================== */
 
 var SEARCHINDEX = {
-  generated: "2026-07-17T01:50:27",
-  modules: ["c1-m1", "c2-m1"],
+  generated: "2026-07-17T13:17:26",
+  modules: ["c1-m1", "c2-m1", "c2-m2"],
   items: [
 {
 "m": "c1-m1",
@@ -1157,6 +1157,510 @@ var SEARCHINDEX = {
 "n": "",
 "label": "A conexão com o Curso 1",
 "sub": "Se você fez o Módulo 1 do Sistema de Aquisição de Pacientes Premium, esta figura deve parecer familiar — e não é coincid…",
+"a": "s11"
+},
+{
+"m": "c2-m2",
+"t": "secao",
+"n": "2.1",
+"label": "Identificação não é empatia",
+"sub": "São três coisas diferentes, e o mercado chama as três de \"empatia\". A distinção não é acadêmica — ela muda que…",
+"a": "s1"
+},
+{
+"m": "c2-m2",
+"t": "secao",
+"n": "2.2",
+"label": "O mundo interno da mulher com melasma",
+"sub": "Não uma persona inventada. Um mapa construído sobre um modelo validado de como pessoas representam a própria d…",
+"a": "s2"
+},
+{
+"m": "c2-m2",
+"t": "secao",
+"n": "2.3",
+"label": "Dor identitária vs dor funcional",
+"sub": "Ninguém paga R$4.000 por uma mancha. Pagam por outra coisa — e essa outra coisa tem nome na literatura.",
+"a": "s3"
+},
+{
+"m": "c2-m2",
+"t": "secao",
+"n": "2.4",
+"label": "Os 9 medos",
+"sub": "Nenhum deles é \"medo de gastar dinheiro\". Todos são versões de um medo só — e reconhecer isso resolve metade d…",
+"a": "s4"
+},
+{
+"m": "c2-m2",
+"t": "secao",
+"n": "2.5",
+"label": "As 7 frustrações",
+"sub": "\"Já tentei tudo\" não é uma reclamação. É um diagnóstico — e tem nome na literatura desde 1967.",
+"a": "s5"
+},
+{
+"m": "c2-m2",
+"t": "secao",
+"n": "2.6",
+"label": "Desejo declarado vs desejo real",
+"sub": "Ela pede uma coisa e quer outra. Isso não é manipulação dela nem burrice — é uma propriedade bem documentada d…",
+"a": "s6"
+},
+{
+"m": "c2-m2",
+"t": "secao",
+"n": "2.7",
+"label": "As 12 objeções, mapeadas por origem",
+"sub": "Objeção não se responde. Objeção se rastreia até a origem — porque a mesma frase, vinda de origens diferentes,…",
+"a": "s7"
+},
+{
+"m": "c2-m2",
+"t": "secao",
+"n": "2.8",
+"label": "O mundo interno da mulher inflamada",
+"sub": "A paciente de melasma tem um problema com nome. Esta não tem. E essa única diferença muda tudo — inclusive a é…",
+"a": "s8"
+},
+{
+"m": "c2-m2",
+"t": "secao",
+"n": "2.9",
+"label": "Acolhimento sem exploração",
+"sub": "\"Não explore a dor dela\" costuma ser dito como imperativo moral. É também um achado experimental — e é isso qu…",
+"a": "s9"
+},
+{
+"m": "c2-m2",
+"t": "secao",
+"n": "2.10",
+"label": "Empatia sem atributo pessoal",
+"sub": "A frase que mais identifica também é a que mais te derruba a conta. Existe uma saída, e ela é mecânica: troque…",
+"a": "s10"
+},
+{
+"m": "c2-m2",
+"t": "secao",
+"n": "2.11",
+"label": "A técnica do espelho em terceira pessoa",
+"sub": "Descrever alguém de forma que ela se reconheça é fácil — e é exatamente por isso que é perigoso. A diferença e…",
+"a": "s11"
+},
+{
+"m": "c2-m2",
+"t": "secao",
+"n": "2.12",
+"label": "Resumo executivo",
+"sub": "Dez ideias. Elas são o insumo direto do C2.M3 (Confiança), do C2.M5 (Ganchos) e do C1.M5 (WhatsApp) — as objeç…",
+"a": "s12"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "A dimensão 4 tem dados de verdade — e eles contradizem o que ela diz",
+"sub": "",
+"a": "s2"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "O efeito holofote: ela superestima o quanto notam",
+"sub": "",
+"a": "s2"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "Frustração 1: por que \"já tentei tudo\" é a mais importante",
+"sub": "",
+"a": "s5"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "As outras seis, rapidamente",
+"sub": "",
+"a": "s5"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "A árvore de diagnóstico de \"vou pensar\"",
+"sub": "",
+"a": "s7"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "O que ela sente, e o que ela faz com isso",
+"sub": "",
+"a": "s8"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "A linha que separa nomear de inventar",
+"sub": "",
+"a": "s8"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "A construção que funciona — e que passa no teste",
+"sub": "",
+"a": "s8"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "A distinção operacional: descrever vs amplificar",
+"sub": "",
+"a": "s9"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "Cinco casos-limite, com veredito",
+"sub": "",
+"a": "s9"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "O mecanismo do problema",
+"sub": "",
+"a": "s10"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "As 5 operações de reescrita",
+"sub": "",
+"a": "s10"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "Biblioteca de 30 reescritas",
+"sub": "",
+"a": "s10"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "Biblioteca de reescritas · errado → certo",
+"sub": "",
+"a": "s10"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "A escada da especificidade",
+"sub": "",
+"a": "s11"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "De onde vêm os níveis 3 e 4",
+"sub": "",
+"a": "s11"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "O protocolo de coleta",
+"sub": "",
+"a": "s11"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "Grave a pergunta certa",
+"sub": "",
+"a": "s11"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "Transcreva as palavras dela, não as suas",
+"sub": "",
+"a": "s11"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "Procure o detalhe que se repete",
+"sub": "",
+"a": "s11"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "Teste o falso positivo",
+"sub": "",
+"a": "s11"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "Checklist de implementação",
+"sub": "",
+"a": "s12"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "Perguntas para autoavaliação",
+"sub": "",
+"a": "s12"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "Exercícios práticos",
+"sub": "",
+"a": "s12"
+},
+{
+"m": "c2-m2",
+"t": "subtitulo",
+"n": "",
+"label": "Checklist de conclusão do módulo",
+"sub": "",
+"a": "s12"
+},
+{
+"m": "c2-m2",
+"t": "figura",
+"n": "Figura 2.2.1",
+"label": "Mapa das cinco dimensões da representação da doença aplicado ao melasma, mostrando a crenç…",
+"sub": "Figura 2.2.1 — O melasma na representação dela. Repare que preço não aparece em lugar nenhum — porque o obstáculo real e…",
+"a": "s2"
+},
+{
+"m": "c2-m2",
+"t": "figura",
+"n": "Figura 2.7.1",
+"label": "Diagrama das quatro origens de objeção e onde cada uma deve ser tratada no funil",
+"sub": "Figura 2.7.1 — As objeções não nascem na conversa: elas chegam nela. Repare na coluna da direita: nenhuma das quatro ori…",
+"a": "s7"
+},
+{
+"m": "c2-m2",
+"t": "figura",
+"n": "Figura 2.10.1",
+"label": "Diagrama comparando duas frases com o mesmo marcador atencional mas sujeitos diferentes",
+"sub": "Figura 2.10.1 — O deslocamento do sujeito. Repare que a segunda frase é melhor em identificação, não pior: ela descreve …",
+"a": "s10"
+},
+{
+"m": "c2-m2",
+"t": "tabela",
+"n": "3 linhas",
+"label": "Fenômeno · Onde acontece · O que ela sente · Efeito na autoridade",
+"sub": "",
+"a": "s1"
+},
+{
+"m": "c2-m2",
+"t": "tabela",
+"n": "7 linhas",
+"label": "# · Frustração · O que ela realmente comunica · Nível",
+"sub": "",
+"a": "s5"
+},
+{
+"m": "c2-m2",
+"t": "tabela",
+"n": "5 linhas",
+"label": "O que ela diz · Hipótese do que ela quer · Por que não diz",
+"sub": "",
+"a": "s6"
+},
+{
+"m": "c2-m2",
+"t": "tabela",
+"n": "5 linhas",
+"label": "Dimensão · Melasma · Desinflamação",
+"sub": "",
+"a": "s8"
+},
+{
+"m": "c2-m2",
+"t": "tabela",
+"n": "6 linhas",
+"label": "O que ela sente · O que ela diz para si · O que ela já tentou",
+"sub": "",
+"a": "s8"
+},
+{
+"m": "c2-m2",
+"t": "tabela",
+"n": "5 linhas",
+"label": "Nível · Exemplo · Aplica-se a · Ela pensa",
+"sub": "",
+"a": "s11"
+},
+{
+"m": "c2-m2",
+"t": "checklist",
+"n": "38 itens",
+"label": "Checklist do Módulo 2",
+"sub": "A · Escuta — o insumo de tudo · B · Mapa da paciente · C · Objeções · D · Ética — a linha · E · Linguagem · F · Consistência com o resto da plataforma",
+"a": "s12"
+},
+{
+"m": "c2-m2",
+"t": "checklist",
+"n": "7 itens",
+"label": "Estou pronta para o Módulo 3",
+"sub": "",
+"a": "s12"
+},
+{
+"m": "c2-m2",
+"t": "callout",
+"n": "",
+"label": "Aviso epistêmico — leia antes de começar",
+"sub": "Descrever \"como uma paciente pensa\" é o terreno mais escorregadio deste curso. A maior parte do que se publica sobre iss…",
+"a": ""
+},
+{
+"m": "c2-m2",
+"t": "callout",
+"n": "",
+"label": "A regra que resume a seção",
+"sub": "Você não demonstra que entende. Você demonstra que conhece o território.",
+"a": "s1"
+},
+{
+"m": "c2-m2",
+"t": "callout",
+"n": "",
+"label": "Cuidado com o que você faz com essa informação",
+"sub": "Este é um achado que pode ser usado de duas formas, e uma delas é indefensável.",
+"a": "s2"
+},
+{
+"m": "c2-m2",
+"t": "callout",
+"n": "",
+"label": "Por que \"desânimo\" e não \"ansiedade\" muda a sua comunicação inteira",
+"sub": "Se a emoção dominante é desânimo (real ≠ ideal), então toda a maquinaria de copy baseada em urgência, medo e escassez es…",
+"a": "s3"
+},
+{
+"m": "c2-m2",
+"t": "callout",
+"n": "",
+"label": "Os nove são um só",
+"sub": "Releia a lista. Todos os nove são versões de: \"e se eu me permitir esperar de novo e for decepcionada de novo?\" Não é me…",
+"a": "s4"
+},
+{
+"m": "c2-m2",
+"t": "callout",
+"n": "",
+"label": "Isto é a justificativa científica do seu posicionamento inteiro",
+"sub": "Pare aqui um segundo, porque esta é a conclusão mais importante dos dois cursos até agora.",
+"a": "s5"
+},
+{
+"m": "c2-m2",
+"t": "callout",
+"n": "",
+"label": "A origem D é a única que você fabrica",
+"sub": "A, B e C chegam prontas — vêm da história dela. D é produzida por você, ao vivo, e quase sempre com a melhor das intençõ…",
+"a": "s7"
+},
+{
+"m": "c2-m2",
+"t": "callout",
+"n": "",
+"label": "Onde este módulo encontra o Curso 1",
+"sub": "O Curso 1 (§1.6, gargalo G3) afirmou: \"a objeção de preço é sempre um sintoma de falha de mecanismo, nunca de valor alto…",
+"a": "s7"
+},
+{
+"m": "c2-m2",
+"t": "callout",
+"n": "",
+"label": "A diferença estrutural",
+"sub": "A paciente de melasma tem um problema e procura solução. A paciente inflamada tem sintomas e não tem problema. Ela não e…",
+"a": "s8"
+},
+{
+"m": "c2-m2",
+"t": "callout",
+"n": "",
+"label": "O teste de falseabilidade",
+"sub": "Uma pergunta resolve isso, e ela é impiedosa:",
+"a": "s8"
+},
+{
+"m": "c2-m2",
+"t": "callout",
+"n": "",
+"label": "Três achados que convergem no mesmo lugar",
+"sub": "Repare que chegamos à mesma conclusão por três caminhos independentes, e nenhum deles é moral:",
+"a": "s9"
+},
+{
+"m": "c2-m2",
+"t": "callout",
+"n": "",
+"label": "O ponto que quase ninguém percebe",
+"sub": "Esta é uma restrição de plataforma que melhora o seu produto. \"Você tem melasma?\" é uma pergunta preguiçosa — ela funcio…",
+"a": "s10"
+},
+{
+"m": "c2-m2",
+"t": "callout",
+"n": "",
+"label": "Por que isso deveria te incomodar",
+"sub": "Toda a §2.1 disse: identificação é quando ela se reconhece no que você descreve. Forer provou que é possível produzir re…",
+"a": "s11"
+},
+{
+"m": "c2-m2",
+"t": "callout",
+"n": "",
+"label": "O teste do falso positivo",
+"sub": "Uma pergunta separa o nível 4 do nível 0:",
+"a": "s11"
+},
+{
+"m": "c2-m2",
+"t": "callout",
+"n": "",
+"label": "Por que isso é um fosso competitivo",
+"sub": "Frase de nível 0 qualquer um copia em dez segundos. Frase de nível 4 exige vinte consultas de escuta e a disciplina de n…",
 "a": "s11"
 }
 ]

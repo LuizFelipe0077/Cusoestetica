@@ -1,0 +1,2202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 2 — Psicologia da Identificação. Identificação ≠ empatia, o mundo interno da paciente, dor identitária, 9 medos, 7 frustrações, 12 objeções e a biblioteca de 30 reescritas.">
+<title>Psicologia da Identificação · Curso 2 · Psicologia e Conteúdo</title>
+
+<!--
+  CURSO 2 · PSICOLOGIA E CONTEÚDO
+  Módulo 2 — Psicologia da Identificação
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Chrome, navegação, progresso, busca e glossário vêm do platform.js.
+  Este arquivo tem conteúdo + o que é exclusivamente dele:
+  a biblioteca de reescritas de §2.10 (CSS e JS abaixo).
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+<style>
+/* ====================================================
+   CSS EXCLUSIVO DESTE MÓDULO — biblioteca de reescritas
+   Tudo o mais vem de platform.css. 100% tokenizado:
+   cor fixa aqui quebraria o tema claro.
+   ==================================================== */
+/* ============================================================
+   5. BIBLIOTECA DE REESCRITAS — filtrável (§2.10)
+   Protótipo do componente que o Módulo 5 usará em escala.
+   ============================================================ */
+.lib{border:1px solid var(--gold-line);border-radius:var(--radius-lg);background:var(--surface);margin:var(--sp-6) 0;overflow:hidden}
+.lib-head{padding:var(--sp-4) var(--sp-5);border-bottom:1px solid var(--line);background:var(--elevated)}
+.lib-head h4{margin:0 0 var(--sp-3);font-family:var(--body);font-size:var(--fs-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.lib-search{
+  width:100%;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);
+  color:var(--text);font-family:var(--body);font-size:var(--fs-sm);padding:.6rem var(--sp-3);
+}
+.lib-search:focus{border-color:var(--gold);outline:none}
+.lib-search::placeholder{color:var(--text-3)}
+
+.lib-filters{display:flex;gap:var(--sp-2);flex-wrap:wrap;margin-top:var(--sp-3)}
+.lib-group{display:flex;gap:var(--sp-1);flex-wrap:wrap;align-items:center}
+.lib-group-lab{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-right:var(--sp-2)}
+.chip{
+  background:var(--bg);border:1px solid var(--line);border-radius:2px;
+  color:var(--text-3);font-family:var(--body);font-size:var(--fs-xs);
+  padding:.25rem .7rem;cursor:pointer;transition:all .18s var(--ease);
+}
+.chip:hover{color:var(--text);border-color:var(--text-3)}
+.chip[aria-pressed="true"]{background:var(--gold-glow);border-color:var(--gold);color:var(--gold)}
+
+.lib-count{font-family:var(--mono);font-size:var(--fs-xs);color:var(--text-3);padding:var(--sp-3) var(--sp-5) 0}
+.lib-list{padding:var(--sp-3) var(--sp-5) var(--sp-5)}
+.lib-item{border:1px solid var(--line-soft);border-radius:var(--radius);margin-bottom:var(--sp-3);overflow:hidden}
+.lib-item:last-child{margin-bottom:0}
+.lib-meta{
+  display:flex;gap:var(--sp-2);align-items:center;flex-wrap:wrap;
+  padding:var(--sp-2) var(--sp-4);background:var(--elevated);border-bottom:1px solid var(--line-soft);
+}
+.lib-badge{font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;padding:.14em .5em;border-radius:2px;border:1px solid var(--line);color:var(--text-3)}
+.lib-badge.mel{color:var(--gold);border-color:var(--gold-line)}
+.lib-badge.des{color:var(--info);border-color:var(--info-line)}
+.lib-badge.risk{color:var(--err);border-color:var(--err-line);margin-left:auto}
+.lib-line{display:grid;grid-template-columns:auto 1fr;gap:var(--sp-3);padding:var(--sp-3) var(--sp-4);align-items:start}
+.lib-line.bad{background:var(--err-bg)}
+.lib-line.good{background:var(--ok-bg);border-top:1px solid var(--line-soft)}
+.lib-tag{font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;padding:.16em .5em;border-radius:2px;margin-top:.25em;white-space:nowrap}
+.lib-line.bad .lib-tag{color:var(--err);border:1px solid var(--err-line-2)}
+.lib-line.good .lib-tag{color:var(--ok);border:1px solid var(--ok-line)}
+.lib-txt{font-size:var(--fs-sm);color:var(--text-2);line-height:1.6}
+.lib-why{font-size:var(--fs-xs);color:var(--text-3);padding:var(--sp-2) var(--sp-4) var(--sp-3);border-top:1px dashed var(--line);line-height:1.6}
+.lib-why b{color:var(--gold-dim);font-weight:400}
+.lib-empty{text-align:center;color:var(--text-3);font-size:var(--fs-sm);padding:var(--sp-6) 0}
+mark{background:var(--gold-glow);color:var(--gold);padding:0 .15em;border-radius:2px}
+
+
+</style>
+</head>
+<body>
+
+<main class="main" id="conteudo">
+
+<!-- ========== HERO ========== -->
+<header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Bloco I · Fundamentos Cognitivos · Módulo 2</div>
+<h1>Psicologia da<br/><em>Identificação</em></h1>
+<p class="hero-lede">
+        O Módulo 1 mostrou <em>como</em> a atenção é capturada. Este mostra <em>de quem</em>. E a resposta
+        não é uma persona de slide com nome e foto de banco de imagens — é um mapa do que ela pensa quando
+        ninguém está olhando, do que ela teme admitir, e da distância entre o que ela pede e o que ela quer.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~85 min</dd></div>
+<div><dt>Seções</dt><dd>12</dd></div>
+<div><dt>Reescritas</dt><dd>30</dd></div>
+<div><dt>Mitos derrubados</dt><dd>6</dd></div>
+</dl>
+<div class="selo-key">
+<div>
+<span class="selo ev">Evidência</span>
+<p>Achado experimental revisado por pares. Vem com citação completa.</p>
+</div>
+<div>
+<span class="selo inf">Inferência</span>
+<p>Extrapolação razoável para um contexto <em>não</em> testado. Eu explico o salto.</p>
+</div>
+<div>
+<span class="selo prat">Prática</span>
+<p>Observação clínica e de mercado. Útil, comum, e sem teste controlado.</p>
+</div>
+<div>
+<span class="selo mito">Mito</span>
+<p>Repetido no mercado e contradito pela evidência — ou sem fonte.</p>
+</div>
+</div>
+<div class="callout warn" style="position:relative;z-index:1;margin-top:2rem">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Aviso epistêmico — leia antes de começar</span>
+</div>
+<p>
+          Descrever "como uma paciente pensa" é o terreno mais escorregadio deste curso. A maior parte do
+          que se publica sobre isso é <strong>invenção apresentada como fato</strong> — alguém imaginou uma
+          persona e escreveu com convicção. Neste módulo, a divisão é explícita: o que foi
+          <em>medido</em> está marcado ⬤ com citação; o que é <em>observação clínica</em> está ○; o que é
+          <em>extrapolação minha</em> está ◐ com o salto exposto. Um bloco sem selo não é uma afirmação
+          sobre a paciente — é raciocínio.
+        </p>
+<p>
+<strong>E o mais importante:</strong> nada aqui substitui ouvir as suas pacientes. Este mapa é
+          uma hipótese de trabalho para você <em>testar</em> contra as 20 mulheres que já passaram pelo seu
+          consultório — não um retrato para você adotar.
+        </p>
+</div>
+</div>
+</header>
+<!-- ============================================================
+       2.1 — IDENTIFICAÇÃO ≠ EMPATIA
+       ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.1</span><span></span></div>
+<h2>Identificação não é empatia</h2>
+<p class="sec-lede">
+          São três coisas diferentes, e o mercado chama as três de "empatia". A distinção não é
+          acadêmica — ela muda quem é o sujeito da sua frase.
+        </p>
+</div>
+<p>
+        Comece por separar o que está embolado. Existem três fenômenos distintos, com mecanismos
+        distintos e efeitos opostos sobre a sua autoridade:
+      </p>
+<div class="tbl-scroll">
+<table>
+<thead>
+<tr><th>Fenômeno</th><th>Onde acontece</th><th>O que ela sente</th><th>Efeito na autoridade</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Simpatia</strong><br/><span class="t-num">eu sinto <em>por</em> você</span></td>
+<td>Em você</td>
+<td>"Ela tem pena de mim"</td>
+<td class="t-err">Destrói. Pena pressupõe assimetria e ela percebe.</td>
+</tr>
+<tr>
+<td><strong>Empatia</strong><br/><span class="t-num">eu sinto <em>com</em> você</span></td>
+<td>Em você</td>
+<td>"Ela entende como é"</td>
+<td class="t-warn">Boa. Mas cara, lenta, e ainda é sobre você.</td>
+</tr>
+<tr style="background:rgba(201,169,97,.06)">
+<td><strong>Identificação</strong><br/><span class="t-gold t-num">você se reconhece no que eu descrevo</span></td>
+<td class="t-gold">Nela</td>
+<td>"Como ela sabe disso?"</td>
+<td class="t-ok">Constrói. É o evento que converte.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          A distinção entre <strong>simpatia</strong> e <strong>empatia</strong> é estabelecida na
+          literatura: simpatia é uma resposta <em>heurística</em> em que o observador se preocupa com o
+          bem-estar do outro; empatia é uma tentativa de <em>compreender</em> a experiência do outro, sem
+          necessariamente compartilhá-la. São processos com finalidades diferentes, não graus de uma mesma
+          coisa.
+        </p>
+<p>
+          Além disso, a literatura separa <strong>preocupação empática</strong> (orientada ao outro) de
+          <strong>angústia pessoal</strong> (orientada a si — o desconforto que <em>você</em> sente ao ver
+          o sofrimento alheio). A segunda leva a comportamentos de <em>evitação</em>, não de ajuda.
+        </p>
+<p class="cit">
+<b>Wispé, L. (1986).</b> <em>The distinction between sympathy and empathy: To call forth a
+          concept, a word is needed.</em> Journal of Personality and Social Psychology, 50(2), 314–321. ·
+          <b>Batson, C. D. et al. (1987).</b> <em>Distress and empathy: two qualitatively distinct vicarious
+          emotions with different motivational consequences.</em> Journal of Personality, 55(1), 19–39. ·
+          <b>Rogers, C. R. (1957).</b> <em>The necessary and sufficient conditions of therapeutic
+          personality change.</em> Journal of Consulting Psychology, 21(2), 95–103.
+        </p>
+</div>
+<p>
+        Repare em uma coisa nessa tabela que muda a sua copy inteira: <strong>simpatia e empatia acontecem
+        em você. Identificação acontece nela.</strong>
+</p>
+<p>
+        Isso significa que "demonstrar empatia" é a pergunta errada. Ela coloca você no centro da frase —
+        e a paciente não está interessada nos seus sentimentos sobre a condição dela. A pergunta certa é:
+        <strong>"quão precisamente eu consigo descrever a realidade dela a ponto de ela se
+        reconhecer?"</strong> Identificação é um evento de <em>reconhecimento</em>, e reconhecimento é
+        função de <strong>precisão</strong>, não de afeto.
+      </p>
+<div class="vs">
+<div class="vs-col bad">
+<h4>Copy de empatia — sujeito: você</h4>
+<ul>
+<li>"Eu <b>entendo</b> o quanto isso é difícil"</li>
+<li>"Eu <b>sei</b> como você se sente"</li>
+<li>"Meu <b>coração se aperta</b> quando vejo isso"</li>
+<li>"Eu <b>me importo</b> com cada paciente"</li>
+</ul>
+<p>Todas são sobre você. Nenhuma é verificável por ela. E "eu sei como você se sente" é, para quem já ouviu isso de cinco profissionais, um <b>gatilho de descrédito</b>.</p>
+</div>
+<div class="vs-col good">
+<h4>Copy de identificação — sujeito: a realidade dela</h4>
+<ul>
+<li>"Tem um momento em que alguém tira uma foto e você já sabe, antes de olhar, que vai querer apagar"</li>
+<li>"O verão inteiro planejado em torno de sombra"</li>
+<li>"A frustração não é a mancha. É ter feito tudo certo e ela ter voltado"</li>
+<li>"É a quinta vez que alguém promete e a terceira que você acredita menos"</li>
+</ul>
+<p>Nenhuma fala de você. Nenhuma afirma nada sobre ela. Todas descrevem um território com precisão suficiente para ela pensar: <b>"como ela sabe disso?"</b></p>
+</div>
+</div>
+<div class="selo-box mito">
+<span class="selo mito">Mito</span>
+<p>
+<strong>"Para escrever bem para ela, se coloque no lugar dela."</strong>
+</p>
+<p>
+          Esse é o conselho mais repetido de marketing — e existe evidência experimental razoavelmente
+          direta contra ele. Em uma série de 25 experimentos, <strong>tomar a perspectiva do outro
+          ("perspective-taking") não melhorou a acurácia</strong> em prever o que a outra pessoa pensava,
+          sentia ou preferia. Em vários casos, <em>piorou</em> — e, o que é pior, aumentou a
+          <strong>confiança</strong> de quem estava adivinhando. O que melhorou a acurácia foi uma coisa
+          só: <em>obter</em> a perspectiva. Ou seja: perguntar.
+        </p>
+<p class="cit">
+<b>Eyal, T., Steffel, M. &amp; Epley, N. (2018).</b> <em>Perspective mistaking: Accurately
+          understanding the mind of another requires getting perspective, not taking perspective.</em>
+          Journal of Personality and Social Psychology, 114(4), 547–571.
+        </p>
+<p>
+<strong>Por que isso importa muito para você:</strong> "se colocar no lugar dela" produz uma
+          projeção de <em>você</em> com melasma — não uma descrição dela. E você é uma biomédica que
+          entende o mecanismo; a projeção sai com o vocabulário errado, os medos errados e a hierarquia de
+          prioridades errada. Pior: sai com confiança alta, o que impede a correção.
+        </p>
+<p>
+<strong>A consequência operacional deste módulo inteiro:</strong> tudo que está aqui é hipótese
+          derivada da literatura. O material de verdade vem das suas 20 últimas pacientes — e o Exercício 1
+          é exatamente isso. Não existe substituto para <em>perguntar</em>.
+        </p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>A regra que resume a seção</span>
+</div>
+<p>
+<strong>Você não demonstra que entende. Você demonstra que conhece o território.</strong>
+</p>
+<p>
+          A diferença é que "entender" é um estado interno seu, que ela tem que aceitar na fé. "Conhecer o
+          território" é verificável em tempo real: ou você descreveu com precisão a coisa que ela nunca
+          contou pra ninguém, ou não descreveu. Ela sabe na hora. E quando você acerta, ela não conclui
+          "que pessoa empática" — ela conclui <em>"essa pessoa já viu isso muitas vezes"</em>.
+        </p>
+<p>
+          Que é, exatamente, a inferência que você quer que ela faça. Autoridade construída por
+          <strong>especificidade</strong>, não por declaração.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       2.2 — O MUNDO INTERNO · MELASMA
+       ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.2</span><span></span></div>
+<h2>O mundo interno da mulher com melasma</h2>
+<p class="sec-lede">
+          Não uma persona inventada. Um mapa construído sobre um modelo validado de como pessoas
+          representam a própria doença — preenchido com o que a literatura de melasma efetivamente mediu.
+        </p>
+</div>
+<p>
+        Existe um problema com "personas" em marketing de saúde: elas são escritas por quem não tem a
+        doença, com base no que soa plausível. O resultado é sempre a mesma mulher genérica de 38 anos
+        que "quer se sentir bonita e confiante". Isso não é conhecimento — é preenchimento de formulário.
+      </p>
+<p>
+        Vamos fazer diferente. Existe um modelo consolidado em psicologia da saúde sobre como pessoas
+        constroem representações mentais de uma condição, e ele tem <strong>cinco dimensões</strong>. É
+        nele que vamos pendurar o que se sabe sobre melasma.
+      </p>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          O <strong>Modelo do Senso Comum de Autorregulação</strong> propõe que toda pessoa constrói uma
+          representação cognitiva da própria condição organizada em cinco dimensões — e que é essa
+          representação, <em>não os fatos médicos</em>, que governa o comportamento dela: se procura
+          tratamento, se adere, se desiste.
+        </p>
+<ul>
+<li><strong>Identidade</strong> — que nome ela dá, quais sintomas ela associa</li>
+<li><strong>Causa</strong> — o que ela acredita que provocou</li>
+<li><strong>Linha do tempo</strong> — agudo, crônico ou cíclico?</li>
+<li><strong>Consequências</strong> — o que isso faz com a vida dela</li>
+<li><strong>Cura / controle</strong> — dá para resolver? Por quem?</li>
+</ul>
+<p class="cit">
+<b>Leventhal, H., Meyer, D. &amp; Nerenz, D. (1980).</b> <em>The common sense representation of
+          illness danger.</em> In: Rachman (ed.), Contributions to Medical Psychology, vol. 2. ·
+          <b>Leventhal, H., Phillips, L. A. &amp; Burns, E. (2016).</b> <em>The Common-Sense Model of
+          Self-Regulation: a dynamic framework.</em> Journal of Behavioral Medicine, 39(6), 935–946.
+        </p>
+</div>
+<div class="figure">
+<div class="figure-frame">
+<svg aria-label="Mapa das cinco dimensões da representação da doença aplicado ao melasma, mostrando a crença dela e a implicação para comunicação" role="img" viewbox="0 0 720 440">
+<text class="svg-t-sm" x="14" y="18">DIMENSÃO</text>
+<text class="svg-t-sm" x="210" y="18">O QUE ELA ACREDITA</text>
+<text class="svg-t-sm" x="470" y="18">O QUE ISSO EXIGE DE VOCÊ</text>
+<!-- D1 -->
+<rect class="svg-node-gold" height="66" rx="3" width="180" x="14" y="30"></rect>
+<text class="svg-t-gold" x="26" y="52">Identidade</text>
+<text class="svg-t-sm" x="26" y="70">QUE NOME ELA DÁ</text>
+<text class="svg-t" x="210" y="52">"É uma mancha."</text>
+<text class="svg-t-sm" x="210" y="70">SINTOMA ÚNICO, LOCAL, DE PELE.</text>
+<text class="svg-t-sm" x="210" y="86">NENHUMA CONEXÃO SISTÊMICA.</text>
+<text class="svg-t-ok" x="470" y="52">Ampliar a identidade</text>
+<text class="svg-t-sm" x="470" y="70">DE "MANCHA" PARA "SINAL DE ALGO".</text>
+<text class="svg-t-sm" x="470" y="86">SEM ISSO, SEU PREÇO NÃO FAZ SENTIDO.</text>
+<!-- D2 -->
+<rect class="svg-node" height="66" rx="3" width="180" x="14" y="104"></rect>
+<text class="svg-t" x="26" y="126">Causa</text>
+<text class="svg-t-sm" x="26" y="144">O QUE PROVOCOU</text>
+<text class="svg-t" x="210" y="126">"Sol. Hormônio. Genética."</text>
+<text class="svg-t-sm" x="210" y="144">TRÊS CAUSAS, TODAS FORA</text>
+<text class="svg-t-sm" x="210" y="160">DO CONTROLE DELA.</text>
+<text class="svg-t-ok" x="470" y="126">Reordenar, não negar</text>
+<text class="svg-t-sm" x="470" y="144">AS TRÊS SÃO REAIS — SÃO GATILHOS.</text>
+<text class="svg-t-sm" x="470" y="160">A PERGUNTA É O QUE ESTÁ EMBAIXO.</text>
+<!-- D3 -->
+<rect class="svg-node-err" height="66" rx="3" width="180" x="14" y="178"></rect>
+<text class="svg-t-err" x="26" y="200">Linha do tempo</text>
+<text class="svg-t-sm" x="26" y="218">QUANTO DURA</text>
+<text class="svg-t-err" x="210" y="200">"Para sempre. É cíclico."</text>
+<text class="svg-t-sm" x="210" y="218">TODO VERÃO VOLTA. TODA GRAVIDEZ PIORA.</text>
+<text class="svg-t-sm" x="210" y="234">JÁ VIVEU O CICLO 5, 8, 12 VEZES.</text>
+<text class="svg-t-ok" x="470" y="200">Não prometer quebrar o ciclo</text>
+<text class="svg-t-sm" x="470" y="218">ELA JÁ OUVIU ISSO. E NÃO ACREDITA.</text>
+<text class="svg-t-sm" x="470" y="234">EXPLIQUE POR QUE O CICLO EXISTE.</text>
+<!-- D4 -->
+<rect class="svg-node" height="66" rx="3" width="180" x="14" y="252"></rect>
+<text class="svg-t" x="26" y="274">Consequências</text>
+<text class="svg-t-sm" x="26" y="292">O QUE FAZ COM A VIDA</text>
+<text class="svg-t" x="210" y="274">Maiores do que ela admite.</text>
+<text class="svg-t-sm" x="210" y="292">ELA DIZ "É SÓ ESTÉTICO".</text>
+<text class="svg-t-sm" x="210" y="308">OS INSTRUMENTOS MEDEM OUTRA COISA. ↓</text>
+<text class="svg-t-ok" x="470" y="274">Nomear sem dramatizar</text>
+<text class="svg-t-sm" x="470" y="292">ELA MINIMIZA POR DEFESA.</text>
+<text class="svg-t-sm" x="470" y="308">VOCÊ NOMEIA, ELA NÃO PRECISA ADMITIR.</text>
+<!-- D5 -->
+<rect class="svg-node-err" height="66" rx="3" width="180" x="14" y="326"></rect>
+<text class="svg-t-err" x="26" y="348">Cura / controle</text>
+<text class="svg-t-sm" x="26" y="366">DÁ PARA RESOLVER?</text>
+<text class="svg-t-err" x="210" y="348">"Não tem cura. Só controle."</text>
+<text class="svg-t-sm" x="210" y="366">DITO POR UM MÉDICO. ELA ACREDITA.</text>
+<text class="svg-t-sm" x="210" y="382">É O FREIO DE MÃO DO FUNIL INTEIRO.</text>
+<text class="svg-t-ok" x="470" y="348">Separar predisposição de destino</text>
+<text class="svg-t-sm" x="470" y="366">NÃO ATACAR A CRENÇA DE FRENTE —</text>
+<text class="svg-t-sm" x="470" y="382">TROCAR A PERGUNTA. VER §2.5.</text>
+<line class="svg-line" x1="14" x2="706" y1="404" y2="404"></line>
+<text class="svg-t-gold" font-size="10" x="14" y="424">AS DUAS DIMENSÕES EM VERMELHO SÃO AS QUE TRAVAM A VENDA. NENHUMA DELAS É SOBRE PREÇO.</text>
+</svg>
+</div>
+<p class="figure-cap">
+<b>Figura 2.2.1</b> — O melasma na representação dela. Repare que <em>preço não aparece em
+          lugar nenhum</em> — porque o obstáculo real está nas dimensões 3 e 5: ela acredita que é cíclico
+          e incurável. Quem acredita que algo não tem solução não avalia custo. <strong>A objeção de preço
+          é sempre posterior à crença de possibilidade.</strong>
+</p>
+</div>
+<h3>A dimensão 4 tem dados de verdade — e eles contradizem o que ela diz</h3>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          Existe um instrumento validado especificamente para medir o impacto do melasma na qualidade de
+          vida — o <strong><abbr data-t="MELASQOL">MELASQOL</abbr></strong> — e ele tem <strong>versão validada para o português
+          brasileiro</strong>. A existência dele é, por si só, a evidência que interessa aqui: um
+          instrumento de qualidade de vida só é construído e validado quando o impacto psicossocial
+          documentado justifica a medição.
+        </p>
+<p>
+          Os domínios que o instrumento cobre dizem muito sobre o que foi encontrado: aparência,
+          frustração, constrangimento, sensação de depressão, efeitos nas interações sociais, no desejo de
+          estar com pessoas, na capacidade de demonstrar afeto, e na liberdade.
+        </p>
+<p class="cit">
+<b>Balkrishnan, R. et al. (2003).</b> <em>Development and validation of a health-related quality
+          of life instrument for women with melasma.</em> British Journal of Dermatology, 149(3), 572–577. ·
+          <b>Cestari, T. F., Hexsel, D., Viegas, M. L. et al. (2006).</b> <em>Validation of a melasma
+          quality of life questionnaire for Brazilian Portuguese language: the MelasQoL-BP study and
+          improvement of QoL of melasma patients after triple combination therapy.</em> British Journal of
+          Dermatology, 156(s1), 13–20.
+        </p>
+<p>
+<strong>Ressalva importante e honesta:</strong> eu não vou citar escores médios de MELASQOL aqui,
+          porque eles variam muito entre populações, fototipos e serviços — e um número específico dito
+          com falsa precisão seria exatamente o que este curso condena. <strong>Se você for usar dados de
+          qualidade de vida em conteúdo, puxe o artigo da população que se parece com a sua e cite a
+          fonte.</strong> A afirmação segura e sustentada é qualitativa: o impacto documentado vai muito
+          além do estético, e existe instrumento validado em português para medi-lo.
+        </p>
+</div>
+<div class="selo-box inf">
+<span class="selo inf">Inferência</span>
+<p>
+<strong>O salto:</strong> se os domínios medidos incluem constrangimento, retração social e
+          liberdade, mas a paciente <em>declara</em> que "é só estético", existe uma distância entre o
+          impacto real e o impacto admitido. A hipótese é que essa minimização é <strong>defensiva</strong>:
+          admitir que uma mancha governa a sua vida social é socialmente custoso e humilhante. É mais
+          barato dizer "é só estético" e continuar recusando convites.
+        </p>
+<p>
+<strong>Onde pode falhar:</strong> não conheço estudo que meça diretamente essa discrepância
+          entre impacto declarado e medido em melasma. Estou juntando dois fatos (o instrumento mede muito
+          além do estético; a fala comum minimiza) e propondo uma explicação. <strong>Teste isso nas suas
+          pacientes antes de construir conteúdo em cima.</strong>
+</p>
+<p>
+<strong>Se for verdade, a consequência é grande:</strong> você nunca deve pedir que ela admita o
+          impacto. Você deve <em>nomeá-lo por ela</em>, em terceira pessoa, para que ela possa se
+          reconhecer sem ter que confessar nada. É toda a técnica da §2.11.
+        </p>
+</div>
+<h3>O efeito holofote: ela superestima o quanto notam</h3>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          O <strong>efeito holofote</strong>: pessoas superestimam sistematicamente o quanto os outros
+          notam sua aparência e seu comportamento. No experimento clássico, participantes usando uma
+          camiseta constrangedora estimaram que cerca de <em>metade</em> das pessoas na sala notaria — a
+          proporção real foi de aproximadamente um quarto. O efeito é robusto e replicado.
+        </p>
+<p class="cit">
+<b>Gilovich, T., Medvec, V. H. &amp; Savitsky, K. (2000).</b> <em>The spotlight effect in social
+          judgment: an egocentric bias in estimates of the salience of one's own actions and
+          appearance.</em> Journal of Personality and Social Psychology, 78(2), 211–222.
+        </p>
+</div>
+<div class="callout danger">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Cuidado com o que você faz com essa informação</span>
+</div>
+<p>
+          Este é um achado que pode ser usado de duas formas, e uma delas é indefensável.
+        </p>
+<p>
+<strong>Uso errado:</strong> "as pessoas notam mais do que você imagina" — amplificar o holofote
+          para criar urgência. Isso é <em>mentira</em> (a evidência diz o contrário) e é exploração de
+          vulnerabilidade. É também exatamente o que boa parte do nicho faz.
+        </p>
+<p>
+<strong>Uso certo:</strong> saber que o sofrimento dela é, em parte, <em>relacional consigo
+          mesma</em>, não com o olhar alheio. Ela não está evitando a foto porque os outros vão reparar.
+          Ela está evitando porque <strong>ela</strong> vai reparar. Isso muda completamente a copy: você
+          para de falar de "o que os outros vão pensar" e passa a falar do que acontece quando ela olha
+          para si. É mais verdadeiro, mais preciso, e — pela §2.3 — é onde está o dinheiro.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       2.3 — DOR IDENTITÁRIA VS FUNCIONAL
+       ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.3</span><span></span></div>
+<h2>Dor identitária vs dor funcional</h2>
+<p class="sec-lede">
+          Ninguém paga R$4.000 por uma mancha. Pagam por outra coisa — e essa outra coisa tem nome na
+          literatura.
+        </p>
+</div>
+<p>
+        Faça a conta pela paciente. Um clareador de farmácia custa R$120. Um protocolo dermatológico
+        convencional, R$800. O seu, R$4.000. Se o objeto da compra fosse "clarear a mancha", a sua oferta
+        seria irracional por um fator de 5 a 30. Ela não é irracional. <strong>O objeto da compra é
+        outro.</strong>
+</p>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          A <strong>teoria da autodiscrepância</strong> propõe três domínios do self: o <em>real</em> (como
+          você se vê), o <em>ideal</em> (como gostaria de ser) e o <em>devido</em> (como acredita que
+          deveria ser). E — o achado central — <strong>tipos diferentes de discrepância produzem emoções
+          diferentes e previsíveis</strong>:
+        </p>
+<ul>
+<li><strong>Real ≠ Ideal</strong> → emoções de <em>desânimo</em>: decepção, insatisfação, tristeza</li>
+<li><strong>Real ≠ Devido</strong> → emoções de <em>agitação</em>: ansiedade, culpa, medo</li>
+</ul>
+<p class="cit">
+<b>Higgins, E. T. (1987).</b> <em>Self-discrepancy: A theory relating self and affect.</em>
+          Psychological Review, 94(3), 319–340.
+        </p>
+</div>
+<p>
+        Agora aplique. Existem duas dores completamente diferentes no mesmo corpo:
+      </p>
+<div class="vs">
+<div class="vs-col bad">
+<h4>Dor funcional — o problema</h4>
+<ul>
+<li>"Tenho uma mancha no rosto"</li>
+<li>Objeto: a pele</li>
+<li>Comparável: outros produtos que clareiam</li>
+<li>Elasticidade de preço: <b>altíssima</b></li>
+<li>Teto de valor: o preço do concorrente mais barato</li>
+<li>É o que ela <b>diz</b> no WhatsApp</li>
+</ul>
+</div>
+<div class="vs-col good">
+<h4>Dor identitária — a distância</h4>
+<ul>
+<li>"Eu virei uma pessoa que se esconde"</li>
+<li>Objeto: a distância entre quem ela é e quem ela era</li>
+<li>Comparável: <b>nada</b>. Não existe prateleira</li>
+<li>Elasticidade de preço: <b>baixa</b></li>
+<li>Teto de valor: quanto vale voltar a ser você</li>
+<li>É o que ela <b>sente</b> e não verbaliza</li>
+</ul>
+</div>
+</div>
+<div class="selo-box inf">
+<span class="selo inf">Inferência</span>
+<p>
+<strong>O salto:</strong> Higgins mediu discrepâncias de self e emoções associadas em contextos
+          gerais — não em pacientes de melasma, e não em decisão de compra. Estou propondo que:
+          (a) o melasma crônico produz uma discrepância <em>real ≠ ideal</em> persistente; (b) por isso a
+          emoção dominante é desânimo, não ansiedade; e (c) que é essa discrepância — não a mancha — que
+          sustenta um ticket de R$4.000.
+        </p>
+<p>
+<strong>Onde pode falhar:</strong> os três passos são meus. Nenhum foi testado. É uma
+          construção teórica coerente e útil, e é honestamente <em>a melhor explicação que eu tenho</em>
+          para por que o mesmo problema aceita preços que variam 30×. Mas é explicação, não medição.
+        </p>
+<p>
+<strong>Um teste que você pode fazer:</strong> se a tese estiver certa, as pacientes que fecham
+          devem falar mais de <em>quem elas eram</em> (fotos antigas, "eu não era assim", "antes da
+          gravidez") do que da mancha em si. As que não fecham devem falar mais da mancha. Isso é
+          verificável nas suas próximas 20 consultas, e é o Exercício 3.
+        </p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Por que "desânimo" e não "ansiedade" muda a sua comunicação inteira</span>
+</div>
+<p>
+          Se a emoção dominante é <strong>desânimo</strong> (real ≠ ideal), então toda a maquinaria de
+          copy baseada em urgência, medo e escassez está <em>desalinhada com o estado dela</em>. Você não
+          está falando com alguém agitado que precisa ser acalmado. Está falando com alguém
+          <strong>desanimado que precisa de uma razão para tentar de novo</strong>.
+        </p>
+<p>
+          E — releia a §1.7 do Módulo 1 — desânimo é valência negativa com <em>ativação baixa</em>. É o
+          quadrante que não compartilha e não age. <strong>O seu trabalho de conteúdo não é aumentar a dor
+          dela. É tirá-la do quadrante inferior esquerdo</strong> e levá-la ao superior direito: ativação
+          alta, valência positiva — o deslumbre intelectual de entender por que nunca funcionou.
+        </p>
+<p>
+          Isso reconcilia duas coisas que pareciam em tensão: a ética ("não explore a dor") e a eficácia
+          ("mas a dor vende"). No caso dela, <strong>agitar a dor é tecnicamente ineficaz</strong>, não só
+          feio. Ela já está no fundo do poço emocional; empurrá-la mais fundo não a move — paralisa. A
+          §2.9 fecha esse argumento com a evidência sobre apelos ao medo.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       2.4 — OS 9 MEDOS
+       ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.4</span><span></span></div>
+<h2>Os 9 medos</h2>
+<p class="sec-lede">
+          Nenhum deles é "medo de gastar dinheiro". Todos são versões de um medo só — e reconhecer isso
+          resolve metade das suas objeções antes de elas existirem.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Status desta lista:</strong> é observação clínica e de mercado, organizada por mim a
+          partir da estrutura da §2.2. <em>Não é medida.</em> Não existe, até onde eu sei, estudo que tenha
+          quantificado a hierarquia de medos de pacientes com melasma antes de tratamento. As barras de
+          intensidade abaixo são <strong>estimativas ilustrativas</strong> — elas servem para você discutir
+          a ordem, não para você citar o número.
+        </p>
+<p>
+<strong>O que fazer com isso:</strong> use como roteiro de escuta, não como verdade. Nas suas
+          próximas 20 consultas, marque quais aparecem e em que ordem. Em 20 consultas você terá um dado
+          melhor do que qualquer curso pode te dar — porque será sobre <em>as suas</em> pacientes.
+        </p>
+</div>
+<div style="margin:2rem 0">
+<div class="bar-row"><div><span class="bar-lab">1 · Gastar de novo e não funcionar</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div><span class="bar-val">dominante</span></div>
+<div class="bar-row"><div><span class="bar-lab">2 · Ser mais uma na esteira</span><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div></div><span class="bar-val">muito alto</span></div>
+<div class="bar-row"><div><span class="bar-lab">3 · Estar sendo enganada</span><div class="bar-track"><div class="bar-fill" style="width:82%"></div></div></div><span class="bar-val">muito alto</span></div>
+<div class="bar-row"><div><span class="bar-lab">4 · Que seja "para sempre" mesmo</span><div class="bar-track"><div class="bar-fill" style="width:76%"></div></div></div><span class="bar-val">alto</span></div>
+<div class="bar-row"><div><span class="bar-lab">5 · Ser julgada por gastar com "vaidade"</span><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div></div><span class="bar-val">alto · silencioso</span></div>
+<div class="bar-row"><div><span class="bar-lab">6 · Piorar</span><div class="bar-track"><div class="bar-fill" style="width:58%"></div></div></div><span class="bar-val">médio</span></div>
+<div class="bar-row"><div><span class="bar-lab">7 · Não conseguir manter o protocolo</span><div class="bar-track"><div class="bar-fill" style="width:52%"></div></div></div><span class="bar-val">médio · tardio</span></div>
+<div class="bar-row"><div><span class="bar-lab">8 · Descobrir que é algo maior</span><div class="bar-track"><div class="bar-fill" style="width:44%"></div></div></div><span class="bar-val">médio · ambivalente</span></div>
+<div class="bar-row"><div><span class="bar-lab">9 · O tempo até ver resultado</span><div class="bar-track"><div class="bar-fill" style="width:34%"></div></div></div><span class="bar-val">baixo · pós-venda</span></div>
+</div>
+<div class="acc" data-acc="">
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">01</span>Gastar de novo e não funcionar<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body">
+<p><strong>A forma dele:</strong> não é medo de perder R$4.000. É medo de perder R$4.000 <em>e</em> a esperança junto. O dinheiro é recuperável; a decepção pela sexta vez, não. Cada tentativa fracassada aumentou o custo psicológico da próxima.</p>
+<p><strong>Por que ele é o dominante:</strong> ele é o único que <em>já aconteceu</em>. Os outros oito são hipotéticos. Este é memória.</p>
+<p><strong>O que NÃO funciona:</strong> garantia de resultado. Ela já recebeu garantias. A garantia é o som de quem está vendendo.</p>
+<p><strong>O que funciona:</strong> explicar por que <em>as anteriores</em> falharam — de forma que a explicação seja verificável contra a experiência dela. Se você descrever o padrão de recaída dela antes de ela contar, o medo cede sozinho. Não porque você prometeu: porque você <em>previu</em>. Previsão é a moeda da credibilidade científica.</p>
+</div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">02</span>Ser mais uma na esteira<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body">
+<p><strong>A forma dele:</strong> "ela vai me passar o mesmo protocolo que passa pra todo mundo, com meu nome no cabeçalho".</p>
+<p><strong>Por que ele importa tanto no seu ticket:</strong> personalização é literalmente o que ela está comprando. Se o medo 2 não for resolvido, o preço vira inexplicável — porque protocolo padronizado tem preço de mercado, e o de mercado é R$800.</p>
+<p><strong>Onde ele é alimentado sem você perceber:</strong> conteúdo genérico. Todo Reel de "5 dicas para melasma" confirma que existe um protocolo único. Você está, sem querer, provando o medo dela.</p>
+<p><strong>O antídoto:</strong> mostrar <em>descarte</em>. "Nesse caso eu não faria X, porque..." é a única prova de personalização que não pode ser falsificada — quem tem protocolo único nunca descarta nada.</p>
+</div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">03</span>Estar sendo enganada<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body">
+<p><strong>A forma dele:</strong> "integrativo" é uma palavra que, no Brasil, convive com muita coisa boa e muita coisa indefensável. Ela sabe disso. E ela não tem como distinguir — não é da área.</p>
+<p><strong>O que ela usa como teste:</strong> não é o seu diploma. É se você <strong>admite limites</strong>. Charlatão não admite limite. É a heurística mais confiável que uma leiga tem, e ela é surpreendentemente boa.</p>
+<p><strong>Consequência de copy:</strong> toda vez que você diz "isso pode não funcionar no seu caso", "isso a ciência ainda não sabe", "esse ponto é controverso" — você está passando no teste. Cada limite admitido é um depósito. O Módulo 3.7 formaliza isso.</p>
+<p><strong>O que dispara o medo 3:</strong> superlativo. "O único", "o definitivo", "o revolucionário". Uma palavra só basta.</p>
+</div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">04</span>Que seja "para sempre" mesmo<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body">
+<p><strong>A forma dele:</strong> este é o medo <em>de descobrir que a crença dela está certa</em>. Enquanto ela não tenta, resta dúvida. Se ela tentar o melhor tratamento disponível e falhar, acabou a dúvida — e ela terá que aceitar para sempre.</p>
+<p><strong>Por que isso é contraintuitivo e importante:</strong> <strong>não tentar protege a esperança.</strong> A inação não é falta de interesse — é preservação. É por isso que ela some depois de ler tudo e não responder (a "avaliação silenciosa" do Curso 1, §1.2, estágio 06).</p>
+<p><strong>O que funciona:</strong> tirar o caráter de veredito final. Reenquadrar a consulta como <em>investigação</em>, não como última tentativa. Uma investigação pode ter qualquer resultado — inclusive "não é o que a gente pensava", que é um resultado útil e não é uma sentença.</p>
+</div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">05</span>Ser julgada por gastar com "vaidade"<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="selo inf">Inferência</span></button><div class="acc-panel"><div class="acc-body">
+<p><strong>A forma dele:</strong> "R$4.000 numa mancha? Com tanta coisa em casa?" — dito pelo marido, pela mãe, pela cunhada. Ou, o que é mais comum, <em>não dito por ninguém e imaginado por ela</em>.</p>
+<p><strong>Por que ele é silencioso:</strong> ela nunca vai te dizer isso. Vai dizer "vou pensar" ou "preciso conversar com meu marido". Você vai diagnosticar como objeção de preço. Não é. É objeção de <strong>legitimidade</strong>.</p>
+<p><strong>O salto que estou fazendo:</strong> conecto isso ao dado da §2.2 — o instrumento mede constrangimento, retração social e liberdade. Se o impacto é psicossocial e não cosmético, então o gasto é <em>defensável em termos de saúde</em>. Mas ela não tem esse argumento. <em>Você</em> tem.</p>
+<p><strong>A ação concreta:</strong> dê a ela o argumento por escrito. Um resumo que ela possa mostrar. Isso não é material de marketing — é munição para uma conversa que vai acontecer na cozinha dela sem você. Curso 1, §11.5.</p>
+</div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">06</span>Piorar<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="selo ev">Evidência</span></button><div class="acc-panel"><div class="acc-body">
+<p><strong>A forma dele:</strong> muitas pacientes de melasma já tiveram episódio de piora — por peeling agressivo, laser mal indicado, ou hiperpigmentação pós-inflamatória. O medo tem base empírica na história dela.</p>
+<p><strong>A assimetria que explica a força dele:</strong> a <strong>aversão à perda</strong> é um dos achados mais robustos da economia comportamental — perdas pesam mais que ganhos equivalentes. Uma piora de 20% dói mais do que uma melhora de 20% agrada. Ela não está fazendo uma conta simétrica de risco.</p>
+<p class="cit"><b>Kahneman, D. &amp; Tversky, A. (1979).</b> <em>Prospect theory: An analysis of decision under risk.</em> Econometrica, 47(2), 263–291.</p>
+<p><strong>Consequência:</strong> "pode melhorar muito" não compensa "pode piorar um pouco" na cabeça dela. O que compensa é <em>eliminar o cenário de piora</em> — explicar por que a sua abordagem não tem o mecanismo que causa a piora que ela viveu.</p>
+</div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">07</span>Não conseguir manter o protocolo<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body">
+<p><strong>A forma dele:</strong> "eu não sou disciplinada", "eu começo e paro", "eu já sei que não vou dar conta".</p>
+<p><strong>Quando aparece:</strong> tarde. Quase nunca antes da consulta — geralmente no momento da decisão, disfarçado de "vou pensar". É um medo de <em>fracasso pessoal</em>, não do tratamento.</p>
+<p><strong>Por que é perigoso subestimar:</strong> ele prevê abandono real no meio do protocolo. Uma paciente que fecha com esse medo não resolvido é uma paciente que some na semana 5 — e vira um caso sem resultado, sem depoimento e sem indicação.</p>
+<p><strong>O que funciona:</strong> reduzir o número de decisões, não aumentar a motivação. Motivação decai; estrutura não. Curso 1, Módulo 13.</p>
+</div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">08</span>Descobrir que é algo maior<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body">
+<p><strong>A forma dele — e ela é ambivalente:</strong> "e se for tireoide? e se for hormonal? e se tiver algo errado comigo?"</p>
+<p><strong>A ambivalência:</strong> este é o único medo que também é <em>desejo</em>. Metade dela teme descobrir um problema sistêmico. A outra metade <strong>quer desesperadamente</strong> que exista uma causa — porque causa significa que não é culpa dela, e significa que há o que tratar.</p>
+<p><strong>Por que isso é a chave do seu posicionamento:</strong> a sua proposta é exatamente "existe uma causa e ela é investigável". Para o lado desejante, isso é alívio. Para o lado temeroso, é ameaça. <strong>Você precisa endereçar os dois lados na mesma frase</strong>, ou ativa só o medo.</p>
+<p><strong>Construção que faz isso:</strong> "encontrar um fator não significa que tem algo errado com você — significa que tem algo <em>específico</em> para tratar. E específico é bem melhor do que difuso."</p>
+</div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">09</span>O tempo até ver resultado<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body">
+<p><strong>A forma dele:</strong> "quanto tempo demora?" — parece uma pergunta logística.</p>
+<p><strong>Por que ele é o mais fraco na venda e o mais forte depois:</strong> antes de fechar, ela subestima o incômodo da espera. Depois de pagar, o vale de 60 dias sem resultado visível é onde protocolos morrem.</p>
+<p><strong>O erro de comunicação:</strong> minimizar. "É rapidinho!" Se você minimizar antes, você <em>cria</em> o abandono depois — porque a expectativa calibrada errado transforma normalidade em fracasso.</p>
+<p><strong>O que funciona:</strong> ser explícita sobre a lentidão <em>e dar marcos</em>. "Na semana 3 você não vai ver nada — e isso está previsto. O primeiro sinal costuma ser X, não Y." Uma paciente que sabe que a semana 3 é vazia atravessa a semana 3.</p>
+</div></div></div>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Os nove são um só</span>
+</div>
+<p>
+          Releia a lista. Todos os nove são versões de: <strong>"e se eu me permitir esperar de novo e for
+          decepcionada de novo?"</strong> Não é medo de gastar. É medo de <em>esperar</em>.
+        </p>
+<p>
+          Isso tem uma consequência que reorganiza toda a sua comunicação: <strong>a esperança é o produto
+          caro, e ela já foi cobrada dela cinco vezes sem entrega.</strong> É por isso que promessa não
+          funciona no seu público — promessa pede que ela pague mais esperança adiantado. E é por isso que
+          explicação funciona: explicação não pede nada. Só devolve entendimento, que é irreversível e não
+          pode ser tirado dela depois.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       2.5 — AS 7 FRUSTRAÇÕES
+       ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.5</span><span></span></div>
+<h2>As 7 frustrações</h2>
+<p class="sec-lede">
+          "Já tentei tudo" não é uma reclamação. É um diagnóstico — e tem nome na literatura desde 1967.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>#</th><th>Frustração</th><th>O que ela realmente comunica</th><th>Nível</th></tr></thead>
+<tbody>
+<tr><td class="t-num t-gold">1</td><td><strong>"Já tentei de tudo"</strong></td><td class="t-err">Desamparo aprendido. Não é informação sobre tratamentos — é sobre ela.</td><td><span class="selo ev">Evidência</span></td></tr>
+<tr><td class="t-num">2</td><td><strong>Fez tudo certo e voltou</strong></td><td>Quebra do contrato causal: esforço não prediz resultado.</td><td><span class="selo prat">Prática</span></td></tr>
+<tr><td class="t-num">3</td><td><strong>Ninguém explica o porquê</strong></td><td>Ela recebeu prescrições, nunca um modelo. Não tem como avaliar nada.</td><td><span class="selo prat">Prática</span></td></tr>
+<tr><td class="t-num">4</td><td><strong>Cada profissional diz uma coisa</strong></td><td>Sem consenso visível, ela conclui que ninguém sabe. Ceticismo racional.</td><td><span class="selo prat">Prática</span></td></tr>
+<tr><td class="t-num">5</td><td><strong>Gastou em camadas</strong></td><td>R$120 + R$380 + R$900 + R$1.500 ao longo de 4 anos. A soma é invisível para ela.</td><td><span class="selo inf">Inferência</span></td></tr>
+<tr><td class="t-num">6</td><td><strong>O ciclo do verão</strong></td><td>Todo ano recomeça. A frustração é sazonal e previsível — inclusive para você.</td><td><span class="selo prat">Prática</span></td></tr>
+<tr><td class="t-num">7</td><td><strong>Ser tratada como vaidosa</strong></td><td>"É só estético" dito pelo profissional. Invalidação. Conecta com o medo 5.</td><td><span class="selo inf">Inferência</span></td></tr>
+</tbody>
+</table>
+</div>
+<h3>Frustração 1: por que "já tentei tudo" é a mais importante</h3>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+<strong>Desamparo aprendido</strong>: quando um organismo é exposto a eventos aversivos que ele
+          não consegue controlar, ele para de tentar escapar — <em>inclusive quando a fuga passa a estar
+          disponível</em>. O achado é de 1967 e é um dos mais replicados da psicologia.
+        </p>
+<p>
+<strong>E aqui vem a parte que quase ninguém no marketing sabe.</strong> Em 2016, os próprios
+          autores originais revisaram a interpretação à luz de 50 anos de neurociência e concluíram que
+          <strong>estava invertida</strong>: a passividade diante do aversivo <em>não é aprendida</em> —
+          ela é a resposta <em>padrão</em> do organismo. O que é aprendido, e que requer córtex
+          pré-frontal, é a <strong>detecção de controle</strong>. Ou seja: não se aprende o desamparo. Se
+          aprende — ou não se aprende — <em>a controlabilidade</em>.
+        </p>
+<p class="cit">
+<b>Seligman, M. E. P. &amp; Maier, S. F. (1967).</b> <em>Failure to escape traumatic shock.</em>
+          Journal of Experimental Psychology, 74(1), 1–9. ·
+          <b>Abramson, L. Y., Seligman, M. E. P. &amp; Teasdale, J. D. (1978).</b> <em>Learned helplessness
+          in humans: Critique and reformulation.</em> Journal of Abnormal Psychology, 87(1), 49–74. ·
+          <b>Maier, S. F. &amp; Seligman, M. E. P. (2016).</b> <em>Learned helplessness at fifty: Insights
+          from neuroscience.</em> Psychological Review, 123(4), 349–367.
+        </p>
+</div>
+<div class="selo-box inf">
+<span class="selo inf">Inferência</span>
+<p>
+<strong>O salto — e ele vale o módulo inteiro:</strong> se o desamparo é o padrão e o que se
+          aprende é a <em>controlabilidade</em>, então a tarefa da sua comunicação não é
+          <strong>dar esperança</strong>. É <strong>demonstrar um mecanismo de controle</strong>.
+        </p>
+<p>
+          Esperança é afeto. Controle é cognição — e requer córtex pré-frontal, que é o <abbr data-t="Sistema 2">Sistema 2</abbr> do
+          Módulo 1. Ou seja: a coisa que tira a paciente do desamparo não é você animando ela. É você
+          mostrando <em>uma cadeia causal em que ela pode agir</em>.
+        </p>
+<p>
+<strong>Onde pode falhar:</strong> Maier &amp; Seligman falam de circuitos dorsais da rafe e
+          córtex pré-frontal ventromedial em ratos e humanos sob estresse incontrolável. Nada disso foi
+          testado em decisão de compra de tratamento estético. Estou usando a arquitetura conceitual, não
+          um resultado. Mas repare que a previsão que ela gera é <em>testável por você</em>: se estiver
+          certa, conteúdo que explica mecanismo deve converter melhor em pacientes que dizem "já tentei
+          tudo" do que conteúdo que promete resultado. Isso é mensurável.
+        </p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Isto é a justificativa científica do seu posicionamento inteiro</span>
+</div>
+<p>
+          Pare aqui um segundo, porque esta é a conclusão mais importante dos dois cursos até agora.
+        </p>
+<p>
+          O seu diferencial declarado é <em>"trato a causa, não o sintoma"</em>. Até este ponto, isso era
+          um argumento de <strong>diferenciação comercial</strong> — uma forma de não competir por preço.
+        </p>
+<p>
+          Agora ele é outra coisa. Se a paciente de melasma crônico está em estado de desamparo, e se o
+          antídoto do desamparo é <em>a detecção de controlabilidade</em>, então <strong>explicar o
+          mecanismo não é a sua estratégia de marketing. É o tratamento do estado psicológico que a
+          impede de tratar.</strong>
+</p>
+<p>
+          A cadeia causal — <em>isto acontece porque aquilo; aquilo é investigável; investigado, é
+          acionável</em> — é literalmente a estrutura de uma demonstração de controle. É por isso que
+          funciona. E é por isso que promessa não funciona: promessa é a afirmação de um resultado sem
+          uma cadeia. Não demonstra controle nenhum. Pede fé — que é exatamente o recurso que ela
+          gastou todo.
+        </p>
+</div>
+<h3>As outras seis, rapidamente</h3>
+<div class="acc" data-acc="">
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">02</span>Fez tudo certo e voltou<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body">
+<p>Ela usou o protetor. Reaplicou. Usou chapéu. Evitou sol. Fez o clareamento. E voltou. Isso rompe o contrato mais básico que existe: esforço → resultado.</p>
+<p><strong>Cuidado com o que você diz aqui:</strong> a tentação é "você deve ter falhado em algo". Isso é culpabilização e destrói a relação na hora. A construção correta é a oposta: <em>"você fez tudo o que foi pedido. O problema é que o que foi pedido endereça o gatilho, não o mecanismo."</em> Você a absolve e reposiciona ao mesmo tempo.</p>
+<p>Repare: essa frase é simultaneamente verdadeira, acolhedora, diferenciadora e não desqualifica colega nenhum. É o padrão que a §2.9 vai formalizar.</p>
+</div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">03</span>Ninguém explica o porquê<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body">
+<p>Ela tem uma pilha de prescrições e zero modelo mental. Sem modelo, ela não consegue avaliar nada — nem o que deu errado, nem o que você está propondo. É analfabetismo estrutural induzido pelo próprio sistema de saúde.</p>
+<p><strong>A oportunidade:</strong> isso é uma lacuna informacional gigante e genuína (Módulo 1, §1.5) — e você é a única no feed dela oferecendo fechá-la. Não é técnica de copy. É o vácuo real do mercado.</p>
+<p><strong>O risco:</strong> explicar demais de uma vez. Módulo 1, §1.3: quatro unidades de memória de trabalho. Uma ideia por Reel.</p>
+</div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">04</span>Cada profissional diz uma coisa<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body">
+<p>Ela ouviu quatro versões de quatro profissionais. Conclusão dela, e é uma conclusão <em>racional</em>: ninguém sabe.</p>
+<p><strong>O reflexo errado:</strong> ser a quinta versão, mais alto. Isso confirma a tese dela.</p>
+<p><strong>O que funciona:</strong> ser a única que <em>explica por que existe divergência</em>. "Faz sentido que você tenha ouvido coisas diferentes — cada abordagem olha para uma camada distinta do problema. Deixa eu te mostrar o mapa das camadas." Você sai do jogo de quem está certo e vira quem organiza o campo. Não há como competir com isso pelo lado de dentro.</p>
+</div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">05</span>Gastou em camadas<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="selo inf">Inferência</span></button><div class="acc-panel"><div class="acc-body">
+<p>R$120 no clareador, R$380 na consulta, R$900 no peeling, R$1.500 no laser. Ao longo de 4 anos. Soma: R$2.900 — e ela não tem esse número na cabeça, porque gastos fracionados no tempo não são somados espontaneamente.</p>
+<p><strong>O salto:</strong> a literatura de <em>contabilidade mental</em> mostra que pessoas categorizam e avaliam gastos em contas separadas em vez de fungíveis. Estou inferindo que gastos sequenciais em melasma caem em contas mentais separadas e nunca são agregados.</p>
+<p class="cit"><b>Thaler, R. H. (1985).</b> <em>Mental accounting and consumer choice.</em> Marketing Science, 4(3), 199–214. · <b>Thaler, R. H. (1999).</b> <em>Mental accounting matters.</em> Journal of Behavioral Decision Making, 12(3), 183–206.</p>
+<p><strong>A tentação — e por que resistir:</strong> fazer a soma para ela. "Você já gastou R$2.900 sem resultado; o meu é R$4.000." Isso é tecnicamente eficaz e <em>humilhante</em>. Você está apresentando a ela a fatura do próprio fracasso. Além de cruel, ativa reatância (§2.7). <strong>Se ela fizer a soma sozinha, ótimo. Você não faz.</strong></p>
+</div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">06</span>O ciclo do verão<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body">
+<p>A frustração dela tem sazonalidade. Sobe na primavera, pica no verão, decai no outono, hiberna no inverno — e o ciclo recomeça.</p>
+<p><strong>A implicação operacional é direta:</strong> a intenção de busca dela não é constante ao longo do ano, e o seu calendário editorial não deveria ser. O Módulo 8.3 constrói o calendário de 90 dias em cima disso.</p>
+<p><strong>Uma nota de cuidado:</strong> "sazonalidade da intenção" é uma hipótese razoável que você deve <em>verificar nos seus próprios dados</em> antes de planejar o ano em cima dela. Você tem histórico. Olhe.</p>
+</div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">07</span>Ser tratada como vaidosa<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body">
+<p>"É só estético." Dito por um profissional de saúde, para alguém cujo instrumento validado mede constrangimento, retração social e liberdade (§2.2). É invalidação — e vinda de quem deveria acolher.</p>
+<p><strong>Por que isso é uma oportunidade rara:</strong> você pode ser a primeira pessoa a dizer <em>o contrário</em>. "Isso não é vaidade. Existe questionário validado que mede o impacto do melasma na vida social e no humor — ele existe porque o impacto é real e foi documentado." Essa frase é verdadeira, verificável, e provavelmente é a coisa mais poderosa que ela vai ouvir de você.</p>
+<p><strong>Repare no que ela faz:</strong> não promete nada, não vende nada, não desqualifica ninguém — e desarma o medo 5, a frustração 7 e metade da objeção de legitimidade de uma vez só. É o exemplo mais limpo do curso de que ética e eficácia coincidem quando o dado existe.</p>
+</div></div></div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       2.6 — DESEJO DECLARADO VS REAL
+       ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.6</span><span></span></div>
+<h2>Desejo declarado vs desejo real</h2>
+<p class="sec-lede">
+          Ela pede uma coisa e quer outra. Isso não é manipulação dela nem burrice — é uma propriedade
+          bem documentada de como pessoas relatam os próprios motivos.
+        </p>
+</div>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          Pessoas têm <strong>acesso introspectivo limitado</strong> aos processos que geram seus próprios
+          julgamentos e escolhas. Em uma série clássica de estudos, participantes relataram com confiança
+          as razões de suas decisões — e essas razões eram demonstravelmente falsas, porque o experimento
+          controlava a causa real. Eles não estavam mentindo: estavam <em>gerando</em> uma explicação
+          plausível a partir de teorias implícitas sobre si mesmos.
+        </p>
+<p class="cit">
+<b>Nisbett, R. E. &amp; Wilson, T. D. (1977).</b> <em>Telling more than we can know: Verbal
+          reports on mental processes.</em> Psychological Review, 84(3), 231–259.
+          <br/><b>Ressalva:</b> este artigo gerou décadas de debate e a versão forte ("não temos acesso
+          nenhum") é contestada. A versão que se sustenta e que basta aqui é mais modesta: <em>o relato
+          verbal de motivo não é medida confiável do motivo</em>.
+        </p>
+</div>
+<p>
+        Traduzindo para o seu WhatsApp: quando ela escreve <em>"quero clarear a mancha"</em>, isso não é o
+        desejo dela. É a melhor <strong>tradução socialmente aceitável</strong> que ela conseguiu produzir
+        de algo que ela não tem palavras para dizer, e que talvez não admita nem para si.
+      </p>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>O que ela diz</th><th>Hipótese do que ela quer</th><th>Por que não diz</th></tr></thead>
+<tbody>
+<tr>
+<td>"Quero clarear a mancha"</td>
+<td class="t-gold"><strong>Quero parar de pensar nisso</strong></td>
+<td>Admitir que uma mancha ocupa espaço mental diário soa fútil</td>
+</tr>
+<tr>
+<td>"Quero uma pele bonita"</td>
+<td class="t-gold"><strong>Quero voltar a ser quem eu era</strong></td>
+<td>É uma perda, e perdas são difíceis de verbalizar sem soar dramática</td>
+</tr>
+<tr>
+<td>"Quero saber se funciona"</td>
+<td class="t-gold"><strong>Quero uma explicação — qualquer uma que faça sentido</strong></td>
+<td>Ela nem sabe que é isso. Nunca teve a opção.</td>
+</tr>
+<tr>
+<td>"Quero um tratamento eficaz"</td>
+<td class="t-gold"><strong>Quero alguém que me leve a sério</strong></td>
+<td>Pedir para ser levada a sério é humilhante</td>
+</tr>
+<tr>
+<td>"Quanto custa?"</td>
+<td class="t-gold"><strong>Me dá um motivo para levar isso a sério</strong></td>
+<td>Preço é a única pergunta que ela tem certeza de que é legítima</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="selo-box inf">
+<span class="selo inf">Inferência</span>
+<p>
+<strong>O salto:</strong> a coluna do meio é <em>minha</em>. Nisbett &amp; Wilson estabelecem que
+          o relato não é confiável — <strong>não</strong> estabelecem qual é o motivo real. Ninguém mediu o
+          desejo latente de pacientes de melasma. Estou derivando da §2.3 (dor identitária) e do §2.2
+          (o instrumento mede retração social).
+        </p>
+<p>
+<strong>Perigo específico desta seção:</strong> "eu sei o que você realmente quer" é a frase
+          favorita de todo charlatão. A diferença entre insight e arrogância aqui é fina, e o teste é
+          simples: <strong>você propõe ou você afirma?</strong> "Muita gente descreve como 'querer clarear'
+          — mas quando a gente conversa, quase sempre aparece outra coisa: o cansaço de pensar nisso todo
+          dia" é uma proposta que ela pode recusar. "Você não quer clarear, você quer parar de pensar
+          nisso" é uma afirmação sobre a mente dela, e ela vai reagir mal — com razão.
+        </p>
+</div>
+<div class="selo-box mito">
+<span class="selo mito">Mito</span>
+<p>
+<strong>"As pessoas compram por emoção e justificam com a razão — está provado pela
+          neurociência."</strong>
+</p>
+<p>
+          Esta frase é uma deformação da <em>hipótese do marcador somático</em> de Damásio, construída a
+          partir de estudos com pacientes com lesão no córtex pré-frontal ventromedial. O que os dados
+          mostram é que sinais afetivos <strong>participam</strong> da decisão e que sua ausência
+          <strong>prejudica</strong> a escolha — pacientes com a lesão decidem <em>pior</em>, não mais
+          racionalmente. Isso é muito diferente de "emoção decide e razão inventa desculpa".
+        </p>
+<p class="cit">
+<b>Damasio, A. R. (1994).</b> <em>Descartes' Error.</em> · <b>Bechara, A., Damasio, H., Tranel, D.
+          &amp; Damasio, A. R. (1997).</b> <em>Deciding advantageously before knowing the advantageous
+          strategy.</em> Science, 275(5304), 1293–1295. · Crítica metodológica ao Iowa Gambling Task:
+          <b>Maia, T. V. &amp; McClelland, J. L. (2004).</b> <em>A reexamination of the evidence for the
+          somatic marker hypothesis.</em> PNAS, 101(45), 16075–16080.
+        </p>
+<p>
+<strong>Por que este mito é perigoso especificamente para você:</strong> ele autoriza a conclusão
+          "então não preciso explicar, preciso emocionar". Aplicada ao seu público, essa conclusão é
+          desastrosa: a §2.5 mostra que a paciente em desamparo precisa detectar <em>controlabilidade</em>,
+          e controle é cognitivo. Você é justamente o caso em que a explicação <strong>é</strong> o produto.
+          Quem acredita nesse mito constrói exatamente a comunicação errada — e com a sensação de estar
+          sendo científico.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       2.7 — AS 12 OBJEÇÕES
+       ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.7</span><span></span></div>
+<h2>As 12 objeções, mapeadas por origem</h2>
+<p class="sec-lede">
+          Objeção não se responde. Objeção se <em>rastreia até a origem</em> — porque a mesma frase, vinda
+          de origens diferentes, exige respostas opostas.
+        </p>
+</div>
+<p>
+        O erro estrutural de todo treinamento de vendas é organizar objeções por <strong>conteúdo</strong>
+        ("como responder a 'está caro'"). Isso não funciona, porque "está caro" vindo de quem não viu
+        diferença exige uma resposta, e "está caro" vindo de quem não consegue justificar o gasto para o
+        marido exige a resposta contrária. Vamos organizar por <strong>origem</strong>.
+      </p>
+<div class="figure">
+<div class="figure-frame">
+<svg aria-label="Diagrama das quatro origens de objeção e onde cada uma deve ser tratada no funil" role="img" viewbox="0 0 720 340">
+<defs>
+<marker id="arrO" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3">
+<path d="M0,0 L6,3 L0,6" fill="none" stroke="var(--gold)" stroke-width="1"></path>
+</marker>
+</defs>
+<text class="svg-t-sm" x="14" y="18">ORIGEM</text>
+<text class="svg-t-sm" x="250" y="18">SINTOMA VERBAL</text>
+<text class="svg-t-sm" x="470" y="18">ONDE SE TRATA — E NÃO É NA CONVERSA</text>
+<!-- A -->
+<rect class="svg-node-err" height="62" rx="3" width="220" x="14" y="30"></rect>
+<text class="svg-t-err" x="26" y="52">A · Falha de mecanismo</text>
+<text class="svg-t-sm" x="26" y="70">ELA NÃO VIU DIFERENÇA.</text>
+<text class="svg-t-sm" x="26" y="84">SEM DIFERENÇA, SÓ RESTA PREÇO.</text>
+<text class="svg-t" x="250" y="52">"Quanto custa?" · "Está caro"</text>
+<text class="svg-t" x="250" y="70">"Vou pesquisar mais"</text>
+<text class="svg-t-sm" x="250" y="86">3 OBJEÇÕES</text>
+<text class="svg-t-ok" x="470" y="52">No conteúdo. Semanas antes.</text>
+<text class="svg-t-sm" x="470" y="70">SE CHEGOU NA CONVERSA, JÁ ERA TARDE.</text>
+<text class="svg-t-sm" x="470" y="84">MÓDULO 6 · MÓDULO 8</text>
+<!-- B -->
+<rect class="svg-node" height="62" rx="3" width="220" x="14" y="100"></rect>
+<text class="svg-t" x="26" y="122">B · Medo não resolvido</text>
+<text class="svg-t-sm" x="26" y="140">UM DOS 9 DA §2.4</text>
+<text class="svg-t-sm" x="26" y="154">CONTINUA ATIVO.</text>
+<text class="svg-t" x="250" y="122">"Funciona mesmo?" · "Tem garantia?"</text>
+<text class="svg-t" x="250" y="140">"Já tratou caso como o meu?"</text>
+<text class="svg-t-sm" x="250" y="156">3 OBJEÇÕES</text>
+<text class="svg-t-ok" x="470" y="122">No conteúdo e na consulta.</text>
+<text class="svg-t-sm" x="470" y="140">CADA MEDO TEM ANTÍDOTO PRÓPRIO.</text>
+<text class="svg-t-sm" x="470" y="154">NUNCA SE RESOLVE COM GARANTIA.</text>
+<!-- C -->
+<rect class="svg-node" height="62" rx="3" width="220" x="14" y="170"></rect>
+<text class="svg-t" x="26" y="192">C · Legitimidade</text>
+<text class="svg-t-sm" x="26" y="210">ELA PRECISA DEFENDER A ESCOLHA</text>
+<text class="svg-t-sm" x="26" y="224">PARA ALGUÉM QUE NÃO É VOCÊ.</text>
+<text class="svg-t" x="250" y="192">"Vou conversar com meu marido"</text>
+<text class="svg-t" x="250" y="210">"Não é hora" · "Tem coisa mais urgente"</text>
+<text class="svg-t-sm" x="250" y="226">3 OBJEÇÕES</text>
+<text class="svg-t-ok" x="470" y="192">Com um documento.</text>
+<text class="svg-t-sm" x="470" y="210">NÃO É PREÇO. É ARGUMENTO.</text>
+<text class="svg-t-sm" x="470" y="224">DÊ MUNIÇÃO, NÃO DESCONTO.</text>
+<!-- D -->
+<rect class="svg-node-err" height="62" rx="3" width="220" x="14" y="240"></rect>
+<text class="svg-t-err" x="26" y="262">D · Reatância</text>
+<text class="svg-t-sm" x="26" y="280">ELA SENTIU A LIBERDADE AMEAÇADA.</text>
+<text class="svg-t-sm" x="26" y="294">VOCÊ CAUSOU ESTA.</text>
+<text class="svg-t" x="250" y="262">"Depois eu te chamo" · silêncio</text>
+<text class="svg-t" x="250" y="280">"Vou pensar" (sem data)</text>
+<text class="svg-t-sm" x="250" y="296">3 OBJEÇÕES</text>
+<text class="svg-t-ok" x="470" y="262">Parando de empurrar.</text>
+<text class="svg-t-sm" x="470" y="280">A ÚNICA ORIGEM QUE PIORA</text>
+<text class="svg-t-sm" x="470" y="294">SE VOCÊ INSISTIR.</text>
+<line class="svg-line" x1="14" x2="706" y1="314" y2="314"></line>
+<text class="svg-t-gold" font-size="10" x="14" y="332">NENHUMA DAS 12 SE RESOLVE COM DESCONTO. TRÊS DELAS PIORAM COM DESCONTO.</text>
+</svg>
+</div>
+<p class="figure-cap">
+<b>Figura 2.7.1</b> — As objeções não nascem na conversa: elas <em>chegam</em> nela. Repare na
+          coluna da direita: <strong>nenhuma das quatro origens se trata no momento em que a objeção
+          aparece.</strong> Quando você a ouve, ela já é um sintoma tardio de algo que falhou semanas antes.
+          Por isso este é um módulo de conteúdo, não de vendas.
+        </p>
+</div>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+<strong>Reatância psicológica</strong>: quando uma pessoa percebe que sua liberdade de escolha
+          está sendo ameaçada ou eliminada, ela experimenta um estado motivacional que a leva a
+          <em>restaurar</em> essa liberdade — tipicamente fazendo o oposto do que foi pressionado, ou
+          aumentando a atratividade da opção ameaçada. Quanto maior a pressão, maior a reatância.
+        </p>
+<p class="cit">
+<b>Brehm, J. W. (1966).</b> <em>A Theory of Psychological Reactance.</em> Academic Press. ·
+          <b>Steindl, C. et al. (2015).</b> <em>Understanding psychological reactance: New developments and
+          findings.</em> Zeitschrift für Psychologie, 223(4), 205–214.
+        </p>
+</div>
+<div class="callout danger">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>A origem D é a única que você fabrica</span>
+</div>
+<p>
+          A, B e C chegam prontas — vêm da história dela. <strong>D é produzida por você</strong>, ao vivo,
+          e quase sempre com a melhor das intenções: a escassez inventada, o "última vaga", o follow-up
+          que só pede, o "e aí, conseguiu ver?" pela quarta vez.
+        </p>
+<p>
+          E a reatância tem uma propriedade cruel: <strong>ela é a única objeção que se agrava com
+          insistência.</strong> Todas as outras cedem com informação. Essa cresce. Quando você recebe
+          "depois eu te chamo" e responde com mais pressão, você não está enfrentando resistência — está
+          <em>fabricando</em> resistência, e ela vai virar bloqueio.
+        </p>
+</div>
+<h3>A árvore de diagnóstico de "vou pensar"</h3>
+<p>
+        "Vou pensar" é a objeção mais comum e a mais inútil — porque ela pode vir de <strong>três das
+        quatro origens</strong>. Sem diagnóstico, você tem 2/3 de chance de aplicar o tratamento errado.
+      </p>
+<div class="tree">
+<div class="tree-q">
+<strong>Ela pediu preço antes de você explicar o mecanismo?</strong>
+<div class="tree-branch">
+<div class="tree-a"><span class="tree-a-tag yes">SIM</span><p><strong>Origem A.</strong> Ela nunca viu diferença — está comparando com o clareador. Não adianta responder nada agora. O conserto é no conteúdo, semanas antes. Registre e siga.</p></div>
+<div class="tree-a"><span class="tree-a-tag no">NÃO</span><p>Continue.</p></div>
+</div>
+</div>
+<div class="tree-q">
+<strong>Ela fez perguntas sobre risco, garantia ou casos parecidos?</strong>
+<div class="tree-branch">
+<div class="tree-a"><span class="tree-a-tag yes">SIM</span><p><strong>Origem B.</strong> Identifique <em>qual</em> dos 9 medos (§2.4) e trate aquele. Garantia genérica não resolve nenhum deles — e ativa o medo 3.</p></div>
+<div class="tree-a"><span class="tree-a-tag no">NO</span><p>Continue.</p></div>
+</div>
+</div>
+<div class="tree-q">
+<strong>Ela mencionou marido, família, prioridades ou "não é hora"?</strong>
+<div class="tree-branch">
+<div class="tree-a"><span class="tree-a-tag yes">SIM</span><p><strong>Origem C.</strong> Não é dinheiro — é legitimidade (medo 5). Ela precisa de um argumento, não de um desconto. Mande o resumo escrito. Desconto aqui <em>piora</em>: confirma que era caro demais e que é negociável, logo é vaidade.</p></div>
+<div class="tree-a"><span class="tree-a-tag no">NÃO</span><p>Continue.</p></div>
+</div>
+</div>
+<div class="tree-q">
+<strong>Ela estava engajada e esfriou depois de uma mensagem sua?</strong>
+<div class="tree-branch">
+<div class="tree-a"><span class="tree-a-tag yes">SIM</span><p><strong>Origem D — e você causou.</strong> Volte e leia a sua última mensagem. Tinha urgência? Escassez? Pedido sem entrega? Pare. Restaure a liberdade explicitamente: <em>"sem pressa nenhuma — isso não é uma decisão de hoje."</em> Isso soa como perder a venda e é o que a recupera.</p></div>
+<div class="tree-a"><span class="tree-a-tag no">NÃO</span><p><strong>Provavelmente é "vou pensar" genuíno.</strong> Existe. Trate com estrutura: defina o próximo passo com data. "Vou pensar" sem data é "não" com educação.</p></div>
+</div>
+</div>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Onde este módulo encontra o Curso 1</span>
+</div>
+<p>
+          O Curso 1 (§1.6, gargalo G3) afirmou: <em>"a objeção de preço é sempre um sintoma de falha de
+          mecanismo, nunca de valor alto"</em>. Aquilo era uma afirmação estratégica sem demonstração.
+        </p>
+<p>
+          Agora ela tem uma: a origem A existe porque, sem diferença percebida, <strong>preço é o único
+          critério que sobra</strong> — não por ganância dela, mas porque é literalmente a única variável
+          comparável entre duas coisas que ela não sabe distinguir. A objeção de preço é uma informação
+          sobre a <em>sua comunicação</em>, não sobre o orçamento dela.
+        </p>
+</div>
+<div class="selo-box mito">
+<span class="selo mito">Mito</span>
+<p><strong>"Objeção é sinal de interesse. Quem objeta está comprando."</strong></p>
+<p>
+          Folclore de vendas, sem base. Repare no que ele autoriza: se toda objeção é interesse, então
+          insistir é sempre correto — e aí a origem D vira profecia autorrealizável. O vendedor cria
+          reatância, interpreta a reatância como interesse, insiste mais, e conclui que a paciente
+          "não estava pronta".
+        </p>
+<p>
+<strong>O que é defensável:</strong> algumas objeções indicam engajamento (B e C exigem que ela
+          tenha se imaginado fazendo). Outras indicam o oposto (A significa que ela nem entrou; D
+          significa que ela está saindo). <em>Objeção é sinal de alguma coisa — e o seu trabalho é
+          descobrir de qual, não presumir que é interesse porque isso é conveniente.</em>
+</p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       2.8 — O PROBLEMA SEM NOME
+       ============================================================ -->
+<section class="sec reveal" id="s8">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.8</span><span></span></div>
+<h2>O mundo interno da mulher inflamada</h2>
+<p class="sec-lede">
+          A paciente de melasma tem um problema com nome. Esta não tem. E essa única diferença muda
+          tudo — inclusive a ética do que você pode dizer.
+        </p>
+</div>
+<p>
+        Volte ao modelo das cinco dimensões da §2.2 e aplique ao segundo protocolo. O resultado é
+        desconcertante:
+      </p>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Dimensão</th><th>Melasma</th><th>Desinflamação</th></tr></thead>
+<tbody>
+<tr>
+<td><strong>Identidade</strong></td>
+<td>"É uma mancha." Nome claro, errado, mas claro.</td>
+<td class="t-err"><strong>Vazio.</strong> Ela tem 6 sintomas e 0 nomes.</td>
+</tr>
+<tr>
+<td><strong>Causa</strong></td>
+<td>"Sol, hormônio, genética."</td>
+<td class="t-warn">"É idade." "É estresse." "É normal." — todas dissolvem o problema.</td>
+</tr>
+<tr>
+<td><strong>Linha do tempo</strong></td>
+<td>Cíclico. Ela conta os ciclos.</td>
+<td class="t-err">"Sempre foi assim." Sem começo, logo sem evento a investigar.</td>
+</tr>
+<tr>
+<td><strong>Consequências</strong></td>
+<td>Grandes, minimizadas por defesa.</td>
+<td class="t-err">Grandes, <strong>normalizadas</strong>. Diferente: ela nem sabe que é anormal.</td>
+</tr>
+<tr>
+<td><strong>Cura / controle</strong></td>
+<td>"Não tem cura, só controle."</td>
+<td class="t-err">Pergunta não formulada. Não se busca solução para algo que não é problema.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>A diferença estrutural</span>
+</div>
+<p>
+          A paciente de melasma <strong>tem um problema e procura solução</strong>. A paciente inflamada
+          <strong>tem sintomas e não tem problema</strong>. Ela não está no seu funil — ela não está em
+          funil nenhum, porque não existe categoria mental onde encaixar o que ela sente.
+        </p>
+<p>
+          Isso confirma pelo lado do paciente o que o Módulo 1 previu pelo lado da atenção (§1.5, curva em
+          U invertida): sem lacuna percebida, não há curiosidade. <strong>Ela está na ponta esquerda da
+          curva.</strong> Não é um problema de mensagem — é um problema de categoria.
+        </p>
+</div>
+<h3>O que ela sente, e o que ela faz com isso</h3>
+<div class="persona">
+<div class="persona-quote">
+          "Eu acordo cansada. Mas todo mundo acorda cansada, né?"
+        </div>
+<p>
+          Seis sintomas, seis explicações separadas, seis normalizações — e nenhuma conexão entre eles.
+          Este é o mapa do que ela vive e do que ela diz para si mesma:
+        </p>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>O que ela sente</th><th>O que ela diz para si</th><th>O que ela já tentou</th></tr></thead>
+<tbody>
+<tr><td>Cansaço que dormir não resolve</td><td>"É a rotina."</td><td>Dormir mais. Café.</td></tr>
+<tr><td>Inchaço que varia no dia</td><td>"É retenção, é normal."</td><td>Beber água. Chá.</td></tr>
+<tr><td>Intestino irregular</td><td>"Sempre fui assim."</td><td>Fibra. Probiótico de farmácia.</td></tr>
+<tr><td>Pele sem viço, oscilando</td><td>"É idade."</td><td>Skincare. Mais skincare.</td></tr>
+<tr><td>Peso que não responde</td><td>"É metabolismo lento."</td><td>Dieta. Academia. Culpa.</td></tr>
+<tr><td>Humor e foco instáveis</td><td>"É estresse."</td><td>Aguentar.</td></tr>
+</tbody>
+</table>
+</div>
+<p>
+<strong>Repare na terceira coluna.</strong> Ela não é passiva — tentou tudo. Mas tentou
+          <em>seis coisas isoladas</em>, porque via seis problemas isolados. Cada tentativa parcial que
+          falha reforça a conclusão: "é assim mesmo, é comigo".
+        </p>
+</div>
+<div class="selo-box inf">
+<span class="selo inf">Inferência</span>
+<p>
+<strong>O salto:</strong> proponho que a normalização ("é normal", "é idade", "sempre fui
+          assim") funciona como um <em>bloqueio de categoria</em>: sem categoria, não há busca; sem busca,
+          não há tratamento; sem tratamento, a normalização se confirma. Um circuito fechado que se
+          alimenta.
+        </p>
+<p>
+<strong>Onde pode falhar:</strong> não conheço estudo medindo esse circuito especificamente.
+          Ele é coerente com o Modelo do Senso Comum — que prevê que a representação, e não o fato médico,
+          governa o comportamento — mas a formulação é minha. Trate como hipótese de trabalho.
+        </p>
+<p>
+<strong>A consequência, se estiver certa:</strong> nenhuma copy de conversão funciona aqui.
+          Antes de qualquer oferta, é preciso <em>construir a categoria</em>. Isso é trabalho de conteúdo,
+          leva meses, e é a coisa mais defensável que você pode fazer — porque quem constrói a categoria
+          é dono dela.
+        </p>
+</div>
+<h3>A linha que separa nomear de inventar</h3>
+<div class="selo-box mito">
+<span class="selo mito">Alerta</span>
+<p>
+<strong>Este é o ponto mais perigoso dos dois cursos.</strong> Toda a §2.8 diz: "nomeie o que ela
+          sente". E existe um nome na literatura para o que acontece quando isso é feito por interesse
+          comercial: <em>disease mongering</em> — a ampliação das fronteiras de uma doença, ou a criação de
+          uma, para expandir mercado.
+        </p>
+<p class="cit">
+<b>Moynihan, R., Heath, I. &amp; Henry, D. (2002).</b> <em>Selling sickness: the pharmaceutical
+          industry and disease mongering.</em> BMJ, 324(7342), 886–891. ·
+          <b>Moynihan, R. &amp; Henry, D. (2006).</b> <em>The fight against disease mongering.</em>
+          PLoS Medicine, 3(4), e191.
+        </p>
+<p>
+<strong>Por que isso é uma ameaça real ao seu protocolo, e não uma preocupação abstrata:</strong>
+          "inflamação silenciosa" é um termo que já é usado de forma indefensável no mercado brasileiro,
+          para vender de suplemento a detox. Se a sua comunicação for indistinguível dessa, você
+          <em>é</em> essa — independentemente do que você faz na prática clínica.
+        </p>
+</div>
+<div class="vs">
+<div class="vs-col bad">
+<h4>Inventar a doença</h4>
+<ul>
+<li>Transforma variação normal em patologia</li>
+<li>"Todo mundo tem inflamação silenciosa"</li>
+<li>Amplia a fronteira até caber todo mundo</li>
+<li>O critério é <b>quem pode pagar</b></li>
+<li>Não existe paciente que não seja candidata</li>
+<li>Nenhum exame descartaria o diagnóstico</li>
+</ul>
+</div>
+<div class="vs-col good">
+<h4>Nomear o padrão</h4>
+<ul>
+<li>Propõe que 6 sintomas <em>podem</em> ter fator comum</li>
+<li>"Em parte dos casos, isso se conecta"</li>
+<li>Mantém a fronteira estreita, e diz quem <b>não</b> é</li>
+<li>O critério é <b>o que a investigação encontra</b></li>
+<li>Existe paciente que você recusa</li>
+<li>Existe resultado que faria você mudar de ideia</li>
+</ul>
+</div>
+</div>
+<div class="callout danger">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>O teste de falseabilidade</span>
+</div>
+<p>
+          Uma pergunta resolve isso, e ela é impiedosa:
+        </p>
+<p style="font-size:1.05rem"><em>
+          "Qual resultado de investigação faria eu dizer a ela que o meu protocolo não é indicado?"
+        </em></p>
+<p>
+<strong>Se você tem uma resposta concreta</strong>, você está nomeando um padrão. Existe um
+          critério, ele exclui pessoas, e o diagnóstico significa alguma coisa.
+        </p>
+<p>
+<strong>Se você não tem</strong>, você está vendendo — e a estrutura da sua comunicação é
+          indistinguível da do charlatão, mesmo que a sua intenção não seja. Uma categoria que não pode ser
+          negada não é uma categoria: é um funil.
+        </p>
+<p>
+          Escreva a resposta antes de escrever qualquer Reel de desinflamação. É o Exercício 4.
+        </p>
+</div>
+<h3>A construção que funciona — e que passa no teste</h3>
+<div class="rew">
+<div class="rew-row bad">
+<span class="rew-tag">INVENTA</span>
+<p class="rew-txt">"Você tem inflamação silenciosa e nem sabe. 90% das mulheres têm."</p>
+</div>
+<div class="rew-row bad">
+<span class="rew-tag">INVENTA</span>
+<p class="rew-txt">"Cansaço, inchaço e intestino travado são sinais de que seu corpo está inflamado."</p>
+</div>
+<div class="rew-row good">
+<span class="rew-tag">NOMEIA</span>
+<p class="rew-txt">"Cansaço, inchaço e intestino irregular costumam ser tratados como três problemas separados. Em parte dos casos — não em todos — eles têm um fator em comum. Saber se é o seu caso é uma questão de investigação, não de suposição."</p>
+</div>
+<p class="rew-why">
+<strong>O que muda:</strong> a terceira nomeia o padrão sem afirmar que ela o tem, admite que não
+          serve para todo mundo, e coloca a investigação como árbitro — não você. Ela é
+          simultaneamente mais honesta e <em>mais persuasiva</em>, pelo motivo do medo 3 (§2.4): a
+          admissão de limite é a heurística que uma leiga usa para separar clínico de vendedor. E, como
+          bônus, ela não atribui condição a ninguém — logo não tem risco de política. Voltamos a isso na §2.10.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s8">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       2.9 — ACOLHER SEM EXPLORAR
+       ============================================================ -->
+<section class="sec reveal" id="s9">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.9</span><span></span></div>
+<h2>Acolhimento sem exploração</h2>
+<p class="sec-lede">
+          "Não explore a dor dela" costuma ser dito como imperativo moral. É também um achado
+          experimental — e é isso que torna o argumento vencível numa discussão com quem só liga para
+          resultado.
+        </p>
+</div>
+<div class="selo-box mito">
+<span class="selo mito">Mito</span>
+<p><strong>"Agite a dor antes de oferecer a solução."</strong></p>
+<p>
+          É a fórmula mais ensinada em copywriting — e a evidência sobre apelos ao medo é bem mais
+          específica do que isso. O <strong>Modelo do Processo Paralelo Estendido</strong> prevê que a
+          ameaça percebida só produz mudança quando acompanhada de <strong>eficácia percebida</strong>
+          suficiente: a pessoa precisa acreditar que a recomendação funciona <em>e</em> que ela é capaz de
+          executá-la.
+        </p>
+<p>
+          Quando a ameaça é alta e a eficácia é baixa, o resultado não é ação — é
+          <strong>controle do medo</strong> em vez de controle do perigo: negação, evitação defensiva,
+          reatância. Ou seja: agitar a dor sem entregar controle produz <em>fuga</em>, com eficiência.
+        </p>
+<p>
+          Uma meta-análise de 127 estudos encontrou apelos ao medo eficazes em média, com moderadores
+          claros: funcionam melhor quando incluem mensagens de eficácia e quando recomendam ação única
+          e pontual. <strong>Nada disso descreve o seu caso</strong> — protocolo de meses, com adesão
+          diária, para alguém em desamparo aprendido.
+        </p>
+<p class="cit">
+<b>Witte, K. (1992).</b> <em>Putting the fear back into fear appeals: The extended parallel
+          process model.</em> Communication Monographs, 59(4), 329–349. ·
+          <b>Tannenbaum, M. B. et al. (2015).</b> <em>Appealing to fear: A meta-analysis of fear appeal
+          effectiveness and theories.</em> Psychological Bulletin, 141(6), 1178–1204.
+        </p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Três achados que convergem no mesmo lugar</span>
+</div>
+<p>
+          Repare que chegamos à mesma conclusão por três caminhos independentes, e nenhum deles é moral:
+        </p>
+<ul>
+<li><strong>§1.7 — ativação:</strong> ela está no quadrante de <em>desânimo</em> (valência negativa, ativação baixa). Empurrar mais para baixo não move; paralisa.</li>
+<li><strong>§2.5 — desamparo:</strong> o antídoto não é esperança, é <em>detecção de controlabilidade</em>. Ameaça sem controle é a definição do estímulo que produziu desamparo.</li>
+<li><strong>§2.9 — apelo ao medo:</strong> ameaça alta com eficácia baixa gera evitação defensiva, não ação.</li>
+</ul>
+<p>
+<strong>Conclusão:</strong> no seu público específico, agitar a dor não é apenas feio — é
+          <em>tecnicamente ineficaz</em>. A ética e a eficácia apontam para o mesmo lado. Isso é raro, e é
+          a base de todo o seu posicionamento: você não está abrindo mão de conversão para ser elegante.
+          Você está fazendo o que funciona <em>neste</em> público.
+        </p>
+</div>
+<h3>A distinção operacional: descrever vs amplificar</h3>
+<div class="vs">
+<div class="vs-col good">
+<h4>Descrever — acolhe</h4>
+<ul>
+<li>Diz o que <b>já existe</b>, com precisão</li>
+<li>Ela reconhece: "é isso mesmo"</li>
+<li>Alívio — alguém entendeu (§2.11)</li>
+<li>Vem com mecanismo: <b>eficácia junto</b></li>
+<li>Terceira pessoa, sem atribuir</li>
+<li>Ela sai sabendo mais</li>
+</ul>
+</div>
+<div class="vs-col bad">
+<h4>Amplificar — explora</h4>
+<ul>
+<li>Adiciona consequência que ela não trouxe</li>
+<li>Ela sente: "não tinha pensado nisso… e agora?"</li>
+<li>Ansiedade — ameaça sem saída</li>
+<li>Vem sem mecanismo: <b>ameaça sozinha</b></li>
+<li>Segunda pessoa, acusatória</li>
+<li>Ela sai com medo</li>
+</ul>
+</div>
+</div>
+<h3>Cinco casos-limite, com veredito</h3>
+<p>
+        A linha não é sempre óbvia. Estes cinco são os que aparecem de verdade:
+      </p>
+<div class="acc" data-acc="">
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">01</span>"Quanto mais tempo passa, mais difícil fica de tratar"<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev mid">depende</span></button><div class="acc-panel"><div class="acc-body">
+<p><strong>Veredito: legítimo SE for verdade clínica no caso, e SE vier com o mecanismo.</strong></p>
+<p><strong>Legítimo:</strong> "melasma de longa data tende a ter componente dérmico mais estabelecido, e isso muda o que funciona — por isso o tempo de evolução é uma das primeiras coisas que eu pergunto."</p>
+<p><strong>Exploração:</strong> "não deixe para depois — cada mês que passa é mais difícil!" Mesma informação, sem mecanismo, com urgência fabricada. Vira ameaça sem controle.</p>
+<p><strong>O teste:</strong> a frase ensina algo ou só apressa? Se ela sai sabendo <em>por que</em>, é descrição. Se sai só com pressa, é amplificação.</p>
+</div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">02</span>Mostrar o impacto psicossocial documentado<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev low">legítimo</span></button><div class="acc-panel"><div class="acc-body">
+<p><strong>Veredito: legítimo, e provavelmente a coisa mais valiosa que você pode dizer.</strong></p>
+<p>Dizer que existe instrumento validado que mede constrangimento, retração social e humor em melasma (§2.2) não amplifica nada — <em>valida</em> algo que ela já vive e que já foi invalidado por profissionais ("é só estético").</p>
+<p><strong>A distinção:</strong> você não está dizendo "olha como sua vida está ruim". Está dizendo "o que você sente foi documentado por pesquisa; você não está exagerando". O movimento é o oposto do medo: é <em>alívio de legitimidade</em>.</p>
+<p><strong>Onde vira exploração:</strong> se você citar escores específicos para dramatizar, ou usar o dado para dizer que ela está deprimida. Aí você extrapolou a medida.</p>
+</div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">03</span>Usar a foto que ela evitou<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev mid">fio da navalha</span></button><div class="acc-panel"><div class="acc-body">
+<p><strong>Veredito: legítimo em terceira pessoa, exploração em segunda.</strong></p>
+<p><strong>Legítimo:</strong> "tem um momento que quase ninguém comenta: alguém tira uma foto e você já sabe, antes de olhar, que vai querer apagar." — descreve um território. Ela reconhece ou não.</p>
+<p><strong>Exploração:</strong> "quantas fotos você já apagou esse ano? Quantos momentos você perdeu?" — a pergunta força inventário de perda. Isso não descreve: <em>produz</em> sofrimento novo, ao vivo, para depois vender.</p>
+<p><strong>A régua:</strong> descrição deixa ela onde estava, com companhia. Amplificação a coloca num lugar pior do que ela estava antes de te encontrar. <strong>Se a mulher que não comprar sair pior do que entrou, você explorou.</strong></p>
+</div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">04</span>Falar do risco de não investigar a causa sistêmica<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">cuidado máximo</span></button><div class="acc-panel"><div class="acc-body">
+<p><strong>Veredito: o mais perigoso da lista. Legítimo só dentro do seu escopo, e nunca como gancho.</strong></p>
+<p>"E se for tireoide?" ativa o medo 8 (§2.4) — que é ambivalente: metade dela quer uma causa, metade teme. Usado como gancho de anúncio, você está insinuando doença não diagnosticada em quem não te procurou. Isso é: risco de política da Meta, risco de conselho profissional, e — o que importa mais — <strong>indução de ansiedade em saúde por interesse comercial</strong>.</p>
+<p><strong>Onde é legítimo:</strong> dentro da consulta, com a paciente na sua frente, no seu escopo de atuação, como parte da investigação que ela contratou.</p>
+<p><strong>Onde nunca:</strong> em conteúdo aberto, para tráfego frio. A distância entre "existe fator investigável" e "você pode ter algo grave" é toda a diferença entre clínica e alarmismo.</p>
+</div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">05</span>Depoimento de paciente que descreve o sofrimento<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev mid">depende do recorte</span></button><div class="acc-panel"><div class="acc-body">
+<p><strong>Veredito: legítimo se o depoimento ensina; exploração se ele só sofre.</strong></p>
+<p>Um depoimento que é só "eu me escondia, eu chorava, eu não saía de casa" usa a dor de uma mulher como estímulo emocional em outra. Ele não informa nada — só transfere sofrimento.</p>
+<p><strong>O recorte que funciona:</strong> depoimento com <em>mecanismo</em>. "Eu tinha X. A gente investigou e encontrou Y. Mudou Z. Levou N meses e o primeiro sinal foi W." Isso carrega informação, demonstra controlabilidade (§2.5) e respeita quem falou.</p>
+<p><strong>E há o consentimento:</strong> ela autorizou o quê, exatamente? Uma coisa é usar a história; outra é usar a vulnerabilidade. O Módulo 3 trata da hierarquia de prova social em saúde.</p>
+</div></div></div>
+</div>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+<strong>A alternativa técnica ao confronto:</strong> a Entrevista Motivacional é uma abordagem
+          construída justamente para pessoas ambivalentes, e seu princípio central é o oposto da agitação:
+          <em>evocar</em> em vez de instalar. Confrontar resistência a aumenta; acolhê-la a dissolve. A
+          abordagem tem eficácia demonstrada em mudança de comportamento em saúde.
+        </p>
+<p class="cit">
+<b>Miller, W. R. &amp; Rollnick, S. (2013).</b> <em>Motivational Interviewing: Helping People
+          Change</em>, 3ª ed. Guilford Press. · Meta-análise: <b>Lundahl, B. et al. (2013).</b>
+<em>Motivational interviewing in medical care settings: A systematic review and meta-analysis.</em>
+          Patient Education and Counseling, 93(2), 157–168.
+        </p>
+<p>
+<strong>Aplicação direta:</strong> é a base técnica da árvore de "vou pensar" da §2.7 — na origem
+          D (reatância), a resposta correta é <em>restaurar a liberdade explicitamente</em>. "Sem pressa
+          nenhuma; isso não é decisão de hoje." Parece perder a venda. É o que a recupera.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s9">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       2.10 — EMPATIA SEM ATRIBUTO PESSOAL · BIBLIOTECA
+       ============================================================ -->
+<section class="sec reveal" id="s10">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.10</span><span></span></div>
+<h2>Empatia sem atributo pessoal</h2>
+<p class="sec-lede">
+          A frase que mais identifica também é a que mais te derruba a conta. Existe uma saída, e ela é
+          mecânica: <em>troque o sujeito</em>.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Status desta seção:</strong> políticas de publicidade mudam. O princípio abaixo — não
+          afirmar nem insinuar que você sabe algo sobre a condição de saúde de quem vê o anúncio — é
+          estável e antigo. <strong>A redação exata, os limites e os exemplos oficiais devem ser
+          conferidos na política vigente da Meta antes de qualquer campanha.</strong> Isso está no escopo
+          do <a class="modref" data-mod="c2-m9">C2.M9 — Erros Fatais</a>, categoria E, que será construído
+          com consulta à fonte primária.
+        </p>
+<p>
+          O que este módulo entrega é a <em>técnica de reescrita</em> — que continua valendo mesmo se a
+          redação da política mudar, porque ela resolve o problema linguístico de raiz.
+        </p>
+</div>
+<h3>O mecanismo do problema</h3>
+<p>
+        Volte ao Módulo 1, §1.2: a palavra "melasma" atravessa o filtro atencional sozinha, como um nome
+        próprio, para quem tem melasma. Isso é o que faz a nomeação funcionar.
+      </p>
+<p>
+        O problema não é a <strong>palavra</strong>. É o <strong>sujeito da frase</strong>.
+        "<u>Você</u> tem melasma?" afirma algo sobre quem está do outro lado. "O melasma volta todo verão"
+        não afirma nada sobre ninguém — e mesmo assim contém o marcador, na mesma posição, com o mesmo
+        efeito atencional.
+      </p>
+<div class="figure">
+<div class="figure-frame">
+<svg aria-label="Diagrama comparando duas frases com o mesmo marcador atencional mas sujeitos diferentes" role="img" viewbox="0 0 700 210">
+<text class="svg-t-sm" x="14" y="18">MESMA PALAVRA · MESMA POSIÇÃO · MESMO EFEITO ATENCIONAL · SUJEITOS OPOSTOS</text>
+<rect class="svg-node-err" height="66" rx="3" width="672" x="14" y="34"></rect>
+<text class="svg-t-err" x="28" y="58">"Você tem melasma e já tentou de tudo?"</text>
+<text class="svg-t-sm" x="28" y="78">SUJEITO = ELA.  A FRASE AFIRMA UMA CONDIÇÃO DE SAÚDE DE QUEM ESTÁ VENDO.</text>
+<text class="svg-t-err" x="28" y="92">↓ ATRIBUTO PESSOAL · RISCO DE REPROVAÇÃO E DE RESTRIÇÃO DE CONTA</text>
+<rect class="svg-node-ok" height="66" rx="3" width="672" x="14" y="112"></rect>
+<text class="svg-t-ok" x="28" y="136">"O melasma volta todo verão — e quase sempre pelo mesmo motivo."</text>
+<text class="svg-t-sm" x="28" y="156">SUJEITO = O MELASMA.  A FRASE NÃO AFIRMA NADA SOBRE NINGUÉM.</text>
+<text class="svg-t-ok" x="28" y="170">↓ MESMO MARCADOR, MESMA POSIÇÃO (0,8s), ZERO RISCO</text>
+<text class="svg-t-gold" font-size="10" x="14" y="200">A NOMEAÇÃO NÃO PRECISA SER ABANDONADA. PRECISA SER DESLOCADA.</text>
+</svg>
+</div>
+<p class="figure-cap">
+<b>Figura 2.10.1</b> — O deslocamento do sujeito. Repare que a segunda frase é
+          <em>melhor</em> em identificação, não pior: ela descreve um comportamento do problema (§2.1 —
+          identificação é reconhecimento, não declaração), enquanto a primeira faz uma pergunta que ela
+          já respondeu mil vezes.
+        </p>
+</div>
+<h3>As 5 operações de reescrita</h3>
+<div class="grid grid-2">
+<div class="card">
+<div class="card-kicker">Operação 01</div>
+<h4>Troque o sujeito</h4>
+<p>De <em>ela</em> para <em>o problema</em>. "Você tem melasma" → "O melasma tem um padrão".</p>
+</div>
+<div class="card">
+<div class="card-kicker">Operação 02</div>
+<h4>Terceira pessoa impessoal</h4>
+<p>"Muitas mulheres relatam…" · "É comum que…" · "Costuma acontecer…". Descreve população, não indivíduo.</p>
+</div>
+<div class="card">
+<div class="card-kicker">Operação 03</div>
+<h4>Primeira pessoa — você fala de você</h4>
+<p>"O que eu mais vejo no consultório é…". Você tem autoridade para relatar a <em>sua</em> experiência clínica.</p>
+</div>
+<div class="card">
+<div class="card-kicker">Operação 04</div>
+<h4>Condicional</h4>
+<p>"Se isso soa familiar…" · "Para quem…". Devolve a ela a decisão de se incluir.</p>
+</div>
+<div class="card">
+<div class="card-kicker">Operação 05</div>
+<h4>Descreva o território, não a pessoa</h4>
+<p>A mais poderosa. "Tem um momento em que…". Ela se reconhece sozinha — e reconhecimento vale mais que declaração.</p>
+</div>
+<div class="card" style="border-color:var(--gold-line)">
+<div class="card-kicker">Efeito colateral</div>
+<h4>As 5 conversam melhor</h4>
+<p>Nenhuma perde força. Todas <em>ganham</em>: pela §2.1, identificação nasce de precisão descritiva, não de afirmação. A restrição melhorou a copy.</p>
+</div>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>O ponto que quase ninguém percebe</span>
+</div>
+<p>
+          Esta é uma restrição de plataforma que <strong>melhora o seu produto</strong>. "Você tem melasma?"
+          é uma pergunta preguiçosa — ela funciona por marcador, não por insight. "Tem um momento em que
+          alguém tira uma foto e você já sabe, antes de olhar, que vai querer apagar" funciona por
+          <em>precisão</em>, e produz a pergunta que você quer: <em>"como ela sabe disso?"</em>
+</p>
+<p>
+          A política te obriga a fazer o trabalho difícil. E o trabalho difícil é o que constrói autoridade.
+        </p>
+</div>
+<h3>Biblioteca de 30 reescritas</h3>
+<p>
+        Filtre por protocolo ou por tipo de falha. Cada par vem com o motivo — porque o objetivo não é
+        você copiar 30 frases, e sim conseguir escrever a 31ª sozinha.
+      </p>
+<div class="lib" id="lib">
+<div class="lib-head">
+<h4>Biblioteca de reescritas · errado → certo</h4>
+<input aria-label="Filtrar reescritas" autocomplete="off" class="lib-search" id="libQ" placeholder="Filtrar por palavra…" type="search"/>
+<div class="lib-filters">
+<div class="lib-group">
+<span class="lib-group-lab">Protocolo</span>
+<button aria-pressed="true" class="chip" data-f="p" data-v="all">Todos</button>
+<button aria-pressed="false" class="chip" data-f="p" data-v="mel">Melasma</button>
+<button aria-pressed="false" class="chip" data-f="p" data-v="des">Desinflamação</button>
+</div>
+<div class="lib-group">
+<span class="lib-group-lab">Falha</span>
+<button aria-pressed="true" class="chip" data-f="t" data-v="all">Todas</button>
+<button aria-pressed="false" class="chip" data-f="t" data-v="atrib">Atributo pessoal</button>
+<button aria-pressed="false" class="chip" data-f="t" data-v="promessa">Promessa</button>
+<button aria-pressed="false" class="chip" data-f="t" data-v="medo">Apelo ao medo</button>
+<button aria-pressed="false" class="chip" data-f="t" data-v="generico">Genérico</button>
+<button aria-pressed="false" class="chip" data-f="t" data-v="invalida">Invalidação</button>
+</div>
+</div>
+</div>
+<div class="lib-count" id="libN"></div>
+<div class="lib-list" id="libL"></div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s10">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       2.11 — O ESPELHO EM TERCEIRA PESSOA
+       ============================================================ -->
+<section class="sec reveal" id="s11">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.11</span><span></span></div>
+<h2>A técnica do espelho em terceira pessoa</h2>
+<p class="sec-lede">
+          Descrever alguém de forma que ela se reconheça é fácil — e é exatamente por isso que é
+          perigoso. A diferença entre insight e horóscopo é uma variável só: <em>especificidade</em>.
+        </p>
+</div>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+<strong>Efeito Barnum (ou Forer)</strong>: pessoas aceitam como descrições precisas de si mesmas
+          textos vagos que se aplicam a quase todo mundo. No experimento original, estudantes receberam
+          <em>o mesmo</em> perfil de personalidade — montado a partir de um livro de astrologia — e
+          avaliaram sua acurácia pessoal com média próxima de 4,3 em 5. Cada um achou que era sobre si.
+        </p>
+<p class="cit">
+<b>Forer, B. R. (1949).</b> <em>The fallacy of personal validation: A classroom demonstration of
+          gullibility.</em> Journal of Abnormal and Social Psychology, 44(1), 118–123. ·
+          Meta-análise: <b>Dickson, D. H. &amp; Kelly, I. W. (1985).</b> <em>The 'Barnum effect' in
+          personality assessment.</em> Psychological Reports, 57(2), 367–382.
+        </p>
+</div>
+<div class="callout danger">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Por que isso deveria te incomodar</span>
+</div>
+<p>
+          Toda a §2.1 disse: identificação é quando ela se reconhece no que você descreve. Forer provou
+          que <strong>é possível produzir reconhecimento sem conhecer nada</strong> — basta ser vago o
+          suficiente. "Você já se sentiu insegura com a sua pele" produz reconhecimento em 100% das
+          mulheres, e não contém informação nenhuma.
+        </p>
+<p>
+<strong>A consequência é dura:</strong> reconhecimento, sozinho, não é evidência de que você
+          entende a paciente. É a técnica mais barata que existe — e é exatamente o que o horóscopo, o
+          coach e o vendedor de curso usam. Se a sua copy funciona por Barnum, você não construiu
+          autoridade: construiu um efeito de sala de aula de 1949.
+        </p>
+</div>
+<h3>A escada da especificidade</h3>
+<p>
+        A saída não é parar de descrever. É <strong>descer a escada</strong> até o ponto onde a descrição
+        só se aplica a quem realmente vive aquilo:
+      </p>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Nível</th><th>Exemplo</th><th>Aplica-se a</th><th>Ela pensa</th></tr></thead>
+<tbody>
+<tr>
+<td class="t-num t-err"><strong>0 · Barnum</strong></td>
+<td>"Você já se sentiu insegura com a sua pele."</td>
+<td class="t-err">Toda mulher viva</td>
+<td>"Ahn… é."</td>
+</tr>
+<tr>
+<td class="t-num t-err"><strong>1 · Categoria</strong></td>
+<td>"Quem tem melasma sofre com a autoestima."</td>
+<td class="t-err">Todo mundo com melasma</td>
+<td>"Óbvio."</td>
+</tr>
+<tr>
+<td class="t-num t-warn"><strong>2 · Situação</strong></td>
+<td>"Você evita foto."</td>
+<td class="t-warn">Muita gente</td>
+<td>"Verdade."</td>
+</tr>
+<tr>
+<td class="t-num t-ok"><strong>3 · Momento</strong></td>
+<td>"Tem um momento em que alguém tira uma foto e você já sabe, antes de olhar, que vai querer apagar."</td>
+<td class="t-ok">Quem vive isso</td>
+<td class="t-gold">"Como ela sabe disso?"</td>
+</tr>
+<tr style="background:var(--gold-glow)">
+<td class="t-num t-gold"><strong>4 · Detalhe não óbvio</strong></td>
+<td>"E não é nem a foto. É que você já aprendeu a virar o rosto três graus antes de alguém pedir."</td>
+<td class="t-gold">Só quem vive isso</td>
+<td class="t-gold">"Ela já viu isso muitas vezes."</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>O teste do falso positivo</span>
+</div>
+<p>
+          Uma pergunta separa o nível 4 do nível 0:
+        </p>
+<p style="font-size:1.05rem"><em>
+          "Uma mulher que NÃO tem esse problema leria essa frase e diria 'sou eu'?"
+        </em></p>
+<p>
+<strong>Se sim</strong>, é Barnum. Você produziu reconhecimento sem informação, e a autoridade
+          que parece ter ganhado é emprestada de um viés cognitivo — não do seu conhecimento clínico.
+        </p>
+<p>
+<strong>Se não</strong> — se a frase é tão específica que só faz sentido para quem vive
+          aquilo — então o reconhecimento dela é <em>informação real</em> sobre você: você já viu isso
+          muitas vezes. É isso que ela conclui, e é essa conclusão que vale R$4.000.
+        </p>
+</div>
+<h3>De onde vêm os níveis 3 e 4</h3>
+<div class="selo-box mito">
+<span class="selo mito">Lembre do Mito da §2.1</span>
+<p>
+          Você <strong>não</strong> chega no nível 4 se colocando no lugar dela. Perspective-taking não
+          melhora acurácia — e, quando o assunto é uma experiência que você não teve, produz uma projeção
+          de você mesma com melasma, escrita com o vocabulário errado e com confiança alta.
+        </p>
+<p>
+<strong>O nível 4 só vem de escutar.</strong> "Virar o rosto três graus" é o tipo de detalhe que
+          nenhuma pessoa inventa — ele existe porque alguém contou. É por isso que o Exercício 1 deste
+          módulo é literalmente <em>abrir os prontuários e transcrever as palavras delas</em>.
+        </p>
+</div>
+<h3>O protocolo de coleta</h3>
+<div class="tl">
+<div class="tl-item"><div class="tl-week">Passo 1</div><h4>Grave a pergunta certa</h4>
+<p>Na próxima consulta, pergunte: <em>"me conta um momento específico dos últimos 30 dias em que isso te incomodou."</em> Não "como você se sente" — <strong>um momento</strong>. Momento produz cena; sentimento produz abstração.</p></div>
+<div class="tl-item"><div class="tl-week">Passo 2</div><h4>Transcreva as palavras dela, não as suas</h4>
+<p>Se ela diz "eu fico me achando suja", não anote "baixa autoestima". A tradução para o seu vocabulário clínico <em>destrói</em> exatamente o que você foi buscar. O nível 4 mora na língua dela.</p></div>
+<div class="tl-item"><div class="tl-week">Passo 3</div><h4>Procure o detalhe que se repete</h4>
+<p>Vinte transcrições. O que aparece em cinco delas e você nunca tinha notado? Esse é o seu nível 4. Ele não se inventa — se descobre.</p>
+<span class="tl-goal">Entregável: 5 a 8 descrições de nível 3–4, nas palavras delas</span></div>
+<div class="tl-item"><div class="tl-week">Passo 4</div><h4>Teste o falso positivo</h4>
+<p>Mostre para 3 mulheres <em>sem</em> o problema. Se alguma disser "sou eu", volte ao passo 3 — você está no nível 0 com roupa de nível 4.</p></div>
+</div>
+<div class="callout win">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg>
+<span>Por que isso é um fosso competitivo</span>
+</div>
+<p>
+          Frase de nível 0 qualquer um copia em dez segundos. Frase de nível 4 exige <strong>vinte
+          consultas de escuta e a disciplina de não traduzir</strong>. Um concorrente pode copiar a sua
+          frase — mas não pode copiar a próxima, porque não tem o banco.
+        </p>
+<p>
+          É a mesma lógica do Curso 1: o que se copia não é ativo. <strong>O seu ativo é o arquivo de
+          escuta</strong> — e ele cresce a cada consulta, de graça, enquanto você trabalha.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s11">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       2.12 — RESUMO E EXERCÍCIOS
+       ============================================================ -->
+<section class="sec reveal" id="s12">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.12</span><span></span></div>
+<h2>Resumo executivo</h2>
+<p class="sec-lede">
+          Dez ideias. Elas são o insumo direto do C2.M3 (Confiança), do C2.M5 (Ganchos) e do
+          C1.M5 (WhatsApp) — as objeções da §2.7 reaparecem lá com script.
+        </p>
+</div>
+<div class="summary">
+<h3>As dez ideias do Módulo 2</h3>
+<ol>
+<li><b>Identificação não é empatia.</b> Simpatia e empatia acontecem em você; identificação acontece nela. Você não demonstra que entende — demonstra que conhece o território. É função de precisão, não de afeto.</li>
+<li><b>"Se colocar no lugar dela" piora a acurácia</b> e aumenta a sua confiança ao mesmo tempo — a pior combinação possível. O que funciona é <em>obter</em> a perspectiva: perguntar.</li>
+<li><b>Preço não aparece no mapa dela.</b> O que trava são as dimensões 3 e 5 do Modelo do Senso Comum: ela acredita que é cíclico e incurável. Quem acredita que algo não tem solução não avalia custo.</li>
+<li><b>Ninguém paga R$4.000 por uma mancha.</b> A dor funcional (a pele) é comparável e elástica; a dor identitária (a distância entre quem ela é e quem ela era) não tem prateleira. É o que sustenta o ticket.</li>
+<li><b>A emoção dominante é desânimo, não ansiedade.</b> Real ≠ ideal produz abatimento — ativação baixa. Toda maquinaria de urgência e medo está desalinhada com o estado dela.</li>
+<li><b>Os 9 medos são um só:</b> "e se eu me permitir esperar de novo e for decepcionada de novo?" Não é medo de gastar — é medo de esperar. Por isso promessa não funciona: ela pede mais esperança adiantada.</li>
+<li><b>"Já tentei tudo" é desamparo aprendido</b> — e o antídoto não é esperança, é <em>demonstração de controlabilidade</em>. Isso transforma "trato a causa" de argumento comercial em tratamento do estado psicológico que a impede de tratar.</li>
+<li><b>Objeção não se responde, se rastreia até a origem.</b> Quatro origens, respostas opostas. Nenhuma se resolve com desconto; três pioram com desconto. E a reatância é a única que <em>você</em> fabrica.</li>
+<li><b>A paciente inflamada não tem problema — tem sintomas.</b> Sem categoria, não há busca. Construir a categoria é o trabalho; e o teste que separa isso de inventar doença é: <em>qual resultado me faria dizer que o protocolo não é indicado?</em></li>
+<li><b>Reconhecimento sem informação é efeito Barnum.</b> Se uma mulher sem o problema lê a sua frase e diz "sou eu", você não construiu autoridade — usou um viés de 1949. O nível 4 só vem de escutar.</li>
+</ol>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 2</h4>
+<span class="check-count" id="upCheckCount">0 / 38</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Escuta — o insumo de tudo</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Instalei a pergunta <b>"me conta um momento específico dos últimos 30 dias"</b> na consulta</span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Criei o <b>arquivo de escuta</b> — transcrições nas palavras delas, não nas minhas</span></label>
+<label class="ci"><input data-ck="a3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho pelo menos <b>10 transcrições</b> de pacientes reais</span></label>
+<label class="ci"><input data-ck="a4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Identifiquei <b>um detalhe que se repete</b> e que eu não tinha notado</span></label>
+<label class="ci"><input data-ck="a5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Parei de traduzir a fala dela para o meu vocabulário clínico ao anotar</span></label>
+<div class="check-group">B · Mapa da paciente</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Preenchi as <b>5 dimensões</b> do Melasma com o que as MINHAS pacientes dizem</span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Preenchi as <b>5 dimensões</b> da Desinflamação</span></label>
+<label class="ci"><input data-ck="b3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Testei a hipótese da <b>dor identitária</b>: quem fecha fala de quem era; quem não fecha fala da mancha</span></label>
+<label class="ci"><input data-ck="b4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Ordenei os <b>9 medos</b> pela frequência real nas minhas 20 últimas consultas</span></label>
+<label class="ci"><input data-ck="b5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Verifiquei se "<b>já tentei tudo</b>" aparece — e em que ponto da conversa</span></label>
+<label class="ci"><input data-ck="b6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Confirmei ou refutei a hipótese da <b>minimização defensiva</b> ("é só estético")</span></label>
+<div class="check-group">C · Objeções</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Classifiquei minhas <b>últimas 20 objeções</b> nas 4 origens (A, B, C, D)</span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Descobri qual origem é a <b>minha dominante</b></span></label>
+<label class="ci"><input data-ck="c3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Contei quantas objeções de <b>origem D</b> (reatância) eu mesma fabriquei</span></label>
+<label class="ci"><input data-ck="c4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Rodei a <b>árvore de "vou pensar"</b> nos 5 casos mais recentes</span></label>
+<label class="ci"><input data-ck="c5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Criei o <b>resumo escrito</b> para a objeção de legitimidade (origem C)</span></label>
+<label class="ci"><input data-ck="c6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Removi <b>desconto</b> do meu repertório — 3 das 4 origens pioram com ele</span></label>
+<label class="ci"><input data-ck="c7" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Escrevi a frase de <b>restauração de liberdade</b> ("sem pressa; não é decisão de hoje")</span></label>
+<div class="check-group">D · Ética — a linha</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt"><b>Respondi o teste de falseabilidade</b>: qual resultado me faria dizer que o protocolo não é indicado</span></label>
+<label class="ci"><input data-ck="d2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Existe, de fato, <b>paciente que eu recuso</b> — e eu sei descrever quem</span></label>
+<label class="ci"><input data-ck="d3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Auditei meu conteúdo contra <b>disease mongering</b>: eu amplio fronteira?</span></label>
+<label class="ci"><input data-ck="d4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Nenhuma peça minha <b>amplifica</b> — só descreve</span></label>
+<label class="ci"><input data-ck="d5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Apliquei a régua: <b>quem não comprar sai igual ou melhor</b> do que entrou</span></label>
+<label class="ci"><input data-ck="d6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Nenhum conteúdo aberto insinua <b>doença não diagnosticada</b> (caso-limite 4)</span></label>
+<label class="ci"><input data-ck="d7" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Meus depoimentos <b>ensinam mecanismo</b> — não só exibem sofrimento</span></label>
+<label class="ci"><input data-ck="d8" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Confirmei o que exatamente cada paciente <b>autorizou</b> nos depoimentos</span></label>
+<div class="check-group">E · Linguagem</div>
+<label class="ci"><input data-ck="e1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Nenhuma peça minha tem <b>"você tem [condição]"</b> ou variante</span></label>
+<label class="ci"><input data-ck="e2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Reescrevi minhas <b>10 aberturas mais usadas</b> com as 5 operações</span></label>
+<label class="ci"><input data-ck="e3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Eliminei <b>"eu sei como você se sente"</b> — gatilho de descrédito</span></label>
+<label class="ci"><input data-ck="e4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Apliquei o <b>teste do falso positivo</b> em cada descrição que eu uso</span></label>
+<label class="ci"><input data-ck="e5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho <b>5 a 8 descrições de nível 3–4</b>, tiradas do arquivo de escuta</span></label>
+<label class="ci"><input data-ck="e6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Verifiquei a <b>política vigente</b> da Meta na fonte primária antes de subir campanha</span></label>
+<label class="ci"><input data-ck="e7" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Minha frase de desinflamação <b>nomeia o padrão sem afirmar que ela o tem</b></span></label>
+<div class="check-group">F · Consistência com o resto da plataforma</div>
+<label class="ci"><input data-ck="f1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Meu conteúdo tira ela do <b>quadrante de desânimo</b> em vez de afundá-la nele</span></label>
+<label class="ci"><input data-ck="f2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Todo conteúdo demonstra <b>cadeia causal</b> — controlabilidade, não promessa</span></label>
+<label class="ci"><input data-ck="f3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Parei de tratar <b>objeção de preço</b> como problema de orçamento dela</span></label>
+<label class="ci"><input data-ck="f4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Entendi que <b>construir a categoria</b> da desinflamação leva meses — e comecei</span></label>
+<label class="ci"><input data-ck="f5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Aceitei que o <b>arquivo de escuta</b> é o meu fosso — e que ele exige disciplina, não talento</span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>De cabeça, sem voltar ao texto. Travou em três ou mais? Releia antes do C2.M3.</p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">Qual é a diferença entre simpatia, empatia e identificação — e por que só uma delas constrói autoridade?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">Por que "se colocar no lugar dela" é um conselho ruim? O que a evidência diz que funciona no lugar?</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">Nas 5 dimensões do mapa, quais duas travam a venda? Por que preço não aparece em nenhuma delas?</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">Explique por que o mesmo problema aceita preços que variam 30×. Use dor funcional e dor identitária.</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">Se a emoção dominante dela é desânimo e não ansiedade, o que isso invalida na sua copy atual?</p></div>
+<div class="qa-item"><span class="qa-n">6</span><p class="qa-q">Os 9 medos são versões de um só. Qual? E por que isso explica que promessa reduz conversão aqui?</p></div>
+<div class="qa-item"><span class="qa-n">7</span><p class="qa-q">Por que "já tentei tudo" transforma "trato a causa" de argumento de marketing em intervenção psicológica?</p></div>
+<div class="qa-item"><span class="qa-n">8</span><p class="qa-q">Qual das 4 origens de objeção é a única que você fabrica? Como saber que fabricou?</p></div>
+<div class="qa-item"><span class="qa-n">9</span><p class="qa-q">Qual é o teste que separa nomear um padrão de inventar uma doença? Responda-o para o seu protocolo.</p></div>
+<div class="qa-item"><span class="qa-n">10</span><p class="qa-q">Uma frase sua produz forte reconhecimento. Como saber se é insight ou efeito Barnum?</p></div>
+</div>
+<h3>Exercícios práticos</h3>
+<p>Cinco. Respostas salvas neste navegador.</p>
+<div class="ex">
+<div class="ex-tag">Exercício 1 · o mais importante do módulo · ~90 min</div>
+<h4>Construa o arquivo de escuta</h4>
+<p>Abra os prontuários das 10 últimas pacientes. Para cada uma, transcreva <b>uma frase literal</b> em que ela descreveu o incômodo — nas palavras dela, sem traduzir. Depois: qual detalhe aparece em pelo menos três e você nunca tinha notado?</p>
+<textarea data-ex="ex1" placeholder='1. "..."
+2. "..."
+…
+
+Detalhe que se repete e que eu não tinha notado: ...'></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 2 · ~30 min</div>
+<h4>Teste a dor identitária</h4>
+<p>Pegue 5 pacientes que fecharam e 5 que não fecharam. Elas falavam mais de <b>quem eram antes</b> (fotos antigas, "eu não era assim", gravidez) ou <b>da mancha</b>? A hipótese da §2.3 prevê que quem fecha fala de identidade. Confirma ou refuta — as duas respostas são úteis.</p>
+<textarea data-ex="ex2" placeholder="Fecharam — falavam de: ...
+Não fecharam — falavam de: ...
+
+A hipótese se confirma? ... O que isso muda no que eu digo: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 3 · ~40 min</div>
+<h4>Autópsia das objeções</h4>
+<p>Últimas 20 conversas. Classifique cada objeção nas 4 origens. Some. Qual é a sua dominante? E — a pergunta que dói — <b>quantas de origem D você mesma fabricou?</b> Volte na sua mensagem anterior a cada "depois eu te chamo".</p>
+<textarea data-ex="ex3" placeholder="A (mecanismo): __  B (medo): __  C (legitimidade): __  D (reatância): __
+
+Dominante: ___ → significa que meu problema real é ___
+Origem D que eu causei: __ de __. A mensagem que causou era: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 4 · ~25 min · faça antes de qualquer Reel de desinflamação</div>
+<h4>O teste de falseabilidade</h4>
+<p>Responda concretamente: <b>qual resultado de investigação faria você dizer a uma paciente que o seu protocolo de desinflamação não é indicado para ela?</b> Se não houver resposta, não escreva o Reel — reescreva a oferta.</p>
+<textarea data-ex="ex4" placeholder="O protocolo NÃO é indicado quando: ...
+Nos últimos 12 meses, recusei ___ pacientes. Os motivos foram: ...
+Como eu comunico esse critério publicamente: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 5 · ~45 min</div>
+<h4>Suba a escada até o nível 4</h4>
+<p>Do arquivo do Exercício 1, escreva <b>5 descrições de nível 3–4</b> — 3 de Melasma, 2 de Desinflamação. Aplique os dois testes: (a) uma mulher <b>sem</b> o problema diria "sou eu"? (b) a frase atribui a condição a quem lê?</p>
+<textarea data-ex="ex5" placeholder='1. "Tem um momento em que..."
+   Falso positivo? __  Atribui? __
+
+2. ...'></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Módulo 3</h4>
+<span class="check-count" id="upDoneCount">0 / 7</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>12 seções</b> e usei a biblioteca de reescritas</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei explicar a diferença entre <b>identificação e empatia</b> de cabeça</span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho o <b>arquivo de escuta</b> começado — com pelo menos 10 falas reais</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei qual é a <b>minha origem de objeção dominante</b></span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Respondi o <b>teste de falseabilidade</b> por escrito</span></label>
+<label class="ci"><input data-dk="k6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">O <b>checklist de implementação</b> está acima de 60%</span></label>
+<label class="ci"><input data-dk="k7" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz os <b>5 exercícios</b> — inclusive o 1, que é o que sustenta os outros</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s12">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>
+/* ====================================================
+   JS EXCLUSIVO DESTE MÓDULO
+   ==================================================== */
+
+/* As 30 reescritas de §2.10.
+   p = protocolo · t = tipo de falha · bad → good · why = o mecanismo
+   Toda linha "good" tem que passar em dois testes ao mesmo tempo:
+   (a) não atribui condição a quem lê — política de atributos pessoais;
+   (b) continua verdadeira o suficiente para você defender na frente de um colega. */
+var REESCRITAS = [
+ /* ---- ATRIBUTO PESSOAL: o anúncio não pode afirmar/insinuar que conhece a condição de quem vê ---- */
+ {p:"mel",t:"atrib",bad:"Você tem melasma e já tentou de tudo?",
+  good:"O melasma volta todo verão para muitas mulheres — e quase sempre pelo mesmo motivo.",
+  why:"“Você tem” afirma conhecer a condição de quem está vendo. Deslocar o sujeito para o fenômeno mantém a palavra-marcador (§1.2 do C2.M1 atravessa o filtro sozinha) e elimina a atribuição."},
+ {p:"mel",t:"atrib",bad:"Cansada de esconder suas manchas?",
+  good:"Tem um momento que quase ninguém comenta: alguém tira uma foto e a vontade de apagar vem antes de olhar.",
+  why:"“Suas manchas” atribui. A versão certa descreve o território com precisão cirúrgica — e a especificidade é o que gera identificação (§2.1), não a segunda pessoa."},
+ {p:"des",t:"atrib",bad:"Você vive inchada e cansada?",
+  good:"Cansaço, inchaço e intestino travado costumam ser tratados como três problemas. Em muitos casos, é um.",
+  why:"Além de atribuir, a original pergunta o óbvio. A reescrita nomeia o padrão — que é exatamente o trabalho do estágio 02 da jornada, e o único jeito de criar a categoria que ainda não existe (§2.8)."},
+ {p:"mel",t:"atrib",bad:"Seu melasma não some?",
+  good:"Por que o melasma some no inverno e volta no verão? A resposta não está no sol.",
+  why:"Troca o possessivo por uma pergunta sobre o fenômeno. E abre lacuna informacional real (§1.5), em vez de constatar o que ela já sabe."},
+ {p:"des",t:"atrib",bad:"Sua retenção de líquido está te incomodando?",
+  good:"Beber mais água é a recomendação padrão para retenção. Em parte dos casos ela não resolve — e o motivo tem a ver com o que segura o líquido, não com o quanto entra.",
+  why:"Âncora familiar + violação de expectativa + razão (§1.6). Nenhuma palavra sobre quem está lendo."},
+ {p:"mel",t:"atrib",bad:"Descubra por que SEU melasma sempre volta",
+  good:"Por que o melasma sempre volta — o que a maioria dos tratamentos não olha.",
+  why:"Tirar uma palavra resolve: “seu” → nada. O caixa-alta ainda por cima sinaliza anúncio, e dispara a cegueira de padrão (§1.3)."},
+ {p:"des",t:"atrib",bad:"Você sofre com inflamação crônica?",
+  good:"Inflamação de baixo grau é um quadro sem sintoma próprio: ela aparece emprestada — na energia, na pele, no intestino.",
+  why:"Duplamente ruim: atribui e usa jargão que ela não reconhece. A reescrita ensina a categoria antes de tentar vender nela."},
+ {p:"mel",t:"atrib",bad:"Mulher de 35+ com manchas no rosto: isso é para você",
+  good:"O melasma tem pico de incidência numa faixa etária específica — e isso não é coincidência hormonal.",
+  why:"Segmentar por idade dentro do criativo é atributo pessoal explícito. Falar da epidemiologia do fenômeno é fato, e é mais interessante."},
+
+ /* ---- PROMESSA: risco de política, de conselho e — o que ninguém percebe — de conversão ---- */
+ {p:"mel",t:"promessa",bad:"Elimine o melasma em 60 dias",
+  good:"O melasma responde em ritmos diferentes conforme o fator que o sustenta. A investigação existe para descobrir qual é o seu.",
+  why:"Ela já ouviu cinco promessas e foi decepcionada cinco vezes (§2.4, medo 1). Promessa te coloca no grupo de quem a decepcionou. Honestidade calibrada converte mais aqui."},
+ {p:"mel",t:"promessa",bad:"Resultado garantido ou seu dinheiro de volta",
+  good:"Nem toda paciente com melasma é candidata ao protocolo integrativo. A triagem existe justamente para isso.",
+  why:"Garantia é o som de quem está vendendo — dispara o medo 3 (“estar sendo enganada”). A escassez de qualificação faz o oposto: ancora valor, filtra, e é verdadeira."},
+ {p:"des",t:"promessa",bad:"Perca 5kg de inchaço em 3 semanas",
+  good:"Retenção cede quando a causa cede. O tempo disso varia — e a variação é informação clínica, não desculpa.",
+  why:"Número + prazo = promessa dupla. A reescrita antecipa a lentidão, que é o que evita o abandono na semana 5 (§2.4, medo 9)."},
+ {p:"mel",t:"promessa",bad:"O único tratamento que realmente funciona",
+  good:"Clareador age no pigmento. O pigmento é o sintoma. A pergunta é o que está mandando a célula produzir pigmento.",
+  why:"“Único” é superlativo — uma palavra basta para disparar o medo 3. A reescrita diferencia por mecanismo sem desqualificar ninguém: a conclusão acontece na cabeça dela, o que é mais forte."},
+ {p:"des",t:"promessa",bad:"Adeus inflamação para sempre",
+  good:"Reduzir inflamação não é um evento, é um estado que se mantém. Faz diferença saber disso antes de começar.",
+  why:"“Para sempre” é indefensável clinicamente e destrói o luxo silencioso. A reescrita calibra a expectativa — e calibrar antes é o que protege a adesão depois."},
+ {p:"mel",t:"promessa",bad:"Pele impecável garantida",
+  good:"O objetivo não é pele impecável. É entender por que a sua reage assim — e agir nisso.",
+  why:"Repare: “a sua” aqui é aceitável porque não afirma uma condição — descreve o objeto do trabalho clínico dentro de uma consulta. O limite é afirmar que a pessoa TEM algo."},
+
+ /* ---- APELO AO MEDO: funciona em métrica, falha no seu público ---- */
+ {p:"mel",t:"medo",bad:"Se você não tratar agora, vai piorar para sempre",
+  good:"O melasma não tem urgência de calendário. Tem um ciclo sazonal previsível — e dá para trabalhar a favor dele.",
+  why:"Ameaça alta + eficácia baixa produz evitação defensiva, não ação (§2.9). E a paciente de melasma crônico já está em desânimo, ativação baixa: empurrá-la mais fundo paralisa."},
+ {p:"des",t:"medo",bad:"Inflamação crônica está te matando por dentro",
+  good:"Inflamação de baixo grau é silenciosa por definição. Isso não a torna uma emergência — torna-a uma coisa que vale investigar sem pressa.",
+  why:"“Matando” é alarme, não ciência. Além do risco de política, é o registro exato do sensacionalismo de saúde que o seu posicionamento existe para não ser."},
+ {p:"mel",t:"medo",bad:"As pessoas reparam mais do que você imagina",
+  good:"O incômodo do melasma raramente é sobre o olhar dos outros. É sobre o próprio — e desse não dá para desviar.",
+  why:"A original é factualmente FALSA: o efeito holofote mostra o contrário (§2.2). Amplificar o holofote é mentir e explorar vulnerabilidade ao mesmo tempo."},
+ {p:"des",t:"medo",bad:"Seu intestino pode estar destruindo sua pele",
+  good:"Existe relação documentada entre intestino e pele. “Destruindo” é linguagem de alarme; “relacionado” é o que a evidência sustenta.",
+  why:"O núcleo é verdadeiro e o verbo é indefensável. Trocar o verbo preserva a ideia e move a afirmação de ⚠ para ⬤."},
+ {p:"mel",t:"medo",bad:"Última chance antes do verão!",
+  good:"O verão é o pior momento para começar do zero — e é exatamente quando quase todo mundo procura.",
+  why:"Escassez falsa: você não tem chances limitadas. A reescrita usa a mesma sazonalidade (§2.5, frustração 6) como informação, não como pressão — e informação não gera reatância (§2.7, origem D)."},
+
+ /* ---- GENÉRICO: correto, previsível, invisível ---- */
+ {p:"mel",t:"generico",bad:"Oi gente! Hoje vim falar de um assunto muito importante…",
+  good:"O melasma volta todo verão. E a maioria dos tratamentos não olha para o motivo.",
+  why:"A original leva 4,2 s até a palavra-marcador — e em 4,2 s o filtro já descartou. Não é sobre a segunda ser mais bem escrita: é sobre ONDE a palavra está no eixo do tempo (§1.2)."},
+ {p:"des",t:"generico",bad:"5 dicas para melhorar sua saúde",
+  good:"Beber água, dormir bem e comer melhor não é dica — é o piso. O que quase ninguém investiga é o que está impedindo isso de funcionar.",
+  why:"Quadrante inferior direito: familiar demais, erro de previsão zero, o cérebro já sabe o final (§1.6). Conteúdo correto e previsível é indistinguível de conteúdo inexistente."},
+ {p:"mel",t:"generico",bad:"Cuide da sua pele com carinho ✨",
+  good:"Cuidar da pele com carinho é insuficiente quando o gatilho é sistêmico. Carinho não desliga inflamação.",
+  why:"A original não diz nada e ainda consome memória de trabalho com o emoji (carga estranha, §1.3). A reescrita ancora no familiar e viola."},
+ {p:"des",t:"generico",bad:"Sua saúde em primeiro lugar!",
+  good:"Cansaço que não passa com sono não é falta de descanso. É outra coisa — e tem nome.",
+  why:"Slogan não tem sujeito, não tem marcador, não tem lacuna. A reescrita faz as três coisas em 12 palavras e termina abrindo uma lacuna honesta."},
+ {p:"mel",t:"generico",bad:"Tratamento personalizado e humanizado",
+  good:"No seu caso eu não faria clareamento agora — e o motivo é que a pele está inflamada. Clarear pele inflamada devolve a mancha.",
+  why:"“Personalizado” é adjetivo: todo concorrente pode dizer. Mostrar DESCARTE é a única prova de personalização que não pode ser falsificada (§2.4, medo 2) — quem tem protocolo único nunca descarta nada."},
+ {p:"des",t:"generico",bad:"Transforme sua vida!",
+  good:"Reeducação fisiológica é uma frase feia e honesta: é mudar o que o corpo está fazendo, não o que ele parece.",
+  why:"“Transforme sua vida” é a assinatura visual de anúncio em texto — dispara a categorização e some (§1.3). A reescrita é distintiva justamente por ser sóbria (efeito von Restorff, §1.8)."},
+
+ /* ---- INVALIDAÇÃO: o que ELA já ouviu de outros profissionais ---- */
+ {p:"mel",t:"invalida",bad:"É só uma manchinha, relaxa",
+  good:"Existe questionário validado que mede o impacto do melasma na vida social e no humor. Ele existe porque o impacto é real e foi documentado.",
+  why:"Provavelmente a coisa mais poderosa que você pode dizer a ela. Não promete, não vende, não desqualifica ninguém — e desarma o medo 5, a frustração 7 e a objeção de legitimidade de uma vez."},
+ {p:"mel",t:"invalida",bad:"Você deve ter feito algo errado. Tomou sol?",
+  good:"Você fez tudo o que foi pedido. O problema é que o que foi pedido endereça o gatilho, não o mecanismo.",
+  why:"Culpabilizar destrói a relação na hora. A reescrita absolve e reposiciona ao mesmo tempo — e não desqualifica colega nenhum (§2.5, frustração 2)."},
+ {p:"des",t:"invalida",bad:"Isso é normal da idade, aprenda a conviver",
+  good:"“Normal da idade” descreve frequência, não inevitabilidade. Comum não é sinônimo de intratável.",
+  why:"A distinção entre prevalência e prognóstico é técnica, verdadeira, e devolve controlabilidade — que é o antídoto do desamparo aprendido (§2.5)."},
+ {p:"mel",t:"invalida",bad:"Melasma é genético, não tem o que fazer",
+  good:"Predisposição não é destino. Genética define o piso da resposta; ela não define o gatilho que a dispara.",
+  why:"Esta é a crença que trava o funil inteiro — dimensão 5 do modelo (§2.2). Não se ataca de frente: troca-se a pergunta de “tem cura?” para “por que ele volta?”."},
+ {p:"des",t:"invalida",bad:"Seus exames estão normais, não é nada",
+  good:"Exame normal significa que não encontramos o que procuramos. Depende do que foi procurado.",
+  why:"Talvez a frase mais libertadora que uma paciente de desinflamação pode ouvir. É epistemologicamente correta, não promete nada, e explica seis anos de frustração dela em uma linha."}
+];
+
+
+/* Motor da biblioteca de reescritas (§2.10).
+   Exclusivo deste módulo: nenhum outro usa este componente. */
+function moduleReady(){
+  "use strict";
+  var LBL_P = { mel:"Melasma", des:"Desinflamação" };
+  var LBL_T = { atrib:"Atributo pessoal", promessa:"Promessa", medo:"Apelo ao medo",
+                generico:"Genérico", invalida:"Invalidação" };
+  var filtro = { p:"all", t:"all" };
+
+  var lista = document.getElementById("libL");
+  var conta = document.getElementById("libN");
+  var busca = document.getElementById("libQ");
+  if (!lista) return;
+
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function norm(s){ return String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""); }
+  function hl(t, q){
+    if (!q) return esc(t);
+    var nt = norm(t), nq = norm(q), i = nt.indexOf(nq);
+    if (i === -1) return esc(t);
+    return esc(t.slice(0,i)) + "<mark>" + esc(t.slice(i, i+q.length)) + "</mark>" + esc(t.slice(i+q.length));
+  }
+
+  function render(){
+    var q = busca.value.trim();
+    var nq = norm(q);
+    var hits = REESCRITAS.filter(function(r){
+      if (filtro.p !== "all" && r.p !== filtro.p) return false;
+      if (filtro.t !== "all" && r.t !== filtro.t) return false;
+      if (!nq) return true;
+      return norm(r.bad).indexOf(nq) > -1 || norm(r.good).indexOf(nq) > -1 || norm(r.why).indexOf(nq) > -1;
+    });
+
+    conta.textContent = hits.length + " de " + REESCRITAS.length + " reescritas";
+    if (!hits.length){
+      lista.innerHTML = '<p class="lib-empty">Nenhuma reescrita com esse filtro.</p>';
+      return;
+    }
+    lista.innerHTML = hits.map(function(r){
+      return '<article class="lib-item">'+
+        '<div class="lib-meta">'+
+          '<span class="lib-badge '+r.p+'">'+LBL_P[r.p]+'</span>'+
+          '<span class="lib-badge">'+LBL_T[r.t]+'</span>'+
+          '<span class="lib-badge risk">reprova</span>'+
+        '</div>'+
+        '<div class="lib-line bad"><span class="lib-tag">ERRADO</span>'+
+          '<p class="lib-txt">'+hl(r.bad, q)+'</p></div>'+
+        '<div class="lib-line good"><span class="lib-tag">CERTO</span>'+
+          '<p class="lib-txt">'+hl(r.good, q)+'</p></div>'+
+        '<p class="lib-why"><b>Por quê:</b> '+hl(r.why, q)+'</p>'+
+      '</article>';
+    }).join("");
+  }
+
+  document.querySelectorAll("#lib .chip").forEach(function(c){
+    c.addEventListener("click", function(){
+      var f = c.getAttribute("data-f");
+      filtro[f] = c.getAttribute("data-v");
+      document.querySelectorAll('#lib .chip[data-f="'+f+'"]').forEach(function(o){
+        o.setAttribute("aria-pressed", o === c ? "true" : "false");
+      });
+      render();
+    });
+  });
+  busca.addEventListener("input", render);
+  render();
+}
+
+</script>
+<script>Platform.init({ id:"c2-m2", onReady: moduleReady });</script>
+</body>
+</html>
