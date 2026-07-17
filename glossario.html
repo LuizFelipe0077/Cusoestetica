@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Glossário único da Universidade Premium — todos os termos técnicos com definição simples, técnica e exemplo aplicado.">
+<title>Glossário · Universidade Premium</title>
+
+<!--
+  GLOSSÁRIO ÚNICO DA PLATAFORMA
+  Gerado integralmente a partir de glossario.js.
+  Para adicionar um termo, edite SOMENTE glossario.js.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+
+<main class="main" id="conteudo">
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-eyebrow">Referência · Plataforma</div>
+      <h1>Glossário</h1>
+      <p class="hero-lede">
+        Toda sigla usada em qualquer módulo tem entrada aqui, com seis campos: nome completo, definição
+        simples, definição técnica, por que importa, exemplo aplicado ao seu negócio e onde ela aparece.
+        Passe o mouse sobre qualquer sigla no meio do texto para ver o resumo sem sair da página.
+      </p>
+      <dl class="hero-meta">
+        <div><dt>Termos</dt><dd id="gCount">—</dd></div>
+        <div><dt>Campos por termo</dt><dd>6</dd></div>
+        <div><dt>Obsoletos marcados</dt><dd id="gObs">—</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="sec" style="border-bottom:0">
+      <input class="gl-search" id="gSearch" type="search" autocomplete="off"
+             placeholder="Filtrar por sigla, nome ou definição…" aria-label="Filtrar glossário">
+      <div class="gl-az" id="gAz"></div>
+      <div id="gList"></div>
+      <p class="lib-empty search-empty" id="gEmpty" style="display:none">Nenhum termo encontrado.</p>
+    </section>
+
+    <div class="modfoot">
+      <div class="modfoot-tools">
+        <a class="btn ghost" href="index.html">Voltar ao índice</a>
+        <a class="btn ghost" href="mapa.html">Mapa de dependências</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>
+(function(){
+  "use strict";
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function norm(s){ return String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""); }
+  function slug(k){ return encodeURIComponent(k.toLowerCase()); }
+
+  var keys = Object.keys(GLOSSARIO).sort(function(a,b){ return a.localeCompare(b,"pt-BR"); });
+  document.getElementById("gCount").textContent = keys.length;
+  document.getElementById("gObs").textContent = keys.filter(function(k){ return GLOSSARIO[k].obsoleto; }).length;
+
+  /* ---------- Índice A–Z ---------- */
+  var letters = [];
+  keys.forEach(function(k){
+    var L = k[0].toUpperCase();
+    if (letters.indexOf(L) === -1) letters.push(L);
+  });
+  document.getElementById("gAz").innerHTML = letters.map(function(L){
+    return '<a href="#letra-'+L+'">'+L+'</a>';
+  }).join("");
+
+  /* ---------- Cartões ---------- */
+  function card(k){
+    var g = GLOSSARIO[k];
+    var onde = (g.onde||[]).map(function(id){
+      var m = PLATFORM.find(id);
+      if (!m) return "";
+      var t = "C"+m.courseN+".M"+m.n;
+      return m.status === "todo"
+        ? '<span class="gl-chip" title="'+esc(m.title)+' — em construção">'+t+'</span>'
+        : '<a class="gl-chip" href="'+m.file+'" title="'+esc(m.title)+'">'+t+'</a>';
+    }).join("");
+    var veja = (g.veja||[]).filter(function(v){ return GLOSSARIO[v]; }).map(function(v){
+      return '<a class="gl-chip" href="#'+slug(v)+'">'+esc(v)+'</a>';
+    }).join("");
+
+    return '<article class="gl-item" id="'+slug(k)+'" data-k="'+esc(k)+'">'+
+      '<div class="gl-head">'+
+        (g.obsoleto ? '<span class="gtip-obs">⚠ obsoleto — mantido como verbete histórico</span><br>' : '')+
+        '<button class="gl-fav" data-fav="'+esc(k)+'" aria-label="Favoritar termo" aria-pressed="false">★</button>'+
+        '<div class="gl-sig">'+esc(k)+'</div>'+
+        '<div class="gl-nome">'+esc(g.nome)+'</div>'+
+      '</div>'+
+      '<div class="gl-body">'+
+        '<dl class="gl-f"><dt>Em linguagem simples</dt><dd>'+esc(g.simples)+'</dd></dl>'+
+        '<dl class="gl-f"><dt>Definição técnica</dt><dd>'+esc(g.tecnica)+'</dd></dl>'+
+        '<dl class="gl-f"><dt>Por que isso importa</dt><dd>'+esc(g.importa)+'</dd></dl>'+
+        (g.exemplo ? '<dl class="gl-f exemplo"><dt>No seu negócio</dt><dd>'+esc(g.exemplo)+'</dd></dl>' : '')+
+        '<div class="gl-onde">'+
+          (onde ? '<span class="gl-chip" style="border:0;padding-left:0">Aparece em:</span>'+onde : '')+
+          (veja ? '<span class="gl-chip" style="border:0">Veja também:</span>'+veja : '')+
+        '</div>'+
+      '</div>'+
+    '</article>';
+  }
+
+  var html = "", lastL = "";
+  keys.forEach(function(k){
+    var L = k[0].toUpperCase();
+    if (L !== lastL){ html += '<h3 id="letra-'+L+'" style="scroll-margin-top:80px">'+L+'</h3>'; lastL = L; }
+    html += card(k);
+  });
+  document.getElementById("gList").innerHTML = html;
+
+  /* ---------- Filtro ---------- */
+  var input = document.getElementById("gSearch");
+  var empty = document.getElementById("gEmpty");
+  input.addEventListener("input", function(){
+    var q = norm(input.value).trim(), n = 0;
+    document.querySelectorAll(".gl-item").forEach(function(it){
+      var k = it.getAttribute("data-k"), g = GLOSSARIO[k];
+      var hit = !q || norm(k).indexOf(q) > -1 || norm(g.nome).indexOf(q) > -1 ||
+                norm(g.simples).indexOf(q) > -1 || norm(g.tecnica).indexOf(q) > -1;
+      it.style.display = hit ? "" : "none";
+      if (hit) n++;
+    });
+    document.querySelectorAll("#gList h3").forEach(function(h){
+      var vis = false, x = h.nextElementSibling;
+      while (x && x.tagName !== "H3"){ if (x.style.display !== "none") vis = true; x = x.nextElementSibling; }
+      h.style.display = vis ? "" : "none";
+    });
+    empty.style.display = n ? "none" : "block";
+    document.getElementById("gAz").style.display = q ? "none" : "";
+  });
+
+  /* ---------- Destaque ao chegar por âncora ---------- */
+  function highlight(){
+    if (!location.hash) return;
+    var t = document.querySelector(location.hash);
+    if (!t || !t.classList.contains("gl-item")) return;
+    t.style.borderColor = "var(--gold)";
+    setTimeout(function(){ t.style.transition = "border-color 1.2s"; t.style.borderColor = ""; }, 1400);
+  }
+  window.addEventListener("hashchange", highlight);
+
+  /* Favoritos de termos */
+  function paintFavs(){
+    document.querySelectorAll(".gl-fav").forEach(function(b){
+      var on = Platform.isFav("terms", b.getAttribute("data-fav"));
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+      b.classList.toggle("on", on);
+      b.title = on ? "Remover dos favoritos" : "Favoritar termo";
+    });
+  }
+  document.getElementById("gList").addEventListener("click", function(e){
+    var b = e.target.closest(".gl-fav");
+    if (!b) return;
+    Platform.toggleFav("terms", b.getAttribute("data-fav"));
+    paintFavs();
+  });
+
+  Platform.init({ onReady: function(){ highlight(); paintFavs(); } });
+})();
+</script>
+</body>
+</html>

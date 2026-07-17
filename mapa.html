@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mapa de dependências da Universidade Premium — como os 31 módulos se relacionam.">
+<title>Mapa da Plataforma · Universidade Premium</title>
+
+<!--
+  MAPA DE DEPENDÊNCIAS
+  Grafo desenhado em tempo de execução a partir de manifest.js.
+  Adicionar um módulo ao manifest o adiciona aqui automaticamente.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+<style>
+  /* Estilos exclusivos desta página */
+  .mp-box{cursor:pointer;transition:opacity .2s}
+  .mp-box:hover{opacity:.75}
+  .mp-edge{fill:none;stroke:var(--line);stroke-width:1.2;transition:stroke .2s,stroke-width .2s}
+  .mp-edge.cross{stroke:var(--gold-dim);stroke-dasharray:4 3}
+  .mp-edge.hot{stroke:var(--gold);stroke-width:2}
+  .mp-legend{display:flex;gap:var(--sp-5);flex-wrap:wrap;font-size:var(--fs-xs);color:var(--text-3);margin-top:var(--sp-4)}
+  .mp-legend span{display:inline-flex;align-items:center;gap:.4rem}
+  .mp-key{width:16px;height:2px;flex-shrink:0}
+</style>
+</head>
+<body>
+
+<main class="main" id="conteudo">
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-eyebrow">Referência · Plataforma</div>
+      <h1>Mapa de<br><em>Dependências</em></h1>
+      <p class="hero-lede">
+        Os 31 módulos e as relações entre eles. As setas pontilhadas douradas são as dependências
+        <strong>entre cursos</strong> — são elas que impedem a plataforma de ser lida como três documentos
+        soltos. Clique em qualquer módulo para abri-lo.
+      </p>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="sec">
+      <div class="map-frame">
+        <svg id="mpSvg" role="img" aria-labelledby="mpTitle mpDesc">
+          <title id="mpTitle">Grafo de dependências dos módulos</title>
+          <desc id="mpDesc">Diagrama em três colunas, uma por curso, com setas ligando módulos que
+            dependem uns dos outros. A tabela abaixo apresenta a mesma informação em texto.</desc>
+          <defs>
+            <marker id="mpArr" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6" fill="none" stroke="var(--gold-dim)" stroke-width="1"/>
+            </marker>
+          </defs>
+          <g id="mpEdges"></g>
+          <g id="mpNodes"></g>
+        </svg>
+      </div>
+      <div class="mp-legend">
+        <span><i class="mp-key" style="background:var(--line)"></i> dependência dentro do curso</span>
+        <span><i class="mp-key" style="background:var(--gold-dim)"></i> dependência entre cursos</span>
+        <span><i class="sb-vol high"></i> alta volatilidade — exige fonte primária atualizada</span>
+        <span><i class="sb-vol med"></i> volatilidade média</span>
+      </div>
+      <p class="figure-cap" style="margin-top:1.5rem">
+        <b>Leitura</b> — cursos podem ser cursados em paralelo, mas as setas douradas são travas reais:
+        <em>C1.M2 (Posicionamento)</em> não faz sentido antes de <em>C2.M3 (Confiança)</em>, e
+        <em>C1.M4 (Meta Ads)</em> não deve ser executado sem <em>C2.M5 (Ganchos)</em> e
+        <em>C3.M2 (Pixel)</em> — subir campanha sem criativo validado e sem pixel limpo é pagar para
+        descobrir que o funil vaza.
+      </p>
+    </section>
+
+    <section class="sec" style="border-bottom:0">
+      <div class="sec-head">
+        <div class="sec-tag"><span>Tabela</span><span></span></div>
+        <h2>As mesmas relações, em texto</h2>
+        <p class="sec-lede">Alternativa acessível ao grafo, e a lista que você usa para planejar a ordem de estudo.</p>
+      </div>
+      <div class="tbl-scroll"><table>
+        <thead><tr><th>Módulo</th><th>Depende de</th><th>Trava quais</th><th>Status</th></tr></thead>
+        <tbody id="mpTable"></tbody>
+      </table></div>
+    </section>
+
+    <div class="modfoot">
+      <div class="modfoot-tools">
+        <a class="btn ghost" href="index.html">Voltar ao índice</a>
+        <a class="btn ghost" href="glossario.html">Glossário</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>
+(function(){
+  "use strict";
+  var NS = "http://www.w3.org/2000/svg";
+  function mk(t, a){ var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); return e; }
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+  /* ---------- Geometria ---------- */
+  var BW = 190, BH = 34, GAPY = 46, COLX = { c1:40, c2:270, c3:500 }, TOP = 46;
+  var pos = {};   // id → {x,y,cx,cy}
+  var maxRows = 0;
+
+  PLATFORM.courses.forEach(function(c){
+    c.modules.forEach(function(m, i){
+      var x = COLX[c.id], y = TOP + i * GAPY;
+      pos[m.id] = { x:x, y:y, cx:x + BW/2, cy:y + BH/2 };
+      maxRows = Math.max(maxRows, i + 1);
+    });
+  });
+  var capY = TOP + maxRows * GAPY + 34;
+  pos[PLATFORM.capstone.id] = { x:270, y:capY, cx:270 + BW/2, cy:capY + BH/2 };
+
+  var W = 720, H = capY + BH + 40;
+  var svg = document.getElementById("mpSvg");
+  svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+
+  /* ---------- Cabeçalhos de coluna ---------- */
+  var nodes = document.getElementById("mpNodes");
+  PLATFORM.courses.forEach(function(c){
+    var t = mk("text", { x:COLX[c.id], y:26, class:"svg-t-sm", fill:"var(--"+c.id+")" });
+    t.textContent = ("CURSO " + c.n + " · " + c.title).toUpperCase();
+    nodes.appendChild(t);
+  });
+
+  /* ---------- Arestas ---------- */
+  var edges = document.getElementById("mpEdges");
+  var edgeMap = {};
+  function drawEdge(fromId, toId){
+    var a = pos[fromId], b = pos[toId];
+    if (!a || !b) return;
+    var cross = fromId.slice(0,2) !== toId.slice(0,2);
+    var d;
+    if (cross){
+      var mx = (a.cx + b.cx) / 2;
+      d = "M" + (a.x + BW) + " " + a.cy + " C" + (mx + 40) + " " + a.cy + "," + (mx - 40) + " " + b.cy + "," + b.x + " " + b.cy;
+      if (a.cx > b.cx) d = "M" + a.x + " " + a.cy + " C" + (mx - 40) + " " + a.cy + "," + (mx + 40) + " " + b.cy + "," + (b.x + BW) + " " + b.cy;
+    } else {
+      d = "M" + a.cx + " " + (a.y + BH) + " L" + b.cx + " " + b.y;
+    }
+    var p = mk("path", { d:d, class:"mp-edge" + (cross ? " cross" : ""), "marker-end":"url(#mpArr)",
+                         "data-from":fromId, "data-to":toId });
+    edges.appendChild(p);
+    (edgeMap[fromId] = edgeMap[fromId] || []).push(p);
+    (edgeMap[toId]   = edgeMap[toId]   || []).push(p);
+  }
+
+  var all = PLATFORM.all();
+  all.forEach(function(m){ (m.deps||[]).forEach(function(d){ drawEdge(d, m.id); }); });
+
+  /* ---------- Nós ---------- */
+  function nodeCls(m){
+    if (Platform.isDone(m.id) || m.status === "done") return "svg-node-ok";
+    if (m.status === "partial") return "svg-node-gold";
+    return "svg-node";
+  }
+  all.forEach(function(m){
+    var p = pos[m.id];
+    var g = mk("g", { class:"mp-box", "data-id":m.id, tabindex:"0", role:"link",
+                      "aria-label":m.title + (m.status === "todo" ? " — em construção" : "") });
+    g.appendChild(mk("rect", { x:p.x, y:p.y, width:BW, height:BH, rx:3, class:nodeCls(m),
+                               "fill-opacity": m.status === "todo" ? ".35" : "1" }));
+    var lbl = mk("text", { x:p.x + 10, y:p.y + 21, class:"svg-t",
+                           "fill-opacity": m.status === "todo" ? ".55" : "1" });
+    var tag = (m.courseId === "sog") ? "★ " : "M" + m.n + " ";
+    var name = m.title.length > 24 ? m.title.slice(0,23) + "…" : m.title;
+    lbl.textContent = tag + name;
+    g.appendChild(lbl);
+    if (m.vol === "high" || m.vol === "med"){
+      g.appendChild(mk("circle", { cx:p.x + BW - 10, cy:p.y + 11, r:3,
+        fill: m.vol === "high" ? "var(--err)" : "var(--warn)" }));
+    }
+    nodes.appendChild(g);
+
+    function hot(on){ (edgeMap[m.id]||[]).forEach(function(e){ e.classList.toggle("hot", on); }); }
+    g.addEventListener("mouseenter", function(){ hot(true); });
+    g.addEventListener("mouseleave", function(){ hot(false); });
+    g.addEventListener("focus", function(){ hot(true); });
+    g.addEventListener("blur", function(){ hot(false); });
+    function go(){ if (m.status !== "todo") location.href = m.file; }
+    g.addEventListener("click", go);
+    g.addEventListener("keydown", function(e){ if (e.key === "Enter" || e.key === " "){ e.preventDefault(); go(); } });
+  });
+
+  /* ---------- Tabela ---------- */
+  function ref(id){
+    var m = PLATFORM.find(id);
+    if (!m) return '<code>'+id+'</code>';
+    var t = (m.courseId === "sog") ? "★ SOG" : "C" + m.courseN + ".M" + m.n;
+    return m.status === "todo"
+      ? '<span title="'+esc(m.title)+'">'+t+'</span>'
+      : '<a href="'+m.file+'" title="'+esc(m.title)+'">'+t+'</a>';
+  }
+  var blocks = {};
+  all.forEach(function(m){ (m.deps||[]).forEach(function(d){ (blocks[d] = blocks[d] || []).push(m.id); }); });
+
+  document.getElementById("mpTable").innerHTML = all.map(function(m){
+    var st  = Platform.isDone(m.id) ? "done" : m.status;
+    var lbl = { done:"pronto", partial:"parcial", todo:"pendente" }[st];
+    var cls = { done:"t-ok", partial:"t-warn", todo:"t-num" }[st];
+    return '<tr><td><strong>'+ref(m.id)+'</strong> '+esc(m.title)+'</td>'+
+      '<td>'+((m.deps||[]).length ? m.deps.map(ref).join(" · ") : '<span class="t-num">—</span>')+'</td>'+
+      '<td>'+((blocks[m.id]||[]).length ? blocks[m.id].map(ref).join(" · ") : '<span class="t-num">—</span>')+'</td>'+
+      '<td class="'+cls+'">'+lbl+'</td></tr>';
+  }).join("");
+
+  Platform.init({});
+})();
+</script>
+</body>
+</html>

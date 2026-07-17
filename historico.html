@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulos visitados, buscas recentes e progresso.">
+<title>Histórico · Universidade Premium</title>
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+<main class="main" id="conteudo">
+  <header class="hero"><div class="wrap">
+    <div class="hero-eyebrow">Pessoal · Plataforma</div>
+    <h1>Histórico</h1>
+    <p class="hero-lede">Por onde você passou, o que procurou e o que avançou. Guardado só neste navegador — nada sai daqui.</p>
+  </div></header>
+  <div class="wrap">
+    <section class="sec" style="border-bottom:0">
+      <h3>Últimos módulos visitados</h3><div id="hMods"></div>
+      <h3 style="margin-top:2.5rem">Últimas buscas</h3><div id="hSearch"></div>
+      <h3 style="margin-top:2.5rem">Progresso recente</h3><div id="hProg"></div>
+    </section>
+    <div class="modfoot"><div class="modfoot-tools">
+      <a class="btn ghost" href="index.html">Índice</a><a class="btn ghost" href="painel.html">Painel</a>
+      <button class="btn ghost" id="hClear">Limpar histórico</button>
+    </div></div>
+  </div>
+</main>
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>
+(function(){
+  "use strict";
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+  function quando(iso){
+    var d = (Date.now() - new Date(iso)) / 1000;
+    if (d < 60) return "agora";
+    if (d < 3600) return Math.floor(d/60) + " min atrás";
+    if (d < 86400) return Math.floor(d/3600) + "h atrás";
+    return new Date(iso).toLocaleDateString("pt-BR");
+  }
+  var h = Platform.history();
+
+  document.getElementById("hMods").innerHTML = h.modules.length
+    ? '<div class="course-block"><div class="course-mods">' + h.modules.map(function(e){
+        var m = PLATFORM.find(e.id); if (!m) return "";
+        return '<a class="pm" href="'+m.file+'"><span class="pm-n">C'+m.courseN+'.M'+m.n+'</span>'+
+          '<span><span class="pm-t">'+esc(m.title)+'</span></span>'+
+          '<span class="pm-r"><span class="pm-min">'+quando(e.at)+'</span></span></a>';
+      }).join("") + '</div></div>'
+    : '<p class="search-empty">Nenhum módulo visitado ainda.</p>';
+
+  document.getElementById("hSearch").innerHTML = h.searches.length
+    ? '<div class="gl-az">' + h.searches.map(function(s){
+        return '<a href="#" data-q="'+esc(s.q)+'" title="'+quando(s.at)+'">'+esc(s.q)+'</a>'; }).join("") + '</div>'
+    : '<p class="search-empty">Nenhuma busca registrada.</p>';
+
+  var prog = Object.keys(Platform.exportData() ? JSON.parse(Platform.exportData()).progress : {})
+    .map(function(id){ var m = PLATFORM.find(id); if (!m) return null;
+      var st = Platform.state(id); return st.done.length ? { m:m, n:st.done.length } : null; })
+    .filter(Boolean).sort(function(a,b){ return b.n - a.n; });
+  document.getElementById("hProg").innerHTML = prog.length
+    ? prog.map(function(p){
+        var pct = Math.round(p.n / p.m.secs * 100);
+        return '<div class="bar-row"><div><span class="bar-lab"><a href="'+p.m.file+'">'+esc(p.m.title)+'</a></span>'+
+          '<div class="bar-track"><div class="bar-fill" style="width:'+pct+'%"></div></div></div>'+
+          '<span class="bar-val">'+p.n+'/'+p.m.secs+' · '+pct+'%</span></div>'; }).join("")
+    : '<p class="search-empty">Nenhuma seção concluída ainda.</p>';
+
+  document.getElementById("hClear").addEventListener("click", function(){
+    if (!confirm("Limpar o histórico de navegação e buscas? O progresso e os favoritos são mantidos.")) return;
+    var d = JSON.parse(Platform.exportData()); d.history = { modules:[], searches:[] };
+    Platform.importData(JSON.stringify(d)); location.reload();
+  });
+  Platform.init({});
+})();
+</script>
+</body></html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Universidade Premium — Aquisição de Pacientes em Estética Integrativa. 31 módulos em 3 cursos + capstone.">
+<title>Universidade Premium · Índice</title>
+
+<!--
+  PORTAL DA PLATAFORMA
+  Todo o conteúdo desta página é gerado a partir do manifest.js.
+  Para adicionar cursos ou módulos, edite SOMENTE o manifest.js.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+
+<main class="main" id="conteudo">
+
+  <header class="portal-hero">
+    <div class="wrap">
+      <div class="hero-eyebrow" id="pFrozen"></div>
+      <h1>Universidade<br><em>Premium</em></h1>
+      <p class="hero-lede">
+        Aquisição de pacientes em estética integrativa, construída como três trilhas que se encaixam:
+        <strong>por onde entra o dinheiro</strong>, <strong>como atenção vira confiança</strong> e
+        <strong>como o sistema é construído e medido</strong>. No fim, um framework que integra as três.
+      </p>
+      <div class="portal-stats" id="pStats"></div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div id="pCourses"></div>
+
+    <section class="sec" id="pHistory" style="border-bottom:0">
+      <div class="sec-head">
+        <div class="sec-tag"><span>Consolidação</span><span></span></div>
+        <h2>O que foi absorvido e removido</h2>
+        <p class="sec-lede">
+          A plataforma nasceu de quatro briefings independentes com ~87% de sobreposição entre eles.
+          Este é o registro auditável do que foi fundido e do que deixou de existir — e para onde foi.
+        </p>
+      </div>
+      <div id="pAbs"></div>
+    </section>
+
+    <div class="modfoot">
+      <div class="modfoot-tools">
+        <a class="btn" href="mapa.html">Mapa de dependências</a>
+        <a class="btn ghost" href="glossario.html">Glossário</a>
+      </div>
+      <p class="modfoot-note">
+        Atalhos: <kbd>/</kbd> buscar · <kbd>G</kbd> glossário · <kbd>M</kbd> mapa · <kbd>Alt</kbd>+<kbd>←</kbd> <kbd>→</kbd> navegar entre módulos
+      </p>
+    </div>
+  </div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  document.getElementById("pFrozen").textContent =
+    "Arquitetura congelada em " + PLATFORM.frozenAt + " · v" + PLATFORM.version + " · " + PLATFORM.codename;
+
+  /* ---------- Estatísticas ---------- */
+  var all   = PLATFORM.all();
+  var done  = all.filter(function(m){ return m.status === "done"; }).length;
+  var part  = all.filter(function(m){ return m.status === "partial"; }).length;
+  var mins  = all.reduce(function(a,m){ return a + (m.min||0); }, 0);
+  var hrs   = Math.round(mins/60);
+
+  document.getElementById("pStats").innerHTML =
+    '<div class="stat"><div class="stat-n">'+all.length+'</div><div class="stat-l">módulos</div></div>'+
+    '<div class="stat"><div class="stat-n">3</div><div class="stat-l">cursos + capstone</div></div>'+
+    '<div class="stat"><div class="stat-n">'+done+'</div><div class="stat-l">construídos</div></div>'+
+    '<div class="stat"><div class="stat-n">~'+hrs+'h</div><div class="stat-l">de estudo</div></div>'+
+    '<div class="stat"><div class="stat-n">'+Object.keys(GLOSSARIO).length+'</div><div class="stat-l">termos no glossário</div></div>';
+
+  /* ---------- Cursos ---------- */
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+  function modRow(m, courseId){
+    var st  = Platform.isDone(m.id) ? "done" : m.status;
+    var lbl = { done:"pronto", partial:"parcial", todo:"pendente" }[st] || st;
+    var vol = m.vol === "high" ? ' <span class="sb-vol high" title="alta volatilidade — exige fonte primária atualizada"></span>'
+            : m.vol === "med"  ? ' <span class="sb-vol med" title="volatilidade média"></span>' : "";
+    var href = m.status === "todo" ? "#" : m.file;
+    var cls  = "pm" + (m.status === "todo" ? " todo" : "");
+    return '<a class="'+cls+'" href="'+href+'"'+(m.status==="todo"?' aria-disabled="true"':'')+'>'+
+      '<span class="pm-n">'+(courseId==="sog" ? "★" : "M"+m.n)+'</span>'+
+      '<span><span class="pm-t">'+esc(m.title)+vol+'</span>'+
+        '<span class="pm-d">'+esc(m.desc||"")+'</span></span>'+
+      '<span class="pm-r"><span class="pm-min">'+m.min+' min · '+m.secs+' seções</span>'+
+        '<span class="pm-st '+st+'">'+lbl+'</span></span></a>';
+  }
+
+  var html = "";
+  PLATFORM.courses.forEach(function(c){
+    var d = c.modules.filter(function(m){ return Platform.isDone(m.id); }).length;
+    var pct = Math.round((d / c.modules.length) * 100);
+    html +=
+      '<div class="course-block">'+
+        '<div class="course-head">'+
+          '<div class="course-n" style="color:var(--'+c.id+')">'+c.n+'</div>'+
+          '<div class="course-meta">'+
+            '<div class="course-q">'+esc(c.question)+'</div>'+
+            '<h3>'+esc(c.title)+'</h3>'+
+            '<p>'+esc(c.desc)+'</p>'+
+          '</div>'+
+          '<div class="course-prog"><b>'+pct+'%</b><span>'+d+'/'+c.modules.length+' módulos</span></div>'+
+        '</div>'+
+        '<div class="course-mods">'+c.modules.map(function(m){ return modRow(m, c.id); }).join("")+'</div>'+
+      '</div>';
+  });
+
+  var cap = PLATFORM.capstone;
+  html +=
+    '<div class="course-block">'+
+      '<div class="course-head">'+
+        '<div class="course-n" style="color:var(--sog)">★</div>'+
+        '<div class="course-meta">'+
+          '<div class="course-q">'+esc(cap.question)+'</div>'+
+          '<h3>'+esc(cap.title)+'</h3>'+
+          '<p>'+esc(cap.desc)+'</p>'+
+        '</div>'+
+        '<div class="course-prog"><b>'+(Platform.isDone(cap.id)?100:0)+'%</b><span>0/1 módulo</span></div>'+
+      '</div>'+
+      '<div class="course-mods">'+modRow(cap, "sog")+'</div>'+
+    '</div>';
+
+  document.getElementById("pCourses").innerHTML = html;
+
+  /* ---------- Histórico de consolidação ---------- */
+  function link(id){
+    var m = PLATFORM.find(id);
+    if (!m) return '<code>'+id+'</code>';
+    var t = "C"+m.courseN+".M"+m.n+" — "+m.title;
+    return m.status === "todo" ? '<code>'+esc(t)+'</code>' : '<a href="'+m.file+'">'+esc(t)+'</a>';
+  }
+  var abs =
+    '<h3>Absorções</h3><div class="tbl-scroll"><table>'+
+    '<thead><tr><th>Origem</th><th>Destino</th><th>Motivo</th></tr></thead><tbody>'+
+    PLATFORM.absorptions.map(function(a){
+      return '<tr><td><strong>'+esc(a.from)+'</strong></td><td>'+
+        a.to.map(link).join('<br>')+'</td><td>'+esc(a.why)+'</td></tr>';
+    }).join("")+'</tbody></table></div>'+
+
+    '<h3>Removidos</h3>'+
+    '<p>Nenhum conteúdo foi perdido — cada item abaixo já existe em outro lugar da plataforma.</p>'+
+    '<div class="tbl-scroll"><table>'+
+    '<thead><tr><th>Removido</th><th>Onde o conteúdo vive hoje</th></tr></thead><tbody>'+
+    PLATFORM.removed.map(function(r){
+      return '<tr><td>'+esc(r.what)+'</td><td class="t-ok">'+esc(r.where)+'</td></tr>';
+    }).join("")+'</tbody></table></div>';
+  document.getElementById("pAbs").innerHTML = abs;
+
+  /* ---------- Chrome ---------- */
+  Platform.init({});
+})();
+</script>
+</body>
+</html>

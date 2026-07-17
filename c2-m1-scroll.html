@@ -1,0 +1,2180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 1 — Como o cérebro decide parar o scroll. Gargalo atencional, carga cognitiva, Sistema 1 e 2, curiosidade, memória e o laboratório de retenção.">
+<title>Como o Cérebro Decide Parar o Scroll · Curso 2 · Psicologia e Conteúdo</title>
+
+<!--
+  CURSO 2 · PSICOLOGIA E CONTEÚDO
+  Como o Cérebro Decide Parar o Scroll
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Sidebar, topbar, breadcrumb, navegação anterior/próximo, progresso,
+  busca, glossário e atalhos são construídos pelo platform.js a partir
+  do manifest.js. Este arquivo contém APENAS conteúdo.
+
+  Para mudar qualquer coisa de chrome: platform.js / platform.css.
+  Para mudar a posição deste módulo na trilha: manifest.js.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+<style>
+/* ====================================================
+   CSS EXCLUSIVO DESTE MÓDULO
+   Tudo o mais vem de platform.css. Só entra aqui o que
+   nenhum outro módulo usa.
+   ==================================================== */
+5. LABORATÓRIO — curva de retenção interativa (seção 1.10)
+   ============================================================ */
+.lab{border:1px solid var(--gold-line);border-radius:var(--radius-lg);background:var(--surface);margin:var(--sp-6) 0;overflow:hidden}
+.lab-head{
+  padding:var(--sp-4) var(--sp-5);border-bottom:1px solid var(--line);background:var(--elevated);
+  display:flex;justify-content:space-between;align-items:center;gap:var(--sp-3);flex-wrap:wrap;
+}
+.lab-head h4{margin:0;font-family:var(--body);font-size:var(--fs-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.lab-legend{display:flex;gap:var(--sp-4);font-size:var(--fs-xs);color:var(--text-3);flex-wrap:wrap}
+.lab-legend span{display:inline-flex;align-items:center;gap:.4rem}
+.lab-swatch{width:14px;height:2px;flex-shrink:0}
+.lab-swatch.good{background:var(--ok)}
+.lab-swatch.bad{background:var(--err)}
+
+.lab-chart{padding:var(--sp-5) var(--sp-5) var(--sp-2);cursor:crosshair;touch-action:none}
+.lab-chart svg{display:block;width:100%;height:auto;overflow:visible}
+.lab-axis{stroke:var(--line);stroke-width:1}
+.lab-grid{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:2 4}
+.lab-curve-good{fill:none;stroke:var(--ok);stroke-width:2;stroke-linejoin:round}
+.lab-curve-bad{fill:none;stroke:var(--err);stroke-width:1.6;stroke-linejoin:round;stroke-dasharray:4 3}
+.lab-area{fill:var(--ok-bg)}
+.lab-scrub{stroke:var(--gold);stroke-width:1;stroke-dasharray:3 2}
+.lab-dot-good{fill:var(--ok);stroke:var(--bg);stroke-width:1.5}
+.lab-dot-bad{fill:var(--err);stroke:var(--bg);stroke-width:1.5}
+.lab-tick{fill:var(--text-3);font-family:var(--mono);font-size:8px}
+.lab-marker{fill:var(--warn);cursor:pointer}
+.lab-marker-line{stroke:var(--warn);stroke-width:1;stroke-dasharray:2 3;opacity:.5}
+
+.lab-readout{
+  display:grid;grid-template-columns:auto 1fr;gap:var(--sp-5);
+  padding:var(--sp-4) var(--sp-5);border-top:1px solid var(--line);background:var(--bg);
+  align-items:start;
+}
+.lab-time{text-align:center;border-right:1px solid var(--line);padding-right:var(--sp-5)}
+.lab-time-n{font-family:var(--display);font-size:2.6rem;color:var(--gold);line-height:1}
+.lab-time-l{font-size:var(--fs-xs);color:var(--text-3);letter-spacing:.14em;text-transform:uppercase}
+.lab-pcts{display:flex;gap:var(--sp-4);margin-top:var(--sp-3);justify-content:center}
+.lab-pct{font-family:var(--mono);font-size:.75rem}
+.lab-pct.good{color:var(--ok)} .lab-pct.bad{color:var(--err)}
+.lab-desc h5{margin:0 0 var(--sp-2);font-family:var(--display);font-size:1.25rem;font-weight:400;color:var(--heading)}
+.lab-desc p{font-size:var(--fs-sm);margin:0 0 var(--sp-2);color:var(--text-2)}
+.lab-desc p:last-child{margin-bottom:0}
+.lab-desc .lab-risk{font-size:var(--fs-xs);color:var(--warn)}
+.lab-slider{width:100%;margin:0;accent-color:var(--gold);cursor:pointer}
+.lab-foot{padding:var(--sp-3) var(--sp-5) var(--sp-4);border-top:1px solid var(--line-soft)}
+.lab-hint{font-size:var(--fs-xs);color:var(--text-3);margin-top:var(--sp-2);text-align:center}
+
+/* ============================================================
+   
+</style>
+</head>
+<body>
+
+<main class="main" id="conteudo">
+
+<!-- ========== HERO ========== -->
+<header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Bloco I · Fundamentos Cognitivos · Módulo 1</div>
+<h1>Como o cérebro<br/><em>decide parar o scroll</em></h1>
+<p class="hero-lede">
+        Antes de escrever um gancho, antes de gravar um Reel, antes de pensar em algoritmo: é preciso
+        entender o que acontece no cérebro de uma mulher nos 400 milissegundos entre o seu vídeo aparecer
+        e o polegar dela decidir. Este módulo é sobre esses 400 milissegundos — e sobre os 40 segundos
+        seguintes.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~80 min</dd></div>
+<div><dt>Seções</dt><dd>12</dd></div>
+<div><dt>Referências</dt><dd>34</dd></div>
+<div><dt>Mitos derrubados</dt><dd>4</dd></div>
+</dl>
+<!-- LEGENDA DOS SELOS — aparece uma vez, aqui -->
+<div class="selo-key">
+<div>
+<span class="selo ev">Evidência</span>
+<p>Achado experimental revisado por pares. Vem com citação completa. Você pode conferir.</p>
+</div>
+<div>
+<span class="selo inf">Inferência</span>
+<p>Extrapolação razoável de uma evidência para um contexto onde ela <em>não</em> foi testada. Eu explico o salto.</p>
+</div>
+<div>
+<span class="selo prat">Prática</span>
+<p>Heurística de mercado. Funciona na observação, sem teste controlado. Útil e falível.</p>
+</div>
+<div>
+<span class="selo mito">Mito</span>
+<p>Repetido no mercado e contradito pela evidência — ou simplesmente sem fonte.</p>
+</div>
+</div>
+</div>
+</header>
+<!-- ============================================================
+       1.1 — O GARGALO ATENCIONAL
+       ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.1</span><span></span></div>
+<h2>O gargalo atencional</h2>
+<p class="sec-lede">
+          O seu Reel não compete com outros Reels. Ele compete com um sistema biológico cuja única função
+          é <em>descartar</em> quase tudo que chega. Entender esse sistema é a diferença entre criar
+          conteúdo e torcer por conteúdo.
+        </p>
+</div>
+<p>
+        Comece por um número que reorganiza a forma de pensar sobre isso. Os receptores sensoriais humanos
+        recebem, por segundo, algo da ordem de <strong>11 milhões de bits</strong> de informação — a maior
+        parte vinda dos olhos. Do outro lado do funil, a consciência processa algo entre
+        <strong>40 e 60 bits por segundo</strong>.
+      </p>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          A estimativa de ~11 milhões de bits/s de entrada sensorial contra ~40–50 bits/s de processamento
+          consciente é uma das mais citadas da psicologia cognitiva. <strong>Ressalva honesta:</strong> é
+          uma estimativa de ordem de grandeza construída a partir da capacidade dos receptores, não uma
+          medição direta. Diferentes autores chegam a números diferentes por uma ou duas ordens de
+          magnitude. O que <em>não</em> está em disputa é a proporção brutal entre entrada e saída.
+        </p>
+<p class="cit">
+<b>Zimmermann, M. (1989).</b> <em>The Nervous System in the Context of Information Theory.</em>
+          In: Schmidt &amp; Thews (eds.), Human Physiology, 2ª ed. Springer. · Discussão crítica dos números
+          em <b>Nørretranders, T. (1998).</b> <em>The User Illusion.</em>
+</p>
+</div>
+<p>
+        Faça a razão: mesmo pegando a estimativa mais conservadora, o descarte é da ordem de
+        <strong>99,999%</strong>. Quase tudo que entra pelos seus olhos neste momento nunca chegará à sua
+        consciência. E isso não é um defeito — é a única razão pela qual você consegue funcionar.
+      </p>
+<div class="figure">
+<div class="figure-frame">
+<svg aria-label="Diagrama de funil mostrando a redução de 11 milhões de bits por segundo de entrada sensorial para cerca de 50 bits por segundo de processamento consciente" role="img" viewbox="0 0 720 300">
+<defs>
+<lineargradient id="funnelGrad" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0%" stop-color="var(--gold)" stop-opacity=".22"></stop>
+<stop offset="100%" stop-color="var(--gold)" stop-opacity=".04"></stop>
+</lineargradient>
+</defs>
+<!-- Funil -->
+<path d="M60 40 L520 128 L520 172 L60 260 Z" fill="url(#funnelGrad)" stroke="var(--gold-line)" stroke-width="1"></path>
+<!-- Entrada -->
+<text class="svg-t-sm" x="60" y="28">ENTRADA SENSORIAL</text>
+<text class="svg-t-gold" font-family="var(--display)" font-size="26" x="60" y="150">11.000.000</text>
+<text class="svg-t-sm" x="60" y="166">BITS / SEGUNDO</text>
+<!-- Camadas do funil -->
+<line class="svg-line" x1="180" x2="180" y1="63" y2="237"></line>
+<text class="svg-t-sm" x="186" y="60">FILTRO PRÉ-ATENTIVO · 1.2</text>
+<line class="svg-line" x1="300" x2="300" y1="86" y2="214"></line>
+<text class="svg-t-sm" x="306" y="83">ATENÇÃO SELETIVA · 1.2</text>
+<line class="svg-line" x1="420" x2="420" y1="109" y2="191"></line>
+<text class="svg-t-sm" x="426" y="106">MEMÓRIA DE TRABALHO · 1.8</text>
+<!-- Saída -->
+<rect class="svg-node-gold" height="44" rx="3" width="150" x="520" y="128"></rect>
+<text class="svg-t-gold" font-family="var(--display)" font-size="20" x="536" y="146">~50</text>
+<text class="svg-t-sm" x="536" y="162">BITS / SEGUNDO</text>
+<text class="svg-t-sm" x="520" y="116">CONSCIÊNCIA</text>
+<!-- Descarte -->
+<path class="svg-line-err" d="M300 214 L300 250"></path>
+<path class="svg-line-err" d="M180 237 L180 250"></path>
+<path class="svg-line-err" d="M420 191 L420 250"></path>
+<line class="svg-line-err" x1="120" x2="470" y1="264" y2="264"></line>
+<text class="svg-t-err" x="120" y="282">DESCARTADO SEM CHEGAR À CONSCIÊNCIA — ~99,999%</text>
+<!-- Nota -->
+<text class="svg-t-sm" x="520" y="200">É AQUI QUE</text>
+<text class="svg-t-sm" x="520" y="212">O SEU REEL</text>
+<text class="svg-t-sm" x="520" y="224">PRECISA CHEGAR</text>
+</svg>
+</div>
+<p class="figure-cap">
+<b>Figura 1.1.1</b> — O gargalo atencional. Cada linha vertical é um filtro que o seu conteúdo
+          precisa atravessar, e cada um deles opera com regras diferentes. As seções 1.2 a 1.8 destrincham
+          um por um. Repare que o Reel não "chama atenção": ele <em>sobrevive a quatro filtros</em>.
+        </p>
+</div>
+<h3>A inversão que isso produz</h3>
+<p>
+        A pergunta intuitiva de quem produz conteúdo é: <em>"como eu chamo atenção?"</em>. Ela pressupõe
+        que a atenção é um recurso disponível que você precisa atrair. O modelo do gargalo diz o contrário:
+        a atenção é um recurso <strong>já totalmente alocado</strong>, o tempo inteiro. Ela não está livre
+        esperando ser conquistada — ela está ocupada, e o cérebro está ativamente descartando estímulos
+        para protegê-la.
+      </p>
+<p>
+        A pergunta correta, então, é: <strong>"por que o cérebro dela não deveria me descartar?"</strong>
+        Essa reformulação não é retórica. Ela muda o objeto de trabalho:
+      </p>
+<div class="vs">
+<div class="vs-col bad">
+<h4>Pergunta errada — "como chamo atenção?"</h4>
+<ul>
+<li>Leva a <b>intensidade</b>: mais cor, mais grito, mais corte</li>
+<li>Compete com todo mundo no mesmo eixo</li>
+<li>Produz o visual saturado que o cérebro já aprendeu a filtrar</li>
+<li>Escala mal: o próximo precisa ser mais intenso que o anterior</li>
+<li>Destrói luxo silencioso por construção</li>
+</ul>
+</div>
+<div class="vs-col good">
+<h4>Pergunta certa — "por que não me descartar?"</h4>
+<ul>
+<li>Leva a <b>relevância</b>: isso é sobre ela, agora</li>
+<li>Compete em um eixo onde quase ninguém está</li>
+<li>Produz o visual que não parece publicidade</li>
+<li>Escala bem: relevância não tem teto</li>
+<li>É compatível com sofisticação</li>
+</ul>
+</div>
+</div>
+<div class="selo-box inf">
+<span class="selo inf">Inferência</span>
+<p>
+<strong>O salto que estou fazendo:</strong> a literatura sobre o gargalo atencional é sólida, mas
+          ela foi construída em laboratório com estímulos simples (tons, letras, pontos) — não com Reels de
+          estética integrativa. Aplicar o modelo ao feed é uma extrapolação minha, não um achado
+          experimental. Ela é razoável porque os mecanismos de filtragem são de baixo nível e independentes
+          de conteúdo, mas você deve tratá-la como <em>hipótese de trabalho útil</em>, não como lei.
+        </p>
+</div>
+<h3>O que isso significa para os seus dois protocolos</h3>
+<div class="grid grid-2">
+<div class="card">
+<div class="card-kicker">Melasma</div>
+<h4>Você tem um atalho de relevância</h4>
+<p>Melasma é <strong>visível</strong>. A mulher que tem olha para ele todo dia no espelho. Isso significa que a relevância já existe e está ativa — você não precisa criá-la, precisa apenas nomeá-la com precisão suficiente para o filtro reconhecer.</p>
+<p>O risco aqui é o oposto: a relevância é tão alta que qualquer promessa milagrosa também passa pelo filtro. Você compete com quem grita — e vai perder no grito. Precisa vencer na <em>precisão</em>.</p>
+</div>
+<div class="card">
+<div class="card-kicker">Desinflamação</div>
+<h4>Você tem um problema de reconhecimento</h4>
+<p>Cansaço, inchaço, intestino travado, pele ruim. Ela sente tudo isso, mas <strong>não tem um nome para o conjunto</strong>. Sem nome, não há categoria. Sem categoria, o filtro não tem onde encaixar o seu conteúdo — e descarta.</p>
+<p>Aqui o trabalho é anterior: você precisa <em>construir a categoria</em> antes de poder ser relevante nela. Isso é mais lento, mais difícil e infinitamente mais defensável — porque quem cria a categoria é dono dela.</p>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.2 — ATENÇÃO SELETIVA
+       ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.2</span><span></span></div>
+<h2>Atenção seletiva e o filtro pré-atentivo</h2>
+<p class="sec-lede">
+          Existem duas portas antes da consciência. A primeira é automática, cega e rápida — e é ela que
+          decide se o seu Reel existe. A segunda é onde a decisão acontece.
+        </p>
+</div>
+<h3>Porta 1 — o processamento pré-atentivo</h3>
+<p>
+        Antes de você <em>olhar</em> para alguma coisa, o sistema visual já processou o campo inteiro em
+        paralelo, procurando por um pequeno conjunto de características primitivas. Isso acontece em
+        cerca de 200 a 250 milissegundos, sem esforço, sem intenção e sem consciência.
+      </p>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          A <strong>Teoria da Integração de Características</strong> demonstrou que certas propriedades
+          visuais são detectadas em paralelo por todo o campo visual, antes da atenção focal. Essas
+          características "saltam" independentemente do número de distratores — o tempo de busca é
+          praticamente constante, quer haja 5 ou 50 itens na tela. As principais: <strong>cor,
+          orientação, movimento, tamanho, contraste de luminância</strong> e, com evidência adicional,
+          <strong>rostos</strong>.
+        </p>
+<p class="cit">
+<b>Treisman, A. &amp; Gelade, G. (1980).</b> <em>A feature-integration theory of attention.</em>
+          Cognitive Psychology, 12(1), 97–136. · <b>Wolfe, J. M. (1994).</b> <em>Guided Search 2.0.</em>
+          Psychonomic Bulletin &amp; Review.
+        </p>
+</div>
+<p>
+        Traduzindo para o feed: nos primeiros ~250 ms, o cérebro dela não sabe que o seu vídeo é sobre
+        melasma. Ele não leu a legenda. Ele não processou o áudio. Ele detectou <strong>movimento,
+        contraste, e a presença de um rosto</strong> — e com base nisso decidiu se vale alocar atenção
+        focal.
+      </p>
+<div class="tbl-scroll">
+<table>
+<thead>
+<tr><th>Característica pré-atentiva</th><th>Como aparece no Reel</th><th>Nível</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Rosto humano</strong></td><td>Rosto no primeiro quadro, olhando para a câmera</td><td><span class="selo ev">Evidência</span></td></tr>
+<tr><td><strong>Movimento</strong></td><td>Algo se move nos primeiros 3 quadros — não um card estático</td><td><span class="selo ev">Evidência</span></td></tr>
+<tr><td><strong>Contraste de luminância</strong></td><td>Sujeito destacado do fundo; não tudo bege sobre bege</td><td><span class="selo ev">Evidência</span></td></tr>
+<tr><td><strong>Cor</strong></td><td>Uma cor que destoa do que veio antes no feed</td><td><span class="selo ev">Evidência</span></td></tr>
+<tr><td><strong>Orientação</strong></td><td>Baixa aplicabilidade em vídeo vertical padronizado</td><td><span class="selo prat">Prática</span></td></tr>
+<tr><td>Texto grande no primeiro quadro</td><td>Prende o olhar, mas exige leitura — já é pós-atentivo</td><td><span class="selo inf">Inferência</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>A consequência prática mais subestimada</span>
+</div>
+<p>
+<strong>O primeiro quadro do seu Reel é uma decisão de engenharia, não de estética.</strong>
+          Um Reel que abre com um card de texto sobre fundo claro, sem movimento e sem rosto, falha no
+          filtro pré-atentivo — e nunca chega a ser julgado pelo seu conteúdo. Ele não foi rejeitado:
+          ele foi <em>descartado antes de existir</em>. Isso é diferente, e é pior, porque não aparece em
+          nenhuma métrica de forma legível.
+        </p>
+</div>
+<h3>Porta 2 — a atenção seletiva</h3>
+<p>
+        Passado o filtro pré-atentivo, entra a atenção focal — o recurso escasso de verdade. Aqui a
+        pergunta muda de "isso é saliente?" para <strong>"isso é sobre mim?"</strong>.
+      </p>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          O <strong>efeito coquetel</strong>: em um ambiente com múltiplas conversas simultâneas, você
+          consegue seguir apenas uma — mas se alguém pronunciar o seu nome em uma conversa que você
+          <em>não</em> estava acompanhando, você detecta. Isso prova que o canal ignorado não é totalmente
+          bloqueado: ele é <strong>atenuado</strong>, e continua sendo monitorado por um filtro semântico
+          de baixo nível procurando por material de alta relevância pessoal.
+        </p>
+<p class="cit">
+<b>Cherry, E. C. (1953).</b> <em>Some experiments on the recognition of speech, with one and with
+          two ears.</em> JASA, 25(5), 975–979. · <b>Moray, N. (1959).</b> <em>Attention in dichotic
+          listening.</em> QJEP, 11(1), 56–60. · <b>Treisman, A. (1964).</b> <em>Selective attention in
+          man.</em> British Medical Bulletin — modelo de atenuação.
+        </p>
+</div>
+<p>
+        Isso é a coisa mais importante deste módulo, então vou ser explícito sobre a implicação:
+      </p>
+<div class="selo-box inf">
+<span class="selo inf">Inferência</span>
+<p>
+<strong>O salto:</strong> se o filtro atenuado detecta o próprio nome, ele plausivelmente também
+          detecta outros marcadores de alta relevância pessoal — e a literatura de atenção sugere que
+          material auto-referente tem prioridade de acesso. <strong>Para você, isso significa:</strong>
+          "melasma" funciona como um nome próprio para quem tem melasma. Ela não precisa estar prestando
+          atenção. A palavra atravessa o filtro sozinha.
+        </p>
+<p>
+<strong>Onde o salto pode falhar:</strong> não há, até onde eu saiba, experimento testando
+          especificamente termos de condição de saúde em feeds sociais. É uma extrapolação teoricamente
+          bem-fundamentada, mas não verificada. Trate como hipótese forte.
+        </p>
+</div>
+<h3>A aplicação: o gancho de nomeação</h3>
+<p>
+        Se a palavra atravessa o filtro sozinha, a arquitetura do gancho muda. Você não precisa de uma
+        frase inteligente nos primeiros 3 segundos — precisa da <strong>palavra certa, cedo</strong>.
+      </p>
+<div class="rew">
+<div class="rew-row bad">
+<span class="rew-tag">DESCARTADO</span>
+<p class="rew-txt">"Oi gente, hoje eu vim falar de um assunto que muita gente me pergunta e que é super importante..."</p>
+</div>
+<div class="rew-row good">
+<span class="rew-tag">ATRAVESSA</span>
+<p class="rew-txt">"O melasma volta todo verão. E a maioria dos tratamentos não olha para o motivo."</p>
+</div>
+<p class="rew-why">
+<strong>Por quê:</strong> a primeira leva 4,2 segundos até a palavra "melasma" — e nesses 4,2 s
+          o filtro já descartou. A segunda entrega o marcador de relevância em 0,8 s, antes do cérebro ter
+          decidido qualquer coisa. Não é sobre a segunda ser "melhor escrita". É sobre onde a palavra está
+          no eixo do tempo.
+        </p>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Onde isso colide com a política da Meta</span>
+</div>
+<p>
+          Nomear a condição funciona cognitivamente — e é exatamente por isso que a Meta restringe.
+          "<strong>Você</strong> tem melasma?" insinua que o anúncio conhece uma condição de saúde da
+          pessoa: é a política de atributos pessoais. A saída não é abandonar a nomeação; é
+          <strong>deslocar o sujeito</strong>. "O melasma volta todo verão" nomeia sem atribuir. Mesmo
+          marcador, mesmo filtro atravessado, zero risco de conta. O Módulo 2.10 tem 30 reescritas deste
+          tipo, e o Módulo 9 categoria E tem a política atualizada e citada na fonte.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.3 — SOBRECARGA E CEGUEIRA DE PADRÃO
+       ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.3</span><span></span></div>
+<h2>Sobrecarga informacional e cegueira de padrão</h2>
+<p class="sec-lede">
+          O cérebro dela não está sobrecarregado. Ele está <em>bem adaptado</em> à sobrecarga — e a
+          adaptação dele é o seu problema.
+        </p>
+</div>
+<p>
+        Primeiro, uma limpeza necessária. O mercado repete um número sobre atenção que não tem fonte, e
+        ele contamina praticamente todo curso de conteúdo que existe.
+      </p>
+<div class="selo-box mito">
+<span class="selo mito">Mito</span>
+<p>
+<strong>"O ser humano tem 8 segundos de atenção — menos que um peixinho dourado."</strong>
+</p>
+<p>
+          Essa afirmação circula desde 2015, atribuída a um relatório da Microsoft Canadá. O relatório
+          existe — mas a estatística <em>dentro dele</em> foi citada de uma empresa agregadora de
+          estatísticas que nunca forneceu a metodologia, e a comparação com o peixinho não tem qualquer
+          origem científica rastreável. Pesquisadores de atenção rejeitam a ideia de "duração de atenção"
+          como métrica única: a atenção é <strong>dependente de tarefa</strong>. A mesma pessoa que abandona
+          um Reel em 2 s assiste 3 horas de uma série sem piscar.
+        </p>
+<p>
+<strong>Por que isso importa para você:</strong> quem acredita nos 8 segundos conclui que precisa
+          ser mais rápido, mais cortado, mais gritado. Conclusão errada, derivada de um dado inexistente.
+          O que existe não é um limite de tempo — é um <em>limite de tolerância à irrelevância</em>, e ele
+          é de fração de segundo, não de 8 segundos. Se for relevante, ela assiste 90 s. Se não for, você
+          não tinha 8 segundos: você tinha 0,4.
+        </p>
+</div>
+<h3>O que realmente existe: carga cognitiva</h3>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          A <strong>memória de trabalho</strong> tem capacidade rigidamente limitada. A estimativa clássica
+          era de "sete mais ou menos dois" itens; revisões posteriores com controles mais rígidos
+          convergiram para algo próximo de <strong>quatro</strong> unidades de informação. A
+          <strong>Teoria da Carga Cognitiva</strong> mostra que quando o material excede essa capacidade, o
+          aprendizado não fica mais lento — ele <em>colapsa</em>.
+        </p>
+<p class="cit">
+<b>Miller, G. A. (1956).</b> <em>The magical number seven, plus or minus two.</em> Psychological
+          Review, 63(2), 81–97. · <b>Cowan, N. (2001).</b> <em>The magical number 4 in short-term memory.</em>
+          Behavioral and Brain Sciences, 24(1), 87–114. · <b>Sweller, J. (1988).</b> <em>Cognitive load
+          during problem solving.</em> Cognitive Science, 12(2), 257–285.
+        </p>
+</div>
+<p>
+        Quatro unidades. É isso que você tem. E repare no que consome essas unidades em um Reel — porque a
+        maior parte do orçamento vai embora <strong>antes</strong> do seu conteúdo:
+      </p>
+<div class="figure">
+<div class="figure-frame">
+<svg aria-label="Diagrama de barras mostrando como a capacidade de memória de trabalho é consumida por carga intrínseca, estranha e relevante em dois cenários de Reel" role="img" viewbox="0 0 700 260">
+<text class="svg-t-sm" x="10" y="18">ORÇAMENTO DA MEMÓRIA DE TRABALHO — ~4 UNIDADES</text>
+<!-- Cenário ruim -->
+<text class="svg-t-err" x="10" y="48">REEL SOBRECARREGADO</text>
+<rect class="svg-node" height="34" width="160" x="10" y="58"></rect>
+<text class="svg-t-sm" x="20" y="79">DECODIFICAR O FORMATO</text>
+<rect class="svg-node" height="34" width="140" x="172" y="58"></rect>
+<text class="svg-t-sm" x="182" y="79">LER TEXTO NA TELA</text>
+<rect class="svg-node" height="34" width="150" x="314" y="58"></rect>
+<text class="svg-t-sm" x="324" y="79">FILTRAR MÚSICA ALTA</text>
+<rect class="svg-node-err" height="34" width="130" x="466" y="58"></rect>
+<text class="svg-t-err" x="476" y="79">JARGÃO TÉCNICO</text>
+<rect fill="none" height="34" rx="2" stroke="var(--err)" stroke-dasharray="3 3" width="92" x="598" y="58"></rect>
+<text class="svg-t-err" x="606" y="73">SUA</text>
+<text class="svg-t-err" x="606" y="85">MENSAGEM</text>
+<text class="svg-t-err" x="10" y="108">↑ O orçamento acabou antes da mensagem. Ela não discordou — ela não processou.</text>
+<!-- Cenário bom -->
+<text class="svg-t-ok" x="10" y="152">REEL CALIBRADO</text>
+<rect class="svg-node" height="34" width="90" x="10" y="162"></rect>
+<text class="svg-t-sm" x="20" y="183">ROSTO · FALA</text>
+<rect class="svg-node" height="34" width="90" x="102" y="162"></rect>
+<text class="svg-t-sm" x="112" y="183">LEGENDA CURTA</text>
+<rect class="svg-node-ok" height="34" width="496" x="194" y="162"></rect>
+<text class="svg-t-ok" x="204" y="183">SUA MENSAGEM — UMA IDEIA, INTEIRA, COM ESPAÇO PARA RESPIRAR</text>
+<text class="svg-t-ok" x="10" y="212">↑ Três elementos. Um deles é o conteúdo. Sobra capacidade para pensar.</text>
+<line class="svg-line" x1="10" x2="690" y1="228" y2="228"></line>
+<text class="svg-t-sm" x="10" y="246">CADA ELEMENTO DECORATIVO QUE VOCÊ ADICIONA SUBTRAI DA MENSAGEM. NÃO SOMA.</text>
+</svg>
+</div>
+<p class="figure-cap">
+<b>Figura 1.3.1</b> — A distinção de Sweller entre carga <em>intrínseca</em> (a dificuldade real do
+          assunto), <em>estranha</em> (imposta pela forma de apresentar) e <em>relevante</em> (a que constrói
+          entendimento). Trilha alta, texto piscando, zoom, emoji e transição são <strong>carga estranha</strong>:
+          consomem o mesmo orçamento da sua explicação, sem contribuir nada.
+        </p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Por que isso é uma vantagem competitiva sua, especificamente</span>
+</div>
+<p>
+          O padrão do nicho de estética é <strong>maximizar carga estranha</strong>: música alta, corte a
+          cada 0,8 s, texto colorido pulando, três emojis por frase. Isso funciona para conteúdo cuja
+          mensagem é "olha que legal" — que não precisa de orçamento cognitivo nenhum, porque não há nada
+          para entender. <strong>O seu conteúdo é o oposto:</strong> a mensagem inteira é um mecanismo
+          biológico. Você precisa do orçamento. Luxo silencioso, aqui, não é escolha estética — é
+          <em>requisito funcional</em>. Você precisa do silêncio porque a sua mensagem é cara.
+        </p>
+</div>
+<h3>Cegueira de padrão: a adaptação que te apaga</h3>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+<strong>Cegueira de banner:</strong> usuários web deixam de ver elementos que aprenderam a
+          classificar como publicidade — e o efeito é tão forte que eles não conseguem lembrar de ter visto
+          o banner mesmo quando o olhar passou por cima dele. Não é uma escolha de ignorar. É uma
+          <em>filtragem aprendida</em> que opera abaixo da consciência.
+        </p>
+<p class="cit">
+<b>Benway, J. P. (1998).</b> <em>Banner blindness: The irony of attention grabbing on the World
+          Wide Web.</em> Proceedings of the Human Factors and Ergonomics Society. · Replicado com
+          rastreamento ocular em <b>Drèze, X. &amp; Hussherr, F. (2003).</b> <em>Internet advertising: Is
+          anybody watching?</em> Journal of Interactive Marketing.
+        </p>
+</div>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+<strong>Cegueira por desatenção:</strong> em um experimento clássico, cerca de metade dos
+          participantes que contavam passes de basquete não notou uma pessoa fantasiada de gorila atravessar
+          o campo de visão, parar, bater no peito e sair. Quando a atenção está engajada em uma tarefa,
+          estímulos irrelevantes à tarefa — <em>por mais salientes que sejam</em> — simplesmente não são
+          vistos.
+        </p>
+<p class="cit">
+<b>Simons, D. J. &amp; Chabris, C. F. (1999).</b> <em>Gorillas in our midst: sustained
+          inattentional blindness for dynamic events.</em> Perception, 28(9), 1059–1074.
+        </p>
+</div>
+<p>
+        Junte os dois achados e você tem o diagnóstico mais duro deste módulo:
+      </p>
+<div class="selo-box inf">
+<span class="selo inf">Inferência</span>
+<p>
+<strong>O salto:</strong> o gorila não foi visto porque era irrelevante para a tarefa em curso. O
+          banner não é visto porque foi <em>categorizado</em> como publicidade. No feed, a tarefa em curso é
+          "me distrair" e a categoria "isso é anúncio de clínica" está bem aprendida. Logo: um Reel que
+          dispara a categoria <em>anúncio de estética</em> nos primeiros quadros é filtrado da mesma forma —
+          não avaliado e rejeitado, mas <strong>não visto</strong>.
+        </p>
+<p>
+<strong>Onde o salto pode falhar:</strong> os experimentos de cegueira de banner são de contexto
+          web com layout fixo, onde o usuário aprende a posição espacial do anúncio. No feed vertical não há
+          posição a aprender — a filtragem teria que ser por <em>assinatura visual</em>, não por local. É
+          plausível, mas não é o mesmo experimento. Marque como forte suspeita, não como fato.
+        </p>
+</div>
+<h3>As assinaturas visuais que disparam a categoria "anúncio"</h3>
+<p>
+        Lista de observação de mercado, não de laboratório. Trate como hipótese testável no seu perfil:
+      </p>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Assinatura</th><th>O que o cérebro conclui em ~200 ms</th><th>Nível</th></tr></thead>
+<tbody>
+<tr><td>Card de texto com logo no canto</td><td>"Isso é institucional. Pular."</td><td><span class="selo prat">Prática</span></td></tr>
+<tr><td>Estética mármore + dourado + toalha branca</td><td>"Spa. Já vi 200 desses."</td><td><span class="selo prat">Prática</span></td></tr>
+<tr><td>Antes/depois em split screen</td><td>"Promessa. Provavelmente falsa."</td><td><span class="selo prat">Prática</span></td></tr>
+<tr><td>Jaleco + braços cruzados + sorriso</td><td>"Foto de banco de imagens de clínica."</td><td><span class="selo prat">Prática</span></td></tr>
+<tr><td>Trilha de "música corporativa motivacional"</td><td>"Publicidade." (o áudio também é pré-atentivo)</td><td><span class="selo inf">Inferência</span></td></tr>
+<tr><td>Abertura com "Oi gente!"</td><td>"Genérico. Não é sobre mim."</td><td><span class="selo prat">Prática</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout science">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M9 2v6L4.5 17a2 2 0 001.8 3h11.4a2 2 0 001.8-3L15 8V2M9 2h6M7 14h10"></path></svg>
+<span>O teste que você pode rodar amanhã</span>
+</div>
+<p>
+          Abra o seu perfil no celular de alguém que não te conhece. Role o feed dela em velocidade normal —
+          normal de verdade, não "modo avaliação" — e deixe o seu Reel passar. Pergunte depois: <em>"você
+          viu alguma coisa sobre pele?"</em>. Se ela não lembrar, você não tem um problema de conteúdo.
+          Tem um problema de filtro. São coisas diferentes e exigem correções opostas.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.4 — SISTEMA 1 E SISTEMA 2
+       ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.4</span><span></span></div>
+<h2><abbr data-t="Sistema 1">Sistema 1</abbr> e Sistema 2</h2>
+<p class="sec-lede">
+          Quem decide parar o scroll não é a mesma instância que decide gastar R$4.000. Confundir as duas
+          é a origem de metade dos erros de conteúdo em saúde premium.
+        </p>
+</div>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          A arquitetura de <strong>processo dual</strong> descreve dois modos de operação cognitiva:
+        </p>
+<ul>
+<li><strong>Sistema 1</strong> — rápido, automático, paralelo, sem esforço, emocional, sempre ligado. Não pode ser desligado.</li>
+<li><strong><abbr data-t="Sistema 2">Sistema 2</abbr></strong> — lento, deliberado, serial, custoso, analítico. Preguiçoso por padrão e limitado por recursos.</li>
+</ul>
+<p>
+          O Sistema 2 aceita a maior parte das sugestões do Sistema 1 sem verificar. Ele só entra em cena
+          quando o Sistema 1 encontra algo que não consegue resolver — ou quando é explicitamente convocado.
+        </p>
+<p class="cit">
+<b>Kahneman, D. (2011).</b> <em>Thinking, Fast and Slow.</em> Farrar, Straus and Giroux. ·
+          <b>Stanovich, K. &amp; West, R. (2000).</b> <em>Individual differences in reasoning.</em> BBS, 23(5).
+          <br/><b>Ressalva:</b> "Sistema 1 / Sistema 2" é um <em>modelo descritivo útil</em>, não duas
+          estruturas anatômicas. Kahneman é explícito sobre isso. Além disso, parte da literatura de priming
+          citada no livro sofreu falhas de replicação na década seguinte — a arquitetura dual permanece
+          amplamente aceita; achados específicos de priming social, não.
+        </p>
+</div>
+<h3>A divisão de trabalho no seu funil</h3>
+<div class="figure">
+<div class="figure-frame">
+<svg aria-label="Diagrama mostrando qual sistema cognitivo governa cada etapa, do scroll até a decisão de compra" role="img" viewbox="0 0 720 300">
+<defs>
+<marker id="arrS" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3">
+<path d="M0,0 L6,3 L0,6" fill="none" stroke="var(--gold)" stroke-width="1"></path>
+</marker>
+</defs>
+<!-- Faixa S1 -->
+<rect fill="rgba(201,169,97,.05)" height="86" rx="3" width="720" x="0" y="30"></rect>
+<text class="svg-t-sm" x="10" y="24">SISTEMA 1 — RÁPIDO · AUTOMÁTICO · SEMPRE LIGADO</text>
+<rect class="svg-node-gold" height="44" rx="3" width="120" x="14" y="52"></rect>
+<text class="svg-t-gold" x="24" y="70">Parar o scroll</text>
+<text class="svg-t-sm" x="24" y="84">~0,4 s</text>
+<rect class="svg-node-gold" height="44" rx="3" width="120" x="154" y="52"></rect>
+<text class="svg-t-gold" x="164" y="70">"É sobre mim?"</text>
+<text class="svg-t-sm" x="164" y="84">~1 s</text>
+<rect class="svg-node-gold" height="44" rx="3" width="120" x="294" y="52"></rect>
+<text class="svg-t-gold" x="304" y="70">"Confio nela?"</text>
+<text class="svg-t-sm" x="304" y="84">~3 s · impressão</text>
+<rect class="svg-node-gold" height="44" rx="3" width="120" x="434" y="52"></rect>
+<text class="svg-t-gold" x="444" y="70">Continuar vendo</text>
+<text class="svg-t-sm" x="444" y="84">a cada segundo</text>
+<rect class="svg-node-gold" height="44" rx="3" width="130" x="574" y="52"></rect>
+<text class="svg-t-gold" x="584" y="70">Salvar · seguir</text>
+<text class="svg-t-sm" x="584" y="84">impulso</text>
+<path class="svg-line-gold" d="M134 74 H150" marker-end="url(#arrS)"></path>
+<path class="svg-line-gold" d="M274 74 H290" marker-end="url(#arrS)"></path>
+<path class="svg-line-gold" d="M414 74 H430" marker-end="url(#arrS)"></path>
+<path class="svg-line-gold" d="M554 74 H570" marker-end="url(#arrS)"></path>
+<!-- Transição -->
+<path class="svg-line-gold" d="M639 96 V140" marker-end="url(#arrS)"></path>
+<text class="svg-t-sm" x="440" y="132">↓ A TRANSIÇÃO ACONTECE AQUI — E DEMORA SEMANAS</text>
+<!-- Faixa S2 -->
+<rect fill="rgba(90,127,166,.05)" height="86" rx="3" width="720" x="0" y="150"></rect>
+<text class="svg-t-sm" x="10" y="164">SISTEMA 2 — LENTO · DELIBERADO · CUSTOSO · PREGUIÇOSO</text>
+<rect class="svg-node" height="44" rx="3" width="130" x="14" y="176"></rect>
+<text class="svg-t" x="24" y="194">Pesquisar sobre</text>
+<text class="svg-t-sm" x="24" y="208">dias</text>
+<rect class="svg-node" height="44" rx="3" width="130" x="164" y="176"></rect>
+<text class="svg-t" x="174" y="194">Comparar opções</text>
+<text class="svg-t-sm" x="174" y="208">semanas</text>
+<rect class="svg-node" height="44" rx="3" width="130" x="314" y="176"></rect>
+<text class="svg-t" x="324" y="194">Calcular custo</text>
+<text class="svg-t-sm" x="324" y="208">semanas</text>
+<rect class="svg-node-ok" height="44" rx="3" width="240" x="464" y="176"></rect>
+<text class="svg-t-ok" x="474" y="194">Decidir gastar R$4.000</text>
+<text class="svg-t-sm" x="474" y="208">3 A 12 SEMANAS APÓS O PRIMEIRO REEL</text>
+<path class="svg-line" d="M144 198 H160" marker-end="url(#arrS)"></path>
+<path class="svg-line" d="M294 198 H310" marker-end="url(#arrS)"></path>
+<path class="svg-line" d="M444 198 H460" marker-end="url(#arrS)"></path>
+<line class="svg-line" x1="10" x2="710" y1="252" y2="252"></line>
+<text class="svg-t-sm" x="10" y="270">CONTEÚDO QUE FALA COM O S2 NÃO PASSA DO S1. CONTEÚDO QUE SÓ AGRADA O S1 NUNCA CONVOCA O S2.</text>
+<text class="svg-t-gold" font-size="10" x="10" y="286">O TRABALHO É: ATRAVESSAR O S1 PARA CONSEGUIR CONVOCAR O S2.</text>
+</svg>
+</div>
+<p class="figure-cap">
+<b>Figura 1.4.1</b> — Nenhuma decisão de R$4.000 em saúde é tomada pelo Sistema 1. Mas
+          <strong>nenhum Sistema 2 é convocado sem o Sistema 1 ter aprovado a passagem.</strong> O Reel não
+          vende — ele compra o direito de falar com a instância que decide.
+        </p>
+</div>
+<h3>Os dois erros simétricos</h3>
+<div class="vs">
+<div class="vs-col bad">
+<h4>Erro A — falar com o S2 no lugar do S1</h4>
+<p>O Reel abre com densidade: "A fisiopatologia do melasma envolve a interação entre melanócitos hiperativos, fibroblastos senescentes e a vascularização dérmica..."</p>
+<p><b>O que acontece:</b> o S1 não tem nada para processar. Nenhuma relevância detectada, nenhum rosto, nenhuma tensão. Ele descarta em 0,4 s. O S2 nunca é informado de que existia um Reel.</p>
+<p><b>Quem comete:</b> profissionais de saúde competentes. Quase sempre. É o erro do especialista.</p>
+</div>
+<div class="vs-col bad">
+<h4>Erro B — falar só com o S1</h4>
+<p>O Reel é rápido, bonito, com trend, corte a cada 0,8 s, e termina em "corre pro link!". Retenção alta. Curtidas ótimas.</p>
+<p><b>O que acontece:</b> o S1 aprova, aplaude e esquece. Nada foi codificado. Nenhuma razão foi construída. O S2 nunca é convocado porque não houve nada para deliberar. Métricas lindas, zero conversa.</p>
+<p><b>Quem comete:</b> quem contratou social media que veio de moda ou food.</p>
+</div>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>A arquitetura correta: S1 abre a porta, S2 mobilia a sala</span>
+</div>
+<p>
+          O Reel de saúde premium tem <strong>duas camadas em série</strong>, e a ordem é inegociável:
+        </p>
+<ul>
+<li><strong>Segundos 0–3 — território do S1.</strong> Rosto, movimento, palavra-marcador, tensão. Zero jargão. O objetivo aqui não é ensinar nada: é <em>comprar os próximos 30 segundos</em>.</li>
+<li><strong>Segundos 3–40 — território do S2.</strong> Agora sim: mecanismo, nuance, distinção, o que você não sabe. É aqui que a autoridade se constrói, porque autoridade é um julgamento do S2.</li>
+<li><strong>Encerramento — devolve ao S1.</strong> Uma imagem, uma frase que fecha o loop, algo que o S1 arquiva como "essa pessoa sabe do que fala".</li>
+</ul>
+<p>
+          Quem faz só a primeira camada vira entretenimento. Quem faz só a segunda vira aula que ninguém
+          assiste. <strong>A sequência é o produto.</strong>
+</p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>A regra dos 3 segundos não é ciência.</strong> Não existe experimento estabelecendo que 3
+          segundos é o limite. O número vem de dados que as próprias plataformas publicam sobre queda de
+          retenção, agregados sobre todo tipo de conteúdo — e de repetição no mercado. É uma heurística
+          útil, e eu vou usá-la no curso inteiro, mas você deve saber que ela é <em>convenção de mercado
+          calibrada por observação</em>, não achado de laboratório. O que a ciência sustenta é mais forte e
+          mais assustador: a decisão de descartar é de <strong>fração de segundo</strong>, não de 3 segundos.
+          Os 3 segundos já são generosos.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.5 — CURIOSIDADE
+       ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.5</span><span></span></div>
+<h2>Curiosidade</h2>
+<p class="sec-lede">
+          A curiosidade é a única força capaz de fazer o Sistema 2 trabalhar de graça. Também é a mais
+          fácil de transformar em clickbait — e, no seu posicionamento, clickbait custa mais caro do que
+          não postar.
+        </p>
+</div>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          A <strong>teoria da lacuna informacional</strong> propõe que a curiosidade surge quando a pessoa
+          percebe uma <em>lacuna entre o que sabe e o que quer saber</em>. Duas consequências importantes
+          e contraintuitivas:
+        </p>
+<ul>
+<li>A curiosidade é <strong>aversiva</strong>, não prazerosa. Ela é sentida como uma privação — e a resolução da lacuna é que é recompensadora. Curiosidade é coceira, não cócega.</li>
+<li>A relação com o conhecimento prévio é <strong>invertida em U</strong>: quem não sabe nada não sente curiosidade (não percebe que há lacuna), e quem sabe tudo também não. A curiosidade é máxima quando a pessoa <em>sabe o suficiente para perceber o que não sabe</em>.</li>
+</ul>
+<p class="cit">
+<b>Loewenstein, G. (1994).</b> <em>The psychology of curiosity: A review and reinterpretation.</em>
+          Psychological Bulletin, 116(1), 75–98.
+        </p>
+</div>
+<p>
+        A curva em U invertida tem uma consequência direta e imediata para os seus dois protocolos, e ela
+        explica por que um deles é mais difícil que o outro:
+      </p>
+<div class="figure">
+<div class="figure-frame">
+<svg aria-label="Gráfico em U invertido mostrando curiosidade em função do conhecimento prévio, com posições dos dois protocolos" role="img" viewbox="0 0 700 300">
+<!-- Eixos -->
+<line class="lab-axis" x1="60" x2="660" y1="240" y2="240"></line>
+<line class="lab-axis" x1="60" x2="60" y1="40" y2="240"></line>
+<text class="svg-t-sm" x="60" y="268">NADA SABE</text>
+<text class="svg-t-sm" x="320" y="268">SABE O SUFICIENTE PARA PERCEBER A LACUNA</text>
+<text class="svg-t-sm" x="600" y="268">SABE TUDO</text>
+<text class="svg-t-sm" transform="rotate(-90 20,150)" x="10" y="150">CURIOSIDADE</text>
+<!-- Curva -->
+<path d="M60 235 Q 200 40 360 60 Q 520 80 660 235" fill="none" stroke="var(--gold)" stroke-width="2"></path>
+<!-- Zona ótima -->
+<rect fill="var(--gold-glow)" height="200" width="220" x="250" y="40"></rect>
+<text class="svg-t-sm" x="258" y="56">ZONA ÓTIMA</text>
+<!-- Ponto: Desinflamação -->
+<circle cx="120" cy="196" fill="var(--err)" r="5"></circle>
+<line class="svg-line-err" x1="120" x2="120" y1="196" y2="240"></line>
+<text class="svg-t-err" x="76" y="182">DESINFLAMAÇÃO</text>
+<text class="svg-t-sm" x="76" y="170">ELA NEM SABE QUE HÁ UM NOME</text>
+<!-- Ponto: Melasma -->
+<circle cx="360" cy="60" fill="var(--ok)" r="5"></circle>
+<line class="svg-line" stroke-dasharray="3 3" x1="360" x2="360" y1="60" y2="240"></line>
+<text class="svg-t-ok" x="372" y="56">MELASMA</text>
+<text class="svg-t-sm" x="372" y="44">JÁ TENTOU DE TUDO. SABE MUITO. SABE QUE NÃO SABE O PORQUÊ.</text>
+<!-- Ponto: dermatologista -->
+<circle cx="610" cy="200" fill="var(--text-3)" r="5"></circle>
+<line class="svg-line" stroke-dasharray="3 3" x1="610" x2="610" y1="200" y2="240"></line>
+<text class="svg-t-sm" x="520" y="190">COLEGA DE PROFISSÃO — SEM LACUNA</text>
+<!-- Seta -->
+<path d="M130 200 Q 200 230 250 200" fill="none" stroke="var(--gold-dim)" stroke-dasharray="3 3" stroke-width="1"></path>
+<text class="svg-t-sm" x="140" y="224">SEU TRABALHO: MOVER ELA PARA CÁ →</text>
+</svg>
+</div>
+<p class="figure-cap">
+<b>Figura 1.5.1</b> — A mulher com melasma crônico já está na zona ótima: ela sabe muito
+          (tentou ácidos, clareadores, laser) e sabe exatamente o que não sabe (por que volta). Você não
+          precisa criar curiosidade — precisa <em>nomear a lacuna que já existe</em>. A mulher inflamada
+          está na ponta esquerda: sem categoria, sem lacuna percebida, sem curiosidade. Movê-la para a
+          zona ótima é um trabalho de <strong>educação anterior à persuasão</strong>, e leva meses.
+        </p>
+</div>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          Estados de alta curiosidade aumentam a atividade em circuitos dopaminérgicos associados à
+          recompensa antecipada — e, notavelmente, <strong>melhoram a memória inclusive para material
+          incidental</strong> apresentado durante o estado curioso, mesmo que esse material não tenha
+          relação com o que despertou a curiosidade. A curiosidade não só motiva: ela abre uma janela de
+          codificação.
+        </p>
+<p class="cit">
+<b>Kang, M. J. et al. (2009).</b> <em>The wick in the candle of learning: epistemic curiosity
+          activates reward circuitry and enhances memory.</em> Psychological Science, 20(8), 963–973. ·
+          <b>Gruber, M. J., Gelman, B. D. &amp; Ranganath, C. (2014).</b> <em>States of curiosity modulate
+          hippocampus-dependent learning via the dopaminergic circuit.</em> Neuron, 84(2), 486–496.
+        </p>
+</div>
+<div class="selo-box inf">
+<span class="selo inf">Inferência</span>
+<p>
+<strong>O salto:</strong> se a curiosidade abre uma janela de codificação inclusive para material
+          incidental, então abrir uma lacuna <em>antes</em> de explicar o mecanismo deveria fazer o
+          mecanismo ser lembrado melhor do que se você explicasse direto. Ou seja: a ordem
+          <em>lacuna → explicação</em> não é só uma técnica de retenção — é plausivelmente uma técnica de
+          <strong>memória</strong>.
+        </p>
+<p>
+<strong>Onde pode falhar:</strong> os experimentos usaram perguntas de trivia e um intervalo
+          controlado entre pergunta e resposta. Um Reel de 40 segundos não é isso. Trate como razão
+          teórica para preferir a estrutura, não como resultado garantido.
+        </p>
+</div>
+<h3>A linha entre lacuna e clickbait</h3>
+<p>
+        Aqui está o ponto onde a maioria dos cursos de conteúdo te entrega uma arma e não explica que ela
+        atira para trás. A mesma mecânica que gera curiosidade gera clickbait. A diferença não está na
+        técnica — está no <strong>que acontece quando a lacuna fecha</strong>.
+      </p>
+<div class="vs">
+<div class="vs-col bad">
+<h4>Lacuna que trai</h4>
+<p><b>"O ingrediente que 90% das clínicas escondem de você"</b></p>
+<ul>
+<li>A lacuna é <b>artificial</b> — criada pela omissão, não pelo assunto</li>
+<li>Quando fecha, a resposta é banal ou nem vem</li>
+<li>O S1 fica satisfeito; o S2 se sente enganado</li>
+<li>Custo: uma unidade de confiança, permanente</li>
+<li>Escala negativamente: funciona menos a cada uso</li>
+</ul>
+</div>
+<div class="vs-col good">
+<h4>Lacuna que entrega</h4>
+<p><b>"O clareador age no pigmento. O pigmento é o sintoma. Então por que a gente trata o sintoma?"</b></p>
+<ul>
+<li>A lacuna é <b>real</b> — existe no assunto, não na sua omissão</li>
+<li>Quando fecha, a resposta reorganiza o que ela pensava</li>
+<li>O S2 fica em dívida intelectual com você</li>
+<li>Ganho: uma unidade de autoridade, permanente</li>
+<li>Escala positivamente: funciona mais a cada uso</li>
+</ul>
+</div>
+</div>
+<div class="callout danger">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>O teste da lacuna honesta</span>
+</div>
+<p>
+          Pergunte-se: <strong>"a lacuna que eu abri existiria se eu não estivesse tentando prender
+          atenção?"</strong> Se a resposta é sim — a pergunta é genuína, você mesma já a fez, ela tem
+          resposta interessante — é curiosidade. Se a resposta é não — a lacuna só existe porque você
+          escondeu a informação — é clickbait com verniz.
+        </p>
+<p>
+<strong>Por que isso importa mais para você do que para um infoprodutor:</strong> ele vende uma
+          vez. Você vende autoridade acumulada ao longo de anos, para um público pequeno que se conhece e
+          se indica. Uma lacuna traída não custa um lead — custa a premissa inteira do luxo silencioso.
+          O retorno do clickbait é imediato e o custo é diferido. É exatamente o formato de armadilha que
+          o Sistema 1 não consegue enxergar.
+        </p>
+</div>
+<div class="selo-box mito">
+<span class="selo mito">Mito</span>
+<p>
+<strong>"O efeito Zeigarnik prova que tarefas incompletas ficam na memória — então deixe o vídeo
+          em aberto."</strong>
+</p>
+<p>
+          Zeigarnik (1927) de fato relatou que tarefas interrompidas eram mais lembradas que tarefas
+          concluídas. O problema: <strong>as tentativas de replicação ao longo de décadas produziram
+          resultados inconsistentes</strong>, com o efeito aparecendo, desaparecendo e até se invertendo
+          dependendo de motivação, tipo de tarefa e ego-envolvimento. Não é um achado robusto o suficiente
+          para você construir estratégia em cima.
+        </p>
+<p>
+<strong>O que usar no lugar:</strong> a teoria da lacuna informacional de Loewenstein, que é bem
+          sustentada e faz uma previsão parecida por um mecanismo diferente. Você chega ao mesmo lugar
+          prático — abrir uma lacuna funciona — mas por uma razão que se sustenta.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.6 — RECONHECIMENTO DE PADRÕES
+       ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.6</span><span></span></div>
+<h2>Reconhecimento de padrões e violação de expectativa</h2>
+<p class="sec-lede">
+          O cérebro não observa o mundo. Ele <em>prevê</em> o mundo e checa o erro. Entender isso explica,
+          de uma vez, por que "parece anúncio" mata e por que familiaridade vende.
+        </p>
+</div>
+<p>
+        A seção 1.3 mostrou que o cérebro filtra o que já categorizou. Esta seção explica o mecanismo por
+        trás — e como usá-lo a favor em vez de sofrer com ele.
+      </p>
+<h3>Fluência de processamento: o atalho de "isso é verdade"</h3>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+<strong>Fluência de processamento</strong>: a facilidade subjetiva com que uma informação é
+          processada é interpretada pelo cérebro como sinal de <em>verdade</em>, <em>familiaridade</em> e
+          <em>agrado</em> — e a pessoa não tem acesso consciente a essa atribuição. Manipulações puramente
+          superficiais (contraste da fonte, rima, facilidade de pronúncia do nome) alteram julgamentos de
+          veracidade sem que ninguém perceba.
+        </p>
+<p class="cit">
+<b>Reber, R., Schwarz, N. &amp; Winkielman, P. (2004).</b> <em>Processing fluency and aesthetic
+          pleasure.</em> Personality and Social Psychology Review, 8(4), 364–382. ·
+          <b>McGlone, M. &amp; Tofighbakhsh, J. (2000).</b> <em>Birds of a feather flock conjointly: rhyme
+          as reason in aphorisms.</em> Psychological Science, 11(5), 424–428.
+        </p>
+</div>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+<strong>Efeito de mera exposição</strong>: a exposição repetida a um estímulo aumenta a
+          preferência por ele — e o efeito é <em>mais forte</em> quando a exposição é incidental ou está
+          abaixo do limiar de reconhecimento consciente. Ou seja: ela não precisa lembrar de ter te visto
+          para já gostar mais de você.
+        </p>
+<p class="cit">
+<b>Zajonc, R. B. (1968).</b> <em>Attitudinal effects of mere exposure.</em> Journal of Personality
+          and Social Psychology, 9(2, Pt.2), 1–27. · Meta-análise: <b>Bornstein, R. F. (1989).</b>
+<em>Exposure and affect.</em> Psychological Bulletin, 106(2), 265–289.
+        </p>
+</div>
+<p>
+        Junte os dois e você tem a base econômica da consistência: <strong>cada exposição barateia a
+        próxima</strong>. O décimo Reel dela é processado mais fluentemente que o primeiro, e essa fluência
+        é sentida como "essa pessoa faz sentido". Não é lógica. É custo de processamento.
+      </p>
+<h3>O paradoxo: familiaridade atrai, previsibilidade mata</h3>
+<p>
+        Aqui está a tensão que define todo conteúdo bom. Você precisa das duas coisas ao mesmo tempo, e
+        elas parecem se contradizer:
+      </p>
+<div class="figure">
+<div class="figure-frame">
+<svg aria-label="Diagrama de dois eixos cruzando familiaridade e previsibilidade, formando quatro quadrantes de conteúdo" role="img" viewbox="0 0 700 280">
+<!-- Eixos -->
+<line class="lab-axis" x1="80" x2="640" y1="240" y2="240"></line>
+<line class="lab-axis" x1="360" x2="360" y1="20" y2="240"></line>
+<text class="svg-t-sm" x="80" y="262">ESTRANHO · ALTA CARGA</text>
+<text class="svg-t-sm" x="520" y="262">FAMILIAR · BAIXA CARGA</text>
+<text class="svg-t-sm" x="368" y="30">IMPREVISÍVEL</text>
+<text class="svg-t-sm" x="368" y="236">PREVISÍVEL</text>
+<!-- Quadrantes -->
+<rect fill="rgba(196,112,58,.06)" height="110" width="278" x="80" y="20"></rect>
+<text class="svg-t" fill="var(--warn)" x="90" y="42">Confuso</text>
+<text class="svg-t-sm" x="90" y="58">TEORIA DENSA SEM ÂNCORA.</text>
+<text class="svg-t-sm" x="90" y="70">O S1 DESISTE. NÃO É DESCARTE —</text>
+<text class="svg-t-sm" x="90" y="82">É ABANDONO POR CUSTO.</text>
+<rect fill="rgba(74,157,124,.08)" height="110" width="278" x="362" y="20"></rect>
+<text class="svg-t-ok" x="372" y="42">A ZONA — familiar mas surpreendente</text>
+<text class="svg-t-sm" x="372" y="58">"VOCÊ CONHECE O CLAREADOR.</text>
+<text class="svg-t-sm" x="372" y="70">MAS ELE AGE NO SINTOMA."</text>
+<text class="svg-t-sm" x="372" y="82">ÂNCORA CONHECIDA + ERRO DE PREVISÃO.</text>
+<text class="svg-t-gold" x="372" y="100">↑ TODO CONTEÚDO SEU MIRA AQUI</text>
+<rect fill="rgba(166,75,75,.06)" height="108" width="278" x="80" y="132"></rect>
+<text class="svg-t-err" x="90" y="154">Irrelevante</text>
+<text class="svg-t-sm" x="90" y="170">ASSUNTO QUE ELA NÃO RECONHECE,</text>
+<text class="svg-t-sm" x="90" y="182">DITO DE FORMA QUE ELA JÁ ESPERA.</text>
+<text class="svg-t-sm" x="90" y="194">FILTRADO NO PRÉ-ATENTIVO.</text>
+<rect fill="rgba(166,75,75,.06)" height="108" width="278" x="362" y="132"></rect>
+<text class="svg-t-err" x="372" y="154">Invisível — o pior quadrante</text>
+<text class="svg-t-sm" x="372" y="170">"5 DICAS PARA UMA PELE LINDA"</text>
+<text class="svg-t-sm" x="372" y="182">FAMILIAR DEMAIS. ZERO ERRO DE PREVISÃO.</text>
+<text class="svg-t-sm" x="372" y="194">O CÉREBRO JÁ SABE O FINAL. NÃO ASSISTE.</text>
+<text class="svg-t-err" x="372" y="212">↑ ONDE 80% DO NICHO ESTÁ</text>
+</svg>
+</div>
+<p class="figure-cap">
+<b>Figura 1.6.1</b> — O quadrante inferior direito é traiçoeiro porque <em>parece</em> seguro.
+          É o conteúdo que "não tem nada de errado" — e é exatamente por isso que não é visto. Ausência de
+          erro de previsão é ausência de razão para prestar atenção. <strong>Conteúdo correto e previsível
+          é indistinguível de conteúdo inexistente.</strong>
+</p>
+</div>
+<div class="selo-box inf">
+<span class="selo inf">Inferência</span>
+<p>
+<strong>O salto:</strong> modelos de processamento preditivo propõem que o cérebro gera previsões
+          constantes e que o <em>erro de previsão</em> é o sinal que dispara atualização e alocação de
+          atenção. Se isso está certo, conteúdo previsível gera erro zero e portanto atenção zero — e
+          conteúdo totalmente imprevisível gera erro alto demais para ser reduzido, o que leva a abandono.
+          A zona ótima seria o erro <em>redutível</em>.
+        </p>
+<p>
+<strong>Ressalva:</strong> processamento preditivo é um <em>arcabouço teórico</em> em disputa
+          ativa na neurociência, não consenso fechado. Estou usando como lente organizadora porque ela
+          prevê bem o que se observa no feed — não porque esteja provada. Um pesquisador da área teria
+          objeções legítimas a essa aplicação.
+        </p>
+</div>
+<h3>A construção que opera nessa zona</h3>
+<p>
+        Existe um formato de frase que faz as duas coisas simultaneamente — ancora no familiar e viola a
+        previsão. É a estrutura mais valiosa do seu arsenal, e ela vai reaparecer em todos os módulos:
+      </p>
+<div class="rew">
+<div class="rew-row good">
+<span class="rew-tag">ESTRUTURA</span>
+<p class="rew-txt"><b>[coisa que ela conhece bem] + [afirmação que contradiz o que ela assume sobre essa coisa] + [a razão]</b></p>
+</div>
+<div class="rew-row good">
+<span class="rew-tag">MELASMA</span>
+<p class="rew-txt">"O protetor solar é o item mais citado no tratamento do melasma. E ele não está errado — ele está incompleto. Porque o sol é um gatilho, não a causa."</p>
+</div>
+<div class="rew-row good">
+<span class="rew-tag">MELASMA</span>
+<p class="rew-txt">"Clarear a mancha é o objetivo de quase todo tratamento. É também o motivo pelo qual ela volta."</p>
+</div>
+<div class="rew-row good">
+<span class="rew-tag">DESINFLAMAÇÃO</span>
+<p class="rew-txt">"Cansaço, inchaço e intestino travado costumam ser tratados como três problemas. Em muitos casos, é um."</p>
+</div>
+<div class="rew-row good">
+<span class="rew-tag">DESINFLAMAÇÃO</span>
+<p class="rew-txt">"Beber mais água é a recomendação padrão para retenção. Em parte dos casos, ela não resolve — e o motivo tem a ver com o que está segurando o líquido, não com o quanto entra."</p>
+</div>
+<p class="rew-why">
+<strong>Por que funciona:</strong> a primeira metade tem fluência máxima — ela conhece protetor
+          solar, conhece clareador, conhece "beba água". Custo cognitivo zero, e o filtro reconhece a
+          categoria. A segunda metade gera erro de previsão: a conclusão não é a que ela esperava. E a
+          terceira parte torna o erro <em>redutível</em> — existe uma razão, e ela pode entendê-la. Sem a
+          terceira parte, você tem provocação. Com ela, você tem autoridade.
+        </p>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>A linha ética desta estrutura</span>
+</div>
+<p>
+          "Contradiz o que ela assume" precisa ser <strong>verdade</strong>, não retórica. "O protetor solar
+          não funciona!" seria erro de previsão máximo — e desinformação, risco de política e dano
+          potencial. A construção segura é <em>"não está errado, está incompleto"</em>: ela mantém a
+          violação de expectativa e permanece defensável clinicamente. Toda vez que você for usar esta
+          estrutura, o teste é: <strong>eu defenderia essa frase na frente de um colega?</strong> Se não,
+          você fez clickbait com jaleco.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.7 — EMOÇÃO COMO ATALHO
+       ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.7</span><span></span></div>
+<h2>Emoção como atalho</h2>
+<p class="sec-lede">
+          A emoção não é o oposto da razão — é o que decide o que merece razão. Mas nem toda emoção serve,
+          e as que mais compartilham são justamente as que mais destroem o seu posicionamento.
+        </p>
+</div>
+<h3>Duas dimensões, não uma</h3>
+<p>
+        O erro conceitual mais comum é tratar emoção como um eixo só: positivo ou negativo. São
+        <strong>dois</strong> eixos independentes, e o segundo é o que importa para conteúdo.
+      </p>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          Análise de mais de 7.000 artigos do New York Times mediu quais eram mais compartilhados. O achado:
+          conteúdo que evoca <strong>ativação fisiológica alta</strong> é mais compartilhado — seja essa
+          ativação positiva (admiração, entusiasmo, deslumbramento) ou negativa (raiva, ansiedade). Emoções
+          de <strong>ativação baixa</strong> — tristeza, contentamento — são <em>menos</em> compartilhadas,
+          mesmo quando intensas. Ou seja: a variável não é valência. É <em>arousal</em>.
+        </p>
+<p class="cit">
+<b>Berger, J. &amp; Milkman, K. L. (2012).</b> <em>What makes online content viral?</em> Journal of
+          Marketing Research, 49(2), 192–205.
+        </p>
+</div>
+<div class="figure">
+<div class="figure-frame">
+<svg aria-label="Plano de valência por ativação com quatro quadrantes emocionais e as zonas recomendadas e proibidas" role="img" viewbox="0 0 700 300">
+<line class="lab-axis" x1="60" x2="650" y1="160" y2="160"></line>
+<line class="lab-axis" x1="355" x2="355" y1="20" y2="270"></line>
+<text class="svg-t-sm" x="60" y="180">VALÊNCIA NEGATIVA</text>
+<text class="svg-t-sm" x="560" y="180">VALÊNCIA POSITIVA</text>
+<text class="svg-t-sm" x="362" y="30">ATIVAÇÃO ALTA — COMPARTILHA</text>
+<text class="svg-t-sm" x="362" y="266">ATIVAÇÃO BAIXA — NÃO COMPARTILHA</text>
+<!-- Q1: neg alta -->
+<rect fill="rgba(166,75,75,.07)" height="122" width="292" x="60" y="34"></rect>
+<text class="svg-t-err" x="70" y="54">Raiva · Ansiedade · Medo</text>
+<text class="svg-t-sm" x="70" y="70">COMPARTILHA MUITO.</text>
+<text class="svg-t-sm" x="70" y="82">É ONDE VIVE O SENSACIONALISMO DE SAÚDE.</text>
+<text class="svg-t-err" x="70" y="102">◼ ZONA PROIBIDA PARA VOCÊ</text>
+<text class="svg-t-sm" x="70" y="118">FUNCIONA E DESTRÓI A MARCA.</text>
+<text class="svg-t-sm" x="70" y="130">RISCO DE POLÍTICA E DE CONSELHO.</text>
+<!-- Q2: pos alta -->
+<rect fill="rgba(74,157,124,.08)" height="122" width="292" x="358" y="34"></rect>
+<text class="svg-t-ok" x="368" y="54">Admiração · Espanto · Interesse intenso</text>
+<text class="svg-t-sm" x="368" y="70">COMPARTILHA MUITO.</text>
+<text class="svg-t-sm" x="368" y="82">"EU NÃO SABIA QUE ERA ASSIM."</text>
+<text class="svg-t-gold" x="368" y="102">◼ SUA ZONA</text>
+<text class="svg-t-sm" x="368" y="118">ATIVAÇÃO ALTA SEM APELO.</text>
+<text class="svg-t-sm" x="368" y="130">É O DESLUMBRE INTELECTUAL.</text>
+<!-- Q3: neg baixa -->
+<rect fill="rgba(110,110,120,.06)" height="102" width="292" x="60" y="164"></rect>
+<text class="svg-t-sm" x="70" y="200">TRISTEZA · DESÂNIMO · RESIGNAÇÃO</text>
+<text class="svg-t-sm" x="70" y="216">NÃO COMPARTILHA. E É EXATAMENTE O ESTADO</text>
+<text class="svg-t-sm" x="70" y="228">EM QUE A PACIENTE DE MELASMA CRÔNICO JÁ ESTÁ.</text>
+<text class="svg-t-err" x="70" y="248">↑ NÃO A DEIXE AQUI. TIRE-A DAQUI.</text>
+<!-- Q4: pos baixa -->
+<rect fill="rgba(110,110,120,.06)" height="102" width="292" x="358" y="164"></rect>
+<text class="svg-t-sm" x="368" y="200">CONTENTAMENTO · CALMA · SATISFAÇÃO</text>
+<text class="svg-t-sm" x="368" y="216">NÃO COMPARTILHA — MAS RETÉM E FIDELIZA.</text>
+<text class="svg-t-sm" x="368" y="228">É O TERRITÓRIO DO ACOLHIMENTO.</text>
+<text class="svg-t-gold" x="368" y="248">↑ USE NO MEIO E NO FIM, NUNCA NA ABERTURA</text>
+</svg>
+</div>
+<p class="figure-cap">
+<b>Figura 1.7.1</b> — Você tem exatamente <em>um</em> quadrante de abertura disponível: ativação
+          alta com valência positiva. O quadrante superior esquerdo funciona igualmente bem em métricas e é
+          incompatível com o seu posicionamento e com a ética de comunicação em saúde. O inferior direito é
+          onde a sua marca vive — mas ele não abre, ele sustenta.
+        </p>
+</div>
+<h3>O deslumbre intelectual: a sua emoção de abertura</h3>
+<p>
+        Existe um estado emocional de ativação alta e valência positiva que praticamente ninguém no seu
+        nicho explora, e que é <em>perfeitamente adequado</em> a você: a sensação de
+        <strong>"eu não sabia que era assim"</strong>. É o espanto de compreender algo que reorganiza uma
+        crença antiga.
+      </p>
+<p>
+        Ele tem três propriedades que o tornam ideal para saúde premium:
+      </p>
+<div class="grid grid-3">
+<div class="card">
+<div class="card-kicker">Propriedade 01</div>
+<h4>Compartilha</h4>
+<p>Ativação alta. "Gente, olha isso" é o comportamento natural de quem acabou de reorganizar uma crença.</p>
+</div>
+<div class="card">
+<div class="card-kicker">Propriedade 02</div>
+<h4>Credita você</h4>
+<p>Diferente do medo, que credita o assunto. Quem sente espanto atribui o espanto a <strong>quem explicou</strong>.</p>
+</div>
+<div class="card">
+<div class="card-kicker">Propriedade 03</div>
+<h4>Convoca o S2</h4>
+<p>Espanto é erro de previsão sentido. Ele obriga o Sistema 2 a entrar para resolver — que é exatamente o que você quer.</p>
+</div>
+</div>
+<h3>Acolhimento: a emoção que não abre, mas que segura</h3>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+<strong>Nomear um estado afetivo reduz a resposta emocional a ele.</strong> Em estudos de
+          neuroimagem, rotular verbalmente uma emoção ("isso é medo") diminuiu a ativação da amígdala e
+          aumentou a atividade do córtex pré-frontal ventrolateral direito — mesmo quando os participantes
+          não tinham intenção de se regular. O efeito é chamado de <em>affect labeling</em> e funciona
+          como uma forma incidental de regulação emocional.
+        </p>
+<p class="cit">
+<b>Lieberman, M. D. et al. (2007).</b> <em>Putting feelings into words: affect labeling disrupts
+          amygdala activity in response to affective stimuli.</em> Psychological Science, 18(5), 421–428. ·
+          Revisão: <b>Torre, J. B. &amp; Lieberman, M. D. (2018).</b> <em>Putting feelings into words.</em>
+          Emotion Review, 10(2).
+        </p>
+</div>
+<div class="selo-box inf">
+<span class="selo inf">Inferência</span>
+<p>
+<strong>O salto — e ele é grande, então preste atenção:</strong> se nomear a própria emoção
+          reduz a ativação da amígdala, é <em>plausível</em> que ouvir alguém nomear com precisão o que
+          você sente produza algo parecido. Isso daria uma base mecanicista para uma coisa que todo bom
+          clínico já observa: quando você descreve o estado da paciente melhor do que ela consegue
+          descrever, ela relaxa — e atribui esse alívio a você.
+        </p>
+<p>
+<strong>Onde o salto pode falhar, e é sério:</strong> os experimentos são de auto-rotulagem, com
+          o próprio participante nomeando. Hetero-rotulagem — outra pessoa nomeando — <em>não é a mesma
+          coisa</em> e não foi testada nesse paradigma. É uma extrapolação de duas etapas. Estou marcando
+          como inferência e não como evidência exatamente por isso, e você não deveria repetir isso em
+          público como se fosse achado científico.
+        </p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>A aplicação prática, independente do mecanismo</span>
+</div>
+<p>
+          Independente de a explicação neural estar certa, a técnica é sólida e observável:
+          <strong>descreva o estado dela com mais precisão do que ela conseguiria</strong>. Não
+          "você sofre com melasma". Isso é genérico e é atributo pessoal. Mas sim:
+        </p>
+<p>
+<em>"Tem um momento específico que quase ninguém comenta: é quando alguém tira uma foto e você
+          já sabe, antes de olhar, que vai querer apagar."</em>
+</p>
+<p>
+          Repare no que essa frase faz: nomeia um estado com precisão cirúrgica, em terceira pessoa
+          impessoal, sem afirmar nada sobre quem está assistindo. Ela funciona porque é <em>específica
+          demais para ser genérica</em> — e a especificidade é o que sinaliza que você conhece o
+          território de verdade.
+        </p>
+</div>
+<div class="selo-box mito">
+<span class="selo mito">Mito</span>
+<p>
+<strong>"7% do que você comunica são as palavras, 38% o tom e 55% a linguagem corporal."</strong>
+</p>
+<p>
+          A regra 7-38-55 vem de dois estudos pequenos de Mehrabian nos anos 60, com um escopo
+          <em>extremamente</em> específico: julgamento de sentimentos de gosto/desgosto a partir de
+          <strong>palavras isoladas</strong> em contextos com sinais contraditórios. O próprio Mehrabian
+          declarou publicamente que a generalização para "toda comunicação" é inválida. Você não comunica
+          o mecanismo do melasma por 7% de palavras — o conteúdo semântico é praticamente 100% da mensagem.
+        </p>
+<p>
+<strong>Por que isso importa:</strong> quem acredita nos 7% conclui que roteiro não importa e
+          investe tudo em performance, luz e edição. Para você, cujo produto <em>é</em> a explicação, essa
+          conclusão é catastrófica. Presença importa — mas ela é o veículo, não a carga.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.8 — MEMÓRIA
+       ============================================================ -->
+<section class="sec reveal" id="s8">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.8</span><span></span></div>
+<h2>Memória</h2>
+<p class="sec-lede">
+          A decisão de te procurar acontece semanas depois do Reel. Ou seja: <strong>o único conteúdo que
+          converte é o conteúdo que foi lembrado.</strong> E quase nada é.
+        </p>
+</div>
+<p>
+        Esta seção é a mais negligenciada de todo curso de conteúdo — e é a que mais importa no seu modelo,
+        porque o seu ciclo de decisão é longo. Um Reel visto hoje precisa sobreviver até a semana em que
+        ela finalmente decide agir. Se ele não sobreviveu na memória, ele não existiu.
+      </p>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+<strong>Curva do esquecimento</strong>: a retenção de material novo cai de forma acentuada nas
+          primeiras horas e dias, e depois estabiliza em um patamar baixo. O formato aproximadamente
+          exponencial foi replicado inúmeras vezes desde o trabalho original — inclusive em uma replicação
+          direta em 2015.
+        </p>
+<p class="cit">
+<b>Ebbinghaus, H. (1885).</b> <em>Über das Gedächtnis.</em> · Replicação:
+          <b>Murre, J. M. J. &amp; Dros, J. (2015).</b> <em>Replication and analysis of Ebbinghaus'
+          forgetting curve.</em> PLoS ONE, 10(7).
+        </p>
+</div>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+<strong>Níveis de processamento</strong>: o que determina a durabilidade de uma memória não é o
+          tempo de exposição nem a repetição mecânica, mas a <em>profundidade</em> do processamento.
+          Processar pelo significado ("essa palavra se encaixa nesta frase?") produz retenção muito
+          superior a processar pela forma ("essa palavra está em maiúscula?") — mesmo com tempo de exposição
+          idêntico.
+        </p>
+<p class="cit">
+<b>Craik, F. I. M. &amp; Lockhart, R. S. (1972).</b> <em>Levels of processing: A framework for
+          memory research.</em> Journal of Verbal Learning and Verbal Behavior, 11(6), 671–684. ·
+          <b>Craik, F. I. M. &amp; Tulving, E. (1975).</b> <em>Depth of processing and the retention of words
+          in episodic memory.</em> JEP: General, 104(3).
+        </p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>A implicação que reorganiza tudo</span>
+</div>
+<p>
+          Se profundidade de processamento &gt; tempo de exposição, então <strong>um Reel de 25 segundos
+          que faz ela pensar vale mais, na memória, que um de 90 segundos que ela assiste passivamente</strong>
+          — mesmo que a métrica de tempo de exibição diga o contrário. A plataforma mede exposição. A
+          decisão de compra depende de codificação. <em>São variáveis diferentes, e você é remunerada pela
+          segunda.</em>
+</p>
+</div>
+<h3>Salvamento não é lembrança</h3>
+<div class="selo-box mito">
+<span class="selo mito">Mito</span>
+<p>
+<strong>"Salvamento é a métrica mais importante — significa que ela vai voltar."</strong>
+</p>
+<p>
+          Salvar é um ato de <strong>terceirização cognitiva</strong>: "não preciso processar isso agora
+          porque posso recuperar depois". Existe literatura consistente mostrando que a expectativa de ter
+          acesso externo a uma informação <em>piora</em> a memória para o conteúdo dela — as pessoas passam
+          a lembrar de <em>onde</em> encontrar, não do <em>quê</em>. É o chamado efeito Google.
+        </p>
+<p class="cit">
+<b>Sparrow, B., Liu, J. &amp; Wegner, D. M. (2011).</b> <em>Google effects on memory: cognitive
+          consequences of having information at our fingertips.</em> Science, 333(6043), 776–778. ·
+          <b>Ressalva:</b> este achado passou por escrutínio de replicação na última década com resultados
+          mistos. Não é o achado mais sólido da lista. Estou apresentando com essa ressalva explícita.
+        </p>
+<p>
+<strong>Para você, na prática:</strong> salvamento é um bom sinal para o algoritmo e um sinal
+          ambíguo para conversão. Uma pasta de salvos é um cemitério. Se o seu conteúdo é salvo e nunca
+          gera conversa, você não tem sucesso silencioso — você tem <em>adiamento</em>. Trate salvamento
+          como sinal de distribuição, não como sinal de intenção. Detalhamento no Módulo 7.5.
+        </p>
+</div>
+<h3>As quatro alavancas de codificação</h3>
+<p>
+        O que você <em>pode</em> fazer, com base no que se sustenta:
+      </p>
+<div class="acc" data-acc="">
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">01</span>Profundidade — faça ela processar o significado<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="selo ev">Evidência</span></button>
+<div class="acc-panel"><div class="acc-body">
+<p>Toda vez que você <em>explica um porquê</em>, você força processamento semântico. Toda vez que você <em>lista uma dica</em>, você permite processamento superficial.</p>
+<p><strong>"Use protetor solar"</strong> → processamento raso. Ela já sabe. Nada codifica.</p>
+<p><strong>"O protetor não impede o melasma de voltar porque o gatilho não é só o UV — é também o calor e a luz visível, e a maior parte dos protetores não bloqueia nenhum dos dois"</strong> → ela precisa integrar três informações novas com uma crença antiga. Isso é processamento profundo, e isso codifica.</p>
+<p><strong>Regra operacional:</strong> se o seu Reel pode ser resumido em uma lista de bullets sem perda, ele foi processado rasamente. A perda no resumo <em>é</em> a profundidade.</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">02</span>Espaçamento — repita ao longo do tempo, não dentro do vídeo<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="selo ev">Evidência</span></button>
+<div class="acc-panel"><div class="acc-body">
+<p>O <strong>efeito de espaçamento</strong> é um dos achados mais robustos e mais replicados de toda a psicologia: a mesma quantidade de exposição, distribuída no tempo, produz retenção muito maior que concentrada. Isso é verdade para praticamente todo tipo de material e todo intervalo testado.</p>
+<p class="cit"><b>Cepeda, N. J. et al. (2006).</b> <em>Distributed practice in verbal recall tasks: A review and quantitative synthesis.</em> Psychological Bulletin, 132(3), 354–380. — meta-análise de 254 estudos.</p>
+<p><strong>Tradução para o seu calendário:</strong> um Reel excelente que explica o mecanismo inteiro é <em>pior</em>, em termos de memória, que seis Reels ao longo de seis semanas que atacam o mesmo mecanismo por seis ângulos. Isso não é uma opinião sobre frequência de postagem. É uma consequência direta do achado mais robusto que existe sobre memória.</p>
+<p><strong>Consequência para o Módulo 8:</strong> o calendário de 90 dias não é uma lista de assuntos variados. É a <em>mesma ideia central</em>, espaçada e reencontrada.</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">03</span>Distintividade — seja o item estranho da lista<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="selo ev">Evidência</span></button>
+<div class="acc-panel"><div class="acc-body">
+<p>O <strong>efeito de isolamento</strong> (von Restorff): um item que difere dos demais em uma série é lembrado desproporcionalmente melhor. O efeito é da distintividade <em>relativa ao contexto</em>, não de qualquer propriedade absoluta do item.</p>
+<p class="cit"><b>von Restorff, H. (1933).</b> <em>Über die Wirkung von Bereichsbildungen im Spurenfeld.</em> Psychologische Forschung, 18. · Revisão: <b>Hunt, R. R. (1995).</b> <em>The subtlety of distinctiveness.</em> Psychonomic Bulletin &amp; Review, 2(1).</p>
+<p><strong>O ponto crucial — e quase todo mundo erra:</strong> "relativo ao contexto" significa relativo <em>ao feed dela</em>, não ao seu perfil. Se todo o nicho é mármore e dourado, o mármore e dourado <strong>não é distintivo</strong>, por definição — ele é a série. O item isolado seria o oposto: silêncio, um rosto, uma frase, sem trilha.</p>
+<p><strong>Conclusão desconfortável:</strong> o luxo silencioso não é apenas coerente com a sua marca. Ele é, neste feed específico, <em>a escolha mais distintiva disponível</em> — e portanto a mais memorável. A sobriedade é a estranheza.</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">04</span>Recuperação — faça ela lembrar, não faça ela ler<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="selo ev">Evidência</span></button>
+<div class="acc-panel"><div class="acc-body">
+<p>O <strong>efeito de teste</strong>: tentar recuperar uma informação da memória fortalece a memória dela mais do que reestudar a informação. E o efeito é maior em intervalos longos — exatamente o seu caso.</p>
+<p class="cit"><b>Roediger, H. L. &amp; Karpicke, J. D. (2006).</b> <em>Test-enhanced learning: Taking memory tests improves long-term retention.</em> Psychological Science, 17(3), 249–255.</p>
+<p><strong>Como usar em Reel:</strong> faça a pergunta antes de dar a resposta, e <em>deixe um silêncio real</em>. Não um silêncio de 0,2 s — um de 1,2 s. Nesse intervalo, ela tenta recuperar. A tentativa de recuperação — mesmo malsucedida — é o que codifica.</p>
+<p><strong>Por que quase ninguém faz:</strong> porque a pausa parece "tempo morto" e assusta quem foi treinado a cortar tudo. A pausa é a ferramenta de memória mais barata que existe, e o nicho inteiro a eliminou. Módulo 4.5.</p>
+</div></div>
+</div>
+</div>
+<div class="callout science">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M9 2v6L4.5 17a2 2 0 001.8 3h11.4a2 2 0 001.8-3L15 8V2M9 2h6M7 14h10"></path></svg>
+<span>O conflito entre memória e algoritmo</span>
+</div>
+<p>
+          Repare que três das quatro alavancas — pausa, profundidade, distintividade sóbria — reduzem
+          métricas de curto prazo que a plataforma premia. Pausa derruba retenção nos primeiros segundos.
+          Profundidade reduz alcance. Sobriedade perde para trend.
+        </p>
+<p>
+<strong>Isso não é um bug do seu plano: é a definição do seu jogo.</strong> Você não está
+          otimizando para alcance — está otimizando para que 40 mulheres certas lembrem de você em três
+          semanas. São funções-objetivo diferentes e frequentemente opostas. O Módulo 7.6 trata disso
+          diretamente, porque é a decisão estratégica mais importante que você vai tomar sobre o Instagram.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s8">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.9 — ANATOMIA DO ABANDONO
+       ============================================================ -->
+<section class="sec reveal" id="s9">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.9</span><span></span></div>
+<h2>Anatomia do abandono</h2>
+<p class="sec-lede">
+          Um Reel não é abandonado. Ele é abandonado <em>em um lugar específico, por um motivo
+          específico</em>. Existem seis, e cada um exige uma correção diferente — inclusive correções que
+          se contradizem entre si.
+        </p>
+</div>
+<p>
+        Esta é a seção mais operacional do módulo. A tese: "meu Reel tem retenção baixa" não é um
+        diagnóstico. É um sintoma que pode vir de seis doenças distintas, e o tratamento de uma
+        <strong>piora</strong> as outras. Quem não localiza o ponto de saída acaba cortando mais rápido um
+        vídeo que estava sendo abandonado por sobrecarga — e piora o problema tentando resolvê-lo.
+      </p>
+<div class="acc" data-acc="">
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">S1</span>Não passou o filtro pré-atentivo · 0–0,5 s<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>O que aconteceu:</strong> nada. Literalmente. O vídeo não foi visto — foi filtrado antes da atenção focal (seção 1.2). Não houve julgamento.</p>
+<p><strong>Como você identifica:</strong> queda vertical no primeiro segundo. Se a retenção em 1 s já está abaixo de ~55%, o problema está aqui, e nada do que vem depois importa.</p>
+<p><strong>Causa provável:</strong> primeiro quadro estático · sem rosto · sem movimento · baixo contraste · assinatura visual de "anúncio" (seção 1.3).</p>
+<p><strong>Correção:</strong> rosto no quadro 1, movimento nos primeiros 3 quadros, contraste com o fundo. Isso é engenharia, não estética.</p>
+<p><strong>Correção que PIORA:</strong> melhorar o roteiro. O roteiro nunca foi lido. Você vai reescrever seis vezes um texto que ninguém chegou a ouvir.</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">S2</span>"Não é sobre mim" · 0,5–3 s<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="selo prat">Prática</span></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>O que aconteceu:</strong> o filtro pré-atentivo passou, a atenção focal foi alocada, e o filtro semântico não encontrou marcador de relevância pessoal (seção 1.2). Custo: ~2 segundos dela, zero benefício seu.</p>
+<p><strong>Como você identifica:</strong> retenção em 1 s está OK (&gt;60%), e desaba entre 1 e 3 s.</p>
+<p><strong>Causa provável:</strong> a palavra-marcador chegou tarde demais. "Oi gente, hoje eu vim falar sobre um assunto..." é o caso clássico — o marcador aparece no segundo 4, e no segundo 4 não há mais ninguém.</p>
+<p><strong>Correção:</strong> mova o marcador para antes de 1,5 s. Corte o cumprimento. Corte a preparação. Comece pelo meio da frase, se preciso.</p>
+<p><strong>Correção que PIORA:</strong> adicionar mais energia, mais grito, mais corte. Isso ataca S1, não S2. Você vai ficar com um vídeo agitado que continua não sendo sobre ela.</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">S3</span>A promessa não avançou · 5–12 s<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="selo prat">Prática</span></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>O que aconteceu:</strong> o gancho abriu uma lacuna (seção 1.5) e os segundos seguintes não avançaram na direção de fechá-la. A curiosidade é aversiva; se ela percebe que a resolução não está vindo, sair é a forma mais rápida de resolver o desconforto.</p>
+<p><strong>Como você identifica:</strong> retenção boa até ~5 s, queda acentuada entre 5 e 12 s. É a assinatura clássica do <em>gancho bom, corpo ruim</em>.</p>
+<p><strong>Causa provável:</strong> contextualização longa depois do gancho. "...e antes de eu explicar, deixa eu contar como eu descobri isso" mata mais vídeos que qualquer outra frase.</p>
+<p><strong>Correção:</strong> a primeira informação nova precisa chegar antes de 8 s. Não a explicação completa — <em>uma</em> informação que prove que a lacuna está sendo endereçada.</p>
+<p><strong>Correção que PIORA:</strong> abrir uma segunda lacuna para "prender mais". Isso empilha dívida sem pagar nenhuma. É como o clickbait funciona, e é como a confiança morre.</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">S4</span>Sobrecarga cognitiva · 10–25 s<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="selo ev">Evidência</span></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>O que aconteceu:</strong> o orçamento de memória de trabalho estourou (seção 1.3). Ela não discordou nem se entediou — <em>parou de conseguir acompanhar</em>. E a sensação subjetiva disso não é "que difícil", é "que chato", o que faz você diagnosticar errado.</p>
+<p><strong>Como você identifica:</strong> declive constante e acentuado no miolo, sem um ponto único de queda. A curva "escorrega" em vez de cair.</p>
+<p><strong>Causa provável:</strong> três termos técnicos em 15 s · texto na tela competindo com a fala · trilha alta · corte rápido demais para o assunto.</p>
+<p><strong>Correção:</strong> uma ideia por Reel. Um termo técnico por Reel, e ele precisa ser <em>definido</em>. Reduza a carga estranha antes de reduzir a intrínseca — não simplifique a ciência, simplifique a embalagem.</p>
+<p><strong>Correção que PIORA:</strong> acelerar. É a reação instintiva de todo editor e é exatamente o contrário do necessário. Sobrecarga se resolve com <em>menos</em>, não com mais rápido.</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">S5</span>Quebra de confiança · qualquer momento<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="selo prat">Prática</span></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>O que aconteceu:</strong> uma frase disparou o classificador interno de "isso é venda". A partir daí, tudo que você disser é reinterpretado como argumento comercial — inclusive o que era verdade.</p>
+<p><strong>Como você identifica:</strong> queda abrupta em um ponto único, no meio de um vídeo que ia bem. É a única saída que produz um <em>degrau</em> na curva, não uma inclinação. Se você vê um degrau, vá ao segundo exato e ouça a frase.</p>
+<p><strong>Gatilhos típicos:</strong> uma promessa ("em 30 dias") · um superlativo ("o único tratamento que realmente funciona") · desqualificar colegas · o preço aparecer sem contexto · um "corre pro link" no meio.</p>
+<p><strong>Correção:</strong> localize o segundo exato e reescreva aquela frase. Uma frase. Não o vídeo.</p>
+<p><strong>Correção que PIORA:</strong> adicionar prova social ou credencial para "compensar". Isso confirma a suspeita — quem está se defendendo é quem estava vendendo. Módulo 3.7 trata disso a fundo.</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">S6</span>O CTA que empurra · últimos 5 s<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="selo prat">Prática</span></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>O que aconteceu:</strong> ela assistiu quase tudo, entendeu, gostou — e você terminou pedindo. O último estado emocional que ela leva embora é <em>"estavam me vendendo desde o começo"</em>, e esse estado reinterpreta retroativamente o vídeo inteiro.</p>
+<p><strong>Como você identifica:</strong> retenção alta que despenca exatamente quando o CTA começa. Também aparece como taxa de rewatch baixa em um vídeo com boa retenção — ninguém revê um pedido.</p>
+<p><strong>Por que importa mais do que parece:</strong> os últimos segundos têm peso desproporcional na avaliação global. O efeito de recência não é folclore.</p>
+<p><strong>Correção:</strong> termine no conteúdo, não no pedido. O CTA em saúde premium é uma <em>oferta de continuidade</em>, não uma convocação: "se isso fez sentido, o próximo passo natural é entender qual é o seu caso" &gt;&gt; "chama no direct!". Módulo 4.10 tem os 6 tipos.</p>
+<p><strong>Correção que PIORA:</strong> tirar o CTA completamente. Aí você tem conteúdo que educa a concorrência. O problema não é pedir — é a <em>forma</em> e o <em>lugar</em>.</p>
+</div></div>
+</div>
+</div>
+<div class="callout danger">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Por que "meu Reel não performa" é uma frase inútil</span>
+</div>
+<p>
+          Repare nas correções que <strong>pioram</strong>. Elas não são aleatórias: cada uma é a correção
+          <em>certa</em> para uma outra saída. Acelerar corrige S3 e destrói S4. Adicionar energia corrige
+          S1 e destrói S2. Adicionar credencial corrige uma dúvida legítima e destrói S5.
+        </p>
+<p>
+<strong>É por isso que localizar o segundo do abandono vale mais que qualquer conselho genérico
+          sobre retenção.</strong> Sem o segundo, você está escolhendo entre seis tratamentos no escuro,
+          com 5/6 de chance de piorar. Use o laboratório abaixo.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s9">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.10 — ANATOMIA DA RETENÇÃO · LABORATÓRIO
+       ============================================================ -->
+<section class="sec reveal" id="s10">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.10</span><span></span></div>
+<h2>Anatomia da retenção</h2>
+<p class="sec-lede">
+          O mesmo conteúdo, o mesmo assunto, a mesma pessoa — duas construções. Arraste pela linha do tempo
+          e veja o que acontece em cada segundo, e por quê.
+        </p>
+</div>
+<p>
+        As duas curvas abaixo representam Reels sobre <strong>o mesmo tema</strong> (por que o melasma
+        volta), com a mesma duração e a mesma informação. A diferença é inteiramente de arquitetura — as
+        seções 1.1 a 1.9 aplicadas, ou não.
+      </p>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Sobre os números deste gráfico:</strong> as curvas são <em>ilustrativas</em>, construídas
+          para ensinar a leitura de forma, não medidas dos seus Reels nem médias de mercado. As formas — a
+          queda vertical do primeiro segundo, o degrau da quebra de confiança, o escorregamento da
+          sobrecarga — são o que você deve aprender a reconhecer. Os valores absolutos, não. Quando você
+          abrir os seus próprios dados, compare <strong>formatos de curva</strong>, nunca porcentagens com
+          as daqui.
+        </p>
+</div>
+<!-- LABORATÓRIO -->
+<div class="lab" id="lab">
+<div class="lab-head">
+<h4>Laboratório · Curva de retenção</h4>
+<div class="lab-legend">
+<span><i class="lab-swatch good"></i> Arquitetado</span>
+<span><i class="lab-swatch bad"></i> Padrão do nicho</span>
+</div>
+</div>
+<div class="lab-chart" id="labChart">
+<svg aria-label="Gráfico interativo comparando a curva de retenção de dois Reels ao longo de 45 segundos" id="labSvg" role="img" viewbox="0 0 660 260">
+<!-- grade e eixos desenhados pelo JS em #labStatic -->
+<g id="labStatic"></g>
+<path class="lab-area" id="labArea"></path>
+<path class="lab-curve-bad" id="labBad"></path>
+<path class="lab-curve-good" id="labGood"></path>
+<g id="labMarks"></g>
+<line class="lab-scrub" id="labScrub" y1="16" y2="216"></line>
+<circle class="lab-dot-bad" id="labDotBad" r="4"></circle>
+<circle class="lab-dot-good" id="labDotGood" r="4.5"></circle>
+</svg>
+</div>
+<div class="lab-foot">
+<input aria-label="Segundo do vídeo" class="lab-slider" id="labSlider" max="45" min="0" step="1" type="range" value="0"/>
+<p class="lab-hint">Arraste o controle, clique no gráfico, ou use as setas do teclado.</p>
+</div>
+<div aria-live="polite" class="lab-readout">
+<div class="lab-time">
+<div class="lab-time-n" id="labTime">0s</div>
+<div class="lab-time-l" id="labPhase">Quadro 1</div>
+<div class="lab-pcts">
+<span class="lab-pct good" id="labPctGood">100%</span>
+<span class="lab-pct bad" id="labPctBad">100%</span>
+</div>
+</div>
+<div class="lab-desc">
+<h5 id="labTitle">O filtro pré-atentivo</h5>
+<p id="labGoodTxt"></p>
+<p id="labBadTxt"></p>
+<p class="lab-risk" id="labRisk"></p>
+</div>
+</div>
+</div>
+<h3>O que ler em uma curva</h3>
+<p>
+        Três formatos, três diagnósticos. Este é o vocabulário que você vai usar toda semana no Módulo 8.9:
+      </p>
+<div class="grid grid-3">
+<div class="card">
+<div class="card-kicker">Formato 01</div>
+<h4>Penhasco</h4>
+<p>Queda vertical no primeiro segundo. <strong>Filtro pré-atentivo</strong> (S1). O vídeo não foi visto. Conserte o quadro 1 — o roteiro é irrelevante aqui.</p>
+</div>
+<div class="card">
+<div class="card-kicker">Formato 02</div>
+<h4>Degrau</h4>
+<p>Curva estável que cai de uma vez, num ponto só. <strong>Quebra de confiança</strong> (S5). Vá ao segundo exato e ouça a frase. É sempre uma frase.</p>
+</div>
+<div class="card">
+<div class="card-kicker">Formato 03</div>
+<h4>Escorregador</h4>
+<p>Declive constante, sem ponto de quebra. <strong>Sobrecarga</strong> (S4). Tire elementos. Não acelere — acelerar é o instinto errado.</p>
+</div>
+</div>
+<div class="callout win">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg>
+<span>O sinal que vale mais que retenção</span>
+</div>
+<p>
+          Se a curva <strong>sobe</strong> em algum ponto, você tem rewatch: pessoas voltando para ver algo
+          de novo. Isso costuma indicar que ali existe uma informação densa o suficiente para exigir uma
+          segunda passagem — e material que exige releitura é material que foi processado profundamente
+          (seção 1.8).
+        </p>
+<p>
+<strong>Não persiga esse pico artificialmente</strong> escondendo informação para forçar o replay
+          — isso é a versão em vídeo do clickbait, e cobra o mesmo preço. Mas quando ele aparecer
+          naturalmente, marque o segundo e entenda o que você fez ali. Aquilo é o seu ativo.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s10">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.11 — O FUNIL ATENCIONAL
+       ============================================================ -->
+<section class="sec reveal" id="s11">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.11</span><span></span></div>
+<h2>O funil atencional completo</h2>
+<p class="sec-lede">
+          Tudo que veio antes, em um diagrama. Do estímulo no feed até a mensagem no WhatsApp — com o
+          mecanismo, o tempo e a taxa de sobrevivência de cada porta.
+        </p>
+</div>
+<div class="figure">
+<div class="figure-frame">
+<svg aria-label="Diagrama completo do funil atencional com sete portas, do estímulo no feed até a conversa no WhatsApp" role="img" viewbox="0 0 720 620">
+<defs>
+<marker id="arrF" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3">
+<path d="M0,0 L6,3 L0,6" fill="none" stroke="var(--gold)" stroke-width="1"></path>
+</marker>
+<marker id="arrX" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3">
+<path d="M0,0 L6,3 L0,6" fill="none" stroke="var(--err)" stroke-width="1"></path>
+</marker>
+</defs>
+<text class="svg-t-sm" x="14" y="18">PORTA</text>
+<text class="svg-t-sm" x="286" y="18">MECANISMO</text>
+<text class="svg-t-sm" x="470" y="18">TEMPO</text>
+<text class="svg-t-sm" x="560" y="18">SAI AQUI</text>
+<!-- P1 -->
+<rect class="svg-node-gold" height="44" rx="3" width="250" x="14" y="30"></rect>
+<text class="svg-t-gold" x="26" y="48">1 · Filtro pré-atentivo</text>
+<text class="svg-t-sm" x="26" y="64">COR · MOVIMENTO · CONTRASTE · ROSTO</text>
+<text class="svg-t-sm" x="286" y="56">TREISMAN 1980 · § 1.2</text>
+<text class="svg-t-sm" x="470" y="56">~250 MS</text>
+<text class="svg-t-err" x="560" y="56">S1 — NÃO FOI VISTO</text>
+<path class="svg-line-gold" d="M139 74 V96" marker-end="url(#arrF)"></path>
+<path class="svg-line-err" d="M264 52 H548" marker-end="url(#arrX)"></path>
+<!-- P2 -->
+<rect class="svg-node" height="44" rx="3" width="250" x="14" y="102"></rect>
+<text class="svg-t" x="26" y="120">2 · Filtro semântico</text>
+<text class="svg-t-sm" x="26" y="136">"ISSO É SOBRE MIM?" · MARCADOR</text>
+<text class="svg-t-sm" x="286" y="128">CHERRY 1953 · § 1.2</text>
+<text class="svg-t-sm" x="470" y="128">~1 S</text>
+<text class="svg-t-err" x="560" y="128">S2 — IRRELEVANTE</text>
+<path class="svg-line-gold" d="M139 146 V168" marker-end="url(#arrF)"></path>
+<path class="svg-line-err" d="M264 124 H548" marker-end="url(#arrX)"></path>
+<!-- P3 -->
+<rect class="svg-node" height="44" rx="3" width="250" x="14" y="174"></rect>
+<text class="svg-t" x="26" y="192">3 · Categorização</text>
+<text class="svg-t-sm" x="26" y="208">"ISSO É ANÚNCIO?" · CEGUEIRA DE PADRÃO</text>
+<text class="svg-t-sm" x="286" y="200">BENWAY 1998 · § 1.3</text>
+<text class="svg-t-sm" x="470" y="200">~500 MS</text>
+<text class="svg-t-err" x="560" y="200">S2 — FILTRADO</text>
+<path class="svg-line-gold" d="M139 218 V240" marker-end="url(#arrF)"></path>
+<path class="svg-line-err" d="M264 196 H548" marker-end="url(#arrX)"></path>
+<!-- P4 -->
+<rect class="svg-node" height="44" rx="3" width="250" x="14" y="246"></rect>
+<text class="svg-t" x="26" y="264">4 · Abertura da lacuna</text>
+<text class="svg-t-sm" x="26" y="280">CURIOSIDADE · ERRO DE PREVISÃO</text>
+<text class="svg-t-sm" x="286" y="272">LOEWENSTEIN 1994 · § 1.5, 1.6</text>
+<text class="svg-t-sm" x="470" y="272">2–5 S</text>
+<text class="svg-t-err" x="560" y="272">S3 — NÃO AVANÇOU</text>
+<path class="svg-line-gold" d="M139 290 V312" marker-end="url(#arrF)"></path>
+<path class="svg-line-err" d="M264 268 H548" marker-end="url(#arrX)"></path>
+<!-- P5 -->
+<rect class="svg-node" height="44" rx="3" width="250" x="14" y="318"></rect>
+<text class="svg-t" x="26" y="336">5 · Memória de trabalho</text>
+<text class="svg-t-sm" x="26" y="352">~4 UNIDADES · CARGA ESTRANHA</text>
+<text class="svg-t-sm" x="286" y="344">SWELLER 1988 · COWAN 2001 · § 1.3</text>
+<text class="svg-t-sm" x="470" y="344">5–40 S</text>
+<text class="svg-t-err" x="560" y="344">S4 — SOBRECARGA</text>
+<path class="svg-line-gold" d="M139 362 V384" marker-end="url(#arrF)"></path>
+<path class="svg-line-err" d="M264 340 H548" marker-end="url(#arrX)"></path>
+<!-- P6 -->
+<rect class="svg-node" height="44" rx="3" width="250" x="14" y="390"></rect>
+<text class="svg-t" x="26" y="408">6 · Julgamento de confiança</text>
+<text class="svg-t-sm" x="26" y="424">"ELA ESTÁ ME VENDENDO?"</text>
+<text class="svg-t-sm" x="286" y="416">MÓDULO 3 INTEIRO</text>
+<text class="svg-t-sm" x="470" y="416">CONTÍNUO</text>
+<text class="svg-t-err" x="560" y="416">S5 · S6</text>
+<path class="svg-line-gold" d="M139 434 V456" marker-end="url(#arrF)"></path>
+<path class="svg-line-err" d="M264 412 H548" marker-end="url(#arrX)"></path>
+<!-- P7 -->
+<rect class="svg-node-gold" height="44" rx="3" width="250" x="14" y="462"></rect>
+<text class="svg-t-gold" x="26" y="480">7 · Codificação na memória</text>
+<text class="svg-t-sm" x="26" y="496">PROFUNDIDADE · ESPAÇAMENTO · DISTINTIVIDADE</text>
+<text class="svg-t-sm" x="286" y="488">CRAIK &amp; LOCKHART 1972 · § 1.8</text>
+<text class="svg-t-sm" x="470" y="488">DIAS</text>
+<text class="svg-t-err" x="560" y="488">ESQUECIMENTO</text>
+<path class="svg-line-gold" d="M139 506 V528" marker-end="url(#arrF)"></path>
+<path class="svg-line-err" d="M264 484 H548" marker-end="url(#arrX)"></path>
+<!-- Saída -->
+<rect class="svg-node-ok" height="50" rx="3" width="250" x="14" y="534"></rect>
+<text class="svg-t-ok" x="26" y="554">▲ CONVERSA NO WHATSAPP</text>
+<text class="svg-t-sm" x="26" y="572">3 A 12 SEMANAS DEPOIS · SISTEMA 2 · § 1.4</text>
+<!-- Nota lateral -->
+<line class="svg-line" x1="470" x2="470" y1="534" y2="584"></line>
+<text class="svg-t-sm" x="484" y="550">SETE PORTAS EM SÉRIE.</text>
+<text class="svg-t-sm" x="484" y="564">A TAXA FINAL É O PRODUTO</text>
+<text class="svg-t-sm" x="484" y="578">DAS SETE — NÃO A SOMA.</text>
+<text class="svg-t-sm" x="14" y="606">NENHUMA PORTA COMPENSA OUTRA. UM ROTEIRO GENIAL NÃO SALVA UM QUADRO 1 RUIM.</text>
+</svg>
+</div>
+<p class="figure-cap">
+<b>Figura 1.11.1</b> — O funil atencional integrado. Repare que as três primeiras portas somam
+          menos de 2 segundos e decidem tudo. Repare também que a última porta — codificação — opera
+          <em>depois</em> do vídeo acabar, e que ela é a única que separa "assistiu" de "vai te procurar".
+          O Módulo 4 é a engenharia das portas 1 a 6; o Módulo 8, a engenharia da porta 7.
+        </p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>A conexão com o Curso 1</span>
+</div>
+<p>
+          Se você fez o Módulo 1 do <em>Sistema de Aquisição de Pacientes Premium</em>, esta figura deve
+          parecer familiar — e não é coincidência. Lá, o funil comercial era o produto de sete taxas. Aqui,
+          o funil atencional é o produto de sete portas. <strong>É a mesma estrutura matemática em outra
+          escala.</strong>
+</p>
+<p>
+          A consequência é idêntica e vale repetir: não existe a tática que muda tudo. Existem sete
+          melhorias pequenas que se multiplicam. Quem procura o gancho mágico está procurando um
+          multiplicador único num sistema que só tem multiplicadores fracionários.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s11">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.12 — RESUMO E EXERCÍCIOS
+       ============================================================ -->
+<section class="sec reveal" id="s12">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.12</span><span></span></div>
+<h2>Resumo executivo</h2>
+<p class="sec-lede">
+          Dez ideias. Elas são a fundação dos oito módulos seguintes — especialmente do Módulo 5, que é
+          inteiramente uma aplicação das seções 1.2, 1.5 e 1.6.
+        </p>
+</div>
+<div class="summary">
+<h3>As dez ideias do Módulo 1</h3>
+<ol>
+<li><b>A atenção não está livre esperando ser conquistada.</b> Ela está totalmente alocada, e o cérebro descarta ~99,999% do que entra. A pergunta não é "como chamo atenção" — é "por que o cérebro dela não deveria me descartar".</li>
+<li><b>Existem duas portas antes da consciência.</b> A pré-atentiva (~250 ms) julga cor, movimento, contraste e rosto — não conteúdo. A semântica (~1 s) julga relevância pessoal. O seu primeiro quadro é engenharia, não estética.</li>
+<li><b>"Melasma" funciona como um nome próprio para quem tem melasma.</b> A palavra-marcador atravessa o filtro sozinha. Ela precisa chegar antes de 1,5 s — e sem atribuir a condição a quem assiste, ou vira problema de política.</li>
+<li><b>Os 8 segundos de atenção não existem.</b> O que existe é tolerância zero à irrelevância. Se for relevante, ela assiste 90 s. Se não, você nunca teve 8 segundos — teve 0,4.</li>
+<li><b>A memória de trabalho tem ~4 unidades, e a decoração consome as mesmas unidades da sua explicação.</b> Luxo silencioso não é escolha estética no seu caso: é requisito funcional, porque a sua mensagem é cara de processar.</li>
+<li><b>Quem para o scroll não é quem decide gastar R$4.000.</b> O S1 abre a porta em 0,4 s; o S2 decide em 3 a 12 semanas. O Reel não vende — ele compra o direito de falar com a instância que decide.</li>
+<li><b>Curiosidade é a lacuna entre o que ela sabe e o que quer saber</b> — e é aversiva, não prazerosa. A paciente de melasma já está na zona ótima; a de desinflamação não sabe que existe lacuna. São trabalhos diferentes.</li>
+<li><b>A lacuna honesta constrói autoridade; a artificial gasta confiança.</b> O teste: essa lacuna existiria se eu não estivesse tentando prender atenção?</li>
+<li><b>Conteúdo correto e previsível é indistinguível de conteúdo inexistente.</b> A zona é: âncora familiar + violação de expectativa + razão. Sem a razão, é provocação. Com ela, é autoridade.</li>
+<li><b>Só converte o que foi lembrado.</b> Profundidade, espaçamento, distintividade e recuperação — e três dessas quatro alavancas <em>reduzem</em> métricas de curto prazo. Isso não é um bug do plano: é a definição do jogo.</li>
+</ol>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 1</h4>
+<span class="check-count" id="upCheckCount">0 / 40</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Auditoria dos seus Reels atuais</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Abri os <b>10 últimos Reels</b> e anotei a retenção em 1 s, 3 s e no fim</span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Classifiquei cada curva em <b>penhasco · degrau · escorregador</b></span></label>
+<label class="ci"><input data-ck="a3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Para cada Reel, identifiquei a <b>saída dominante</b> (S1 a S6)</span></label>
+<label class="ci"><input data-ck="a4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Nos casos de <b>degrau</b>, fui ao segundo exato e transcrevi a frase</span></label>
+<label class="ci"><input data-ck="a5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Cronometrei em quantos segundos a <b>palavra-marcador</b> aparece em cada um</span></label>
+<label class="ci"><input data-ck="a6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Contei quantos deles abrem com <b>"oi gente"</b> ou equivalente</span></label>
+<div class="check-group">B · Porta 1 — filtro pré-atentivo</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Todo Reel novo tem <b>rosto no primeiro quadro</b></span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Todo Reel novo tem <b>movimento nos primeiros 3 quadros</b></span></label>
+<label class="ci"><input data-ck="b3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Verifiquei o <b>contraste sujeito × fundo</b> — nada de bege sobre bege</span></label>
+<label class="ci"><input data-ck="b4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Eliminei <b>cards de texto estáticos</b> como primeiro quadro</span></label>
+<label class="ci"><input data-ck="b5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Rodei o <b>teste do celular alheio</b> (§1.3) e ela lembrou de ter visto</span></label>
+<div class="check-group">C · Porta 2 — relevância</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini a <b>palavra-marcador</b> do Melasma e ela entra antes de 1,5 s</span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini a <b>palavra-marcador</b> da Desinflamação — sabendo que ela é mais fraca</span></label>
+<label class="ci"><input data-ck="c3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Nenhuma abertura <b>atribui a condição</b> a quem assiste ("você tem...")</span></label>
+<label class="ci"><input data-ck="c4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Reescrevi minhas 5 aberturas mais usadas em <b>terceira pessoa impessoal</b></span></label>
+<div class="check-group">D · Porta 3 — categorização</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Auditei meus criativos contra a <b>tabela de assinaturas de "anúncio"</b> (§1.3)</span></label>
+<label class="ci"><input data-ck="d2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Eliminei <b>mármore + dourado + toalha</b> como linguagem visual padrão</span></label>
+<label class="ci"><input data-ck="d3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Eliminei <b>trilha de "música corporativa"</b></span></label>
+<label class="ci"><input data-ck="d4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Rolei 30 Reels do meu nicho e listei os <b>5 padrões visuais saturados</b></span></label>
+<div class="check-group">E · Porta 4 — lacuna e previsão</div>
+<label class="ci"><input data-ck="e1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Apliquei o <b>teste da lacuna honesta</b> nos meus 10 últimos ganchos</span></label>
+<label class="ci"><input data-ck="e2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Identifiquei quais eram <b>clickbait com verniz</b> — e admiti isso</span></label>
+<label class="ci"><input data-ck="e3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Escrevi <b>5 frases</b> na estrutura âncora + violação + razão</span></label>
+<label class="ci"><input data-ck="e4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Testei cada uma com: <b>eu defenderia isso na frente de um colega?</b></span></label>
+<label class="ci"><input data-ck="e5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Garanti que a <b>primeira informação nova</b> chega antes de 8 s</span></label>
+<div class="check-group">F · Porta 5 — carga cognitiva</div>
+<label class="ci"><input data-ck="f1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Regra instalada: <b>uma ideia por Reel</b></span></label>
+<label class="ci"><input data-ck="f2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Regra instalada: <b>um termo técnico por Reel</b>, e ele é definido</span></label>
+<label class="ci"><input data-ck="f3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Baixei o volume da trilha ou <b>removi</b> nos vídeos de mecanismo</span></label>
+<label class="ci"><input data-ck="f4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Eliminei <b>texto na tela que compete com a fala</b> (mesma informação, dois canais)</span></label>
+<label class="ci"><input data-ck="f5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Listei minha <b>carga estranha</b> recorrente: emoji, zoom, transição, efeito</span></label>
+<div class="check-group">G · Portas 6 e 7 — confiança e memória</div>
+<label class="ci"><input data-ck="g1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Nenhum Reel meu contém <b>promessa de prazo ou resultado</b></span></label>
+<label class="ci"><input data-ck="g2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Nenhum Reel meu <b>desqualifica colegas</b> ou outras abordagens</span></label>
+<label class="ci"><input data-ck="g3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Meus CTAs <b>oferecem continuidade</b> em vez de pedir ação</span></label>
+<label class="ci"><input data-ck="g4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Nenhum Reel <b>termina no pedido</b> — termina no conteúdo</span></label>
+<label class="ci"><input data-ck="g5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Instalei pelo menos uma <b>pausa de 1 s ou mais</b> antes de uma resposta</span></label>
+<label class="ci"><input data-ck="g6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Escolhi <b>uma ideia central</b> para repetir espaçadamente por 6 semanas</span></label>
+<label class="ci"><input data-ck="g7" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Parei de tratar <b>salvamento</b> como sinal de intenção</span></label>
+<div class="check-group">H · Higiene intelectual</div>
+<label class="ci"><input data-ck="h1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei distinguir, no meu próprio discurso, <b>evidência de inferência de prática</b></span></label>
+<label class="ci"><input data-ck="h2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Removi da minha comunicação os <b>6 mitos</b> derrubados neste módulo</span></label>
+<label class="ci"><input data-ck="h3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Nunca cito <b>"estudos mostram"</b> sem saber qual estudo</span></label>
+<label class="ci"><input data-ck="h4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Entendi que <b>três das quatro alavancas de memória pioram métricas de vaidade</b> — e aceitei isso</span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>
+        Responda de cabeça, sem voltar ao texto. Se travar em três ou mais, releia antes de seguir — o
+        Módulo 2 assume tudo isso como dado.
+      </p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">Por que a pergunta "como eu chamo atenção?" leva a decisões erradas? Qual é a pergunta correta e o que muda na prática?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">Qual é a diferença entre um Reel que foi <em>rejeitado</em> e um que foi <em>descartado</em>? Por que isso muda o que você conserta?</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">Explique por que "melasma" atravessa o filtro atencional sozinho — e por que "você tem melasma?" é um problema apesar de funcionar cognitivamente.</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">A afirmação dos "8 segundos de atenção" é falsa. O que é verdade no lugar dela, e por que a diferença importa para as suas decisões de edição?</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">O que é carga estranha? Cite três elementos que você usa hoje e que são carga estranha pura.</p></div>
+<div class="qa-item"><span class="qa-n">6</span><p class="qa-q">Por que um Reel que só agrada o Sistema 1 pode ter métricas excelentes e gerar zero conversa?</p></div>
+<div class="qa-item"><span class="qa-n">7</span><p class="qa-q">Por que a paciente de desinflamação é mais difícil de alcançar que a de melasma? Use a curva em U invertida na resposta.</p></div>
+<div class="qa-item"><span class="qa-n">8</span><p class="qa-q">Qual é o teste que separa uma lacuna honesta de um clickbait? Aplique nos seus dois últimos ganchos.</p></div>
+<div class="qa-item"><span class="qa-n">9</span><p class="qa-q">Por que, neste feed específico, o luxo silencioso é a escolha <em>mais distintiva</em> disponível? Que efeito de memória sustenta isso?</p></div>
+<div class="qa-item"><span class="qa-n">10</span><p class="qa-q">Você tem um Reel com curva em degrau aos 19 s. Qual é o diagnóstico, qual é a correção, e qual correção pioraria?</p></div>
+</div>
+<h3>Exercícios práticos</h3>
+<p>Cinco exercícios. Respostas salvas neste navegador.</p>
+<div class="ex">
+<div class="ex-tag">Exercício 1 · ~40 min</div>
+<h4>Autópsia de curva</h4>
+<p>Abra os 10 últimos Reels. Para cada um: anote retenção em 1 s e 3 s, classifique a forma (penhasco / degrau / escorregador) e atribua uma saída (S1–S6). Depois responda: qual saída é a <em>sua</em> dominante?</p>
+<textarea data-ex="ex1" placeholder="Reel 1 — 1s: __% · 3s: __% · forma: ___ · saída: S_
+Reel 2 — ...
+
+Minha saída dominante é ___ , o que significa que o meu problema é ___"></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 2 · ~25 min</div>
+<h4>O cronômetro do marcador</h4>
+<p>Nos mesmos 10 Reels, cronometre em que segundo a palavra-marcador aparece. Calcule a mediana. Depois reescreva as 3 piores aberturas colocando o marcador antes de 1,5 s — sem atribuir a condição a quem assiste.</p>
+<textarea data-ex="ex2" placeholder="Mediana atual: ___ s
+
+Reescrita 1: antes → depois
+Reescrita 2:
+Reescrita 3:"></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 3 · ~30 min</div>
+<h4>Cinco violações defensáveis</h4>
+<p>Escreva 5 frases na estrutura <b>âncora familiar + violação de expectativa + razão</b> — 3 de Melasma, 2 de Desinflamação. Depois aplique o teste: você defenderia cada uma na frente de um colega da sua área? Marque as que não passam e conserte.</p>
+<textarea data-ex="ex3" placeholder="1. [âncora] ... [violação] ... [razão] ...
+   Defensável? S/N — por quê:
+
+2. ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 4 · ~20 min</div>
+<h4>Inventário de carga estranha</h4>
+<p>Assista a um Reel seu <b>sem som</b>, depois <b>só o som</b>. Liste tudo que compete com a mensagem: texto redundante com a fala, trilha, efeito, emoji, corte, zoom. Para cada item pergunte: isso adiciona informação, ou só ocupa memória de trabalho?</p>
+<textarea data-ex="ex4" placeholder="Elemento — adiciona informação? — manter/cortar
+1.
+2.
+3.
+
+Total cortado: ___"></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 5 · ~35 min</div>
+<h4>A ideia que se repete</h4>
+<p>Escolha <b>uma</b> ideia central por protocolo — a mais importante que você quer que fique na memória dela. Depois liste 6 ângulos diferentes de atacar a mesma ideia, um por semana. Isso é o efeito de espaçamento aplicado, e é o esqueleto do seu Módulo 8.</p>
+<textarea data-ex="ex5" placeholder="MELASMA — ideia central: ...
+  Sem 1 (ângulo):
+  Sem 2:
+  ...
+
+DESINFLAMAÇÃO — ideia central: ...
+  Sem 1:
+  ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Módulo 2</h4>
+<span class="check-count" id="upDoneCount">0 / 7</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>12 seções</b> e usei o laboratório da 1.10</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Consigo <b>nomear as 7 portas</b> do funil atencional de cabeça</span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei qual é a <b>minha saída dominante</b> (S1–S6) e por quê</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei distinguir <b>evidência · inferência · prática · mito</b> no que eu leio</span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Respondi as <b>10 perguntas</b> de autoavaliação sem consultar</span></label>
+<label class="ci"><input data-dk="k6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">O <b>checklist de implementação</b> está acima de 60%</span></label>
+<label class="ci"><input data-dk="k7" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz os <b>5 exercícios</b> — de verdade, não mentalmente</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s12">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ========== NAVEGAÇÃO DE MÓDULO ========== -->
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>
+/* ====================================================
+   JS EXCLUSIVO DESTE MÓDULO
+   Roda depois do Platform.init, via onReady.
+   ==================================================== */
+function moduleReady(){
+"use strict";
+// Retenção % por segundo, 0..45
+  var GOOD = [100,96,88,78,74,72,71,70,69,68,67,66,65,64.5,64,63,62,61.5,61,60.5,
+              60,59,58.5,58,57.5,57,56,55.5,55,54,53,52,51.5,51,50.5,50,49,48.5,48,47.5,
+              47,46.5,46,45.5,45,44];
+  var BAD  = [100,82,60,42,34,30,27,25,23,21,19,18,17,16,15,14,13.5,13,12.5,12,
+              11.5,11,10.5,10,9.5,9,8.7,8.4,8.1,7.8,7.5,7.2,7,6.8,6.6,6.4,6.2,6,5.8,5.6,
+              5.4,5.2,5,4.8,4.6,4.5];
+
+  var MOMENTS = [
+    { t:0,  phase:"Quadro 1", title:"O filtro pré-atentivo",
+      good:"Rosto ocupando boa parte do quadro, já em movimento, contraste forte com o fundo. O filtro detecta e aloca atenção focal.",
+      bad:"Card de texto estático, fundo bege claro, logo no canto. Sem rosto, sem movimento. O filtro descarta antes de qualquer julgamento.",
+      risk:"Saída S1 — o vídeo não foi rejeitado. Ele não foi visto." },
+    { t:1,  phase:"Porta 2", title:"A palavra-marcador",
+      good:"“O melasma volta todo verão.” O marcador chega em 0,8 s e atravessa o filtro semântico sozinho.",
+      bad:"“Oi gente, tudo bem com vocês?” Nenhum marcador. O filtro não encontra relevância pessoal.",
+      risk:"Saída S2 — o custo já foi pago: ~2 s dela, zero benefício seu." },
+    { t:3,  phase:"Porta 4", title:"A violação de expectativa",
+      good:"“E a maioria dos tratamentos não olha para o motivo.” Âncora familiar + contradição. O erro de previsão abre a lacuna.",
+      bad:"“Hoje eu vim falar de um assunto super importante...” Previsível. Erro de previsão zero — o cérebro já sabe o final.",
+      risk:"O quadrante invisível: correto e previsível é indistinguível de inexistente." },
+    { t:6,  phase:"Corpo", title:"A promessa avança",
+      good:"Primeira informação nova: “o sol é gatilho, não causa”. A lacuna começa a fechar. Ela fica.",
+      bad:"Ainda contextualizando. “Antes de explicar, deixa eu contar como eu descobri isso...”",
+      risk:"Saída S3 — gancho bom, corpo ruim. A assinatura mais comum do nicho." },
+    { t:10, phase:"Sistema 2", title:"Território do Sistema 2",
+      good:"Agora sim o mecanismo. Um termo técnico, definido. Uma ideia. Fala limpa, sem trilha competindo.",
+      bad:"Três termos técnicos em 15 s, texto piscando, trilha alta. O orçamento de memória de trabalho estoura.",
+      risk:"Saída S4 — ela não se entediou. Ela parou de conseguir acompanhar." },
+    { t:16, phase:"Memória", title:"A pausa",
+      good:"Pergunta — e 1,2 s de silêncio real. Ela tenta recuperar a resposta. A tentativa é o que codifica.",
+      bad:"Corte a cada 0,8 s. Nenhum espaço para processar. Exposição alta, codificação zero.",
+      risk:"O segundo mais valioso do Reel — e o primeiro que todo editor corta." },
+    { t:22, phase:"Porta 6", title:"O julgamento de confiança",
+      good:"“No seu caso pode ser outra coisa — é justamente para isso que a investigação existe.” Admite limite. Confiança sobe.",
+      bad:"“É o único tratamento que realmente funciona.” O classificador interno dispara: isso é venda.",
+      risk:"Saída S5 — o degrau. A partir daqui, tudo é reinterpretado como argumento comercial." },
+    { t:30, phase:"Cauda", title:"Quem ficou",
+      good:"A curva estabiliza. Quem chegou até aqui é exatamente quem interessa — e está processando profundamente.",
+      bad:"Já não há quase ninguém. O que restou assiste por inércia, sem codificar nada.",
+      risk:"" },
+    { t:38, phase:"Encerramento", title:"O encerramento",
+      good:"Termina no conteúdo: uma frase que fecha o loop do gancho. O S1 arquiva “essa pessoa sabe do que fala”.",
+      bad:"“Corre pro link na bio!” O último estado emocional é “estavam me vendendo desde o começo”.",
+      risk:"Saída S6 — o efeito de recência reinterpreta o vídeo inteiro, retroativamente." },
+    { t:44, phase:"Depois", title:"O que sobra em 3 semanas",
+      good:"Uma ideia, processada com profundidade, com espaço para respirar. É isso que vira mensagem no WhatsApp na semana 4.",
+      bad:"Nada. Nem o nome. Salvo numa pasta que ela não vai abrir.",
+      risk:"" }
+  ];
+
+  var X0 = 44, X1 = 640, Y0 = 16, Y1 = 216, TMAX = 45;
+  function xOf(t){ return X0 + (t / TMAX) * (X1 - X0); }
+  function yOf(p){ return Y1 - (p / 100) * (Y1 - Y0); }
+
+  var svgNS   = "http://www.w3.org/2000/svg";
+  var labSvg  = document.getElementById("labSvg");
+  var elStatic= document.getElementById("labStatic");
+  var elMarks = document.getElementById("labMarks");
+  var elGood  = document.getElementById("labGood");
+  var elBad   = document.getElementById("labBad");
+  var elArea  = document.getElementById("labArea");
+  var elScrub = document.getElementById("labScrub");
+  var dotGood = document.getElementById("labDotGood");
+  var dotBad  = document.getElementById("labDotBad");
+  var slider  = document.getElementById("labSlider");
+
+  function mk(tag, attrs){
+    var el = document.createElementNS(svgNS, tag);
+    for(var k in attrs) el.setAttribute(k, attrs[k]);
+    return el;
+  }
+
+  // Grade, eixos e rótulos
+  (function buildStatic(){
+    [0,25,50,75,100].forEach(function(p){
+      elStatic.appendChild(mk("line",{ x1:X0, x2:X1, y1:yOf(p), y2:yOf(p), "class": p===0 ? "lab-axis" : "lab-grid" }));
+      var t = mk("text",{ x:X0-8, y:yOf(p)+3, "class":"lab-tick", "text-anchor":"end" });
+      t.textContent = p + "%";
+      elStatic.appendChild(t);
+    });
+    elStatic.appendChild(mk("line",{ x1:X0, x2:X0, y1:Y0, y2:Y1, "class":"lab-axis" }));
+    for(var s = 0; s <= TMAX; s += 5){
+      var tx = mk("text",{ x:xOf(s), y:Y1+16, "class":"lab-tick", "text-anchor":"middle" });
+      tx.textContent = s + "s";
+      elStatic.appendChild(tx);
+    }
+    var lbl = mk("text",{ x:X0, y:Y1+34, "class":"lab-tick" });
+    lbl.textContent = "SEGUNDOS DE VÍDEO";
+    elStatic.appendChild(lbl);
+  })();
+
+  // Curvas
+  function pathOf(arr){
+    return arr.map(function(p,i){ return (i?"L":"M") + xOf(i).toFixed(1) + " " + yOf(p).toFixed(1); }).join(" ");
+  }
+  elGood.setAttribute("d", pathOf(GOOD));
+  elBad.setAttribute("d",  pathOf(BAD));
+  elArea.setAttribute("d", pathOf(GOOD) + " L" + xOf(TMAX) + " " + yOf(0) + " L" + xOf(0) + " " + yOf(0) + " Z");
+
+  // Marcadores dos pontos de saída
+  MOMENTS.forEach(function(m){
+    if(!m.risk) return;
+    elMarks.appendChild(mk("line",{ x1:xOf(m.t), x2:xOf(m.t), y1:Y0, y2:Y1, "class":"lab-marker-line" }));
+    var tri = mk("path",{ d:"M-4,-6 L4,-6 L0,0 Z", "class":"lab-marker",
+                          transform:"translate(" + xOf(m.t) + "," + (Y0 - 2) + ")" });
+    elMarks.appendChild(tri);
+  });
+
+  // Elementos do painel
+  var oTime = document.getElementById("labTime");
+  var oPhase= document.getElementById("labPhase");
+  var oTitle= document.getElementById("labTitle");
+  var oGood = document.getElementById("labGoodTxt");
+  var oBad  = document.getElementById("labBadTxt");
+  var oRisk = document.getElementById("labRisk");
+  var oPG   = document.getElementById("labPctGood");
+  var oPB   = document.getElementById("labPctBad");
+
+  function momentAt(t){
+    var m = MOMENTS[0];
+    for(var i = 0; i < MOMENTS.length; i++){ if(MOMENTS[i].t <= t) m = MOMENTS[i]; }
+    return m;
+  }
+
+  function render(t){
+    t = Math.max(0, Math.min(TMAX, Math.round(t)));
+    var x = xOf(t), m = momentAt(t);
+
+    elScrub.setAttribute("x1", x); elScrub.setAttribute("x2", x);
+    dotGood.setAttribute("cx", x); dotGood.setAttribute("cy", yOf(GOOD[t]));
+    dotBad.setAttribute("cx", x);  dotBad.setAttribute("cy", yOf(BAD[t]));
+
+    oTime.textContent  = t + "s";
+    oPhase.textContent = m.phase;
+    oTitle.textContent = m.title;
+    oGood.innerHTML    = '<strong style="color:var(--ok)">Arquitetado:</strong> ' + m.good;
+    oBad.innerHTML     = '<strong style="color:var(--err)">Padrão do nicho:</strong> ' + m.bad;
+    oRisk.textContent  = m.risk;
+    oPG.textContent    = GOOD[t].toFixed(0) + "%";
+    oPB.textContent    = BAD[t].toFixed(0) + "%";
+
+    if(slider.value != t) slider.value = t;
+  }
+
+  // Interação: slider
+  slider.addEventListener("input", function(){ render(+slider.value); });
+
+  // Interação: ponteiro sobre o gráfico (mouse, toque e caneta)
+  var chart = document.getElementById("labChart");
+  var dragging = false;
+
+  function tFromEvent(e){
+    var r = labSvg.getBoundingClientRect();
+    // converte px de tela → unidade do viewBox (660 de largura)
+    var vx = ((e.clientX - r.left) / r.width) * 660;
+    return ((vx - X0) / (X1 - X0)) * TMAX;
+  }
+  function onDown(e){ dragging = true; render(tFromEvent(e)); }
+  function onMove(e){ if(dragging){ e.preventDefault(); render(tFromEvent(e)); } }
+  function onUp(){ dragging = false; }
+
+  chart.addEventListener("pointerdown", onDown);
+  chart.addEventListener("pointermove", onMove);
+  window.addEventListener("pointerup", onUp);
+  chart.addEventListener("pointerleave", onUp);
+
+  render(0);
+
+  
+}
+</script>
+<script>Platform.init({ id:"c2-m1", onReady: moduleReady });</script>
+</body>
+</html>

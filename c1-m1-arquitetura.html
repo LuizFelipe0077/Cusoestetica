@@ -1,0 +1,1911 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 1 — Arquitetura do Negócio. O modelo mental, a jornada, o ciclo fechado, o mapa do dinheiro, os gargalos e os 50 erros fatais.">
+<title>Arquitetura do Negócio · Curso 1 · Sistema Comercial</title>
+
+<!--
+  CURSO 1 · SISTEMA COMERCIAL
+  Arquitetura do Negócio
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Sidebar, topbar, breadcrumb, navegação anterior/próximo, progresso,
+  busca, glossário e atalhos são construídos pelo platform.js a partir
+  do manifest.js. Este arquivo contém APENAS conteúdo.
+
+  Para mudar qualquer coisa de chrome: platform.js / platform.css.
+  Para mudar a posição deste módulo na trilha: manifest.js.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+
+</head>
+<body>
+
+<main class="main" id="conteudo">
+
+<!-- Breadcrumb -->
+<!-- ========== HERO ========== -->
+<header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Bloco I · Fundação · Módulo 1</div>
+<h1>Arquitetura<br/><em>do Negócio</em></h1>
+<p class="hero-lede">
+        Antes de escrever um anúncio, antes de escolher um público, antes de gastar o primeiro real:
+        você precisa enxergar o negócio inteiro como um sistema. Este módulo é o mapa. Tudo que vem
+        depois — criativo, pixel, WhatsApp, consulta — só faz sentido em cima dele.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~75 min</dd></div>
+<div><dt>Seções</dt><dd>11</dd></div>
+<div><dt>Exercícios</dt><dd>5</dd></div>
+<div><dt>Checklist</dt><dd>62 itens</dd></div>
+</dl>
+</div>
+</header>
+<!-- ============================================================
+       1.1 — O MODELO MENTAL
+       ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.1</span><span></span></div>
+<h2>O modelo mental: clínica premium não vende, seleciona</h2>
+<p class="sec-lede">
+          A primeira decisão de arquitetura não é técnica. É conceitual. E ela determina todas as outras.
+        </p>
+</div>
+<p>
+        Existem duas formas de estruturar a aquisição de pacientes, e elas são <strong>mutuamente
+        excludentes</strong>. Não é possível operar as duas ao mesmo tempo, porque cada uma exige um
+        tipo diferente de anúncio, de landing page, de resposta no WhatsApp e de conduta em consulta.
+        Escolher errado aqui significa construir dez módulos de estrutura em cima de uma fundação que
+        não sustenta o seu ticket.
+      </p>
+<div class="vs">
+<div class="vs-col bad">
+<h4>Arquitetura de volume</h4>
+<ul>
+<li>Objetivo: <b>máximo de leads pelo menor custo</b></li>
+<li>Anúncio promete resultado, prazo e preço</li>
+<li>Landing page com formulário curto e isca genérica</li>
+<li>WhatsApp responde preço na primeira mensagem</li>
+<li>Consulta é ponto de venda</li>
+<li>Métrica-rainha: custo por lead</li>
+<li>Compete por preço. Sempre.</li>
+<li>Funciona com ticket de R$150–800</li>
+</ul>
+</div>
+<div class="vs-col good">
+<h4>Arquitetura de seleção</h4>
+<ul>
+<li>Objetivo: <b>máximo de pacientes certos</b>, custo por lead irrelevante</li>
+<li>Anúncio comunica mecanismo e critério</li>
+<li>Landing page longa, densa, que filtra por leitura</li>
+<li>WhatsApp qualifica antes de precificar</li>
+<li>Consulta é diagnóstico — a venda é consequência</li>
+<li>Métrica-rainha: custo por paciente fechado</li>
+<li>Compete por <b>especificidade</b></li>
+<li>Funciona com ticket de R$3.000+</li>
+</ul>
+</div>
+</div>
+<p>
+        O seu negócio — <strong>R$3.500 a R$5.000, tratamento de causa, comunicação científica,
+        luxo silencioso</strong> — só existe na coluna da direita. Isso não é preferência estética.
+        É uma consequência matemática que vamos demonstrar agora.
+      </p>
+<h3>A matemática que obriga a escolha</h3>
+<p>
+        Suponha um orçamento de R$3.000/mês em Meta Ads. Vamos rodar os dois cenários com números
+        conservadores e realistas para o nicho de estética avançada no Brasil.
+      </p>
+<div class="tbl-scroll">
+<table>
+<thead>
+<tr><th>Variável</th><th>Volume</th><th>Seleção</th><th>Por quê</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Investimento</strong></td>
+<td class="t-num">R$3.000</td><td class="t-num">R$3.000</td>
+<td>Igual, de propósito</td>
+</tr>
+<tr>
+<td><strong>Custo por lead</strong></td>
+<td class="t-num t-ok">R$12</td><td class="t-num t-warn">R$48</td>
+<td>Isca genérica atrai mais gente que critério explícito</td>
+</tr>
+<tr>
+<td><strong>Leads</strong></td>
+<td class="t-num">250</td><td class="t-num">62</td>
+<td>4× menos volume</td>
+</tr>
+<tr>
+<td><strong>Lead → conversa real</strong></td>
+<td class="t-num t-err">18%</td><td class="t-num t-ok">72%</td>
+<td>Lead barato quase não responde ao primeiro contato</td>
+</tr>
+<tr>
+<td><strong>Conversas</strong></td>
+<td class="t-num">45</td><td class="t-num">45</td>
+<td>Empate — repare nisso</td>
+</tr>
+<tr>
+<td><strong>Conversa → consulta</strong></td>
+<td class="t-num t-err">20%</td><td class="t-num t-ok">55%</td>
+<td>Quem chegou por critério já aceitou o formato</td>
+</tr>
+<tr>
+<td><strong>Consultas</strong></td>
+<td class="t-num">9</td><td class="t-num">25</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Consulta → fechamento</strong></td>
+<td class="t-num t-err">11%</td><td class="t-num t-ok">40%</td>
+<td>Objeção de preço explode quando não houve filtro</td>
+</tr>
+<tr>
+<td><strong>Pacientes</strong></td>
+<td class="t-num t-err">1</td><td class="t-num t-ok">10</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Receita (ticket R$4.000)</strong></td>
+<td class="t-num t-err">R$4.000</td><td class="t-num t-ok">R$40.000</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong><abbr data-t="CAC">CAC</abbr> real</strong></td>
+<td class="t-num t-err">R$3.000</td><td class="t-num t-ok">R$300</td>
+<td>O lead caro gerou o paciente barato</td>
+</tr>
+<tr>
+<td><strong>Horas de atendimento</strong></td>
+<td class="t-num t-err">~30h</td><td class="t-num t-ok">~14h</td>
+<td>Volume consome o ativo mais escasso: você</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>A inversão</span>
+</div>
+<p>
+          O custo por lead subiu <strong>4×</strong> e o custo por paciente caiu <strong>10×</strong>.
+          Essas duas métricas se movem em direções opostas em negócios high ticket. É por isso que
+          otimizar custo por lead — a coisa mais natural do mundo para quem abre o Gerenciador de
+          Anúncios pela primeira vez — é literalmente o caminho mais rápido para quebrar uma clínica premium.
+        </p>
+</div>
+<h3>O mecanismo psicológico: por que o filtro aumenta a conversão</h3>
+<p>
+        A tabela acima descreve o <em>quê</em>. Agora o <em>porquê</em>, que é o que importa, porque é o
+        porquê que você vai aplicar em decisões que a tabela não cobre.
+      </p>
+<h4>1. Custo de sinalização (Zahavi, 1975 — Handicap Principle)</h4>
+<p>
+        Na teoria evolutiva, um sinal só é confiável quando é <strong>caro de emitir</strong>. A cauda do
+        pavão funciona como sinal justamente porque é um estorvo — só um animal genuinamente saudável a
+        sustenta. Transposto para marketing: um anúncio que exige esforço para consumir (um vídeo de 4
+        minutos denso, uma landing page de 3.000 palavras, um formulário com 12 perguntas) filtra
+        automaticamente quem não tem interesse real. O esforço <em>é</em> o filtro. Quando você reduz a
+        fricção para "gerar mais leads", você desliga o filtro e passa a pagar para conversar com quem
+        nunca ia comprar.
+      </p>
+<h4>2. Efeito IKEA e escalada de compromisso (Norton, Mochon &amp; Ariely, 2012)</h4>
+<p>
+        Pessoas atribuem mais valor àquilo em que investiram esforço. Cada micro-ação que a paciente
+        executa no seu funil — assistir 3 minutos de vídeo, ler a página até o fim, preencher a anamnese,
+        separar as fotos — não é apenas um passo logístico. É <strong>construção de valor percebido</strong>.
+        Quando ela chega na consulta tendo investido 40 minutos de esforço, o protocolo de R$4.000 é a
+        conclusão lógica de um processo que ela mesma construiu. Quando ela chega tendo clicado em um
+        botão, R$4.000 é uma agressão.
+      </p>
+<h4>3. Racionalização de escolha (Festinger, 1957 — dissonância cognitiva)</h4>
+<p>
+        Depois de se esforçar, a pessoa precisa justificar o esforço para si mesma. A justificativa mais
+        barata psicologicamente é: "eu me esforcei porque isso vale a pena". Esse mecanismo trabalha
+        <strong>a seu favor</strong> durante todo o funil — desde que exista esforço. Um funil sem atrito
+        não gera racionalização, gera indiferença.
+      </p>
+<h4>4. Escassez de qualificação, não de estoque</h4>
+<p>
+        Você não pode dizer "restam 3 vagas" se não restam. Mas você pode — e deve — comunicar que o
+        protocolo <strong>não serve para todo mundo</strong>. Essa é a única forma de escassez que é
+        simultaneamente verdadeira, ética e eficaz em saúde. "Nem toda paciente com melasma é candidata ao
+        protocolo integrativo — a triagem existe para isso" é uma frase que faz três coisas ao mesmo tempo:
+        ancora valor, filtra o público e protege você juridicamente. Guarde essa construção; ela reaparece
+        no C1.M2 (Posicionamento) e no C1.M5 (WhatsApp).
+      </p>
+<div class="callout science">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M9 2v6L4.5 17a2 2 0 001.8 3h11.4a2 2 0 001.8-3L15 8V2M9 2h6M7 14h10"></path></svg>
+<span>Base científica</span>
+</div>
+<p>
+          Zahavi, A. (1975). <em>Mate selection—a selection for a handicap</em>. J. Theor. Biol. ·
+          Norton, M., Mochon, D., &amp; Ariely, D. (2012). <em>The IKEA effect: When labor leads to love</em>.
+          J. Consumer Psychology · Festinger, L. (1957). <em>A Theory of Cognitive Dissonance</em>.
+          Os três mecanismos operam juntos e são cumulativos.
+        </p>
+</div>
+<h3>A consequência operacional</h3>
+<p>
+        Se você aceita o modelo de seleção, sete decisões já estão tomadas — e elas atravessam o curso inteiro:
+      </p>
+<div class="grid grid-2">
+<div class="card">
+<div class="card-kicker">Decisão 01</div>
+<h4>Otimize por conversa qualificada, não por lead</h4>
+<p>O evento de conversão da campanha nunca será "clique" ou "lead". Detalhamento técnico no C3.M2 (<abbr data-t="Pixel">Pixel</abbr> e CAPI) e 8.</p>
+</div>
+<div class="card">
+<div class="card-kicker">Decisão 02</div>
+<h4>A landing page filtra, não persuade</h4>
+<p>Densidade é feature, não bug. Quem não lê, não é sua paciente. C3.M7 (<abbr data-t="CRO">CRO</abbr>).</p>
+</div>
+<div class="card">
+<div class="card-kicker">Decisão 03</div>
+<h4>Preço nunca é a primeira informação</h4>
+<p>Não por manipulação — porque preço sem contexto de mecanismo é ruído. C1.M5 (WhatsApp).</p>
+</div>
+<div class="card">
+<div class="card-kicker">Decisão 04</div>
+<h4>A consulta é diagnóstica</h4>
+<p>Ela vende porque diagnostica bem, não porque tem script de fechamento. C1.M6 (Consulta).</p>
+</div>
+<div class="card">
+<div class="card-kicker">Decisão 05</div>
+<h4>Conteúdo é infraestrutura, não divulgação</h4>
+<p>É o que faz o tráfego frio custar menos e converter mais. C2.M4 (Engenharia dos Reels).</p>
+</div>
+<div class="card">
+<div class="card-kicker">Decisão 06</div>
+<h4>Volume baixo é aceitável</h4>
+<p>10 pacientes certos &gt; 60 curiosos. Isso muda toda a estrutura de campanha. C1.M4 (Meta Ads).</p>
+</div>
+<div class="card">
+<div class="card-kicker">Decisão 07</div>
+<h4>Você é o gargalo</h4>
+<p>Atendimento remoto pessoal tem teto de horas. A arquitetura precisa proteger sua agenda.</p>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.2 — JORNADA DO PACIENTE
+       ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.2</span><span></span></div>
+<h2>A jornada do paciente em 11 estágios</h2>
+<p class="sec-lede">
+          Do estranho que nunca ouviu seu nome à promotora que traz três amigas. Cada estágio tem uma
+          pergunta que a paciente está fazendo — e o seu único trabalho é responder <em>aquela</em> pergunta.
+        </p>
+</div>
+<p>
+        O erro estrutural mais comum em clínicas é tratar a jornada como um funil de vendas de produto:
+        atenção → interesse → desejo → ação. Isso é AIDA, foi formulado em 1898 por Elias St. Elmo Lewis
+        para vendas porta a porta, e não descreve minimamente uma decisão de saúde de R$4.000 tomada por
+        uma mulher que já foi decepcionada por três profissionais.
+      </p>
+<p>
+        A jornada real tem <strong>11 estágios</strong> e três características que o funil clássico ignora:
+        ela é <strong>não-linear</strong> (a paciente volta), <strong>longa</strong> (semanas a meses) e
+        <strong>identitária</strong> (o que ela está comprando não é um resultado, é uma versão de si mesma).
+      </p>
+<div class="figure">
+<div class="figure-frame">
+<svg aria-label="Jornada do paciente em 11 estágios agrupados em quatro fases" role="img" viewbox="0 0 760 470">
+<defs>
+<marker id="arrJ" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3">
+<path d="M0,0 L6,3 L0,6" fill="none" stroke="var(--gold)" stroke-width="1"></path>
+</marker>
+</defs>
+<!-- Faixas de fase -->
+<rect fill="rgba(201,169,97,.03)" height="100" rx="3" width="760" x="0" y="10"></rect>
+<rect fill="rgba(201,169,97,.03)" height="100" rx="3" width="760" x="0" y="230"></rect>
+<text class="svg-t-sm" x="8" y="26">FASE 1 — DESCONHECIMENTO</text>
+<text class="svg-t-sm" x="8" y="136">FASE 2 — CONSIDERAÇÃO</text>
+<text class="svg-t-sm" x="8" y="246">FASE 3 — DECISÃO</text>
+<text class="svg-t-sm" x="8" y="356">FASE 4 — MULTIPLICAÇÃO</text>
+<!-- Linha 1 -->
+<g>
+<rect class="svg-node" height="52" rx="3" width="160" x="20" y="38"></rect>
+<text class="svg-t-sm" x="30" y="58">01</text>
+<text class="svg-t" x="30" y="74">Estranha</text>
+<rect class="svg-node" height="52" rx="3" width="160" x="220" y="38"></rect>
+<text class="svg-t-sm" x="230" y="58">02</text>
+<text class="svg-t" x="230" y="74">Sintoma consciente</text>
+<rect class="svg-node" height="52" rx="3" width="160" x="420" y="38"></rect>
+<text class="svg-t-sm" x="430" y="58">03</text>
+<text class="svg-t" x="430" y="74">Problema consciente</text>
+<rect class="svg-node-gold" height="52" rx="3" width="140" x="600" y="38"></rect>
+<text class="svg-t-sm" x="610" y="58">04</text>
+<text class="svg-t-gold" x="610" y="74">Solução consciente</text>
+<path class="svg-line-gold" d="M180 64 H214" marker-end="url(#arrJ)"></path>
+<path class="svg-line-gold" d="M380 64 H414" marker-end="url(#arrJ)"></path>
+<path class="svg-line-gold" d="M580 64 H594" marker-end="url(#arrJ)"></path>
+</g>
+<path class="svg-line-gold" d="M670 90 V110 H120 V142" marker-end="url(#arrJ)"></path>
+<!-- Linha 2 -->
+<g>
+<rect class="svg-node" height="52" rx="3" width="160" x="20" y="148"></rect>
+<text class="svg-t-sm" x="30" y="168">05</text>
+<text class="svg-t" x="30" y="184">Você consciente</text>
+<rect class="svg-node" height="52" rx="3" width="160" x="220" y="148"></rect>
+<text class="svg-t-sm" x="230" y="168">06</text>
+<text class="svg-t" x="230" y="184">Avaliação silenciosa</text>
+<rect class="svg-node-gold" height="52" rx="3" width="160" x="420" y="148"></rect>
+<text class="svg-t-sm" x="430" y="168">07</text>
+<text class="svg-t-gold" x="430" y="184">Contato</text>
+<path class="svg-line-gold" d="M180 174 H214" marker-end="url(#arrJ)"></path>
+<path class="svg-line-gold" d="M380 174 H414" marker-end="url(#arrJ)"></path>
+</g>
+<path class="svg-line-gold" d="M500 200 V220 H120 V252" marker-end="url(#arrJ)"></path>
+<!-- Linha 3 -->
+<g>
+<rect class="svg-node" height="52" rx="3" width="160" x="20" y="258"></rect>
+<text class="svg-t-sm" x="30" y="278">08</text>
+<text class="svg-t" x="30" y="294">Consulta</text>
+<rect class="svg-node-gold" height="52" rx="3" width="160" x="220" y="258"></rect>
+<text class="svg-t-sm" x="230" y="278">09</text>
+<text class="svg-t-gold" x="230" y="294">Adesão</text>
+<rect class="svg-node" height="52" rx="3" width="160" x="420" y="258"></rect>
+<text class="svg-t-sm" x="430" y="278">10</text>
+<text class="svg-t" x="430" y="294">Resultado</text>
+<rect class="svg-node-gold" height="52" rx="3" width="140" x="600" y="258"></rect>
+<text class="svg-t-sm" x="610" y="278">11</text>
+<text class="svg-t-gold" x="610" y="294">Promotora</text>
+<path class="svg-line-gold" d="M180 284 H214" marker-end="url(#arrJ)"></path>
+<path class="svg-line-gold" d="M380 284 H414" marker-end="url(#arrJ)"></path>
+<path class="svg-line-gold" d="M580 284 H594" marker-end="url(#arrJ)"></path>
+</g>
+<!-- Loop de retorno -->
+<path class="svg-line-gold" d="M670 310 V340 H400 V370" marker-end="url(#arrJ)"></path>
+<rect class="svg-node-gold" height="46" rx="3" width="320" x="240" y="376"></rect>
+<text class="svg-t-gold" x="256" y="404">Prova social → conteúdo → novo ciclo</text>
+<path class="svg-line-gold" d="M240 399 H80 V64 H14" marker-end="url(#arrJ)"></path>
+<text class="svg-t-sm" x="88" y="440">O SISTEMA SE REALIMENTA</text>
+<!-- Zona de abandono -->
+<path class="svg-line-err" d="M300 200 V216"></path>
+<text class="svg-t-err" x="308" y="214">↓ 60% abandona aqui</text>
+</svg>
+</div>
+<p class="figure-cap">
+<b>Figura 1.2.1</b> — A jornada não termina na venda. O estágio 11 alimenta o estágio 01,
+          e é isso que transforma um funil em um sistema. A seta pontilhada marca o ponto de maior
+          evasão: entre a avaliação silenciosa e o contato.
+        </p>
+</div>
+<h3>Os 11 estágios, um a um</h3>
+<p>
+        Para cada estágio: a <strong>pergunta interna</strong> da paciente, o que ela precisa
+        <strong>receber</strong>, o erro clássico, e onde isso aparece no seu negócio.
+      </p>
+<div class="acc" data-acc="">
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">01</span>Estranha — ela não sabe que você existe<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Pergunta interna:</strong> nenhuma. Ela está rolando o feed.</p>
+<p><strong>O que ela precisa receber:</strong> uma interrupção legítima. Não um anúncio que grita, mas uma frase que descreve a realidade dela com precisão desconfortável. "Você trata o melasma há três anos e ele sempre volta no verão" para de rolar mais do que "Adeus melasma!".</p>
+<p><strong>Erro clássico:</strong> falar do tratamento. Ela não sabe que o tratamento existe, e não se importa. Ela se importa com o espelho.</p>
+<p><strong>No seu negócio:</strong> tráfego frio no Meta Ads e alcance orgânico do Instagram. Módulos 5, 8 e 9.</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">02</span>Sintoma consciente — ela sente, mas não nomeia<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Pergunta interna:</strong> "por que eu estou assim?"</p>
+<p><strong>O que ela precisa receber:</strong> <em>nomeação</em>. Este é o estágio mais subestimado e o mais valioso do protocolo de desinflamação. Ela sente cansaço, inchaço, intestino travado, pele ruim — e trata cada coisa isoladamente porque ninguém nunca disse a ela que existe um nome que une tudo. No momento em que você nomeia o padrão, você se torna a única pessoa que a entende.</p>
+<p><strong>Erro clássico:</strong> pular direto para a solução. Nomear antes de resolver não é enrolação — é o que gera a transferência de autoridade.</p>
+<p><strong>Base científica:</strong> "affect labeling" — nomear um estado reduz a ativação da amígdala e aumenta a atividade do córtex pré-frontal ventrolateral (Lieberman et al., 2007). Traduzindo: ao nomear o problema dela, você literalmente reduz a ansiedade dela. Ela associa esse alívio a você.</p>
+<p><strong>No seu negócio:</strong> é o coração do conteúdo do protocolo de desinflamação. C2.M4 (Engenharia dos Reels).</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">03</span>Problema consciente — ela nomeia, mas acha que não tem solução<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Pergunta interna:</strong> "isso tem jeito ou é genético?"</p>
+<p><strong>O que ela precisa receber:</strong> a distinção entre <em>predisposição</em> e <em>destino</em>. Toda paciente de melasma já ouviu "é genético, não tem cura, só controle". Ela acredita nisso. E crença de incurabilidade é o freio de mão mais forte do seu funil — mais forte que preço.</p>
+<p><strong>Erro clássico:</strong> combater a crença com promessa ("eu curo melasma!"). Isso a coloca na mesma prateleira de quem já a decepcionou. A saída é reformular a pergunta: não "tem cura?", mas "por que ele volta?".</p>
+<p><strong>No seu negócio:</strong> conteúdo de reframing + primeiro terço da landing page do Melasma.</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">04</span>Solução consciente — ela sabe que existe um caminho<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Pergunta interna:</strong> "qual abordagem é a certa?"</p>
+<p><strong>O que ela precisa receber:</strong> o <strong>mecanismo</strong>. Não a marca, não o preço — o mecanismo. Por que tratar a causa funciona onde o clareador falhou. Aqui você não compete com outras clínicas; você compete com a categoria "dermatologia estética convencional".</p>
+<p><strong>Erro clássico:</strong> atacar concorrentes ou outras abordagens. Em luxo silencioso, você nunca desqualifica — você <em>explica</em>, e a desqualificação acontece na cabeça dela, o que é infinitamente mais poderoso.</p>
+<p><strong>No seu negócio:</strong> vídeo da landing page. É a peça mais importante do funil inteiro. C3.M7 (CRO).</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">05</span>Você consciente — ela sabe quem você é<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Pergunta interna:</strong> "essa pessoa é confiável?"</p>
+<p><strong>O que ela precisa receber:</strong> <em>consistência</em>. Não credenciais isoladas — consistência. O diploma abre a porta; o que fecha a confiança é ela ver 40 posts que dizem a mesma coisa, com a mesma voz, ao longo de 6 meses. Autoridade é a integral do tempo, não um pico.</p>
+<p><strong>Erro clássico:</strong> achar que autoridade se constrói com um post de "conheça minha formação". Autoridade se constrói quando você <strong>demonstra raciocínio</strong>, não quando lista títulos.</p>
+<p><strong>No seu negócio:</strong> feed do Instagram como arquivo permanente. Ela vai stalkear. Prepare o perfil para isso. C2.M4 (Engenharia dos Reels).</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">06</span>Avaliação silenciosa — o estágio invisível<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Pergunta interna:</strong> "eu quero mesmo mexer nisso agora?"</p>
+<p><strong>O que está acontecendo:</strong> ela já leu tudo. Já assistiu ao vídeo. Já viu o perfil. E não fez nada. Não porque não quer — porque decidir dói. Ela está pesando dinheiro, tempo, medo de decepção outra vez, e o custo emocional de admitir que aquilo a incomoda mais do que ela diz.</p>
+<p><strong>Este é o estágio onde você perde mais gente.</strong> E é o único estágio onde você é completamente cego: não há evento, não há métrica, não há sinal. Ela simplesmente some.</p>
+<p><strong>O que ela precisa receber:</strong> permanência. Não pressão — <em>permanência</em>. Ela precisa te ver de novo daqui a 4, 11, 19 dias. É literalmente para isso que o remarketing existe, e é por isso que o remarketing é o ativo mais mal utilizado do mercado: as pessoas o usam para gritar "última chance" quando deveriam usá-lo para simplesmente continuar existindo.</p>
+<p><strong>Erro clássico:</strong> considerar a lead "fria" ou "morta" após 7 dias. O ciclo de decisão de um protocolo de R$4.000 em saúde é de <strong>3 a 12 semanas</strong>. Sete dias é o começo.</p>
+<p><strong>No seu negócio:</strong> C1.M7 (Remarketing) inteiro é sobre este estágio.</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">07</span>Contato — ela chama no WhatsApp<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Pergunta interna:</strong> "vou testar essa pessoa."</p>
+<p><strong>Realidade:</strong> a primeira mensagem dela quase nunca é a pergunta real. "Quanto custa?" raramente significa "quero saber o preço". Significa "me dá um motivo para levar isso a sério" ou "me dá um motivo para desistir rápido e voltar pra minha vida".</p>
+<p><strong>O que ela precisa receber:</strong> velocidade + uma pergunta melhor do que a dela. Velocidade porque a janela de intenção decai em minutos. Pergunta melhor porque responder o preço direto encerra a conversa antes que ela exista.</p>
+<p><strong>Erro clássico:</strong> responder "R$4.000" às 22h47 de um domingo. Você acabou de transformar um protocolo clínico em um item de vitrine.</p>
+<p><strong>No seu negócio:</strong> C1.M5 (WhatsApp).</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">08</span>Consulta — o momento da verdade<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Pergunta interna:</strong> "ela entende o meu caso ou é protocolo de esteira?"</p>
+<p><strong>O que ela precisa receber:</strong> a sensação inequívoca de que o que você vai propor <strong>só existe por causa dela</strong>. Personalização não é um argumento de venda; é uma experiência. Ela percebe personalização em três coisas: você lembrar de detalhes que ela contou, você fazer perguntas que ninguém fez, e você <em>descartar</em> opções na frente dela ("no seu caso eu não faria X, porque...").</p>
+<p><strong>Erro clássico:</strong> apresentar o protocolo. O protocolo não se apresenta — ele se <em>deriva</em> do diagnóstico, na frente dela.</p>
+<p><strong>No seu negócio:</strong> C1.M6 (Consulta).</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">09</span>Adesão — ela paga<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Pergunta interna:</strong> "eu fiz a coisa certa?"</p>
+<p><strong>Atenção:</strong> a pergunta muda no instante do pagamento. Antes era "vale a pena?". Depois vira "eu errei?". Isso se chama <em>arrependimento do comprador</em>, e é uma dissonância cognitiva previsível, não um sinal de que algo deu errado. Ela vai acontecer em 100% dos casos de ticket alto.</p>
+<p><strong>O que ela precisa receber, nas primeiras 24h:</strong> uma confirmação que não seja um comprovante. Um áudio seu. Um próximo passo claro. Qualquer coisa que diga "você está dentro de algo organizado".</p>
+<p><strong>Erro clássico:</strong> silêncio pós-pagamento. As 24 horas seguintes ao PIX são as mais frágeis de toda a relação — e a maioria das clínicas simplesmente não faz nada nelas.</p>
+<p><strong>No seu negócio:</strong> C1.M8 (Pós-venda).</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">10</span>Resultado — o protocolo funciona<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Pergunta interna:</strong> "está funcionando?" — feita toda semana, com ansiedade.</p>
+<p><strong>O ponto cego:</strong> em tratamento de causa, o resultado visível é <em>lento</em>. E a paciente compara o presente com ontem, não com o início. Você precisa de <strong>marcos intermediários explícitos</strong> — "na semana 3 você vai notar X antes de notar Y" — porque uma expectativa calibrada transforma lentidão em confirmação de que o processo está funcionando conforme o previsto.</p>
+<p><strong>Erro clássico:</strong> não documentar o antes. Sem baseline fotográfico e sintomático, o progresso é invisível para ela — e você perde o depoimento e a indicação.</p>
+<p><strong>No seu negócio:</strong> aqui entra o guia de fotografia que você já produziu. Ele não é um documento operacional — é um instrumento de retenção.</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">11</span>Promotora — ela traz outras<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Pergunta interna:</strong> "quero que perguntem o que eu fiz."</p>
+<p><strong>A mecânica:</strong> indicação em estética não nasce de satisfação. Nasce de <strong>identidade</strong>. Ela indica quando o resultado virou parte de como ela se vê e de como quer ser vista. Satisfação gera uma nota 9 no <abbr data-t="NPS">NPS</abbr>; identidade gera três amigas no seu WhatsApp.</p>
+<p><strong>O que ela precisa receber:</strong> um momento de reconhecimento capturável. E um caminho de indicação que não a constranja.</p>
+<p><strong>Erro clássico:</strong> esperar que aconteça sozinho. Indicação espontânea existe, mas indicação <em>projetada</em> tem 3 a 5× o volume.</p>
+<p><strong>No seu negócio:</strong> C1.M8 (Pós-venda). E o output dela — depoimento, foto, história — volta como matéria-prima do estágio 01. O ciclo fecha.</p>
+</div></div>
+</div>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>A jornada não é linear</span>
+</div>
+<p>
+          Uma paciente pode entrar no estágio 06, voltar para o 03 porque leu algo que a confundiu, pular
+          para o 07 numa quinta-feira impulsiva e voltar para o 06 por mais três semanas. Qualquer sistema
+          que assuma progressão linear vai desperdiçar a maior parte do seu tráfego. É por isso que o
+          remarketing não é "uma tática" — é a infraestrutura que torna a não-linearidade sustentável.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.3 — O PAPEL DE CADA PEÇA
+       ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.3</span><span></span></div>
+<h2>O papel de cada peça</h2>
+<p class="sec-lede">
+          Toda peça do sistema tem exatamente <em>um</em> trabalho. Quando uma peça tenta fazer o trabalho
+          de outra, o sistema inteiro degrada. Este é o princípio mais violado em marketing de clínicas.
+        </p>
+</div>
+<p>
+        Antes de entrar peça por peça, uma regra que vale para todas: <strong>cada elemento do funil tem
+        uma única conversão de saída</strong>. O Instagram não vende. A landing page não fecha. O WhatsApp
+        não diagnostica. Quando você pede a uma peça que faça duas coisas, ela faz as duas mal — e você
+        perde a capacidade de diagnosticar qual etapa está quebrada, porque as responsabilidades ficaram
+        embaralhadas.
+      </p>
+<div class="tbl-scroll">
+<table>
+<thead>
+<tr><th>Peça</th><th>Único trabalho</th><th>Conversão de saída</th><th>Se falhar, o sintoma é</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Instagram</strong></td><td>Construir familiaridade e autoridade ao longo do tempo</td><td>Perfil → LP / DM</td><td><abbr data-t="CPM">CPM</abbr> alto, criativo "não pega"</td></tr>
+<tr><td><strong>Conteúdo</strong></td><td>Nomear o problema e ensinar o mecanismo</td><td>Atenção → confiança</td><td>Objeção de preço em todo lugar</td></tr>
+<tr><td><strong>Anúncio</strong></td><td>Interromper a pessoa certa</td><td>Impressão → clique</td><td><abbr data-t="CTR">CTR</abbr> baixo, CPC subindo</td></tr>
+<tr><td><strong>Landing page</strong></td><td>Filtrar e qualificar por profundidade</td><td>Visita → WhatsApp</td><td>Muito lead ruim, ou nenhum lead</td></tr>
+<tr><td><strong>Pixel / <abbr data-t="CAPI">CAPI</abbr></strong></td><td>Ensinar o algoritmo quem é boa paciente</td><td>Evento → aprendizado</td><td>Campanha não escala, <abbr data-t="CPA">CPA</abbr> sobe</td></tr>
+<tr><td><strong>WhatsApp</strong></td><td>Qualificar e agendar</td><td>Conversa → consulta</td><td>Muitas conversas, poucas consultas</td></tr>
+<tr><td><strong>Consulta</strong></td><td>Diagnosticar e derivar o protocolo</td><td>Consulta → adesão</td><td>"Vou pensar" recorrente</td></tr>
+<tr><td><strong>Pós-venda</strong></td><td>Reduzir dissonância e sustentar adesão</td><td>Adesão → resultado</td><td>Abandono no meio do protocolo</td></tr>
+<tr><td><strong>Indicação</strong></td><td>Converter identidade em novos pacientes</td><td>Resultado → nova paciente</td><td>CAC não cai com o tempo</td></tr>
+<tr><td><strong>Remarketing</strong></td><td>Existir durante a avaliação silenciosa</td><td>Ausência → retorno</td><td>Tráfego caro, conversão estagnada</td></tr>
+</tbody>
+</table>
+</div>
+<h3>Instagram — o cartório da sua autoridade</h3>
+<p>
+        O Instagram não é canal de vendas. Tentar vender protocolo de R$4.000 no Instagram é como tentar
+        vender um apartamento na fila do banco. O Instagram é <strong>o lugar onde a paciente confere se
+        você é real</strong>. É um cartório. E ele é acionado num momento muito específico: depois que ela
+        viu seu anúncio e antes de ela te chamar. Ela abre o perfil, rola 30 segundos, e decide se você é
+        alguém sério ou mais um.
+      </p>
+<p>
+        Isso tem uma consequência de arquitetura importante: <strong>o perfil precisa funcionar sem
+        cronologia</strong>. Ela não vai ler seus posts na ordem. Ela vai ver a grade, os destaques e os
+        três posts mais recentes. Se a sua autoridade depende de ela ter acompanhado sua jornada, ela não
+        existe. O perfil tem que comunicar competência em <em>corte transversal</em>.
+      </p>
+<p>
+        Segundo efeito, e este é econômico: o Instagram <strong>reduz o custo do seu tráfego pago</strong>.
+        Uma pessoa que já viu seus conteúdos 5 vezes tem taxa de clique substancialmente maior no seu
+        anúncio. Taxa de clique maior → melhor pontuação no leilão → CPM efetivo menor. O orgânico não
+        "substitui" o pago; ele <em>subsidia</em> o pago. Vamos quantificar isso no C1.M4 (Meta Ads).
+      </p>
+<div class="callout science">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M9 2v6L4.5 17a2 2 0 001.8 3h11.4a2 2 0 001.8-3L15 8V2M9 2h6M7 14h10"></path></svg>
+<span>Efeito de mera exposição</span>
+</div>
+<p>
+          Zajonc (1968) demonstrou que a exposição repetida a um estímulo aumenta a preferência por ele,
+          mesmo sem qualquer processamento consciente. O efeito é mais forte quando a exposição é
+          <em>subliminar ou incidental</em> — exatamente o que acontece no feed. Traduzindo para o seu caso:
+          a paciente que te vê 12 vezes no Instagram não decide gostar de você. Ela simplesmente já gosta
+          quando o anúncio chega. Isso não é manipulação; é o motivo pelo qual consistência vence intensidade.
+        </p>
+</div>
+<h3>Autoridade — a única variável que reduz a elasticidade de preço</h3>
+<p>
+        Em economia, <em>elasticidade-preço da demanda</em> mede o quanto a demanda cai quando o preço sobe.
+        Commodities são elásticas (subiu 10%, todo mundo troca de marca). Bens com autoridade percebida são
+        inelásticos. A autoridade é literalmente o que permite você cobrar R$4.500 enquanto a clínica ao lado
+        cobra R$800 pelo "mesmo" tratamento — e ainda ter agenda cheia.
+      </p>
+<p>
+        Mas autoridade é uma palavra preguiçosa. Vamos decompor. Ela é feita de <strong>quatro
+        componentes independentes</strong>, e a maioria dos profissionais só trabalha o primeiro:
+      </p>
+<div class="grid grid-2">
+<div class="card">
+<div class="card-kicker">Componente 01</div>
+<h4>Credencial</h4>
+<p>Formação, títulos, instituição. <strong>Necessária e quase inútil sozinha.</strong> Todo mundo tem. É o piso, não o diferencial. Serve para não te desqualificar — não para te escolher.</p>
+</div>
+<div class="card">
+<div class="card-kicker">Componente 02</div>
+<h4>Demonstração de raciocínio</h4>
+<p>Ela te vê <em>pensando</em>. Explicando por que A e não B. Admitindo o que não sabe. Isso é o que separa autoridade de propaganda — e é o que quase ninguém faz, porque expõe.</p>
+</div>
+<div class="card">
+<div class="card-kicker">Componente 03</div>
+<h4>Prova de resultado</h4>
+<p>Não "antes e depois" — <em>histórias com mecanismo</em>. "Ela tinha X, investigamos Y, encontramos Z, tratamos assim, isso aconteceu." A narrativa carrega o mecanismo.</p>
+</div>
+<div class="card">
+<div class="card-kicker">Componente 04</div>
+<h4>Consistência temporal</h4>
+<p>A mesma posição, mantida por meses, mesmo quando é impopular. É o componente mais caro de produzir e o mais difícil de copiar. É o seu fosso.</p>
+</div>
+</div>
+<p>
+        Repare que os componentes 2, 3 e 4 têm algo em comum: <strong>eles são produzidos por conteúdo, não
+        por design</strong>. Nenhuma landing page bonita compra autoridade. Isso responde por que a produção
+        constante de conteúdo aparece no fim do seu briefing mas é, na prática, a base do sistema inteiro.
+      </p>
+<h3>Landing page — o filtro, não o vendedor</h3>
+<p>
+        Se o Instagram é o cartório, a landing page é o <strong>consultório antes do consultório</strong>.
+        O trabalho dela não é convencer. É produzir uma <em>autosseleção</em>: quem chega ao fim da página
+        e mesmo assim quer conversar é uma pessoa qualitativamente diferente de quem clicou num botão no topo.
+      </p>
+<p>
+        Isso inverte praticamente tudo que se ensina sobre CRO. A doutrina padrão diz: reduza fricção,
+        encurte a página, coloque o CTA acima da dobra, minimize campos. Essa doutrina foi construída em
+        e-commerce e SaaS, onde <strong>todo cliente adicional é lucro</strong>. No seu negócio, cada cliente
+        errado custa 90 minutos de consulta que você não recupera. A função-objetivo é diferente, então a
+        prescrição é diferente.
+      </p>
+<div class="vs">
+<div class="vs-col bad">
+<h4>CRO de e-commerce (errado aqui)</h4>
+<ul>
+<li>CTA acima da dobra</li>
+<li>Página curta, escaneável</li>
+<li>Minimizar campos e etapas</li>
+<li>Otimizar para taxa de clique no botão</li>
+<li>Todo visitante é oportunidade</li>
+</ul>
+</div>
+<div class="vs-col good">
+<h4>CRO de seleção (certo aqui)</h4>
+<ul>
+<li>CTA aparece após o mecanismo ser explicado</li>
+<li>Página longa, densa, com vídeo</li>
+<li>Fricção calibrada como filtro</li>
+<li>Otimizar para taxa de <b>conversa qualificada</b></li>
+<li>Visitante errado é <b>custo</b>, não oportunidade</li>
+</ul>
+</div>
+</div>
+<p>
+        Cuidado com o excesso oposto: fricção <strong>calibrada</strong>, não fricção gratuita. Um site lento,
+        um vídeo que não carrega no 4G ou um formulário confuso não filtram — apenas destroem. A distinção é
+        simples: <em>fricção de esforço intelectual filtra; fricção de usabilidade destrói</em>. C3.M7 (CRO) inteiro
+        é sobre calibrar essa linha.
+      </p>
+<h3>Pixel e CAPI — o professor do algoritmo</h3>
+<p>
+        Aqui está o conceito mais mal-entendido do marketing digital, e vou ser explícito porque isso muda
+        como você gasta dinheiro:
+      </p>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>O Pixel não mede. O Pixel ensina.</span>
+</div>
+<p>
+          Mensuração é o <em>subproduto</em>. A função primária do Pixel é alimentar o modelo de otimização da
+          Meta com exemplos do que é uma conversão desejável. Cada evento que você dispara é uma frase dita ao
+          algoritmo: "esse tipo de pessoa é o que eu quero". Se você dispara evento em cliques, você está
+          ensinando o algoritmo a te trazer <strong>cliqueiros</strong>. E ele é muito bom nisso — vai te trazer
+          milhares. Você configurou uma máquina para produzir exatamente o resultado errado, com máxima eficiência.
+        </p>
+</div>
+<p>
+        Consequência prática imediata: <strong>o evento de otimização precisa ser o mais próximo possível do
+        dinheiro que ainda tenha volume suficiente para o modelo aprender</strong>. Essa frase contém uma tensão,
+        e a tensão é o problema central da sua conta:
+      </p>
+<ul>
+<li><strong>Perto do dinheiro, pouco volume:</strong> "paciente fechada" acontece 10× por mês. O modelo da Meta precisa de ~50 eventos por conjunto por semana para sair da fase de aprendizado. 10/mês é ruído estatístico.</li>
+<li><strong>Longe do dinheiro, muito volume:</strong> "clique no link" acontece 800× por mês. Volume ótimo, sinal inútil.</li>
+<li><strong>A resposta:</strong> encontrar o evento intermediário — provavelmente <code>Contact</code> qualificado ou um evento customizado de engajamento profundo — que tenha volume suficiente e correlação real com fechamento.</li>
+</ul>
+<p>
+        Você já tem a infraestrutura para isso: os eventos de engajamento de vídeo via YouTube IFrame API nas
+        suas landing pages são exatamente o tipo de sinal intermediário que resolve essa tensão. Alguém que
+        assistiu 75% de um vídeo denso sobre mecanismo do melasma não é um clique — é uma candidata.
+        Vamos transformar isso em arquitetura de evento no C3.M2 (Pixel e CAPI).
+      </p>
+<h3>WhatsApp — a sala de espera digital</h3>
+<p>
+        O WhatsApp é onde a maior parte do dinheiro de clínicas premium morre, e morre em silêncio, porque
+        ninguém mede. Você mede o custo do anúncio. Você mede a visita da landing. Você não mede o tempo entre
+        a mensagem dela e a sua resposta — e é aí que está o vazamento.
+      </p>
+<p>
+        Duas coisas acontecem no WhatsApp, e elas são frequentemente confundidas:
+      </p>
+<ol>
+<li><strong>Triagem:</strong> essa pessoa é candidata ao protocolo? (Perguntas objetivas)</li>
+<li><strong>Transferência de enquadramento:</strong> ela precisa entender que isso não é uma compra, é um processo clínico. (Postura, não script)</li>
+</ol>
+<p>
+        O segundo é o que decide a venda. Se ela chega na consulta achando que vai "ver o preço", você já perdeu.
+        Se ela chega achando que vai ser avaliada, você já ganhou — porque a moldura mudou de <em>transação</em>
+        para <em>candidatura</em>, e ninguém pechincha uma candidatura.
+      </p>
+<h3>Consulta — o produto que vende o produto</h3>
+<p>
+        Você cobra pela consulta ou não? Essa decisão isolada muda a economia inteira do funil, e vamos
+        modelá-la no C1.M3 (Oferta e Precificação). Por ora, o papel: a consulta é onde a paciente experimenta o mecanismo em vez de
+        ouvir sobre ele. Ela não compra o protocolo porque você o descreveu bem. Ela compra porque, durante
+        90 minutos, ela viu você raciocinar sobre o corpo dela com um nível de detalhe que ninguém nunca teve.
+      </p>
+<p>
+        Isso significa que a consulta é, tecnicamente, uma <strong>demonstração de produto</strong>. E como toda
+        demonstração, ela tem que mostrar a coisa funcionando, não falar sobre a coisa funcionando.
+      </p>
+<h3>Pós-venda — o antídoto da dissonância</h3>
+<p>
+        Existe uma assimetria brutal: o dinheiro sai no dia 1, o resultado chega no dia 60. Entre esses dois
+        pontos existe um vale de 59 dias onde a paciente pagou e não viu nada. Esse vale é onde protocolos são
+        abandonados, onde reembolsos são pedidos, e onde depoimentos deixam de existir.
+      </p>
+<p>
+        O papel do pós-venda não é "encantar". É <strong>administrar a expectativa temporal</strong> — dar a ela
+        marcos que provem que o processo está no trilho antes que o resultado apareça. Um paciente que sabe que a
+        semana 3 é de piora aparente atravessa a semana 3. Um que não sabe, some.
+      </p>
+<h3>Indicação — o único CAC que tende a zero</h3>
+<p>
+        Todo canal pago tem CAC que <em>sobe</em> com o tempo (mais concorrência, saturação de público, fadiga de
+        criativo). A indicação é o único canal cujo CAC <em>cai</em> com o tempo, porque cada paciente satisfeita
+        aumenta a base de indicadores. Um negócio que só cresce por tráfego pago tem margem decrescente
+        estrutural. Um negócio com motor de indicação tem margem crescente.
+      </p>
+<p>
+        É por isso que o C1.M8 (Pós-venda) não é um "extra de retenção". É o que determina se você tem um negócio ou uma
+        assinatura vitalícia da Meta.
+      </p>
+<h3>Remarketing — a permanência</h3>
+<p>
+        Já cobrimos no estágio 06: 97% não decide na primeira visita. O remarketing é o que permite que a jornada
+        seja longa sem que você a perca. Mas o papel dele é frequentemente distorcido. Ele <strong>não é</strong>
+        para pressionar. Ele é para continuar a conversa que a landing page começou, com conteúdo que avança o
+        raciocínio dela — não com "última chance" em uma clínica que não tem chances limitadas.
+      </p>
+<h3>Conteúdo constante — a base de tudo</h3>
+<p>
+        Deixei por último porque é o que sustenta todo o resto, e o encadeamento é o seguinte:
+      </p>
+<div class="tl">
+<div class="tl-item"><div class="tl-week">Efeito 1</div><h4>Reduz o CPM efetivo</h4><p>Público aquecido tem CTR maior → melhor eVR no leilão → você paga menos pelo mesmo alcance.</p></div>
+<div class="tl-item"><div class="tl-week">Efeito 2</div><h4>Cria os públicos de remarketing</h4><p>Sem conteúdo, seu único público de remarketing é "quem visitou a LP" — que é minúsculo e caro. Com conteúdo, você tem retenção de vídeo, engajamento, salvamentos.</p></div>
+<div class="tl-item"><div class="tl-week">Efeito 3</div><h4>Pré-vende o mecanismo</h4><p>A paciente chega na LP já entendendo o conceito de tratar causa. A LP não precisa educar do zero — pode ir mais fundo.</p></div>
+<div class="tl-item"><div class="tl-week">Efeito 4</div><h4>Alimenta o banco de criativos</h4><p>O post que performou organicamente é o melhor candidato a anúncio. Você para de adivinhar criativo.</p></div>
+<div class="tl-item"><div class="tl-week">Efeito 5</div><h4>Constrói o ativo que não se aluga</h4><p>Se a Meta triplicar o CPM amanhã, a clínica que só tem tráfego pago fecha. A que tem 300 conteúdos e 40 mil seguidores qualificados sobrevive.</p></div>
+</div>
+<div class="callout danger">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>A confusão de papéis mais cara do mercado</span>
+</div>
+<p>
+          Pedir à landing page que <strong>venda</strong>. Ela não vende — ela filtra. Quando você tenta fazê-la
+          vender, você adiciona urgência falsa, promessa de resultado e prova social exagerada. Isso quebra o
+          posicionamento de luxo silencioso, atrai o público errado, ensina o Pixel a otimizar para o público
+          errado, entope o WhatsApp de curiosos, consome as suas horas e derruba a taxa de fechamento da consulta.
+          Uma única confusão de papel contamina seis peças a jusante. É assim que sistemas falham: não por uma
+          peça ruim, mas por uma peça fazendo o trabalho da outra.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.4 — O CICLO FECHADO  (elemento-assinatura do módulo)
+       ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.4</span><span></span></div>
+<h2>O ciclo fechado</h2>
+<p class="sec-lede">
+          Funil é um desenho enganoso. Ele tem entrada em cima e saída embaixo — e sugere que o cliente sai
+          do sistema quando compra. No seu negócio, a compra é o meio do circuito, não o fim.
+        </p>
+</div>
+<p>
+        A diferença entre um funil e um ciclo não é estética. É econômica. Em um funil, cada paciente custa
+        dinheiro para entrar, e o custo de entrada só sobe com o tempo. Em um ciclo, cada paciente que
+        completa a volta <strong>reduz o custo de entrada da próxima</strong> — porque ela sai carregando
+        um depoimento, uma foto, uma história e três amigas.
+      </p>
+<div class="figure">
+<div class="figure-frame">
+<svg aria-label="Diagrama circular do ciclo fechado de aquisição de pacientes com doze estágios" role="img" viewbox="0 0 660 660">
+<!-- Anel externo -->
+<circle cx="330" cy="330" fill="none" r="250" stroke="var(--line)" stroke-width="1"></circle>
+<circle cx="330" cy="330" fill="none" opacity=".55" r="250" stroke="var(--gold)" stroke-width="1.4"></circle>
+<circle cx="330" cy="330" fill="none" r="212" stroke="var(--line-soft)" stroke-dasharray="2 6" stroke-width="1"></circle>
+<!-- Setas tangenciais (sentido horário) -->
+<g fill="var(--gold)">
+<path d="M-5,-3.5 L5,0 L-5,3.5 Z" transform="translate(394.7,88.5) rotate(15)"></path>
+<path d="M-5,-3.5 L5,0 L-5,3.5 Z" transform="translate(506.8,153.2) rotate(45)"></path>
+<path d="M-5,-3.5 L5,0 L-5,3.5 Z" transform="translate(571.5,265.3) rotate(75)"></path>
+<path d="M-5,-3.5 L5,0 L-5,3.5 Z" transform="translate(571.5,394.7) rotate(105)"></path>
+<path d="M-5,-3.5 L5,0 L-5,3.5 Z" transform="translate(506.8,506.8) rotate(135)"></path>
+<path d="M-5,-3.5 L5,0 L-5,3.5 Z" transform="translate(394.7,571.5) rotate(165)"></path>
+<path d="M-5,-3.5 L5,0 L-5,3.5 Z" transform="translate(265.3,571.5) rotate(195)"></path>
+<path d="M-5,-3.5 L5,0 L-5,3.5 Z" transform="translate(153.2,506.8) rotate(225)"></path>
+<path d="M-5,-3.5 L5,0 L-5,3.5 Z" transform="translate(88.5,394.7) rotate(255)"></path>
+<path d="M-5,-3.5 L5,0 L-5,3.5 Z" transform="translate(88.5,265.3) rotate(285)"></path>
+<path d="M-5,-3.5 L5,0 L-5,3.5 Z" transform="translate(153.2,153.2) rotate(315)"></path>
+<path d="M-5,-3.5 L5,0 L-5,3.5 Z" transform="translate(265.3,88.5) rotate(345)"></path>
+</g>
+<!-- Nós -->
+<g text-anchor="middle">
+<rect class="svg-node-gold" height="34" rx="3" width="116" x="272" y="63"></rect>
+<text class="svg-t-gold" x="330" y="84">Instagram</text>
+<rect class="svg-node" height="34" rx="3" width="116" x="397" y="96.5"></rect>
+<text class="svg-t" x="455" y="117.5">Conteúdo</text>
+<rect class="svg-node" height="34" rx="3" width="116" x="488.5" y="188"></rect>
+<text class="svg-t" x="546.5" y="209">Anúncios</text>
+<rect class="svg-node" height="34" rx="3" width="116" x="522" y="313"></rect>
+<text class="svg-t" x="580" y="334">Landing Page</text>
+<rect class="svg-node" height="34" rx="3" width="116" x="488.5" y="438"></rect>
+<text class="svg-t" x="546.5" y="459">Pixel / CAPI</text>
+<rect class="svg-node" height="34" rx="3" width="116" x="397" y="529.5"></rect>
+<text class="svg-t" x="455" y="550.5">WhatsApp</text>
+<rect class="svg-node" height="34" rx="3" width="116" x="272" y="563"></rect>
+<text class="svg-t" x="330" y="584">Consulta</text>
+<rect class="svg-node-gold" height="34" rx="3" width="116" x="147" y="529.5"></rect>
+<text class="svg-t-gold" x="205" y="550.5">Venda</text>
+<rect class="svg-node" height="34" rx="3" width="116" x="55.5" y="438"></rect>
+<text class="svg-t" x="113.5" y="459">Relacionamento</text>
+<rect class="svg-node" height="34" rx="3" width="116" x="22" y="313"></rect>
+<text class="svg-t" x="80" y="334">Indicações</text>
+<rect class="svg-node-gold" height="34" rx="3" width="116" x="55.5" y="188"></rect>
+<text class="svg-t-gold" x="113.5" y="209">Provas sociais</text>
+<rect class="svg-node" height="34" rx="3" width="116" x="147" y="96.5"></rect>
+<text class="svg-t" x="205" y="117.5">Novo ciclo</text>
+</g>
+<!-- Núcleo -->
+<g text-anchor="middle">
+<circle cx="330" cy="330" fill="var(--surface)" r="96" stroke="var(--gold-line)" stroke-width="1"></circle>
+<text class="svg-t-sm" x="330" y="308">O QUE GIRA O CICLO</text>
+<text fill="var(--gold)" font-family="var(--display)" font-size="24" x="330" y="336">Autoridade</text>
+<text fill="var(--text-3)" font-family="var(--body)" font-size="10" x="330" y="360">acumulada no tempo</text>
+</g>
+<!-- Legenda de retroalimentação -->
+<g>
+<path class="svg-line-gold" d="M113.5 188 Q 150 130 195 118" stroke-dasharray="4 3"></path>
+<text class="svg-t-sm" x="20" y="640">■ DOURADO = PONTOS ONDE O CICLO GANHA ENERGIA</text>
+</g>
+</svg>
+</div>
+<p class="figure-cap">
+<b>Figura 1.4.1</b> — O ciclo de aquisição. Três nós estão em dourado porque são os únicos pontos
+          onde o sistema <em>ganha</em> energia em vez de consumi-la: Instagram (atenção gratuita), Venda
+          (dinheiro) e Provas sociais (matéria-prima que reduz o custo do próximo ciclo). Todos os demais nós
+          são consumidores líquidos. Um ciclo que nunca chega em "Provas sociais" é um ciclo que só queima
+          orçamento — e é exatamente onde 90% das clínicas estão.
+        </p>
+</div>
+<h3>Por que o núcleo é "autoridade" e não "tráfego"</h3>
+<p>
+        Se você colocar tráfego no centro, você tem um motor que precisa de combustível externo constante.
+        Corta o orçamento, o motor para. Se você colocar autoridade no centro, você tem um <strong>volante de
+        inércia</strong> (flywheel): ele precisa de força para começar a girar, mas depois de girando, cada
+        volta exige menos energia do que a anterior.
+      </p>
+<p>
+        A propriedade matemática que interessa aqui é a <strong>não-linearidade</strong>. Um sistema linear
+        dobra a saída quando você dobra a entrada. Um flywheel tem retornos crescentes: as primeiras 10
+        pacientes custam R$800 de CAC cada; as pacientes 100 a 110 custam R$180, porque 4 delas vieram por
+        indicação, 3 vieram de um Reels antigo que ainda entrega, e o público de remarketing já tem 12 mil
+        pessoas qualificadas.
+      </p>
+<div class="grid grid-3">
+<div class="stat"><div class="stat-n">3–6</div><div class="stat-l">meses até o volante começar a girar sozinho</div></div>
+<div class="stat"><div class="stat-n">~4×</div><div class="stat-l">redução típica de CAC entre o mês 1 e o mês 12</div></div>
+<div class="stat"><div class="stat-n">1</div><div class="stat-l">nó quebrado é suficiente para travar o ciclo inteiro</div></div>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>A propriedade cruel do ciclo</span>
+</div>
+<p>
+          Um circuito em série falha inteiro quando um componente falha. Se o seu WhatsApp responde em 6 horas,
+          não importa que o anúncio esteja excelente, a landing esteja perfeita e o pixel esteja impecável —
+          o ciclo não completa a volta, não chega em "provas sociais", e o volante não ganha inércia. Otimizar
+          o nó que já está bom enquanto existe um nó quebrado é a forma mais comum de desperdício de esforço em
+          marketing. A próxima seção mostra como identificar qual nó está quebrado.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.5 — MAPA DO DINHEIRO
+       ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.5</span><span></span></div>
+<h2>O mapa do dinheiro: onde entra, onde vaza</h2>
+<p class="sec-lede">
+          Existe exatamente um ponto de entrada de dinheiro e onze pontos de vazamento. Este mapa é o
+          instrumento de diagnóstico que você vai usar toda semana pelo resto da vida do negócio.
+        </p>
+</div>
+<p>
+        Primeiro, a verdade desconfortável: <strong>o dinheiro entra em um único lugar</strong> — no momento
+        em que a paciente adere ao protocolo. Nem antes, nem depois. Tudo que acontece antes é custo. Tudo que
+        acontece depois é ou custo (entrega) ou investimento em ciclos futuros (relacionamento, indicação).
+      </p>
+<p>
+        Isso significa que <strong>todo nó do funil é um dreno até que o dinheiro entre</strong>. E cada nó
+        drena de um jeito específico. O diagrama abaixo mostra 1.000 pessoas entrando e o que resta em cada
+        ponto, com os vazamentos marcados.
+      </p>
+<div class="figure">
+<div class="figure-frame">
+<svg aria-label="Mapa de fluxo mostrando perda de pessoas em cada etapa do funil" role="img" viewbox="0 0 720 620">
+<defs>
+<marker id="arrM" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3">
+<path d="M0,0 L6,3 L0,6" fill="none" stroke="var(--gold)" stroke-width="1"></path>
+</marker>
+<marker id="arrL" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3">
+<path d="M0,0 L6,3 L0,6" fill="none" stroke="var(--err)" stroke-width="1"></path>
+</marker>
+</defs>
+<!-- Colunas -->
+<text class="svg-t-sm" x="20" y="20">ETAPA</text>
+<text class="svg-t-sm" x="300" y="20">RESTAM</text>
+<text class="svg-t-sm" x="410" y="20">VAZAMENTO PRINCIPAL</text>
+<!-- ETAPA 1 -->
+<rect class="svg-node-gold" height="40" rx="3" width="240" x="20" y="34"></rect>
+<text class="svg-t-gold" x="34" y="59">Impressões (tráfego frio)</text>
+<text class="svg-t" font-family="monospace" x="300" y="59">1.000</text>
+<path class="svg-line-gold" d="M140 74 V96" marker-end="url(#arrM)"></path>
+<path class="svg-line-err" d="M260 54 H400" marker-end="url(#arrL)"></path>
+<text class="svg-t-err" x="410" y="58">Público errado · criativo genérico</text>
+<!-- ETAPA 2 -->
+<rect class="svg-node" height="40" rx="3" width="240" x="20" y="102"></rect>
+<text class="svg-t" x="34" y="127">Cliques na Landing</text>
+<text class="svg-t" font-family="monospace" x="300" y="127">18</text>
+<path class="svg-line-gold" d="M140 142 V164" marker-end="url(#arrM)"></path>
+<path class="svg-line-err" d="M260 122 H400" marker-end="url(#arrL)"></path>
+<text class="svg-t-err" x="410" y="126">Página lenta · promessa incoerente</text>
+<!-- ETAPA 3 -->
+<rect class="svg-node" height="40" rx="3" width="240" x="20" y="170"></rect>
+<text class="svg-t" x="34" y="195">Leram / assistiram de verdade</text>
+<text class="svg-t" font-family="monospace" x="300" y="195">7</text>
+<path class="svg-line-gold" d="M140 210 V232" marker-end="url(#arrM)"></path>
+<path class="svg-line-err" d="M260 190 H400" marker-end="url(#arrL)"></path>
+<text class="svg-t-err" x="410" y="194">Mecanismo mal explicado</text>
+<!-- ETAPA 4 -->
+<rect class="svg-node" height="40" rx="3" width="240" x="20" y="238"></rect>
+<text class="svg-t" x="34" y="263">Chamaram no WhatsApp</text>
+<text class="svg-t" font-family="monospace" x="300" y="263">2,5</text>
+<path class="svg-line-gold" d="M140 278 V300" marker-end="url(#arrM)"></path>
+<path class="svg-line-err" d="M260 258 H400" marker-end="url(#arrL)"></path>
+<text class="svg-t-err" x="410" y="262">Sem remarketing = perda definitiva</text>
+<!-- ETAPA 5 -->
+<rect class="svg-node" height="40" rx="3" width="240" x="20" y="306"></rect>
+<text class="svg-t" x="34" y="331">Conversa qualificada</text>
+<text class="svg-t" font-family="monospace" x="300" y="331">1,8</text>
+<path class="svg-line-gold" d="M140 346 V368" marker-end="url(#arrM)"></path>
+<path class="svg-line-err" d="M260 326 H400" marker-end="url(#arrL)"></path>
+<text class="svg-t-err" x="410" y="330">Demora na resposta · preço cedo demais</text>
+<!-- ETAPA 6 -->
+<rect class="svg-node" height="40" rx="3" width="240" x="20" y="374"></rect>
+<text class="svg-t" x="34" y="399">Consulta agendada</text>
+<text class="svg-t" font-family="monospace" x="300" y="399">1,0</text>
+<path class="svg-line-gold" d="M140 414 V436" marker-end="url(#arrM)"></path>
+<path class="svg-line-err" d="M260 394 H400" marker-end="url(#arrL)"></path>
+<text class="svg-t-err" x="410" y="398">No-show · sem confirmação ativa</text>
+<!-- ETAPA 7 -->
+<rect class="svg-node" height="40" rx="3" width="240" x="20" y="442"></rect>
+<text class="svg-t" x="34" y="467">Consulta realizada</text>
+<text class="svg-t" font-family="monospace" x="300" y="467">0,8</text>
+<path class="svg-line-gold" d="M140 482 V504" marker-end="url(#arrM)"></path>
+<path class="svg-line-err" d="M260 462 H400" marker-end="url(#arrL)"></path>
+<text class="svg-t-err" x="410" y="466">Apresentou o protocolo em vez de derivar</text>
+<!-- ETAPA 8 - DINHEIRO -->
+<rect class="svg-node-gold" height="46" rx="3" width="240" x="20" y="510"></rect>
+<text class="svg-t-gold" x="34" y="530">▲ ENTRADA DE DINHEIRO</text>
+<text class="svg-t-sm" x="34" y="546">ADESÃO AO PROTOCOLO</text>
+<text class="svg-t-gold" font-family="monospace" x="300" y="538">0,32</text>
+<text class="svg-t-err" x="410" y="530">Sem follow-up = 40% do que fecharia, não fecha</text>
+<path class="svg-line-err" d="M260 533 H400" marker-end="url(#arrL)"></path>
+<!-- Nota -->
+<text class="svg-t-sm" x="20" y="590">1.000 IMPRESSÕES → 0,32 PACIENTE.  A R$25 DE CPM: R$25 POR 0,32 PACIENTE = R$78 DE CAC.</text>
+<text class="svg-t-sm" x="20" y="606">DOBRE QUALQUER ETAPA E O CAC CAI PELA METADE. É MULTIPLICATIVO, NÃO ADITIVO.</text>
+</svg>
+</div>
+<p class="figure-cap">
+<b>Figura 1.5.1</b> — Números ilustrativos de um cenário saudável. O ponto do diagrama não são os
+          valores absolutos (que variam), e sim a <em>estrutura multiplicativa</em>: a taxa final é o produto
+          de sete taxas. Uma etapa a 20% quando poderia estar a 40% não custa 20 pontos — custa
+          <strong>metade de todo o resultado do negócio</strong>.
+        </p>
+</div>
+<h3>A consequência da multiplicação</h3>
+<p>
+        Este é o insight de gestão mais importante do módulo, e ele contradiz a intuição. Vamos comparar duas
+        clínicas com o mesmo orçamento:
+      </p>
+<div class="tbl-scroll">
+<table>
+<thead>
+<tr><th>Etapa</th><th>Clínica A</th><th>Clínica B</th><th>Diferença</th></tr>
+</thead>
+<tbody>
+<tr><td>Impressão → clique</td><td class="t-num">1,8%</td><td class="t-num">2,2%</td><td class="t-num">+0,4 pt</td></tr>
+<tr><td>Clique → engajamento real</td><td class="t-num">39%</td><td class="t-num">47%</td><td class="t-num">+8 pt</td></tr>
+<tr><td>Engajamento → contato</td><td class="t-num">36%</td><td class="t-num">43%</td><td class="t-num">+7 pt</td></tr>
+<tr><td>Contato → qualificada</td><td class="t-num">72%</td><td class="t-num">85%</td><td class="t-num">+13 pt</td></tr>
+<tr><td>Qualificada → agendada</td><td class="t-num">55%</td><td class="t-num">66%</td><td class="t-num">+11 pt</td></tr>
+<tr><td>Agendada → realizada</td><td class="t-num">80%</td><td class="t-num">92%</td><td class="t-num">+12 pt</td></tr>
+<tr><td>Realizada → adesão</td><td class="t-num">40%</td><td class="t-num">48%</td><td class="t-num">+8 pt</td></tr>
+<tr style="background:rgba(201,169,97,.06)">
+<td><strong>Taxa composta</strong></td>
+<td class="t-num t-warn"><strong>0,032%</strong></td>
+<td class="t-num t-ok"><strong>0,077%</strong></td>
+<td class="t-num t-gold"><strong>+141%</strong></td>
+</tr>
+<tr style="background:rgba(201,169,97,.06)">
+<td><strong>CAC (CPM R$25)</strong></td>
+<td class="t-num t-warn"><strong>R$78</strong></td>
+<td class="t-num t-ok"><strong>R$32</strong></td>
+<td class="t-num t-gold"><strong>−59%</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Melhorias marginais, resultado exponencial</span>
+</div>
+<p>
+          A Clínica B não é <em>duas vezes melhor</em> em nada. Ela é ~20% melhor em sete coisas. E isso
+          produziu <strong>2,4× mais pacientes com o mesmo orçamento</strong>. É por isso que o trabalho de
+          um gestor de marketing competente não parece heroico: ele é uma sequência entediante de pequenas
+          correções em muitos pontos. Quem procura a "tática que muda tudo" está procurando um multiplicador
+          único num sistema onde os multiplicadores são sete, e todos pequenos.
+        </p>
+</div>
+<h3>Onde clínicas premium perdem dinheiro — em ordem de magnitude</h3>
+<p>
+        Ranking por impacto financeiro observado, não por frequência. Alguns erros são raros e devastadores;
+        outros são universais e baratos.
+      </p>
+<div class="tbl-scroll">
+<table>
+<thead>
+<tr><th>#</th><th>Vazamento</th><th>Perda típica</th><th>Custo de corrigir</th><th>Prioridade</th></tr>
+</thead>
+<tbody>
+<tr><td class="t-num">1</td><td><strong>Tempo de resposta no WhatsApp &gt; 1h</strong></td><td class="t-err">30–50% das conversas</td><td class="t-ok">Baixo</td><td class="t-gold">Máxima</td></tr>
+<tr><td class="t-num">2</td><td><strong>Zero remarketing estruturado</strong></td><td class="t-err">40–60% das conversões possíveis</td><td class="t-ok">Baixo</td><td class="t-gold">Máxima</td></tr>
+<tr><td class="t-num">3</td><td><strong>Sem follow-up pós-consulta</strong></td><td class="t-err">25–40% dos fechamentos</td><td class="t-ok">Baixo</td><td class="t-gold">Máxima</td></tr>
+<tr><td class="t-num">4</td><td><strong>Otimizar campanha por lead/clique</strong></td><td class="t-err">50–70% do orçamento</td><td class="t-warn">Médio</td><td class="t-gold">Máxima</td></tr>
+<tr><td class="t-num">5</td><td>Sem sistema de indicação</td><td class="t-err">30–50% do crescimento</td><td class="t-warn">Médio</td><td class="t-warn">Alta</td></tr>
+<tr><td class="t-num">6</td><td>Preço revelado cedo demais</td><td class="t-err">20–35% das conversas</td><td class="t-ok">Baixo</td><td class="t-warn">Alta</td></tr>
+<tr><td class="t-num">7</td><td>No-show sem confirmação ativa</td><td class="t-err">15–30% das consultas</td><td class="t-ok">Baixo</td><td class="t-warn">Alta</td></tr>
+<tr><td class="t-num">8</td><td>Conteúdo inconsistente</td><td class="t-err">CPM 40–80% maior</td><td class="t-err">Alto</td><td class="t-warn">Alta</td></tr>
+<tr><td class="t-num">9</td><td>Landing sem vídeo de mecanismo</td><td class="t-err">30–50% da qualificação</td><td class="t-warn">Médio</td><td>Média</td></tr>
+<tr><td class="t-num">10</td><td>Pixel sem CAPI</td><td class="t-err">15–30% dos eventos</td><td class="t-warn">Médio</td><td>Média</td></tr>
+<tr><td class="t-num">11</td><td>Consulta sem estrutura</td><td class="t-err">20–40% da adesão</td><td class="t-warn">Médio</td><td>Média</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout win">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg>
+<span>Leia a coluna "custo de corrigir"</span>
+</div>
+<p>
+          Os quatro vazamentos mais caros do negócio têm custo de correção <strong>baixo a médio</strong>.
+          Nenhum deles exige mais orçamento de mídia, agência, refazer o site ou contratar equipe. Três deles
+          são mudanças de processo que você implementa em uma semana. Antes de aumentar um centavo de verba,
+          tape esses quatro furos — senão você está aumentando a pressão de uma mangueira furada.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.6 — OS 7 GARGALOS
+       ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.6</span><span></span></div>
+<h2>Os 7 gargalos estruturais</h2>
+<p class="sec-lede">
+          Gargalo não é "a etapa com a pior taxa". É a etapa que <em>limita a vazão do sistema inteiro</em>.
+          Confundir as duas coisas é o erro de diagnóstico mais caro que existe.
+        </p>
+</div>
+<p>
+        A Teoria das Restrições (Goldratt, 1984) estabelece três coisas que se aplicam integralmente ao seu funil:
+      </p>
+<ol>
+<li><strong>Todo sistema tem exatamente um gargalo por vez.</strong> Se você acha que tem três, você ainda não mediu.</li>
+<li><strong>Melhorar qualquer coisa que não seja o gargalo é ilusão.</strong> A vazão do sistema não muda um milímetro.</li>
+<li><strong>Quando você resolve o gargalo, ele se move.</strong> A restrição passa para outro lugar. É um jogo infinito, e isso é uma boa notícia.</li>
+</ol>
+<div class="callout science">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M9 2v6L4.5 17a2 2 0 001.8 3h11.4a2 2 0 001.8-3L15 8V2M9 2h6M7 14h10"></path></svg>
+<span>Por que isso importa mais no seu negócio que na média</span>
+</div>
+<p>
+          Em um e-commerce, a "capacidade" é quase infinita — o site atende 10 ou 10.000 pessoas igualmente.
+          No seu negócio, existe um recurso rigidamente finito: <strong>as suas horas de consulta</strong>.
+          Isso significa que o seu sistema tem um teto duro, e que existe um ponto onde gerar mais leads não
+          gera mais receita — apenas mais fila e mais desgaste. A partir desse ponto, todo crescimento tem que
+          vir de <em>taxa de conversão</em> ou de <em>ticket</em>, nunca de volume. Guarde isso: é o que separa
+          uma clínica premium de R$40k/mês de uma de R$120k/mês com a mesma agenda.
+        </p>
+</div>
+<h3>Como identificar o seu gargalo em 5 minutos</h3>
+<p>
+        Não é o passo com a menor taxa. É o passo onde <strong>a distância entre a sua taxa e a taxa saudável
+        é maior</strong>, ponderada pelo volume que passa por ali. Use a árvore abaixo.
+      </p>
+<div class="tree">
+<div class="tree-q">
+<strong>Pergunta 1 — Você tem pelo menos 20 conversas de WhatsApp por mês?</strong>
+<div class="tree-branch">
+<div class="tree-a"><span class="tree-a-tag no">NÃO</span><p>Seu gargalo está <strong>antes</strong> do WhatsApp: aquisição. Vá para a Pergunta 2.</p></div>
+<div class="tree-a"><span class="tree-a-tag yes">SIM</span><p>Seu gargalo está <strong>depois</strong> do WhatsApp: conversão. Pule para a Pergunta 5.</p></div>
+</div>
+</div>
+<div class="tree-q">
+<strong>Pergunta 2 — A landing page recebe mais de 400 visitas/mês?</strong>
+<div class="tree-branch">
+<div class="tree-a"><span class="tree-a-tag no">NÃO</span><p><strong>Gargalo 1 — Aquisição.</strong> O problema é criativo, público ou orçamento. Módulos 8 e 9.</p></div>
+<div class="tree-a"><span class="tree-a-tag yes">SIM</span><p>Tráfego existe mas não vira conversa. Vá para a Pergunta 3.</p></div>
+</div>
+</div>
+<div class="tree-q">
+<strong>Pergunta 3 — A taxa de visita → WhatsApp está abaixo de 2%?</strong>
+<div class="tree-branch">
+<div class="tree-a"><span class="tree-a-tag yes">SIM</span><p><strong>Gargalo 2 — Landing page ou coerência de mensagem.</strong> Verifique primeiro se a promessa do anúncio bate com o topo da página. Em 70% dos casos é isso, não o design. C3.M7 (CRO).</p></div>
+<div class="tree-a"><span class="tree-a-tag no">NÃO</span><p>A landing converte. Vá para a Pergunta 4.</p></div>
+</div>
+</div>
+<div class="tree-q">
+<strong>Pergunta 4 — O tempo médio no vídeo é menor que 40% da duração?</strong>
+<div class="tree-branch">
+<div class="tree-a"><span class="tree-a-tag yes">SIM</span><p><strong>Gargalo 3 — Mecanismo mal comunicado.</strong> Ela não entendeu por que sua abordagem é diferente. Todo o resto do funil vai sofrer disso. C3.M7 (CRO).</p></div>
+<div class="tree-a"><span class="tree-a-tag no">NÃO</span><p>O topo do funil está saudável. Se ainda não há pacientes, o gargalo é conversão. Pergunta 5.</p></div>
+</div>
+</div>
+<div class="tree-q">
+<strong>Pergunta 5 — Seu tempo mediano de primeira resposta é maior que 15 minutos em horário comercial?</strong>
+<div class="tree-branch">
+<div class="tree-a"><span class="tree-a-tag yes">SIM</span><p><strong>Gargalo 4 — <abbr data-t="SLA">SLA</abbr> de resposta.</strong> Pare tudo. Este é o gargalo com o melhor retorno sobre esforço de todo o sistema. C1.M5 (WhatsApp).</p></div>
+<div class="tree-a"><span class="tree-a-tag no">NÃO</span><p>Vá para a Pergunta 6.</p></div>
+</div>
+</div>
+<div class="tree-q">
+<strong>Pergunta 6 — Menos de 45% das conversas viram consulta agendada?</strong>
+<div class="tree-branch">
+<div class="tree-a"><span class="tree-a-tag yes">SIM</span><p><strong>Gargalo 5 — Qualificação.</strong> Ou você está atraindo o público errado (volte ao Gargalo 1) ou está conduzindo a conversa errado (C1.M5 (WhatsApp)). Diferencie assim: se elas perguntam preço na primeira mensagem, é público. Se elas conversam e somem, é condução.</p></div>
+<div class="tree-a"><span class="tree-a-tag no">NÃO</span><p>Vá para a Pergunta 7.</p></div>
+</div>
+</div>
+<div class="tree-q">
+<strong>Pergunta 7 — Menos de 35% das consultas realizadas viram adesão?</strong>
+<div class="tree-branch">
+<div class="tree-a"><span class="tree-a-tag yes">SIM</span><p><strong>Gargalo 6 — Consulta ou oferta.</strong> Se elas dizem "vou pensar", é a consulta (C1.M6 (Consulta)). Se dizem "está caro", é a qualificação anterior — o preço nunca é o problema real, a percepção de valor construída antes é.</p></div>
+<div class="tree-a"><span class="tree-a-tag no">NÃO</span><p><strong>Gargalo 7 — Capacidade.</strong> Parabéns: seu funil funciona. Seu limite agora é a sua agenda. A partir daqui, crescimento vem de ticket, recorrência e indicação — não de mais tráfego. Módulos 4 e 13.</p></div>
+</div>
+</div>
+</div>
+<h3>Protocolo de eliminação — os 7 gargalos</h3>
+<div class="acc" data-acc="">
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">G1</span>Aquisição — não entra gente suficiente<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Sintoma:</strong> poucas visitas, CPM alto, CTR abaixo de 1%.</p>
+<p><strong>Causa quase sempre:</strong> criativo, não público. O algoritmo da Meta em 2026 é muito melhor em encontrar pessoas do que você em segmentá-las. Se o criativo é bom, ele acha. Se é ruim, nenhuma segmentação salva. Isso inverte a ordem de investigação clássica.</p>
+<p><strong>Protocolo:</strong></p>
+<ol>
+<li>Antes de mexer em público, produza 5 hooks radicalmente diferentes para o mesmo corpo de anúncio.</li>
+<li>Rode 7 dias com orçamento igual. Não mate nada antes de 3 dias.</li>
+<li>Se o melhor hook não passar de 1,2% de CTR, o problema é <em>posicionamento</em>, não criativo — volte ao C1.M2 (Posicionamento).</li>
+<li>Só depois de um criativo validado, mexa em segmentação.</li>
+</ol>
+<p><strong>Erro fatal associado:</strong> trocar de público toda semana buscando "o público certo". Isso reseta a fase de aprendizado e garante que você nunca saia dela.</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">G2</span>Coerência — o clique não vira leitura<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Sintoma:</strong> CTR bom, tempo na página abaixo de 30 segundos, rejeição acima de 70%.</p>
+<p><strong>Causa:</strong> ruptura de continuidade. O anúncio criou uma expectativa que a página não confirma nos primeiros 3 segundos. A paciente não "desiste" — ela conclui que errou de lugar.</p>
+<p><strong>O teste de 3 segundos:</strong> abra o anúncio e a landing lado a lado. A frase principal do anúncio aparece — literalmente, com as mesmas palavras — na primeira dobra da página? Se não, você tem uma ruptura. Não é sobre design bonito; é sobre a paciente reconhecer instantaneamente que chegou no lugar certo.</p>
+<p><strong>Protocolo:</strong></p>
+<ol>
+<li>Espelhe o headline do anúncio no H1 da página. Repetição aqui é feature.</li>
+<li>Se o anúncio é vídeo, a página abre com o mesmo rosto e o mesmo tom.</li>
+<li>Meça: tempo na página &gt; 90 segundos é o piso aceitável para uma LP de mecanismo.</li>
+</ol>
+<p><strong>Base científica:</strong> fluência de processamento (Reber, Schwarz &amp; Winkielman, 2004). Estímulos fáceis de processar são avaliados como mais verdadeiros e mais agradáveis. Continuidade visual e verbal entre anúncio e página aumenta a fluência — e a fluência é lida pelo cérebro como <em>credibilidade</em>.</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">G3</span>Mecanismo — ela lê mas não entende por que você é diferente<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Sintoma:</strong> tempo bom na página, mas as conversas do WhatsApp começam com "quanto custa?" e "vocês fazem laser?".</p>
+<p><strong>Tradução do sintoma:</strong> ela colocou você na mesma prateleira de todo mundo. Se ela pergunta preço primeiro, é porque não enxerga diferença — e quando não há diferença percebida, preço é o único critério que sobra. <strong>A objeção de preço é sempre um sintoma de falha de mecanismo, nunca de valor alto.</strong></p>
+<p><strong>Protocolo:</strong></p>
+<ol>
+<li>Escreva o seu mecanismo em uma frase que uma leiga entenda e que <em>nenhum concorrente possa dizer</em>. Se ele pode dizer, não é mecanismo — é adjetivo.</li>
+<li>Teste a frase: mostre para 5 pessoas fora do nicho. Peça para explicarem de volta. Se 4 acertarem, funciona.</li>
+<li>Coloque essa frase em: bio do Instagram, primeiro slide do vídeo, H1 da LP, primeira resposta do WhatsApp, e nos primeiros 3 minutos da consulta. Mesma frase. Sempre.</li>
+</ol>
+<p><strong>Exemplo aplicado ao Melasma:</strong> "clareador age no pigmento; o pigmento é o sintoma. O protocolo investiga o que está mandando a célula produzir pigmento — e trata isso." Um dermatologista não vai dizer essa frase. É defensável, verdadeira, e não promete nada. C1.M2 (Posicionamento) aprofunda a construção.</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">G4</span>SLA — a resposta demora<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Sintoma:</strong> a paciente manda mensagem e some antes de você responder. Ou responde em monossílabos.</p>
+<p><strong>A física da coisa:</strong> a intenção de compra é um estado emocional transitório. Ela tem meia-vida. Toda hora que passa, ela decai — e não decai linearmente, decai como uma exponencial. A pesquisa clássica de <em>lead response</em> (Oldroyd, McElheran &amp; Elkington, Harvard Business Review, 2011) mediu isso: a chance de qualificar cai drasticamente após os primeiros minutos, e continua caindo.</p>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Tempo até responder</th><th>Chance relativa de qualificar</th></tr></thead>
+<tbody>
+<tr><td>&lt; 5 min</td><td class="t-ok">100% (referência)</td></tr>
+<tr><td>30 min</td><td class="t-warn">~50%</td></tr>
+<tr><td>1 hora</td><td class="t-warn">~30%</td></tr>
+<tr><td>4 horas</td><td class="t-err">~12%</td></tr>
+<tr><td>24 horas</td><td class="t-err">~3%</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Protocolo:</strong></p>
+<ol>
+<li>Automatize a primeira resposta em &lt; 60 segundos, 24/7. Ela não precisa ser você — precisa <em>existir</em>. E precisa terminar com uma pergunta, não com "em breve retornaremos".</li>
+<li>Defina o SLA humano: 15 minutos em horário comercial. Escreva isso. Meça isso.</li>
+<li>Se você atende sozinha e está em consulta, o problema não é você — é a ausência de um sistema. C1.M5 (WhatsApp).</li>
+</ol>
+<p><strong>Por que este é o melhor <abbr data-t="ROI">ROI</abbr> do sistema:</strong> custa quase nada implementar e recupera 30–50% das conversas. Nenhuma outra alavanca do curso tem essa relação.</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">G5</span>Qualificação — a conversa não vira consulta<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Sintoma:</strong> conversas longas, simpáticas, que terminam em "vou ver certinho e te falo".</p>
+<p><strong>Causa:</strong> a conversa não teve estrutura. Você respondeu perguntas em vez de conduzir um processo. Quem responde perguntas não controla o enquadramento — e quem não controla o enquadramento, não fecha.</p>
+<p><strong>Protocolo:</strong></p>
+<ol>
+<li>Toda conversa segue a mesma sequência: acolher → uma pergunta de contexto → uma pergunta de histórico → uma pergunta de impacto → enquadrar a consulta → propor dois horários.</li>
+<li>Nunca termine uma mensagem sem uma pergunta ou um convite. Mensagem sem gancho é conversa morta.</li>
+<li>Se ela perguntar preço antes da qualificação: não fuja e não responda direto. "O protocolo fica entre R$X e R$Y dependendo do que a gente encontrar na investigação — e é justamente isso que a consulta define. Posso te fazer duas perguntas rápidas para ver se faz sentido?" Isso ancora, é honesto, e devolve a condução.</li>
+</ol>
+<p>Detalhamento completo com scripts no C1.M5 (WhatsApp) e 10.4.</p>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">G6</span>Consulta — a consulta não vira adesão<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Sintoma:</strong> "vou pensar", "vou conversar com meu marido", "me manda no WhatsApp".</p>
+<p><strong>Diagnóstico diferencial — as três causas têm tratamentos opostos:</strong></p>
+<ul>
+<li><strong>"Vou pensar" genuíno</strong> → falta de clareza sobre o próximo passo. Trate com estrutura, não com pressão.</li>
+<li><strong>"Está caro"</strong> → falha de valor <em>construída antes da consulta</em>. Trate no C2.M4 (Engenharia dos Reels) e 6, não na consulta.</li>
+<li><strong>"Preciso falar com meu marido"</strong> → geralmente não é sobre dinheiro; é sobre legitimidade. Ela precisa de argumentos para defender a escolha. Dê a ela um resumo escrito. Sério: isso sozinho recupera uma parte relevante desses casos.</li>
+</ul>
+<p><strong>Protocolo:</strong></p>
+<ol>
+<li>Estruture a consulta em fases fixas (C1.M6 (Consulta)). Consulta sem estrutura tem variância enorme de resultado — e variância é o que impede você de melhorar, porque você nunca sabe o que funcionou.</li>
+<li>Nunca termine sem definir o próximo passo com data. "Vou pensar" sem data é "não" com educação.</li>
+<li>Follow-up em 24h, 72h e 7 dias. Sempre. Isso não é insistência — é o que separa 40% de 25% de fechamento.</li>
+</ol>
+</div></div>
+</div>
+<div class="acc-item">
+<button aria-expanded="false" class="acc-btn"><span class="acc-idx">G7</span>Capacidade — você é o teto<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev low">bom problema</span></button>
+<div class="acc-panel"><div class="acc-body">
+<p><strong>Sintoma:</strong> agenda cheia, funil funcionando, e a receita não sobe.</p>
+<p><strong>Realidade:</strong> você chegou no limite estrutural do modelo. Atendimento remoto pessoal tem um teto de horas que não se dobra com esforço. A partir daqui, existem exatamente quatro alavancas — e nenhuma delas é "mais tráfego":</p>
+<div class="grid grid-2">
+<div class="card"><div class="card-kicker">Alavanca A</div><h4>Ticket</h4><p>Mesma hora, mais valor. Requer autoridade maior. Módulos 2 e 4.</p></div>
+<div class="card"><div class="card-kicker">Alavanca B</div><h4>Seletividade</h4><p>Recusar casos com baixa probabilidade de adesão. Contraintuitivo e muito rentável.</p></div>
+<div class="card"><div class="card-kicker">Alavanca C</div><h4>Recorrência</h4><p>Manutenção e acompanhamento. Receita sem custo de aquisição. C1.M3 (Oferta e Precificação).</p></div>
+<div class="card"><div class="card-kicker">Alavanca D</div><h4>Produtização</h4><p>Parte do protocolo entregue de forma assíncrona e escalável. Libera suas horas.</p></div>
+</div>
+<p><strong>Aviso:</strong> a maior parte das clínicas que chega aqui comete o erro de aumentar o orçamento de mídia. Isso gera fila, no-show, desgaste, e piora a experiência de quem já é paciente — destruindo o motor de indicação que era o ativo mais valioso. Chegar no G7 exige <em>parar</em> de fazer o que funcionou até aqui.</p>
+</div></div>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.7 — DASHBOARD EXECUTIVO
+       ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.7</span><span></span></div>
+<h2>Dashboard executivo</h2>
+<p class="sec-lede">
+          Nove números. Você olha esses nove e ignora os outros quarenta. Esta seção define quais, por quê,
+          onde medir e qual é a faixa saudável.
+        </p>
+</div>
+<p>
+        O Gerenciador de Anúncios oferece mais de 100 colunas. Isso não é generosidade — é uma armadilha de
+        atenção. Cada métrica que você olha e não age sobre consome capacidade cognitiva e cria a ilusão de
+        gestão. Um gestor profissional olha poucos números e age em todos eles.
+      </p>
+<h3>O critério para uma métrica entrar no painel</h3>
+<p>Uma métrica só merece seu tempo se responder <strong>sim às três perguntas</strong>:</p>
+<div class="grid grid-3">
+<div class="card"><div class="card-kicker">Teste 1</div><h4>É acionável?</h4><p>Se ela piorar, você sabe exatamente o que fazer? Se não, é informação, não métrica.</p></div>
+<div class="card"><div class="card-kicker">Teste 2</div><h4>Está ligada ao dinheiro?</h4><p>Existe uma cadeia causal clara até a receita? Ou é só uma correlação bonita?</p></div>
+<div class="card"><div class="card-kicker">Teste 3</div><h4>Você controla?</h4><p>Suas decisões movem esse número? CPM, por exemplo, você influencia — mas não controla.</p></div>
+</div>
+<h3>As 9 métricas do painel</h3>
+<div class="tbl-scroll">
+<table>
+<thead>
+<tr><th>#</th><th>Métrica</th><th>Faixa saudável</th><th>Onde medir</th><th>Se estiver ruim</th></tr>
+</thead>
+<tbody>
+<tr>
+<td class="t-num">1</td><td><strong>CTR (link)</strong></td>
+<td class="t-num">1,2% – 3,0%</td><td>Gerenciador</td><td>Criativo. C2.M5 (Biblioteca de Ganchos).</td>
+</tr>
+<tr>
+<td class="t-num">2</td><td><strong>Tempo médio na LP</strong></td>
+<td class="t-num">&gt; 90 s</td><td><abbr data-t="GA4">GA4</abbr> / GTM</td><td>Coerência anúncio↔página. G2.</td>
+</tr>
+<tr>
+<td class="t-num">3</td><td><strong>Retenção do vídeo (75%)</strong></td>
+<td class="t-num">&gt; 25% dos players</td><td>Evento IFrame API</td><td>Mecanismo/roteiro. C3.M7 (CRO).</td>
+</tr>
+<tr>
+<td class="t-num">4</td><td><strong>Visita → contato</strong></td>
+<td class="t-num">2% – 5%</td><td>Evento <code>Contact</code></td><td>LP ou público. G2/G3.</td>
+</tr>
+<tr>
+<td class="t-num">5</td><td><strong>Tempo mediano de 1ª resposta</strong></td>
+<td class="t-num t-gold">&lt; 15 min</td><td>Planilha manual / <abbr data-t="CRM">CRM</abbr></td><td>Processo. G4. Prioridade máxima.</td>
+</tr>
+<tr>
+<td class="t-num">6</td><td><strong>Contato → consulta agendada</strong></td>
+<td class="t-num">45% – 70%</td><td>Planilha / CRM</td><td>Qualificação. G5.</td>
+</tr>
+<tr>
+<td class="t-num">7</td><td><strong>Taxa de comparecimento</strong></td>
+<td class="t-num">&gt; 85%</td><td>Agenda</td><td>Confirmação ativa. C1.M5 (WhatsApp).</td>
+</tr>
+<tr>
+<td class="t-num">8</td><td><strong>Consulta → adesão</strong></td>
+<td class="t-num">35% – 55%</td><td>Planilha / CRM</td><td>Consulta ou valor. G6.</td>
+</tr>
+<tr style="background:rgba(201,169,97,.06)">
+<td class="t-num">9</td><td><strong>CAC real (mídia ÷ pacientes)</strong></td>
+<td class="t-num t-gold">&lt; 12% do ticket</td><td>Cálculo manual mensal</td><td>É o resultado de tudo acima.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Repare em algo</span>
+</div>
+<p>
+          Quatro das nove métricas <strong>não vivem em nenhuma plataforma</strong>. Tempo de resposta, taxa de
+          agendamento, comparecimento e adesão só existem se você registrar manualmente. É por isso que a maior
+          parte das clínicas otimiza só a metade do funil que a Meta mostra — e é exatamente a metade que menos
+          importa. A planilha simples que você monta no C3.M11 (Dashboard Executivo) vale mais que qualquer dashboard automático.
+        </p>
+</div>
+<h3>As métricas que você vai ignorar deliberadamente</h3>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Métrica</th><th>Por que ignorar</th><th>Quando ela importa</th></tr></thead>
+<tbody>
+<tr><td><strong>Curtidas / seguidores</strong></td><td>Não passa no teste 2. Zero cadeia causal até receita no seu modelo.</td><td>Nunca, isoladamente.</td></tr>
+<tr><td><strong>Alcance</strong></td><td>Você pode comprar alcance infinito. Não significa nada.</td><td>Só como denominador de outra taxa.</td></tr>
+<tr><td><strong>Custo por clique</strong></td><td>Otimizar <abbr data-t="CPC">CPC</abbr> te leva a comprar cliques baratos = pessoas erradas.</td><td>Como sintoma secundário de CTR ruim.</td></tr>
+<tr><td><strong>Custo por lead</strong></td><td class="t-err">Ativamente perigoso. Ver seção 1.1.</td><td>Nunca no seu modelo.</td></tr>
+<tr><td><strong>Frequência</strong></td><td>Só importa acima de ~4 em públicos pequenos.</td><td>Remarketing. C1.M7 (Remarketing).</td></tr>
+<tr><td><strong><abbr data-t="ROAS">ROAS</abbr> da plataforma</strong></td><td>Você não passa valor de compra online. O número é fantasia.</td><td>Nunca, no seu setup atual.</td></tr>
+<tr><td><strong>Pontuação de qualidade</strong></td><td>Diagnóstico vago, não acionável.</td><td>Sinal fraco de fadiga criativa.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout danger">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Lei de Goodhart</span>
+</div>
+<p>
+          "Quando uma medida se torna um alvo, ela deixa de ser uma boa medida." Se você definir custo por lead
+          como meta, sua equipe (ou você mesma) vai otimizar para custo por lead — reduzindo fricção, prometendo
+          mais, aceitando qualquer público. E vai atingir a meta. E o negócio vai piorar. <strong>A escolha das
+          métricas do painel é uma decisão estratégica, não administrativa.</strong> Você está literalmente
+          programando o comportamento futuro do sistema — inclusive o seu.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.8 — ERROS FATAIS (50)
+       ============================================================ -->
+<section class="sec reveal" id="s8">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.8</span><span></span></div>
+<h2>Erros fatais</h2>
+<p class="sec-lede">
+          Os 50 erros que clínicas cometem ao iniciar Meta Ads, agrupados por categoria e ordenados por
+          severidade. Cada um vem com o <em>mecanismo</em> — porque decorar erros não serve de nada; entender
+          por que eles quebram o sistema é o que impede você de reinventá-los com outro nome.
+        </p>
+</div>
+<div class="grid grid-3">
+<div class="stat"><div class="stat-n">7</div><div class="stat-l">categorias</div></div>
+<div class="stat"><div class="stat-n">50</div><div class="stat-l">erros mapeados</div></div>
+<div class="stat"><div class="stat-n">18</div><div class="stat-l">classificados como críticos</div></div>
+</div>
+<!-- CATEGORIA A -->
+<h3>A · Estratégia e fundação <span style="color:var(--text-3);font-size:.75em">(erros 1–8)</span></h3>
+<div class="acc" data-acc="">
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">01</span>Começar a anunciar antes de ter um mecanismo definido<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>Sem mecanismo, o anúncio só pode falar de resultado ou de preço. Ambos te colocam na prateleira da comoditização, onde o único critério de escolha é quem cobra menos. Você não está anunciando cedo demais — está anunciando <em>sem uma resposta para a pergunta "por que você e não o outro?"</em>. E o mercado vai responder essa pergunta por você, da pior forma possível.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">02</span>Anunciar os dois protocolos na mesma campanha<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>Melasma e desinflamação são dores diferentes, públicos com sobreposição parcial e jornadas com velocidades distintas. Misturar contamina o aprendizado do algoritmo: ele recebe sinais contraditórios sobre quem é "boa conversão" e converge para o meio-termo, que não serve para nenhum dos dois. Contas separadas de campanha, públicos separados, pixels com eventos distintos.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">03</span>Copiar a estrutura de conta de um infoprodutor<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Infoproduto tem ticket baixo, volume alto, entrega instantânea e capacidade infinita. Você tem o oposto em todos os quatro eixos. As estruturas que funcionam lá (CBO agressivo, muitos conjuntos, otimização por lead, escala vertical rápida) produzem exatamente o resultado errado aqui. Não é que os infoprodutores estejam errados — é que eles resolvem um problema diferente do seu.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">04</span>Definir orçamento por "quanto sobra" em vez de por meta de pacientes<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Orçamento residual gera investimento intermitente, que gera reset constante de aprendizado, que gera CPA alto, que confirma a crença de que "anúncio não funciona". É uma profecia autorrealizável. Calcule de trás para frente: quantas pacientes você quer × CAC estimado = orçamento mínimo. Se o número não cabe, o problema é o modelo, não o orçamento.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">05</span>Esperar retorno em 7 dias<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>O ciclo de decisão do seu protocolo é de 3 a 12 semanas. Uma campanha avaliada em 7 dias está sendo julgada antes que a primeira coorte tenha terminado de decidir. Você vai matar campanhas que estavam funcionando. Janela mínima de avaliação: 21 dias. E a atribuição correta exige comparar coortes, não dias.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">06</span>Tratar Meta Ads como canal, não como sistema<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>"Vou colocar tráfego" pressupõe que o resto está pronto. Tráfego é um amplificador: ele amplifica um sistema bom e amplifica um sistema ruim com a mesma eficiência. Colocar mídia em cima de um WhatsApp que responde em 6 horas é pagar para descobrir mais rápido que você não responde o WhatsApp.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">07</span>Terceirizar a estratégia junto com a execução<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Você pode terceirizar quem sobe a campanha. Não pode terceirizar quem decide o mecanismo, o posicionamento e o critério de paciente ideal — porque essas decisões dependem de conhecimento clínico que a agência não tem e não vai adquirir. O resultado padrão dessa terceirização é uma conta tecnicamente correta comunicando a coisa errada.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">08</span>Querer escalar antes de ter uma unidade econômica saudável<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Escalar um funil que perde dinheiro apenas perde dinheiro mais rápido. Antes de dobrar orçamento, a pergunta é: uma paciente entra por menos do que ela vale? Se você não sabe responder com números, você não tem permissão para escalar. C1.M3 (Oferta e Precificação).</p></div></div></div>
+</div>
+<!-- CATEGORIA B -->
+<h3>B · Rastreamento e dados <span style="color:var(--text-3);font-size:.75em">(erros 9–17)</span></h3>
+<div class="acc" data-acc="">
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">09</span>Otimizar campanha por cliques ou visualizações<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>O algoritmo entrega exatamente o que você pede. Peça cliques e ele encontra a subpopulação que clica em tudo e não compra nada — e essa subpopulação existe, é grande, e é barata. Você vai receber métricas lindas e nenhum paciente. Este é o erro nº1 em volume de dinheiro queimado no mercado brasileiro.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">10</span>Instalar o Pixel e nunca configurar eventos<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>O Pixel base só registra PageView. Sem eventos, você tem um contador de visitas e o algoritmo não tem nada para aprender. É como colocar um professor numa sala e não deixar ninguém falar.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">11</span>Disparar o mesmo evento duas vezes (Pixel + <abbr data-t="GTM">GTM</abbr> sem deduplicação)<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>Duplicação infla artificialmente a contagem, corrompe o CPA aparente e — pior — envenena o modelo com sinais falsos de sucesso. A solução é <code>event_id</code> compartilhado entre Pixel e CAPI. Se você já tem camada dual-fire nas suas landing pages, este é o primeiro item a auditar. C3.M2 (Pixel e CAPI).</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">12</span>Não usar a Conversions API<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Bloqueadores, ITP do Safari e restrições de cookie derrubam entre 15% e 30% dos eventos apenas com Pixel. Esses eventos perdidos não são aleatórios: eles vêm desproporcionalmente de usuários de iOS — que, no seu nicho, correlacionam com maior poder aquisitivo. Você está cegando o algoritmo justamente para o seu melhor público.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">13</span>Ignorar a qualidade de correspondência dos eventos<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Um evento sem parâmetros de correspondência (e-mail, telefone, nome hasheados) é um evento que a Meta não consegue atribuir a uma pessoa. Nota de correspondência 4/10 significa que mais da metade do seu sinal se perde. Isso é reversível e barato de corrigir. C3.M2 (Pixel e CAPI).</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">14</span>Não distinguir contato qualificado de contato qualquer<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Se todo clique no botão do WhatsApp dispara <code>Contact</code>, você está ensinando o algoritmo que curiosos são conversões. Precisa haver uma distinção — via evento offline, via CRM, ou via evento intermediário mais exigente.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">15</span>Nunca enviar conversões offline<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>A venda acontece na consulta, fora da internet. Se você não devolve esse dado para a Meta, o algoritmo nunca sabe quais dos leads dele viraram dinheiro — e otimiza no escuro para sempre. Enviar conversões offline é o que fecha o loop de aprendizado do sistema. Poucos fazem. É uma vantagem competitiva concreta.</p>
+<div class="selo-box mito" style="margin-top:1.2rem">
+<span class="selo mito">Errata</span>
+<p><strong>Este erro continua verdadeiro. O caminho que eu indiquei, não.</strong></p>
+<p>
+    Quando escrevi este módulo, a instrução implícita era usar a <em>Offline Conversions API</em> e um
+    Offline Event Set. Esse mecanismo <strong>foi aposentado pela Meta em 14 de maio de 2025</strong>.
+    O sistema separado de eventos offline deixou de existir: o Offline Event Set ID foi substituído
+    pelo <abbr data-t="Dataset">Dataset</abbr> ID, e os eventos offline passaram a trafegar pela
+    <abbr data-t="CAPI">CAPI</abbr> padrão — a mesma dos eventos de site.
+  </p>
+<p>
+<strong>O que fazer hoje:</strong> envie a adesão pela CAPI, no mesmo dataset dos eventos web, com o
+    parâmetro <code>action_source</code> marcando a origem — <code>system_generated</code> para eventos
+    vindos de CRM ou backend, que é o seu caso (consulta e venda são remotas), ou
+    <code>physical_store</code> para atendimento presencial.
+  </p>
+<p>
+<strong>A tese do erro nº 15 fica de pé, e fica mais forte:</strong> se você não devolve a venda para
+    a Meta, o algoritmo nunca sabe quais leads viraram dinheiro e otimiza no escuro para sempre. Só o
+    encanamento mudou. O detalhamento técnico, com a fonte primária, está em
+    <a class="modref" data-mod="c3-m2">C3.M2 — Pixel, Dataset e Conversions API</a>.
+  </p>
+<p class="cit">
+<b>Registrado em 16/07/2026.</b> Verificado contra a documentação de eventos offline da Meta e
+    relatos consistentes de múltiplas fontes independentes sobre a data de descontinuação.
+    <em>Este é o motivo pelo qual os módulos de alta volatilidade da plataforma são construídos com
+    consulta à fonte primária, e não de memória.</em>
+</p>
+</div></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">16</span>Ignorar consentimento e <abbr data-t="LGPD">LGPD</abbr> em dados de saúde<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>Dado de saúde é categoria sensível na LGPD e exige base legal específica. Além do risco jurídico, a Meta tem políticas próprias sobre parâmetros de saúde — enviar dados que indiquem condição médica pode gerar restrição de conta. Isso não é burocracia: é risco existencial para a operação. C3.M2 (Pixel e CAPI).</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">17</span>Não validar os eventos antes de subir a campanha<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Rodar 30 dias e descobrir que o evento nunca disparou é uma perda total e irrecuperável — os dados não voltam. Test Events do Events Manager leva 10 minutos. C3.M2 (Pixel e CAPI).</p></div></div></div>
+</div>
+<!-- CATEGORIA C -->
+<h3>C · Estrutura de campanha <span style="color:var(--text-3);font-size:.75em">(erros 18–27)</span></h3>
+<div class="acc" data-acc="">
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">18</span>Criar muitos conjuntos com orçamento baixo<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>Cada conjunto precisa de ~50 eventos de otimização por semana para sair da fase de aprendizado. Com R$3.000/mês e 8 conjuntos, cada um recebe R$12/dia — e nenhum jamais aprende. Você não tem 8 campanhas: você tem 8 experimentos permanentemente inconclusivos. Concentre.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">19</span>Mexer na campanha todo dia<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>Edições significativas resetam a fase de aprendizado. Quem mexe todo dia mantém a conta em aprendizado permanente — o estado mais caro e menos eficiente possível. A ansiedade de gestão é, literalmente, o custo mais alto de contas pequenas. Regra: nada de edições por 72h após qualquer mudança.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">20</span>Segmentar demais<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Interesse + comportamento + faixa etária + renda + cidade = público de 40 mil pessoas e CPM triplicado. Em 2026, a segmentação manual raramente supera o algoritmo — e sempre encarece o leilão. Seu filtro real é o criativo e a landing page, não a caixinha de interesses.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">21</span>Não configurar a Categoria Especial quando aplicável<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Erro de compliance com consequência de conta. Você precisa saber exatamente se o seu caso se enquadra e o que isso restringe em segmentação e lookalike. C1.M4 (Meta Ads).</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">22</span>Matar um anúncio em 24 horas<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Com 300 impressões, a diferença entre 1,1% e 2,3% de CTR não é significativa — é ruído. Você está tomando decisões em cima de aleatoriedade e chamando isso de otimização. Espere significância mínima: ~1.000 impressões e 3 dias.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">23</span>Rodar remarketing e aquisição na mesma campanha<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>O público quente sempre terá CPA melhor. Com CBO, o orçamento migra inteiro para ele, o público frio morre de fome, e em 30 dias você não tem mais quem remarketar. Você comprou eficiência de curto prazo com a extinção do seu topo de funil.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">24</span>Não excluir quem já é paciente<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Você paga para anunciar para quem já pagou. Além do desperdício, isso gera uma experiência ruim: a paciente em tratamento vendo o anúncio de captação todo dia. Listas de exclusão são gratuitas e levam 5 minutos.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">25</span>Usar lookalike de público ruim<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Lookalike amplifica a semente. Semente de "todos que visitaram o site" gera um público parecido com curiosos. Semente de "pacientes que fecharam" gera um público parecido com compradoras — mas exige ao menos ~100 registros para ter sinal. Com menos que isso, a semente é ruído amplificado.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">26</span>Deixar todos os posicionamentos automáticos sem olhar o resultado<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev low">nuance</span></button><div class="acc-panel"><div class="acc-body"><p>Cuidado: automático geralmente é <em>certo</em>. O erro não é usar automático — é nunca conferir o detalhamento. Se a Audience Network consome 40% do orçamento e gera zero conversa, isso é informação. Mas não desligue por instinto: desligue por dado.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">27</span>Escalar dobrando o orçamento de uma vez<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Aumentos acima de ~20% costumam reiniciar o aprendizado e desestabilizar a entrega. Escala é degrau, não salto: +20% a cada 3–4 dias, observando o CPA. C1.M4 (Meta Ads).</p></div></div></div>
+</div>
+<!-- CATEGORIA D -->
+<h3>D · Criativo e mensagem <span style="color:var(--text-3);font-size:.75em">(erros 28–36)</span></h3>
+<div class="acc" data-acc="">
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">28</span>Anunciar o tratamento em vez do problema<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>No tráfego frio, ela não conhece o tratamento e não se importa com ele. Ela se importa com o espelho, com o cansaço, com a foto que evitou. O anúncio precisa entrar pela realidade dela, não pelo seu catálogo. Falar do tratamento é falar de você para alguém que só quer falar dela.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">29</span>Usar antes/depois como criativo principal<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>Três problemas simultâneos: (1) viola política da Meta sobre atributos pessoais e resultados idealizados, gerando reprovação ou restrição de conta; (2) tem restrições nos conselhos profissionais; (3) destrói o posicionamento de luxo silencioso, porque é o exato visual de quem promete milagre. Você tem provas melhores: histórias com mecanismo.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">30</span>Usar "você" apontando para o problema<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>"Você tem melasma?" é tecnicamente uma violação da política de atributos pessoais da Meta — a plataforma não permite que o anúncio afirme ou insinue conhecer uma condição de saúde da pessoa. Reescreva na terceira pessoa ou na primeira do plural: "o melasma volta todo verão para muitas mulheres". Mesmo efeito, sem risco de conta.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">31</span>Um criativo só<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Criativo é a variável de maior variância do sistema — a diferença entre o melhor e o pior hook é rotineiramente de 3–5×. Com um criativo, você não está testando: está apostando. Mínimo de 3 hooks distintos por conjunto, sempre.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">32</span>Trocar o criativo só quando ele "morre"<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Quando o CPA já subiu 40%, você perdeu duas semanas de dinheiro. Fadiga criativa é previsível: monitore frequência e CTR ao longo do tempo e tenha o substituto pronto antes de precisar. Produção de criativo é rotina, não emergência.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">33</span>Vídeo com abertura institucional<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>"Olá, eu sou a Dra. Fulana, biomédica formada pela..." — nos primeiros 3 segundos, ninguém se importa com quem você é. Eles se importam se você está falando com eles. Credencial vem <em>depois</em> do hook, como validação de algo que já interessou.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">34</span>Legenda longa no anúncio de tráfego frio<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>A legenda do anúncio tem uma função só: fazer clicar. A profundidade é trabalho da landing page. Anúncio que tenta explicar tudo não converte e ainda cansa a pessoa antes dela chegar onde a explicação está bem feita.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">35</span>Estética de "clínica" — mármore, dourado, mulher de toalha<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>É o visual mais saturado do feed brasileiro. Cegueira de banner é literal: o cérebro filtra padrões que já classificou como publicidade antes da consciência processar. Além disso, esse visual comunica "spa", e você não vende spa — vende investigação clínica.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">36</span>Prometer resultado, prazo ou garantia<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>Risco triplo: política da Meta, conselho profissional e código de defesa do consumidor. E — o que quase ninguém percebe — <strong>promessa reduz conversão no seu público</strong>. A paciente de melasma crônico já ouviu cinco promessas e foi decepcionada cinco vezes. Promessa te coloca no grupo de quem a decepcionou. Honestidade calibrada converte mais aqui.</p></div></div></div>
+</div>
+<!-- CATEGORIA E -->
+<h3>E · Landing page e conversão <span style="color:var(--text-3);font-size:.75em">(erros 37–42)</span></h3>
+<div class="acc" data-acc="">
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">37</span>Mandar tráfego para o Instagram ou para a home<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>Tráfego pago precisa de destino com um único caminho. Perfil e home têm dezenas de saídas, zero controle de narrativa e rastreamento fraco. Você pagou por atenção e a entregou para o feed do Instagram.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">38</span>Landing page lenta<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Acima de 3 segundos no 4G, uma parte relevante do tráfego pago não chega a ver a página. É a única fricção que não filtra: ela mata bons e ruins igualmente. Priorize <abbr data-t="LCP">LCP</abbr>, comprima imagens, e carregue o player de vídeo sob demanda (facade), não no load.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">39</span>CTA de WhatsApp no topo da página<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Contraintuitivo, mas: CTA antes do mecanismo gera volume alto de contatos <em>desqualificados</em>. Você está oferecendo a porta antes de contar do que se trata — então entra quem quer só perguntar preço. O CTA deve aparecer depois que ela entendeu por que isso é diferente.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">40</span>Prova social genérica<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>"Amei o atendimento! ⭐⭐⭐⭐⭐" não prova nada e sinaliza compra de depoimento. Prova social em saúde tem hierarquia: história com mecanismo &gt; depoimento em vídeo &gt; texto com nome e contexto &gt; estrela. C3.M7 (CRO).</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">41</span>Contador regressivo falso<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>Se ela recarregar a página e o contador reiniciar, você perdeu a credibilidade que levou meses para construir — e perdeu no pior momento possível, quando ela estava considerando. Escassez em luxo silencioso só funciona quando é verdadeira: agenda real, vagas reais, critério real de triagem.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">42</span>Testar <abbr data-t="A/B">A/B</abbr> com 200 visitas<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Com volume baixo, a diferença entre 2,1% e 2,8% não é significativa — você está lendo ruído. Com o seu tráfego, o caminho é teste qualitativo (gravação de sessão, entrevista com pacientes) e mudanças grandes, não micro-otimização estatística. C3.M7 (CRO).</p></div></div></div>
+</div>
+<!-- CATEGORIA F -->
+<h3>F · Atendimento e vendas <span style="color:var(--text-3);font-size:.75em">(erros 43–47)</span></h3>
+<div class="acc" data-acc="">
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">43</span>Demorar para responder<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>Já detalhado no G4. É o maior vazamento do sistema, o mais barato de corrigir, e o mais ignorado — porque não aparece em nenhum relatório. Se você só corrigir um item deste módulo inteiro, corrija este.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">44</span>Responder o preço na primeira mensagem<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>Preço sem contexto é apenas um número grande. Ela não tem nenhum critério para avaliá-lo — então usa o único que tem: comparação com o clareador de R$120 da farmácia. Você perdeu não por ser caro, mas por ter entregado o número antes da régua.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">45</span>Não fazer follow-up<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>A maior parte das vendas high ticket acontece entre o 3º e o 7º contato. A maior parte dos profissionais para no 1º. Isso não é uma coincidência estatística — é onde está o dinheiro que ninguém pega. Cadência de 7 toques no C1.M5 (WhatsApp).</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">46</span>Confundir insistência com follow-up<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>O contrário do erro 45, e igualmente destrutivo. "Oi, tudo bem? Conseguiu ver?" cinco vezes é insistência: cada mensagem pede algo dela e não entrega nada. Follow-up entrega valor novo a cada toque — um caso, um artigo, um esclarecimento. A régua é simples: se a mensagem não tem valor sem a resposta dela, é insistência.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">47</span>Não confirmar a consulta ativamente<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>No-show de 20–30% é padrão sem confirmação e cai para menos de 10% com dois toques (24h e 2h antes). Cada no-show custa uma hora da sua agenda e um paciente que provavelmente não volta. Custo de corrigir: duas mensagens.</p></div></div></div>
+</div>
+<!-- CATEGORIA G -->
+<h3>G · Gestão e mentalidade <span style="color:var(--text-3);font-size:.75em">(erros 48–50)</span></h3>
+<div class="acc" data-acc="">
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">48</span>Não registrar nada fora da plataforma<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>Quatro das nove métricas do painel não existem em lugar nenhum se você não anotar. Sem elas, você está otimizando metade do funil — e é a metade menos importante. Uma planilha de 6 colunas resolve. Não é sobre ferramenta; é sobre disciplina.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">49</span>Buscar a tática que muda tudo<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Seção 1.5 provou: o resultado é o produto de sete taxas. Não existe um multiplicador único. Quem procura o hack está procurando algo que a estrutura matemática do sistema não permite existir — e, enquanto procura, não faz as sete melhorias de 20% que dobrariam o negócio.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">50</span>Desistir no mês 2<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>O volante leva de 3 a 6 meses para começar a girar. O mês 2 é estruturalmente o pior: você já gastou, ainda não tem indicação, ainda não tem público de remarketing maduro, ainda não tem banco de criativo validado, e o algoritmo ainda está aprendendo. Quem desiste no mês 2 desiste exatamente no ponto de mínima do gráfico — e conclui, com toda a convicção, que o método não funciona.</p></div></div></div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s8">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.9 — CHECKLIST DE IMPLEMENTAÇÃO
+       ============================================================ -->
+<section class="sec reveal" id="s9">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.9</span><span></span></div>
+<h2>Checklist de implementação</h2>
+<p class="sec-lede">
+          62 itens. Marque conforme implementar — o progresso fica salvo neste navegador. Não avance para o
+          C1.M2 (Posicionamento) com menos de 70% marcado; o C1.M2 (Posicionamento) assume que esta fundação existe.
+        </p>
+</div>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 1</h4>
+<span class="check-count" id="upCheckCount">0 / 62</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Decisões estratégicas</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt"><b>Declarei por escrito</b> que opero em arquitetura de seleção, não de volume</span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Escrevi meu <b>mecanismo do Melasma</b> em uma frase que nenhum concorrente pode dizer</span></label>
+<label class="ci"><input data-ck="a3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Escrevi meu <b>mecanismo da Desinflamação</b> na mesma régua</span></label>
+<label class="ci"><input data-ck="a4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Testei as duas frases com 5 pessoas fora do nicho e 4 explicaram de volta corretamente</span></label>
+<label class="ci"><input data-ck="a5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini <b>quantas pacientes por mês</b> quero e quantas horas isso consome</span></label>
+<label class="ci"><input data-ck="a6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Calculei o <b>orçamento mínimo</b> de trás para frente (pacientes × CAC estimado)</span></label>
+<label class="ci"><input data-ck="a7" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini o <b>teto de CAC</b> aceitável (recomendado: 12% do ticket)</span></label>
+<label class="ci"><input data-ck="a8" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Decidi que os dois protocolos terão <b>campanhas e públicos separados</b></span></label>
+<label class="ci"><input data-ck="a9" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini a <b>janela mínima de avaliação</b> de campanha: 21 dias</span></label>
+<div class="check-group">B · Diagnóstico do estado atual</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Rodei a <b>árvore de decisão</b> da seção 1.6 e identifiquei meu gargalo atual</span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Escrevi o gargalo em um post-it visível. Só ele importa até ser resolvido</span></label>
+<label class="ci"><input data-ck="b3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Medi meu <b>tempo mediano real</b> de primeira resposta no WhatsApp (últimas 20 conversas)</span></label>
+<label class="ci"><input data-ck="b4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Contei quantas <b>conversas viraram consulta</b> nos últimos 60 dias</span></label>
+<label class="ci"><input data-ck="b5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Contei quantas <b>consultas viraram adesão</b> nos últimos 60 dias</span></label>
+<label class="ci"><input data-ck="b6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Calculei minha <b>taxa composta atual</b> e comparei com a faixa saudável da seção 1.7</span></label>
+<label class="ci"><input data-ck="b7" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Listei os <b>3 vazamentos</b> mais caros do meu funil hoje</span></label>
+<div class="check-group">C · Instrumentação e dados</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Criei a <b>planilha de controle</b> com: data · origem · 1º contato · resposta · agendada · realizada · adesão</span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Auditei o <b>Pixel</b> nas duas landing pages com o Meta Pixel Helper</span></label>
+<label class="ci"><input data-ck="c3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Confirmei no Events Manager que <b>não há eventos duplicados</b> (Pixel + GTM)</span></label>
+<label class="ci"><input data-ck="c4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Listei <b>todos os eventos</b> que disparam hoje e o que cada um significa no funil</span></label>
+<label class="ci"><input data-ck="c5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Verifiquei se os <b>eventos de vídeo</b> (IFrame API) estão chegando ao Events Manager</span></label>
+<label class="ci"><input data-ck="c6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Anotei a <b>nota de qualidade de correspondência</b> atual de cada evento</span></label>
+<label class="ci"><input data-ck="c7" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Verifiquei se a <b>CAPI</b> está ativa — e, se não, registrei isso como pendência do C3.M2 (Pixel e CAPI)</span></label>
+<label class="ci"><input data-ck="c8" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Confirmei que <b>nenhum parâmetro de saúde sensível</b> está sendo enviado à Meta</span></label>
+<label class="ci"><input data-ck="c9" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Instalei o GA4 (ou equivalente) para medir <b>tempo na página</b> e scroll</span></label>
+<label class="ci"><input data-ck="c10" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini qual será meu <b>evento de otimização</b> — e por que ele tem volume suficiente</span></label>
+<div class="check-group">D · Landing pages</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Rodei o <b>teste de 3 segundos</b>: o headline do anúncio aparece na primeira dobra</span></label>
+<label class="ci"><input data-ck="d2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Medi o <b>tempo de carregamento</b> no 4G (meta: &lt; 3 s)</span></label>
+<label class="ci"><input data-ck="d3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Confirmei que o <b>mecanismo aparece antes do primeiro CTA</b></span></label>
+<label class="ci"><input data-ck="d4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Removi qualquer <b>contador ou escassez falsa</b></span></label>
+<label class="ci"><input data-ck="d5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Removi qualquer <b>promessa de resultado ou prazo</b></span></label>
+<label class="ci"><input data-ck="d6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Auditei as <b>provas sociais</b>: nenhuma genérica, nenhum antes/depois no anúncio</span></label>
+<label class="ci"><input data-ck="d7" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Confirmei que o <b>link do WhatsApp</b> carrega mensagem pré-preenchida com identificação de origem</span></label>
+<label class="ci"><input data-ck="d8" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Cada protocolo tem sua <b>própria landing</b>, com seu próprio link de WhatsApp</span></label>
+<label class="ci"><input data-ck="d9" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Testei o fluxo completo <b>no meu próprio celular</b>, do anúncio ao WhatsApp</span></label>
+<div class="check-group">E · WhatsApp e atendimento</div>
+<label class="ci"><input data-ck="e1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Configurei <b>resposta automática em menos de 60 s</b>, 24/7, terminando com uma pergunta</span></label>
+<label class="ci"><input data-ck="e2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini e escrevi o <b>SLA humano</b>: 15 min em horário comercial</span></label>
+<label class="ci"><input data-ck="e3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Escrevi minha <b>resposta padrão para "quanto custa?"</b> — que ancora e devolve a condução</span></label>
+<label class="ci"><input data-ck="e4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini as <b>5 perguntas de qualificação</b> e a ordem delas</span></label>
+<label class="ci"><input data-ck="e5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Criei <b>etiquetas</b> no WhatsApp Business para o estágio de cada conversa</span></label>
+<label class="ci"><input data-ck="e6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini a <b>cadência de follow-up</b>: 24 h, 72 h, 7 dias — com valor novo a cada toque</span></label>
+<label class="ci"><input data-ck="e7" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Criei a <b>confirmação de consulta</b> em dois toques: 24 h e 2 h antes</span></label>
+<label class="ci"><input data-ck="e8" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini quem responde quando eu estiver em consulta</span></label>
+<div class="check-group">F · Consulta e pós-venda</div>
+<label class="ci"><input data-ck="f1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Escrevi a <b>estrutura fixa</b> da minha consulta em fases</span></label>
+<label class="ci"><input data-ck="f2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini <b>onde no roteiro</b> o preço aparece — e que ele nunca aparece antes</span></label>
+<label class="ci"><input data-ck="f3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Criei o <b>resumo escrito</b> que a paciente leva embora (o "argumento para o marido")</span></label>
+<label class="ci"><input data-ck="f4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini o <b>protocolo das primeiras 24 h</b> após o pagamento</span></label>
+<label class="ci"><input data-ck="f5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini os <b>marcos intermediários</b> que calibram a expectativa temporal da paciente</span></label>
+<label class="ci"><input data-ck="f6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Padronizei a <b>captura de baseline</b> (fotos + sintomas) no início de todo protocolo</span></label>
+<label class="ci"><input data-ck="f7" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini <b>quando e como</b> peço depoimento e indicação</span></label>
+<div class="check-group">G · Conteúdo e autoridade</div>
+<label class="ci"><input data-ck="g1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Auditei meu perfil do Instagram em <b>corte transversal</b> (grade, bio, destaques, 3 últimos posts)</span></label>
+<label class="ci"><input data-ck="g2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Minha <b>bio contém o mecanismo</b>, não só as credenciais</span></label>
+<label class="ci"><input data-ck="g3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho pelo menos um destaque que <b>demonstra raciocínio clínico</b></span></label>
+<label class="ci"><input data-ck="g4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini uma <b>frequência de publicação sustentável</b> — e é a que eu consigo manter por 12 meses</span></label>
+<label class="ci"><input data-ck="g5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Listei os <b>10 conteúdos</b> que nomeiam o problema da paciente de desinflamação</span></label>
+<label class="ci"><input data-ck="g6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Listei os <b>10 conteúdos</b> que reenquadram a crença "melasma não tem jeito"</span></label>
+<div class="check-group">H · Higiene de conta</div>
+<label class="ci"><input data-ck="h1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Criei a <b>lista de exclusão</b> de pacientes atuais e antigas</span></label>
+<label class="ci"><input data-ck="h2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Verifiquei se o meu caso exige <b>Categoria Especial de Anúncios</b></span></label>
+<label class="ci"><input data-ck="h3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Revisei todos os criativos ativos contra a <b>política de atributos pessoais</b> da Meta</span></label>
+<label class="ci"><input data-ck="h4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Confirmei que <b>domínio verificado</b> e Business Manager estão configurados corretamente</span></label>
+<label class="ci"><input data-ck="h5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Marquei no calendário o <b>ritual semanal de gestão</b> de 60 minutos</span></label>
+<label class="ci"><input data-ck="h6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Comprometi-me com a <b>regra das 72 h</b>: nenhuma edição de campanha nesse intervalo</span></label>
+</div>
+</div>
+<div class="callout win">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg>
+<span>Se você só puder fazer seis coisas</span>
+</div>
+<p>
+<strong>A1</strong> (declarar a arquitetura), <strong>A2/A3</strong> (escrever os mecanismos),
+          <strong>B1</strong> (identificar o gargalo), <strong>C1</strong> (planilha de controle),
+          <strong>E1/E2</strong> (SLA de resposta) e <strong>E6</strong> (cadência de follow-up).
+          Esses seis itens custam um fim de semana e resolvem, sozinhos, a maior parte do que separa uma
+          clínica que reclama do Meta Ads de uma que lucra com ele.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s9">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.10 — PLANO DE 4 SEMANAS
+       ============================================================ -->
+<section class="sec reveal" id="s10">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.10</span><span></span></div>
+<h2>Plano de implementação — 4 semanas</h2>
+<p class="sec-lede">
+          Nenhuma semana envolve aumentar orçamento. As quatro semanas são sobre tapar furos e instalar
+          instrumentos. Verba só faz sentido depois disso.
+        </p>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Ordem importa</span>
+</div>
+<p>
+          Este plano é sequencial por dependência, não por conveniência. A Semana 2 depende do diagnóstico da
+          Semana 1; a Semana 3 depende da instrumentação da Semana 2. Executar fora de ordem produz decisões
+          sem dado. Se você só tem 2 semanas, faça a 1 e a 2 — não a 1 e a 4.
+        </p>
+</div>
+<div class="tl">
+<div class="tl-item">
+<div class="tl-week">Semana 1 — Diagnóstico</div>
+<h4>Descobrir onde o dinheiro está vazando</h4>
+<p>Você não vai construir nada. Vai medir. É a semana mais desconfortável e a mais valiosa, porque tudo que vem depois depende de saber onde você está.</p>
+<ul>
+<li><strong>Seg</strong> — Ler o módulo inteiro. Rodar a árvore de decisão da 1.6. Escrever o gargalo em um post-it.</li>
+<li><strong>Ter</strong> — Abrir as últimas 20 conversas do WhatsApp. Anotar o tempo real de primeira resposta em cada uma. Calcular a mediana. Este número vai doer.</li>
+<li><strong>Qua</strong> — Levantar os últimos 60 dias: quantos contatos, quantas consultas agendadas, quantas realizadas, quantas adesões. Calcular as quatro taxas.</li>
+<li><strong>Qui</strong> — Auditar o Pixel das duas landings com o Pixel Helper. Listar todos os eventos que disparam. Marcar os duplicados e os que não fazem sentido.</li>
+<li><strong>Sex</strong> — Montar a planilha de controle (item C1). Começar a registrar a partir de hoje, sem exceção.</li>
+<li><strong>Sáb</strong> — Escrever os dois mecanismos (A2 e A3). Reescrever até caber em uma frase. Isso vai levar mais tempo do que você imagina.</li>
+<li><strong>Dom</strong> — Testar as frases com 5 pessoas fora do nicho. Se 4 não explicarem de volta, reescrever.</li>
+</ul>
+<span class="tl-goal">Entregável: você sabe seu gargalo, suas 4 taxas e seus 2 mecanismos</span>
+</div>
+<div class="tl-item">
+<div class="tl-week">Semana 2 — Estancar</div>
+<h4>Tapar os quatro furos mais caros</h4>
+<p>Nenhuma tarefa desta semana exige dinheiro, ferramenta paga ou terceiro. Todas são processo. E juntas valem mais que qualquer otimização de campanha que você faria neste mês.</p>
+<ul>
+<li><strong>Seg</strong> — Configurar a resposta automática de &lt; 60 s. Regra: ela termina com uma pergunta, nunca com "em breve retornaremos".</li>
+<li><strong>Ter</strong> — Escrever a resposta padrão para "quanto custa?". Escrever as 5 perguntas de qualificação, na ordem. Testar com uma conversa real.</li>
+<li><strong>Qua</strong> — Montar a cadência de follow-up (24 h / 72 h / 7 dias). Cada toque precisa entregar valor novo. Escrever os três textos.</li>
+<li><strong>Qui</strong> — Montar a confirmação de consulta em dois toques. Aplicar retroativamente em todos os agendamentos já marcados.</li>
+<li><strong>Sex</strong> — Reabrir as conversas dos últimos 90 dias que morreram. Aplicar o follow-up. Sim, todas. Este dia costuma pagar o mês.</li>
+<li><strong>Sáb</strong> — Criar as etiquetas do WhatsApp Business e classificar as conversas ativas.</li>
+<li><strong>Dom</strong> — Descanso. Sério: o volante precisa de você inteira no mês 3.</li>
+</ul>
+<span class="tl-goal">Entregável: SLA implementado, follow-up rodando, base antiga reativada</span>
+</div>
+<div class="tl-item">
+<div class="tl-week">Semana 3 — Instrumentar</div>
+<h4>Fazer o algoritmo enxergar o que importa</h4>
+<p>Agora que você sabe o que quer medir e o funil não vaza mais nos pontos óbvios, é hora de arrumar o que o sistema informa ao Meta.</p>
+<ul>
+<li><strong>Seg</strong> — Definir a taxonomia final de eventos: nome, quando dispara, o que significa no funil. Escrever isso em um documento.</li>
+<li><strong>Ter</strong> — Corrigir duplicações Pixel/GTM com <code>event_id</code>. Validar no Test Events.</li>
+<li><strong>Qua</strong> — Verificar os eventos de engajamento de vídeo. Definir qual percentual de retenção vira sinal de qualidade.</li>
+<li><strong>Qui</strong> — Auditar parâmetros de correspondência. Nenhum dado sensível de saúde. Anotar as notas atuais.</li>
+<li><strong>Sex</strong> — Criar a lista de exclusão de pacientes. Verificar Categoria Especial. Verificar domínio e BM.</li>
+<li><strong>Sáb</strong> — Rodar o fluxo completo no próprio celular: ver o anúncio, clicar, ler, assistir, clicar no WhatsApp. Anotar cada fricção.</li>
+<li><strong>Dom</strong> — Corrigir as fricções encontradas no sábado.</li>
+</ul>
+<span class="tl-goal">Entregável: eventos limpos, sem duplicação, sem risco de conta</span>
+</div>
+<div class="tl-item">
+<div class="tl-week">Semana 4 — Consolidar</div>
+<h4>Instalar o ritmo que sustenta os próximos 12 meses</h4>
+<p>A diferença entre quem cresce e quem estagna não é o mês 1. É se existe um ritual que sobrevive ao mês 7, quando o entusiasmo já passou.</p>
+<ul>
+<li><strong>Seg</strong> — Definir a estrutura fixa da consulta em fases. Escrever. Usar na próxima consulta real.</li>
+<li><strong>Ter</strong> — Criar o resumo escrito pós-consulta. Modelo único, preenchível em 5 minutos.</li>
+<li><strong>Qua</strong> — Definir o protocolo das primeiras 24 h pós-pagamento e os marcos intermediários do tratamento.</li>
+<li><strong>Qui</strong> — Auditar o perfil do Instagram em corte transversal. Corrigir bio para conter o mecanismo.</li>
+<li><strong>Sex</strong> — Listar os 20 conteúdos (10 de cada protocolo). Não produzir ainda — só listar.</li>
+<li><strong>Sáb</strong> — Marcar o ritual semanal de 60 min no calendário. Recorrente. Inegociável.</li>
+<li><strong>Dom</strong> — Revisar o checklist da 1.9. Se estiver acima de 70%, você está pronta para o C1.M2 (Posicionamento).</li>
+</ul>
+<span class="tl-goal">Entregável: fundação completa, ritual instalado, pronta para posicionamento</span>
+</div>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>O que este plano não tem — de propósito</span>
+</div>
+<p>
+          Não tem "subir campanha nova". Não tem "aumentar orçamento". Não tem "testar novo público".
+          Porque nenhuma dessas coisas resolve o gargalo de 95% das clínicas que chegam aqui — e todas elas
+          <em>amplificam</em> os vazamentos que ainda existem. Você vai construir campanha no C1.M4 (Meta Ads), com
+          uma fundação que sustenta o investimento. Quatro semanas parecem lentas até você comparar com os
+          seis meses que se perde subindo campanha em cima de um funil furado.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s10">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================
+       1.11 — RESUMO E EXERCÍCIOS
+       ============================================================ -->
+<section class="sec reveal" id="s11">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.11</span><span></span></div>
+<h2>Resumo do módulo</h2>
+<p class="sec-lede">
+          Se você esquecer tudo, guarde estas dez frases. Elas são a fundação sobre a qual os treze módulos
+          seguintes são construídos.
+        </p>
+</div>
+<div class="summary">
+<h3>As dez ideias do Módulo 1</h3>
+<ol>
+<li><b>Você opera em arquitetura de seleção.</b> Custo por lead e custo por paciente se movem em direções opostas no seu modelo. Otimizar o primeiro destrói o segundo.</li>
+<li><b>Fricção calibrada é um ativo.</b> Esforço filtra, esforço gera valor percebido, esforço produz racionalização. Fricção de usabilidade, ao contrário, só destrói.</li>
+<li><b>A jornada tem 11 estágios, é não-linear e dura semanas.</b> Qualquer sistema que assuma linearidade desperdiça a maior parte do tráfego.</li>
+<li><b>O estágio 06 — avaliação silenciosa — é onde você mais perde.</b> E é o único onde você é cego. Remarketing não é tática; é a infraestrutura que torna a jornada longa sustentável.</li>
+<li><b>Cada peça tem um único trabalho.</b> Instagram não vende, landing não fecha, WhatsApp não diagnostica. Uma peça fazendo o trabalho de outra contamina seis peças a jusante.</li>
+<li><b>O Pixel não mede — ele ensina.</b> Cada evento é uma frase dita ao algoritmo sobre quem você quer. Otimize por clique e ele te traz cliqueiros, com máxima eficiência.</li>
+<li><b>O funil é um ciclo, e o núcleo é autoridade.</b> Tráfego é combustível externo; autoridade é volante de inércia. Um ciclo que nunca chega em "provas sociais" só queima orçamento.</li>
+<li><b>O resultado é o produto de sete taxas, não a soma.</b> +20% em sete pontos = +141% no negócio. Não existe a tática que muda tudo — a estrutura matemática não permite.</li>
+<li><b>Existe um gargalo por vez.</b> Melhorar qualquer coisa que não seja ele não move a vazão do sistema em nada. Encontre-o antes de agir.</li>
+<li><b>Objeção de preço é sempre falha de mecanismo.</b> Nunca é o valor. Se ela pergunta preço primeiro, ela não viu diferença — e sem diferença, preço é o único critério que sobra.</li>
+</ol>
+</div>
+<h3>Exercícios práticos</h3>
+<p>
+        Faça os cinco antes de avançar. Respostas salvas neste navegador. O C1.M2 (Posicionamento) começa exatamente onde
+        o exercício 2 termina.
+      </p>
+<div class="ex">
+<div class="ex-tag">Exercício 1 · ~20 min</div>
+<h4>Encontre o seu gargalo</h4>
+<p>Rode a árvore de decisão da seção 1.6 com números reais dos seus últimos 60 dias — não com estimativas. Escreva: qual é o gargalo, qual o número que prova isso, e qual a primeira ação de correção.</p>
+<textarea data-ex="ex1" placeholder="Meu gargalo é... O número que prova: ... Primeira ação: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 2 · ~40 min</div>
+<h4>Escreva os dois mecanismos</h4>
+<p>Uma frase por protocolo. Critérios inegociáveis: (a) uma leiga entende; (b) nenhum concorrente pode dizer a mesma frase; (c) não promete resultado; (d) explica <em>por que</em> funciona, não <em>que</em> funciona.</p>
+<textarea data-ex="ex2" placeholder="Melasma: ...
+
+Desinflamação: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 3 · ~15 min</div>
+<h4>Meça o número que dói</h4>
+<p>Abra as últimas 20 conversas de WhatsApp. Anote o tempo real entre a mensagem dela e a sua primeira resposta. Calcule a mediana (não a média — a média esconde os desastres). Compare com a tabela do G4 e estime quantas conversas você perdeu.</p>
+<textarea data-ex="ex3" placeholder="Mediana: ___ min. Pela tabela do G4, isso significa ~___% de chance relativa. Estimo que perdi ___ conversas nos últimos 60 dias."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 4 · ~30 min</div>
+<h4>Audite três erros fatais</h4>
+<p>Escolha três erros da seção 1.8 que você tem certeza de estar cometendo hoje. Para cada um: descreva onde ele acontece exatamente no seu funil, estime o custo mensal em reais, e defina a correção com data.</p>
+<textarea data-ex="ex4" placeholder="Erro nº __ — onde acontece: ... custo estimado: R$ ... correção até __/__
+
+Erro nº __ — ...
+
+Erro nº __ — ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 5 · ~25 min</div>
+<h4>Projete o seu ciclo</h4>
+<p>Desenhe (papel serve) o ciclo da figura 1.4.1 com os seus dados reais em cada nó. Marque em vermelho os nós quebrados ou inexistentes. Responda: o seu ciclo fecha? Se não, em qual nó ele para — e o que acontece com a energia que você investe até ali?</p>
+<textarea data-ex="ex5" placeholder="Meu ciclo para no nó ___. Nós quebrados: ... O que acontece com o investimento até ali: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o C1.M2 (Posicionamento)</h4>
+<span class="check-count" id="upDoneCount">0 / 7</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>11 seções</b> inteiras, sem pular a 1.8</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Consigo explicar <b>de cabeça</b> por que custo por lead é perigoso no meu modelo</span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei dizer qual é o <b>meu gargalo atual</b> e o número que prova isso</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho os <b>dois mecanismos escritos</b> e testados com 5 pessoas</span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Minha <b>planilha de controle</b> existe e já tem registros</span></label>
+<label class="ci"><input data-dk="k6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">O <b>checklist da 1.9</b> está acima de 70%</span></label>
+<label class="ci"><input data-dk="k7" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz os <b>5 exercícios</b> — de verdade, não mentalmente</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s11">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ========== NAVEGAÇÃO DE MÓDULO ========== -->
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+
+<script>Platform.init({ id:"c1-m1" });</script>
+</body>
+</html>

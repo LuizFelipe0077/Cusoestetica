@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulos e termos que você marcou.">
+<title>Favoritos · Universidade Premium</title>
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+<main class="main" id="conteudo">
+  <header class="hero"><div class="wrap">
+    <div class="hero-eyebrow">Pessoal · Plataforma</div>
+    <h1>Favoritos</h1>
+    <p class="hero-lede">O que você marcou com a estrela. Módulos pela topbar; termos pela página do glossário.</p>
+  </div></header>
+  <div class="wrap">
+    <section class="sec" style="border-bottom:0">
+      <h3>Módulos</h3><div id="fMods"></div>
+      <h3 style="margin-top:2.5rem">Termos do glossário</h3><div id="fTerms"></div>
+    </section>
+    <div class="modfoot"><div class="modfoot-tools">
+      <a class="btn ghost" href="index.html">Índice</a><a class="btn ghost" href="painel.html">Painel</a>
+    </div></div>
+  </div>
+</main>
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>
+(function(){
+  "use strict";
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+  var f = Platform.favorites();
+
+  var mods = f.modules.map(function(id){ return PLATFORM.find(id); }).filter(Boolean);
+  document.getElementById("fMods").innerHTML = mods.length
+    ? '<div class="course-block"><div class="course-mods">' + mods.map(function(m){
+        var st = Platform.isDone(m.id) ? "done" : m.status;
+        return '<a class="pm'+(m.status==="todo"?" todo":"")+'" href="'+(m.status==="todo"?"#":m.file)+'">'+
+          '<span class="pm-n">C'+m.courseN+'.M'+m.n+'</span>'+
+          '<span><span class="pm-t">'+esc(m.title)+'</span><span class="pm-d">'+esc(m.desc||"")+'</span></span>'+
+          '<span class="pm-r"><span class="pm-min">'+m.min+' min</span>'+
+          '<span class="pm-st '+st+'">'+({done:"pronto",partial:"parcial",todo:"pendente"}[st])+'</span></span></a>';
+      }).join("") + '</div></div>'
+    : '<p class="search-empty">Nenhum módulo favoritado. Use a estrela na barra superior de qualquer módulo.</p>';
+
+  var terms = f.terms.filter(function(k){ return GLOSSARIO[k]; });
+  document.getElementById("fTerms").innerHTML = terms.length
+    ? terms.map(function(k){ var g = GLOSSARIO[k];
+        return '<div class="gl-item"><div class="gl-head"><div class="gl-sig">'+esc(k)+'</div>'+
+          '<div class="gl-nome">'+esc(g.nome)+'</div></div><div class="gl-body">'+
+          '<dl class="gl-f"><dt>Em linguagem simples</dt><dd>'+esc(g.simples)+'</dd></dl>'+
+          '<div class="gl-onde"><a class="gl-chip" href="glossario.html#'+encodeURIComponent(k.toLowerCase())+'">Ver completo →</a></div>'+
+          '</div></div>'; }).join("")
+    : '<p class="search-empty">Nenhum termo favoritado. Use a estrela em cada verbete do glossário.</p>';
+
+  Platform.init({});
+})();
+</script>
+</body></html>
