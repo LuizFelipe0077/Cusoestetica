@@ -35,7 +35,7 @@ var GLOSSARIO = {
     tecnica:"Investimento ÷ impressões × 1.000. É o preço de compra de atenção no leilão. Sobe com concorrência, com público estreito e com criativo de baixa qualidade estimada.",
     importa:"CPM alto não é necessariamente ruim — pode significar que você está comprando um público valioso. Mas CPM que sobe sem que a conversão melhore é sinal de segmentação apertada demais ou fadiga criativa.",
     exemplo:"Segmentar 'mulheres 30-45 + interesse em dermatologia + renda alta + Goiânia' pode triplicar seu CPM em relação a um público aberto — sem melhorar o resultado, porque seu filtro real é a landing page.",
-    onde:["c1-m1","c1-m4","c3-m11"], veja:["CTR","CPC","CPA"]
+    onde:["c1-m1","c1-m4","c2-m4","c2-m9","c3-m11"], veja:["CTR","CPC","CPA"]
   },
   "CPC": {
     nome:"Cost Per Click — Custo por Clique",
@@ -43,7 +43,7 @@ var GLOSSARIO = {
     tecnica:"Investimento ÷ cliques. Derivado de CPM e CTR: CPC = CPM ÷ (CTR × 10).",
     importa:"É uma métrica de diagnóstico, não de decisão. Otimizar por CPC leva você a comprar cliques baratos — que vêm de pessoas que clicam em tudo e não compram nada.",
     exemplo:"No modelo de seleção, um CPC de R$4,00 que gera conversa qualificada vale infinitamente mais que um CPC de R$0,60 que gera curiosos.",
-    onde:["c1-m1","c1-m4"], veja:["CPM","CTR","CPA"]
+    onde:["c1-m1","c1-m4","c2-m9"], veja:["CPM","CTR","CPA"]
   },
   "CPV": {
     nome:"Cost Per View — Custo por Visualização",
@@ -67,7 +67,7 @@ var GLOSSARIO = {
     tecnica:"(Investimento em mídia + custo de vendas) ÷ número de clientes adquiridos no período. A versão simplificada usa só mídia; a completa inclui horas de atendimento e ferramentas.",
     importa:"É a única métrica de custo que importa no seu modelo. Custo por lead e CAC se movem em direções OPOSTAS em negócios high ticket — leads mais caros costumam produzir pacientes mais baratos.",
     exemplo:"R$3.000 de mídia gerando 10 pacientes = CAC de R$300, ou 7,5% de um ticket de R$4.000. Teto saudável recomendado: 12% do ticket.",
-    onde:["c1-m1","c1-m3","c3-m11"], veja:["CPA","LTV","ROAS"]
+    onde:["c1-m1","c1-m3","c2-m4","c2-m9","c3-m11"], veja:["CPA","LTV","ROAS"]
   },
   "LTV": {
     nome:"Lifetime Value — Valor do Cliente ao Longo do Tempo",
@@ -75,7 +75,7 @@ var GLOSSARIO = {
     tecnica:"Ticket médio × frequência de recompra × tempo de retenção. Em serviços de saúde, inclui manutenção, novos protocolos e — se você medir — o valor dos pacientes que ele indicar.",
     importa:"Define quanto você pode gastar para adquirir. Um LTV de R$4.000 permite um CAC muito menor do que um LTV de R$9.000 com manutenção e indicação.",
     exemplo:"Paciente do Melasma: R$4.000 (protocolo) + R$1.800 (manutenção ano 1) + 0,4 indicações × R$4.000 = LTV ≈ R$7.400.",
-    onde:["c1-m3","c3-m11"], veja:["CAC","Payback","ROI"]
+    onde:["c1-m3","c2-m9","c3-m11"], veja:["CAC","Payback","ROI"]
   },
   "ROI": {
     nome:"Return On Investment — Retorno sobre o Investimento",
@@ -123,7 +123,7 @@ var GLOSSARIO = {
     tecnica:"Compromisso mensurável de tempo de resposta ou entrega, com meta declarada e medição contínua.",
     importa:"O SLA de primeira resposta no WhatsApp é o vazamento mais caro e mais barato de corrigir do funil inteiro. Recupera 30–50% das conversas e custa quase nada.",
     exemplo:"SLA humano de 15 minutos em horário comercial + resposta automática em menos de 60 segundos, 24/7, terminando com uma pergunta.",
-    onde:["c1-m1","c1-m5"], veja:["KPI"]
+    onde:["c1-m1","c1-m5","c2-m9"], veja:["KPI"]
   },
 
   /* ---------------- RASTREAMENTO E META ---------------- */
@@ -174,7 +174,7 @@ var GLOSSARIO = {
     tecnica:"Modelo de Mayer, Davis e Schoorman (1995) que decompõe a confiabilidade percebida em habilidade (competência no domínio), benevolência (querer o bem do outro sem motivo egoísta) e integridade (aderir consistentemente a princípios aceitáveis). Meta-analisado por Colquitt et al. (2007).",
     importa:"A independência é o achado útil: alta habilidade com baixa benevolência não gera confiança — gera medo competente. Seu diploma move uma das três, e é a que ela menos duvida.",
     exemplo:"“Ela sabe muito — e está me vendendo alguma coisa” é falha de benevolência com habilidade intacta. Nenhum diploma a mais resolve.",
-    onde:["c2-m3"], veja:["Sistema 1","Sistema 2"]
+    onde:["c2-m3","c2-m5"], veja:["Sistema 1","Sistema 2"]
   },
 
   "Pixel": {
@@ -183,7 +183,7 @@ var GLOSSARIO = {
     tecnica:"Biblioteca JavaScript (fbq) que dispara requisições HTTP para os servidores da Meta a cada evento, carregando cookies de identificação (_fbp, _fbc) e parâmetros do evento.",
     importa:"O Pixel NÃO mede — ele ENSINA. Cada evento é uma frase dita ao algoritmo sobre quem você quer. Otimize por clique e ele traz cliqueiros, com máxima eficiência.",
     exemplo:"Se o seu Pixel dispara Lead em todo clique no botão do WhatsApp, você está ensinando a Meta que curiosos são conversões.",
-    onde:["c1-m1","c3-m1","c3-m2"], veja:["Dataset","CAPI","fbclid"]
+    onde:["c1-m1","c2-m9","c3-m1","c3-m2"], veja:["Dataset","CAPI","fbclid"]
   },
   "Dataset": {
     nome:"Meta Dataset — Conjunto de Dados",
@@ -199,7 +199,7 @@ var GLOSSARIO = {
     tecnica:"API server-side que envia eventos para o mesmo Dataset do Pixel. Requer event_id compartilhado com o Pixel para deduplicação, e parâmetros de correspondência hasheados.",
     importa:"Bloqueadores, ITP do Safari e restrições de cookie derrubam de 15% a 30% dos eventos só com Pixel — e essas perdas vêm desproporcionalmente de iOS, que no seu nicho correlaciona com maior poder aquisitivo.",
     exemplo:"Sem CAPI, você está cegando o algoritmo justamente para o seu melhor público.",
-    onde:["c3-m1","c3-m2"], veja:["Pixel","Dataset","event_id","EMQ"]
+    onde:["c2-m9","c3-m1","c3-m2"], veja:["Pixel","Dataset","event_id","EMQ"]
   },
   "event_id": {
     nome:"Event ID — Identificador de Evento",
@@ -207,7 +207,7 @@ var GLOSSARIO = {
     tecnica:"String única gerada por evento e enviada tanto pelo Pixel quanto pela CAPI. A Meta usa o par (event_name + event_id) numa janela de 48h para deduplicar.",
     importa:"Sem ele, Pixel + CAPI contam tudo em dobro: infla a contagem, corrompe o CPA aparente e envenena o modelo com sinais falsos de sucesso.",
     exemplo:"Se você já tem camada dual-fire (GTM + fbq) nas suas landing pages, este é o primeiro item a auditar.",
-    onde:["c3-m2"], veja:["CAPI","Pixel"]
+    onde:["c2-m9","c3-m2"], veja:["CAPI","Pixel"]
   },
   "fbclid": {
     nome:"Facebook Click Identifier — Identificador de Clique",
@@ -231,7 +231,7 @@ var GLOSSARIO = {
     tecnica:"Score calculado a partir dos parâmetros de correspondência enviados (e-mail, telefone, nome, cidade — todos hasheados com SHA-256).",
     importa:"Nota 4/10 significa que mais da metade do seu sinal se perde. É reversível, barato de corrigir, e quase ninguém olha.",
     exemplo:"Enviar telefone hasheado junto do evento Contact pode levar seu EMQ de 4 para 8 — dobrando o sinal útil sem gastar um centavo a mais.",
-    onde:["c3-m2"], veja:["CAPI","Advanced Matching"]
+    onde:["c2-m9","c3-m2"], veja:["CAPI","Advanced Matching"]
   },
   "Advanced Matching": {
     nome:"Advanced Matching — Correspondência Avançada",
@@ -257,7 +257,7 @@ var GLOSSARIO = {
     tecnica:"Plataforma de analytics baseada em modelo de eventos (não em sessões/pageviews como o Universal Analytics). Tudo é evento com parâmetros.",
     importa:"É a única fonte que te dá tempo na página, profundidade de scroll e conversão por dispositivo/origem. E os números NUNCA vão bater com o Meta — modelos de atribuição diferentes.",
     exemplo:"Tempo médio na landing do Melasma abaixo de 90s indica ruptura de coerência entre anúncio e página.",
-    onde:["c1-m1","c3-m1","c3-m4"], veja:["GTM","UTM"]
+    onde:["c1-m1","c2-m9","c3-m1","c3-m4"], veja:["GTM","UTM"]
   },
   "GTM": {
     nome:"Google Tag Manager — Gerenciador de Tags",
@@ -339,7 +339,7 @@ var GLOSSARIO = {
     tecnica:"Tempo até a renderização do maior elemento de conteúdo visível na viewport. Bom: até 2,5s no p75 de campo.",
     importa:"É o que mais impacta a percepção de velocidade. Acima de 3s no 4G, uma parte relevante do tráfego pago nem chega a ver a página — e essa é a única fricção que não filtra: mata bons e ruins igualmente.",
     exemplo:"Um player de YouTube carregado no load derruba seu LCP. A solução é o padrão facade: carregar uma imagem estática e só instanciar o player no clique.",
-    onde:["c3-m8"], veja:["CWV","INP","CLS"]
+    onde:["c2-m9","c3-m8"], veja:["CWV","INP","CLS"]
   },
   "INP": {
     nome:"Interaction to Next Paint — Interação até a Próxima Renderização",

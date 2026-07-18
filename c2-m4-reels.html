@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 4 — Engenharia dos Reels. As 7 camadas de um Reel que retém e barateia o Meta Ads: gancho, ritmo, pausa, legenda, trilha, CTA, loop. Como ler hook rate e hold rate, e os 8 formatos que alimentam melasma e estrias.">
+<title>Engenharia dos Reels · Curso 2 · Psicologia e Conteúdo</title>
+
+<!--
+  CURSO 2 · PSICOLOGIA E CONTEÚDO
+  Módulo 4 — Engenharia dos Reels
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Chrome, navegação, progresso, busca e glossário vêm do platform.js.
+  Este arquivo tem conteúdo + o que é exclusivamente dele:
+  nada — todo o chrome e todos os componentes vêm do shell.
+
+  Diretriz de conteúdo: CLAUDE.md (manual de execução, não enciclopédia).
+  Biblioteca de ganchos (52×4) fica no C2.M5. Roteiros completos (24) ficam
+  no C2.M6. Este módulo é só o motor de produção: as 7 camadas + os 8 formatos.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+
+<main class="main" id="conteudo">
+ <header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Bloco II · Produção de Conteúdo · Módulo 4</div>
+<h1>Engenharia<br/><em>dos Reels</em></h1>
+<p class="hero-lede">
+        O Módulo 1 mostrou como a atenção é capturada. O Módulo 3, como ela vira confiança. Este módulo
+        transforma os dois em um sistema de produção: <em>7 camadas</em> que decidem se o Reel prende, retém
+        e — o que importa para o seu orçamento — <strong>sai mais barato quando você o transforma em
+        anúncio</strong>.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~50 min</dd></div>
+<div><dt>Seções</dt><dd>7</dd></div>
+<div><dt>Camadas</dt><dd>7</dd></div>
+<div><dt>Formatos</dt><dd>8</dd></div>
+</dl>
+<div class="selo-key">
+<div><span class="selo ev">Evidência</span><p>Achado experimental revisado por pares. Vem com citação completa.</p></div>
+<div><span class="selo inf">Inferência</span><p>Extrapolação razoável para contexto <em>não</em> testado. Eu explico o salto.</p></div>
+<div><span class="selo prat">Prática</span><p>Convenção de produção e documentação da própria plataforma. Útil, comum, sem teste controlado.</p></div>
+<div><span class="selo mito">Mito</span><p>Repetido no mercado e contradito pela evidência — ou sem fonte.</p></div>
+</div>
+</div>
+</header>
+<!-- ============================================================ 4.1 ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.1</span><span></span></div>
+<h2>Por que Reels decide o custo do seu Meta Ads</h2>
+<p class="sec-lede">
+          Reels não é vitrine. É a peça que barateia cada real que você coloca em mídia paga — ou que faz o
+          <abbr data-t="CPM">CPM</abbr> subir. Antes de entrar nas 7 camadas, entenda por que isso é
+          engenharia de custo, não estética.
+        </p>
+</div>
+<p>
+        Todo Reel que você publica faz duas coisas ao mesmo tempo: alcança orgânico e vira <em>matéria-prima
+        de anúncio</em>. O mesmo corte que você sobe hoje pode ser impulsionado amanhã sem edição nenhuma —
+        e a diferença entre um Reel que já provou retenção e um que nunca foi testado é o que separa um
+        <abbr data-t="CPM">CPM</abbr> baixo de um alto no leilão.
+      </p>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          O leilão do Meta não vende posição — vende entrega, e a entrega pesa três coisas: lance,
+          <strong>qualidade estimada do anúncio</strong> e taxas de ação estimadas. Um criativo que já
+          demonstrou retenção orgânica (pessoas assistem até o fim, comentam, compartilham) chega no leilão
+          com taxa de ação estimada mais alta — e paga menos pela mesma entrega.
+        </p>
+<p>
+          Isso não é opinião de agência: é como o próprio Meta documenta o funcionamento do leilão de
+          anúncios. O detalhe de arquitetura de campanha — orçamento, categoria especial, estrutura de
+          conjuntos — é o <a class="modref" data-mod="c1-m4">C1.M4 — Meta Ads</a>. Aqui, o que importa é uma
+          equação simples: <strong>Reel que retém orgânico custa menos pago</strong>.
+        </p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>A consequência direta no seu CAC</span>
+</div>
+<p>
+          <abbr data-t="CPM">CPM</abbr> mais baixo, para o mesmo orçamento, significa mais impressões — e
+          mais impressões com o mesmo criativo bom significa mais conversas qualificadas pelo mesmo real
+          investido. É a mesma lógica do <abbr data-t="CAC">CAC</abbr> teto que você vai formalizar no
+          <a class="modref" data-mod="c1-m3">C1.M3 — Oferta e Precificação</a>: a engenharia deste módulo não
+          é sobre fazer Reel bonito, é sobre baixar o custo de cada paciente que fecha.
+        </p>
+</div>
+<h3>As 7 camadas, em uma frase cada</h3>
+<p>
+        Sete decisões, tomadas nesta ordem na hora de gravar e editar. As seções 4.2 a 4.5 destrincham cada
+        uma; aqui está o mapa antes do detalhe.
+      </p>
+<div class="figure">
+<div class="figure-frame">
+<svg aria-label="Linha do tempo de um Reel de 30 segundos mostrando onde cada uma das 7 camadas atua" role="img" viewbox="0 0 700 260">
+<text class="svg-t-sm" x="14" y="18">ONDE CADA CAMADA ATUA NA LINHA DO TEMPO DE UM REEL DE ~30S</text>
+<line class="svg-line" x1="14" x2="686" y1="232" y2="232"></line>
+<text class="svg-t-sm" x="14" y="248">0S</text>
+<text class="svg-t-sm" x="330" y="248">15S</text>
+<text class="svg-t-sm" x="660" y="248">30S</text>
+<rect class="svg-node-gold" height="46" rx="3" width="90" x="14" y="34"></rect>
+<text class="svg-t-gold" x="24" y="54">1 · GANCHO</text>
+<text class="svg-t-sm" x="24" y="70">0–3S</text>
+<rect class="svg-node" height="46" rx="3" width="330" x="112" y="34"></rect>
+<text class="svg-t" x="122" y="54">2 · RITMO — cortes a cada 2–4s</text>
+<text class="svg-t-sm" x="122" y="70">SUSTENTA A JANELA DE ATENÇÃO ABERTA</text>
+<rect class="svg-node" height="46" rx="3" width="90" x="300" y="90"></rect>
+<text class="svg-t-sm" x="308" y="110">3 · PAUSA</text>
+<text class="svg-t-sm" x="308" y="124">NA VIRADA</text>
+<rect class="svg-node" height="46" rx="3" width="558" x="112" y="146"></rect>
+<text class="svg-t" x="122" y="166">4 · LEGENDA — do 0s ao fim, sincronizada</text>
+<rect class="svg-node" height="46" rx="3" width="558" x="112" y="196"></rect>
+<text class="svg-t-sm" x="122" y="216">5 · TRILHA — sustenta o corte, nunca compete com a fala</text>
+<rect class="svg-node-gold" height="46" rx="3" width="120" x="500" y="34"></rect>
+<text class="svg-t-gold" x="510" y="54">6 · CTA</text>
+<text class="svg-t-sm" x="510" y="70">ÚLTIMOS 3S</text>
+<rect class="svg-node-ok" height="46" rx="3" width="90" x="590" y="90"></rect>
+<text class="svg-t-ok" x="598" y="110">7 · LOOP</text>
+<text class="svg-t-sm" x="598" y="124">FECHA NO 1º</text>
+</svg>
+</div>
+<p class="figure-cap">
+<b>Figura 4.1.1</b> — As camadas 4 e 5 (legenda e trilha) correm o vídeo inteiro; as outras cinco são
+          decisões pontuais. Repare que gancho e CTA ocupam os dois extremos e o loop devolve o espectador ao
+          início — é essa costura que gera replay, e replay conta como tempo de exibição adicional sem custo
+          de mídia.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>#</th><th>Camada</th><th>O que decide</th><th>Onde é destrinchada</th></tr></thead>
+<tbody>
+<tr><td class="t-num">1</td><td><strong>Gancho</strong></td><td>Se o Reel existe além dos 3 primeiros segundos</td><td>§4.2</td></tr>
+<tr><td class="t-num">2</td><td><strong>Ritmo</strong></td><td>Se a janela de atenção reaberta pelo gancho fica aberta</td><td>§4.3</td></tr>
+<tr><td class="t-num">3</td><td><strong>Pausa estratégica</strong></td><td>Se a virada do argumento é percebida como importante</td><td>§4.3</td></tr>
+<tr><td class="t-num">4</td><td><strong>Legenda</strong></td><td>Se o Reel funciona com o som desligado — a maioria dos casos</td><td>§4.4</td></tr>
+<tr><td class="t-num">5</td><td><strong>Trilha sonora</strong></td><td>Se o ritmo é sentido, não só visto, e se distribui melhor</td><td>§4.4</td></tr>
+<tr><td class="t-num">6</td><td><strong>CTA</strong></td><td>Se a atenção retida vira uma ação — sem prometer desfecho</td><td>§4.5</td></tr>
+<tr><td class="t-num">7</td><td><strong>Loop</strong></td><td>Se o Reel gera replay, o tempo de exibição mais barato que existe</td><td>§4.5</td></tr>
+</tbody>
+</table>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.2 ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.2</span><span></span></div>
+<h2>Camada 1 — o gancho (0–3 segundos)</h2>
+<p class="sec-lede">
+          Os três primeiros segundos não introduzem o Reel — decidem se ele existe. Aqui está o mecanismo; a
+          biblioteca com 208 aberturas prontas fica para o <a class="modref" data-mod="c2-m5">C2.M5 —
+          Biblioteca de Ganchos</a>.
+        </p>
+</div>
+<p>
+        Nada aqui é novo em mecanismo — é aplicação direta do que o <a class="modref"
+        data-mod="c2-m1">C2.M1</a> já estabeleceu. O gargalo atencional (§1.1) significa que a maioria do
+        feed nunca chega ao segundo 4. A curiosidade (§1.5) e a violação de expectativa (§1.6) são as duas
+        alavancas que mantêm alguém parado. O gancho é onde as três se encontram.
+      </p>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p><strong>Três regras que valem para qualquer formato dos 8 do §4.6:</strong></p>
+<ul>
+<li><strong>O gancho visual vem antes do verbal.</strong> Movimento, corte ou mudança de plano no primeiro meio segundo — antes mesmo da primeira palavra. É o que passa pelo filtro pré-atentivo do §1.2.</li>
+<li><strong>O gancho verbal abre uma lacuna e não fecha.</strong> Aplicação direta da curiosidade do §1.5: a frase cria uma pergunta que só o resto do vídeo responde.</li>
+<li><strong>Sem intro.</strong> "Oi, gente, tudo bem?" gasta a janela de atenção mais cara do vídeo em conteúdo com informação zero.</li>
+</ul>
+</div>
+<div class="grid grid-2">
+<div class="card">
+<div class="card-kicker">Melasma</div>
+<h4>Lacuna + violação de expectativa</h4>
+<p>"Existe um tipo de mancha que clareador nenhum resolve — porque a causa não está na pele." Abre pergunta, não fecha, e contraria a expectativa padrão ("clareador resolve mancha").</p>
+</div>
+<div class="card">
+<div class="card-kicker">Estrias</div>
+<h4>Identificação + lacuna</h4>
+<p>"Ninguém te contou que estria também tem fator hormonal." Fala direto com quem já ouviu "é genético, não tem o que fazer" (§2.4 — os 9 medos) e abre uma lacuna que só a explicação do mecanismo fecha.</p>
+</div>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>O erro que custa mais caro que um gancho fraco</span>
+</div>
+<p>
+          Gancho que promete e o corpo do vídeo não entrega é pior do que nenhum gancho. A vigilância
+          epistêmica do <a class="modref" data-mod="c2-m3">C2.M3</a> (§3.2) aprende rápido: um gancho
+          inflado hoje encarece a confiança de todos os Reels seguintes, porque calibra o filtro dela contra
+          você especificamente. <strong>O teste é o mesmo do §3.9</strong>: se você trocar o gancho por uma
+          promessa de desfecho, ele para de ser gancho e vira propaganda enganosa — e política de anúncio de
+          saúde pega isso (ver Leitura Avançada, §4.6).
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.3 ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.3</span><span></span></div>
+<h2>Camadas 2 e 3 — ritmo, cortes e a pausa estratégica</h2>
+<p class="sec-lede">
+          Depois do gancho vem o trecho onde a maioria perde a atenção que acabou de conquistar. Ritmo e
+          pausa resolvem isso — e são o inverso um do outro.
+        </p>
+</div>
+<p>
+        O <a class="modref" data-mod="c2-m1">C2.M1</a> já descreveu a anatomia do abandono (§1.9) e da
+        retenção (§1.10): a atenção não vaza uniformemente, ela cai em micro-momentos específicos, quase
+        sempre onde falta novidade. Corte e pausa são as duas ferramentas de produção que controlam esses
+        momentos — uma injeta novidade, a outra sinaliza importância.
+      </p>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Ritmo — regra de produção:</strong> em planos estáticos (rosto falando, sem movimento de
+          cena), cortar a cada 2 a 4 segundos — mudança de ângulo, zoom, corte seco ou inserção de b-roll.
+          Cada corte reabre a janela de atenção pela mesma lógica de habituação a estímulo estático descrita
+          no §1.3. <strong>Exceção:</strong> não cortar durante o trecho de maior densidade de informação —
+          ali o corte compete com o processamento em vez de ajudá-lo.
+        </p>
+</div>
+<div class="rew">
+<div class="rew-row bad"><span class="rew-tag">SEM VARIAÇÃO</span>
+<p class="rew-txt">Um plano fixo de 25 segundos, mesmo enquadramento do início ao fim. A atenção cai de forma previsível por volta do segundo 6 — exatamente onde o §1.10 descreve o primeiro ponto de fuga.</p></div>
+<div class="rew-row good"><span class="rew-tag">COM PAUSA NA VIRADA</span>
+<p class="rew-txt">Ritmo constante de corte a cada 3s, e <em>uma pausa</em> de meio a um segundo exatamente no momento em que o argumento vira ("...e é aí que a maioria erra"). A pausa quebra o padrão de corte regular — e quebra de padrão é o mesmo mecanismo do §1.6, violação de expectativa, só que aplicado ao ritmo em vez de ao conteúdo.</p></div>
+</div>
+<div class="callout danger">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Onde o ritmo vira o oposto</span>
+</div>
+<p>
+          Transição chamativa (zoom giratório, efeito sonoro a cada troca de plano) que não carrega
+          informação nova é <strong>edição competindo com o conteúdo pela mesma atenção</strong> — divisão de
+          canal que o §1.3 já descreveu como custosa. O corte deve parecer invisível; o que deve ser notado é
+          a virada do argumento, não a técnica de edição.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.4 ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.4</span><span></span></div>
+<h2>Camada 4 — legenda · Camada 5 — trilha sonora</h2>
+<p class="sec-lede">
+          Duas camadas que quase ninguém trata como estratégicas — e que decidem se o seu Reel é assistido
+          como a maior parte do feed é assistida: com o som desligado.
+        </p>
+</div>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          O princípio da <strong>redundância</strong> em aprendizagem multimídia: quando texto na tela repete
+          <em>palavra por palavra</em> uma narração que já está sendo ouvida, o processamento fica mais
+          pesado, não mais fácil — os dois canais competem pelo mesmo recurso cognitivo em vez de se somarem.
+          O princípio inverso também vale: quando o áudio está ausente, o canal visual sozinho carrega toda a
+          informação, e legenda sincronizada é o que substitui a fala, não o que a duplica.
+        </p>
+<p class="cit">
+<b>Mayer, R. E. &amp; Moreno, R. (2003).</b> <em>Nine ways to reduce cognitive load in multimedia
+          learning.</em> Educational Psychologist, 38(1), 43–52.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>A regra de produção:</strong> legenda curta, sincronizada frase a frase, nunca um
+          parágrafo inteiro parado na tela. Ela precisa funcionar sozinha — teste assistindo o próprio Reel
+          mudo. Se a legenda sozinha conta a história, a camada 4 está resolvida. Navegação com som desligado
+          é hábito comum em ambientes públicos e é por isso que toda plataforma grande ativa legenda
+          automática por padrão — trate como premissa de produção, não como opcional.
+        </p>
+</div>
+<p>
+        A trilha sonora tem dois usos diferentes, e confundi-los é o erro mais comum:
+      </p>
+<div class="grid grid-2">
+<div class="card">
+<div class="card-kicker">Uso 1 — Distribuição</div>
+<h4>Áudio em alta</h4>
+<p>Trending audio associa o Reel a um formato que o algoritmo já está empurrando. É tática de alcance, aprofundada no <a class="modref" data-mod="c2-m7">C2.M7 — Instagram 2026</a>. Aqui, o que importa é: nunca deixe o áudio em alta ditar o roteiro — ele entra por cima, não no lugar do gancho.</p>
+</div>
+<div class="card">
+<div class="card-kicker">Uso 2 — Pacing</div>
+<h4>Trilha como pontuação</h4>
+<p>A batida marca o corte, reforça a pausa estratégica do §4.3 e sustenta o ritmo nos trechos sem fala. Regra: a trilha nunca compete em volume com a voz — ela pontua a cena, não narra por cima dela.</p>
+</div>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>A legenda é conteúdo, não decoração</span>
+</div>
+<p>
+          Erro de português ou emoji em excesso na legenda derruba competência percebida com a mesma força
+          que derrubaria na fala — o <a class="modref" data-mod="c2-m3">C2.M3</a> (§3.3) já estabeleceu que
+          calor e competência são julgados a partir de qualquer sinal disponível, e texto na tela é sinal
+          tanto quanto tom de voz.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.5 ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.5</span><span></span></div>
+<h2>Camada 6 — CTA · Camada 7 — loop · como ler os números</h2>
+<p class="sec-lede">
+          O CTA fecha o Reel. O loop reabre. E as duas camadas só valem alguma coisa se você souber ler os
+          números que o próprio Meta devolve depois de publicar.
+        </p>
+</div>
+<h3>CTA sem prometer desfecho</h3>
+<p>
+        Mesma lógica do <a class="modref" data-mod="c2-m3">C2.M3</a> §3.9: um Reel comunica que o seu
+        trabalho produz resultado sem afirmar que produzirá <em>naquela pessoa</em>. Regra de produção: um
+        CTA só, verbo de ação simples, sem condicionar a promessa. "Manda mensagem e conta o seu caso" passa
+        no teste do caso que deu errado (§3.9); "garanta seu resultado" não passa. O destino do clique é o
+        WhatsApp, aprofundado no <a class="modref" data-mod="c1-m5">C1.M5 — WhatsApp</a>.
+      </p>
+<h3>Loop — o tempo de exibição mais barato que existe</h3>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Construir o último quadro para reconectar visual ou tematicamente com o primeiro — mesmo
+          enquadramento, mesma pergunta ecoada — aumenta a chance de o espectador assistir de novo sem
+          perceber a transição. Cada replay soma tempo de exibição sem custo de mídia adicional: é a camada
+          de menor esforço de produção com maior retorno de retenção agregada.
+        </p>
+</div>
+<h3>As métricas que dizem qual camada falhou</h3>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Métrica (Meta)</th><th>Fórmula prática</th><th>Aponta para</th></tr></thead>
+<tbody>
+<tr><td><strong>Reproduções de 3 segundos</strong></td><td>views de 3s ÷ impressões — <em>hook rate</em></td><td>Camada 1 — gancho (§4.2)</td></tr>
+<tr><td><strong>ThruPlays / % assistido a 75%</strong></td><td>ThruPlays ÷ views de 3s — <em>hold rate</em></td><td>Camadas 2 e 3 — ritmo e pausa (§4.3)</td></tr>
+<tr><td><strong>Tempo médio de exibição</strong></td><td>soma do tempo assistido ÷ reproduções</td><td>Camadas 4 e 5 — legenda e trilha (§4.4)</td></tr>
+<tr><td><strong>Compartilhamentos e salvamentos</strong></td><td>ação ÷ alcance</td><td>Sinal de intenção — pesa mais que curtida</td></tr>
+<tr><td><strong>Cliques no perfil / mensagens</strong></td><td>ação ÷ alcance</td><td>Camada 6 — CTA (§4.5)</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Como isso vira decisão de mídia</span>
+</div>
+<p>
+          <em>Hook rate</em> baixo é problema da camada 1 — não gaste orçamento de impulsionamento nesse
+          Reel, o vazamento acontece antes de qualquer coisa que você pagaria para melhorar. <em>Hold
+          rate</em> baixo com <em>hook rate</em> bom é o inverso: o gancho funciona, o meio não sustenta —
+          revise ritmo e pausa antes de repetir o formato. Esse diagnóstico por camada é o que alimenta o
+          <a class="modref" data-mod="c3-m11">C3.M11 — Dashboard Executivo</a>, onde essas métricas passam a
+          ser acompanhadas junto do funil pago inteiro.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.6 ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.6</span><span></span></div>
+<h2>Os 8 formatos que alimentam melasma e estrias</h2>
+<p class="sec-lede">
+          Sete camadas moldam qualquer Reel. Oito formatos decidem qual história ele conta. Aqui está a
+          lista — os 24 roteiros completos ficam para o <a class="modref" data-mod="c2-m6">C2.M6 —
+          Engenharia dos Roteiros</a>.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>#</th><th>Formato</th><th>Quando usar</th><th>Exemplo</th></tr></thead>
+<tbody>
+<tr><td class="t-num">1</td><td><strong>Mecanismo explicado</strong></td><td>Ensina o "por quê" sem prometer desfecho (§3.9)</td><td>"Por que o melasma volta mesmo usando clareador"</td></tr>
+<tr><td class="t-num">2</td><td><strong>Mito derrubado</strong></td><td>Usa a estrutura Mito × Evidência do curso</td><td>"Estria não é 'só genética' — tem fator hormonal"</td></tr>
+<tr><td class="t-num">3</td><td><strong>Bastidores da consulta</strong></td><td>Mostra processo, não desfecho (autoridade, §3.4)</td><td>"O que eu pergunto antes de fechar um protocolo"</td></tr>
+<tr><td class="t-num">4</td><td><strong>Caso com mecanismo</strong></td><td>Sempre no passado, com autorização (§3.8)</td><td>"Ela tinha X. Investigamos Y. Encontramos Z."</td></tr>
+<tr><td class="t-num">5</td><td><strong>Checklist rápido</strong></td><td>Formato utilitário, alto salvamento</td><td>"5 sinais de que a sua mancha não é só sol"</td></tr>
+<tr><td class="t-num">6</td><td><strong>Comparação de abordagens</strong></td><td>Diferencia sem desqualificar concorrente</td><td>"Tópico vs. investigação de fator: o que cada um resolve"</td></tr>
+<tr><td class="t-num">7</td><td><strong>Dia a dia sóbrio</strong></td><td>Calor sem perder competência (§3.3, as 4 construções)</td><td>Rotina de consulta, sem emoji, sem trend fora do tom</td></tr>
+<tr><td class="t-num">8</td><td><strong>Objeção respondida</strong></td><td>Pega uma das 12 objeções do <a class="modref" data-mod="c2-m2">C2.M2</a> (§2.7) e responde em público</td><td>"'Já tentei de tudo' — o que isso costuma esconder"</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout science">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01M11 11h1v5"></path></svg>
+<span>Leitura Avançada — quando o Reel vira anúncio de saúde</span>
+</div>
+<p>
+          Os padrões de publicidade do Meta para conteúdo de saúde restringem alegação de desfecho, uso de
+          imagem "antes/depois" em certos contextos e linguagem que induza medo sobre a própria condição do
+          espectador — regras que valem no momento em que você <em>impulsiona</em>, mesmo que o Reel já
+          estivesse no ar como orgânico. O detalhe completo, com categoria especial de anúncio, é o
+          <a class="modref" data-mod="c1-m4">C1.M4</a>.
+        </p>
+<p>
+          A consequência prática para este módulo: um formato escrito sem promessa e sem antes/depois
+          <strong>nasce pronto para virar anúncio</strong>. Um formato escrito com essas duas coisas precisa
+          ser reescrito antes de qualquer impulsionamento — e reescrever depois custa mais do que escrever
+          certo na primeira vez. Os oito formatos acima já foram desenhados dentro dessa restrição.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.7 ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.7</span><span></span></div>
+<h2>Resumo executivo</h2>
+<p class="sec-lede">
+          Sete ideias. Elas alimentam a Biblioteca de Ganchos (C2.M5) e a Engenharia dos Roteiros (C2.M6) — e
+          a métrica que você aprendeu a ler aqui é a mesma que reaparece no Dashboard (C3.M11).
+        </p>
+</div>
+<div class="summary">
+<h3>As sete ideias do Módulo 4</h3>
+<ol>
+<li><b>Reel que retém orgânico custa menos pago.</b> O leilão do Meta premia qualidade estimada do anúncio — retenção orgânica é a prova que baixa o CPM antes mesmo de você gastar em mídia.</li>
+<li><b>O gancho não introduz, decide se o Reel existe.</b> Visual antes do verbal, lacuna que não fecha, sem intro. É aplicação direta da atenção e da curiosidade do C2.M1 — a biblioteca de aberturas fica no C2.M5.</li>
+<li><b>Ritmo reabre a janela de atenção; pausa sinaliza importância.</b> Corte a cada 2–4s em plano estático; uma pausa só, na virada do argumento — nunca os dois ao mesmo tempo no mesmo trecho.</li>
+<li><b>Legenda substitui a fala quando o som está desligado — e não deve duplicá-la quando está ligado.</b> Teste: o Reel mudo conta a história sozinho?</li>
+<li><b>CTA sem promessa, um só, loop que reconecta o fim ao início.</b> O mesmo teste do caso que deu errado do C2.M3 vale para o CTA — e o loop é a forma mais barata de ganhar tempo de exibição.</li>
+<li><b>As métricas do Meta diagnosticam qual camada falhou.</b> Hook rate baixo é gancho; hold rate baixo com hook rate bom é ritmo/pausa; compartilhamento e salvamento pesam mais que curtida.</li>
+<li><b>Os 8 formatos já nascem sem promessa e sem antes/depois isolado.</b> Isso não é só ética — é o que garante que o Reel possa virar anúncio sem reescrita.</li>
+</ol>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 4</h4>
+<span class="check-count" id="upCheckCount">0 / 17</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Gancho e ritmo</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Meus 3 últimos Reels têm <b>movimento ou corte no primeiro meio segundo</b></span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Nenhum deles abre com <b>"oi, gente" ou intro sem informação</b></span></label>
+<label class="ci"><input data-ck="a3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Cortes a cada <b>2–4s</b> em qualquer trecho de plano estático</span></label>
+<label class="ci"><input data-ck="a4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Existe <b>uma pausa</b>, e só uma, no momento em que o argumento vira</span></label>
+<div class="check-group">B · Legenda e trilha</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Testei assistir meu último Reel <b>mudo</b> — a legenda sozinha conta a história</span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">A legenda está <b>sincronizada frase a frase</b>, sem parágrafo parado na tela</span></label>
+<label class="ci"><input data-ck="b3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Revisei <b>ortografia da legenda</b> como revisaria a fala</span></label>
+<label class="ci"><input data-ck="b4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">A trilha <b>nunca</b> está mais alta que a voz</span></label>
+<div class="check-group">C · CTA, loop e métricas</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Cada Reel tem <b>um CTA só</b>, sem promessa de desfecho</span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Testei o CTA contra o <b>caso que deu errado</b> (§3.9) — continua verdadeiro?</span></label>
+<label class="ci"><input data-ck="c3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">O último quadro <b>reconecta</b> com o primeiro (loop)</span></label>
+<label class="ci"><input data-ck="c4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei olhar <b>reproduções de 3s</b> (hook rate) no Meta Business Suite</span></label>
+<label class="ci"><input data-ck="c5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei distinguir um problema de <b>gancho</b> de um problema de <b>ritmo</b> pelos números</span></label>
+<div class="check-group">D · Formatos e compliance</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Mapeei meus últimos 8 Reels contra os <b>8 formatos</b> — algum ficou de fora?</span></label>
+<label class="ci"><input data-ck="d2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Nenhum Reel ativo usa <b>antes/depois isolado</b> como argumento principal</span></label>
+<label class="ci"><input data-ck="d3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Nenhum Reel ativo promete <b>desfecho específico</b></span></label>
+<label class="ci"><input data-ck="d4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Confirmei que consigo <b>impulsionar qualquer um</b> dos meus últimos 5 Reels sem reescrever</span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>Responda de cabeça. Se travar em duas ou mais, releia antes de seguir.</p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">Por que um Reel com boa retenção orgânica custa menos quando vira anúncio? Que peça do leilão isso explica?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">Quais são as três regras do gancho? Por que "oi, gente" viola a primeira delas?</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">Qual é a diferença de função entre corte de ritmo e pausa estratégica? Por que os dois não deveriam competir no mesmo trecho?</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">O que o princípio da redundância diz sobre legenda com áudio ligado — e por que a mesma legenda é indispensável com áudio desligado?</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">Se o hook rate está bom e o hold rate está baixo, qual camada você revisa primeiro?</p></div>
+<div class="qa-item"><span class="qa-n">6</span><p class="qa-q">Por que os 8 formatos deste módulo já nascem prontos para virar anúncio de saúde, sem reescrita?</p></div>
+</div>
+<h3>Exercícios práticos</h3>
+<div class="ex">
+<div class="ex-tag">Exercício 1 · ~25 min</div>
+<h4>Auditoria dos últimos 5 Reels</h4>
+<p>Para cada um dos seus últimos 5 Reels, marque: teve gancho visual nos primeiros 0,5s? Teve intro sem informação? Quantos cortes teve por segundo médio? Teve algum antes/depois isolado ou promessa de desfecho?</p>
+<textarea data-ex="ex1" placeholder="Reel 1 — gancho visual: sim/não · intro sem info: sim/não · antes/depois: sim/não
+Reel 2 — ...
+
+Padrão que mais se repete como erro: ___"></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 2 · ~20 min</div>
+<h4>Leitura das métricas</h4>
+<p>Abra o Meta Business Suite (ou Ads Manager, se algum Reel já foi impulsionado) e anote, para o Reel de maior alcance dos últimos 30 dias: reproduções de 3s ÷ impressões (hook rate), % assistido a 75% (hold rate), compartilhamentos ÷ alcance. Diagnostique qual camada precisa de atenção.</p>
+<textarea data-ex="ex2" placeholder="Reel analisado: ...
+Hook rate: ___%   Hold rate: ___%   Compartilhamento: ___%
+Camada que mais precisa de atenção: ___ , porque ___"></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 3 · ~25 min</div>
+<h4>Um Reel por formato</h4>
+<p>Escolha 2 dos 8 formatos do §4.6 que você ainda não usa. Escreva o gancho (§4.2) e o CTA (§4.5) de um Reel para cada um, usando melasma ou estrias como tema. Aplique o teste do caso que deu errado nos dois CTAs.</p>
+<textarea data-ex="ex3" placeholder="Formato escolhido 1: ...
+  Gancho: ...
+  CTA: ...
+  Passa no teste do caso que deu errado? ___
+
+Formato escolhido 2: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Módulo 5</h4>
+<span class="check-count" id="upDoneCount">0 / 6</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>7 seções</b> inteiras</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei nomear as <b>7 camadas</b> de cabeça, na ordem</span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei distinguir <b>hook rate</b> de <b>hold rate</b> e o que cada um diagnostica</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Auditei meus Reels ativos contra <b>promessa e antes/depois isolado</b></span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">O <b>checklist de implementação</b> está acima de 60%</span></label>
+<label class="ci"><input data-dk="k6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz os <b>3 exercícios</b> — de verdade, não mentalmente</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>Platform.init({ id:"c2-m4" });</script>
+</body>
+</html>
