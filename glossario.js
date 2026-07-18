@@ -83,7 +83,7 @@ var GLOSSARIO = {
     tecnica:"(Investimento em mídia + custo de vendas) ÷ número de clientes adquiridos no período. A versão simplificada usa só mídia; a completa inclui horas de atendimento e ferramentas.",
     importa:"É a única métrica de custo que importa no seu modelo. Custo por lead e CAC se movem em direções OPOSTAS em negócios high ticket — leads mais caros costumam produzir pacientes mais baratos.",
     exemplo:"R$3.000 de mídia gerando 10 pacientes = CAC de R$300, ou 7,5% de um ticket de R$4.000. Teto saudável recomendado: 12% do ticket.",
-    onde:["c1-m1","c1-m3","c1-m4","c1-m5","c2-m4","c2-m9","c3-m11"], veja:["CPA","LTV","ROAS"]
+    onde:["c1-m1","c1-m3","c1-m4","c1-m5","c1-m7","c2-m4","c2-m9","c3-m11"], veja:["CPA","LTV","ROAS"]
   },
   "LTV": {
     nome:"Lifetime Value — Valor do Cliente ao Longo do Tempo",
@@ -305,7 +305,7 @@ var GLOSSARIO = {
     tecnica:"Sistema de registro de leads, estágio do funil, histórico de interações e resultado. Pode ser uma planilha de 6 colunas.",
     importa:"Quatro das nove métricas do seu painel — tempo de resposta, taxa de agendamento, comparecimento e adesão — não existem em NENHUMA plataforma. Só existem se você registrar.",
     exemplo:"Planilha: data · origem · 1º contato · resposta · agendada · realizada · adesão. Isso vale mais que qualquer dashboard automático.",
-    onde:["c1-m5","c3-m1","c3-m11"], veja:["KPI","SLA"]
+    onde:["c1-m5","c1-m6","c1-m7","c3-m1","c3-m11"], veja:["KPI","SLA"]
   },
   "CRO": {
     nome:"Conversion Rate Optimization — Otimização de Taxa de Conversão",

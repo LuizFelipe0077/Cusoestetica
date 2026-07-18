@@ -9,8 +9,9 @@ release final além de correções apontadas pelo validador (`validate.py`).
 31 módulos em 3 cursos (C1 Sistema Comercial, C2 Psicologia e Conteúdo, C3 Engenharia
 e Dados) + capstone SOG. Módulos concluídos até agora: c1-m1, c2-m1, c2-m2, c2-m3
 (padrão antigo, pré-2026-07-18) · c2-m4, c2-m5, c2-m6, c2-m7, c2-m8, c2-m9, c1-m2,
-c1-m3, c1-m4, c1-m5 (padrão novo, ver diretriz abaixo). **Curso 2 completo.** Curso
-1 em andamento a partir do c1-m2 (c1-m1 é padrão antigo).
+c1-m3, c1-m4, c1-m5, c1-m6, c1-m7 (padrão novo, ver diretriz abaixo). **Curso 2
+completo.** Curso 1 em andamento a partir do c1-m2 (c1-m1 é padrão antigo). Falta
+só c1-m8 pra fechar o Curso 1.
 
 ---
 
@@ -184,6 +185,23 @@ interrompe a produção dos módulos.**
   para `["c1-m2","c1-m3","c1-m4","c2-m2","c2-m3"]`. Citação de pesquisa sobre tempo
   de resposta a leads (Oldroyd, McElheran & Elkington, HBR 2011) marcada com nota de
   incerteza sobre números exatos — usei só a direção do achado.
+- c1-m6 (A Consulta como Ato Comercial) — mesma pendência de
+  `searchindex.js`/`validate.py`. Densidade padrão. Fundamentado em bioética real
+  (Emanuel & Emanuel 1992, os 4 modelos de relação profissional-paciente; Charles,
+  Gafni & Whelan 1997, decisão compartilhada) pra resolver o paradoxo ético entre
+  cuidar e vender — não é framework de vendas disfarçado. `deps` passou de
+  `["c1-m5","c2-m2"]` para `["c1-m2","c1-m5","c2-m3","c2-m5","c2-m6"]`, refletindo
+  o que o módulo final realmente reaproveita (C2.M2 acabou não sendo puxado
+  diretamente — o conteúdo se apoiou mais em C2.M3, C2.M5 e C2.M6).
+- c1-m7 (Remarketing e Nutrição) — mesma pendência de `searchindex.js`/`validate.py`.
+  `vol:"med"` — pesquisei janelas de retenção de público via `WebSearch` mesmo não
+  sendo obrigatório (só `vol:"high"` exige), porque o tema toca mecânica de
+  plataforma que muda (janelas de 7/14/30/60 dias, retenção de compradores
+  estendida pra 730 dias em maio de 2026). Risco de duplicação alto neste módulo —
+  fadiga é só cross-ref de 1 parágrafo pro C1.M4 §4.7 em vez de reexplicar; as
+  camadas 5-6 do funil de intenção são explicitamente delegadas ao C1.M5/C1.M6 (só
+  1-4 são trabalhadas aqui). `deps` passou de `["c3-m2"]` (não construído) para
+  `["c1-m4","c1-m5","c1-m6","c2-m4","c2-m8"]`.
 - c1-m3 (Oferta e Precificação) — mesma pendência de `searchindex.js`/`validate.py`.
   Primeiro módulo sob a Regra da Engenharia Financeira, com a primeira planilha
   lógica interativa da plataforma (ver seção própria acima). Testada de verdade no
