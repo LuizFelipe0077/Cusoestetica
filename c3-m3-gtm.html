@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 3 — Google Tag Manager. Data Layer, o padrão um-sinal-um-trigger, variables, organização em escala com versionamento, e debug passo a passo aplicado aos 4 eventos da taxonomia do C3.M2.">
+<title>Google Tag Manager · Curso 3 · Engenharia e Dados</title>
+
+<!--
+  CURSO 3 · ENGENHARIA E DADOS
+  Módulo 3 — Google Tag Manager
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Chrome, navegação, progresso, busca e glossário vêm do platform.js.
+  Este arquivo tem conteúdo + o que é exclusivamente dele: nada.
+
+  vol:"med" — pesquisei via WebSearch em 2026-07-18 (não obrigatório, mas prático
+  dado que GTM evolui). Reaproveita pesadamente a taxonomia de 4 eventos do C3.M2
+  como exemplo prático em vez de inventar exemplo novo.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+
+<main class="main" id="conteudo">
+ <header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Engenharia e Dados · Módulo 3</div>
+<h1>Google Tag<br/><em>Manager</em></h1>
+<p class="hero-lede">
+        O <a class="modref" data-mod="c3-m1">C3.M1</a> §1.3 chamou o GTM de camada de Transporte. Este
+        módulo mostra como isso funciona de verdade: Data Layer, o padrão um-sinal-um-trigger, e debug
+        aplicado aos 4 eventos que o <a class="modref" data-mod="c3-m2">C3.M2</a> já definiu.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~50 min</dd></div>
+<div><dt>Seções</dt><dd>7</dd></div>
+<div><dt>Camadas de organização</dt><dd>3</dd></div>
+<div><dt>Passos de debug</dt><dd>4</dd></div>
+</dl>
+<div class="selo-key">
+<div><span class="selo ev">Evidência</span><p>Achado experimental revisado por pares. Vem com citação completa.</p></div>
+<div><span class="selo inf">Inferência</span><p>Extrapolação razoável para contexto <em>não</em> testado. Eu explico o salto.</p></div>
+<div><span class="selo prat">Prática</span><p>Documentação e convenção de engenharia de dados. Fonte quando existe.</p></div>
+<div><span class="selo mito">Mito</span><p>Repetido no mercado e contradito pela evidência — ou sem fonte.</p></div>
+</div>
+</div>
+</header>
+<!-- ============================================================ 3.1 ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>3.1</span><span></span></div>
+<h2>Por que GTM existe: separar tag de código</h2>
+<p class="sec-lede">
+          Sem GTM, cada novo evento exige editar o código da Landing Page. Com GTM, editar a regra de
+          disparo é configuração, não desenvolvimento.
+        </p>
+</div>
+<p>
+        O <a class="modref" data-mod="c3-m1">C3.M1</a> §1.3 já posicionou o <abbr data-t="GTM">GTM</abbr>
+        na camada de Transporte, ao lado do <abbr data-t="Pixel">Pixel</abbr> e da <abbr data-t="CAPI">CAPI</abbr> na Coleta. Na prática, GTM não substitui Pixel
+        nem CAPI — é o mecanismo que dispara os dois sem exigir que você (ou um desenvolvedor) edite o
+        código da página toda vez que um evento novo precisa ser adicionado ou ajustado.
+      </p>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 3.2 ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>3.2</span><span></span></div>
+<h2><abbr data-t="Data Layer">Data Layer</abbr>: a fonte única de verdade dos eventos</h2>
+<p class="sec-lede">
+          Antes de qualquer trigger, existe uma estrutura de dados na própria página que registra o que
+          aconteceu — o GTM só lê o que o Data Layer já anotou.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          O <strong>Data Layer</strong> é inicializado uma vez por página
+          (<code>window.dataLayer = window.dataLayer || [];</code>), colocado no <code>&lt;head&gt;</code>
+          <strong>antes</strong> do container do GTM — carregando cedo, o GTM tem acesso imediato à
+          informação e consegue disparar tag sem atraso. Boas práticas: uma convenção de nomenclatura só
+          (camelCase <em>ou</em> snake_case, não os dois), documentar cada chave, e enviar evento e
+          parâmetros no mesmo objeto sempre que possível.
+        </p>
+<p class="cit">Fonte: documentação do Google (developers.google.com/tag-platform/tag-manager/datalayer) e convenção de mercado consolidada, consultada em 18/07/2026.</p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Evento (C3.M2 §2.6)</th><th>Push no Data Layer</th></tr></thead>
+<tbody>
+<tr><td><code>Lead</code></td><td><code>dataLayer.push({event:'lead', content_name:'melasma'})</code></td></tr>
+<tr><td><code>Schedule</code></td><td><code>dataLayer.push({event:'schedule', content_name:'estrias'})</code></td></tr>
+<tr><td><code>Purchase</code></td><td><code>dataLayer.push({event:'purchase', value:4000, currency:'BRL', content_name:'melasma'})</code></td></tr>
+</tbody>
+</table>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 3.3 ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>3.3</span><span></span></div>
+<h2>Triggers: um sinal, um trigger, várias tags</h2>
+<p class="sec-lede">
+          O padrão que evita a armadilha mais comum de quem está começando: multiplicar trigger frágil de
+          clique em vez de centralizar num evento estável do Data Layer.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Um sinal de negócio estável → um trigger → uma ou mais tags.</strong> Um único evento
+          <code>lead</code> pode disparar a tag de <abbr data-t="GA4">GA4</abbr> <em>e</em> a de conversão
+          da Meta ao mesmo tempo — em vez de criar um trigger de clique em botão específico (que quebra se
+          o botão mudar de classe CSS no próximo redesenho da página).
+        </p>
+<p class="cit">Fonte: convenção de mercado sobre organização de triggers em GTM, consultada em 18/07/2026.</p>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Trigger de clique em botão é o mais frágil que existe</span>
+</div>
+<p>
+          Se o trigger observa "clique no botão com classe X" em vez de "evento <code>lead</code> no Data
+          Layer", qualquer atualização visual da Landing Page (<a class="modref" data-mod="c3-m7">C3.M7</a>)
+          pode quebrar o disparo sem ninguém perceber — é o ponto de perda 4 do <a class="modref"
+          data-mod="c3-m1">C3.M1</a> §1.5 (erro de JavaScript/mudança na página) na sua forma mais comum.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 3.4 ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>3.4</span><span></span></div>
+<h2>Variables: como o GTM lê o que precisa</h2>
+<p class="sec-lede">
+          Uma variável de Data Layer busca um valor específico (o <code>content_name</code>, o
+          <code>value</code>) sem precisar reescrever a tag toda vez que o dado muda.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Uma <strong>Variable</strong> do tipo "Data Layer Variable" lê uma chave específica do objeto
+          empurrado (§3.2) — por exemplo, uma variável <code>DLV - content_name</code> lê o valor
+          "melasma" ou "estrias" do evento e alimenta a tag do <abbr data-t="GA4">GA4</abbr> ou da Meta sem
+          precisar hard-codar o valor na configuração da tag.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 3.5 ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>3.5</span><span></span></div>
+<h2>Organização em escala: workspace e versionamento</h2>
+<p class="sec-lede">
+          Mesmo com uma operação pequena, versionar evita o pior cenário: publicar uma mudança que quebra
+          todos os eventos sem ter como voltar rápido.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Prática</th><th>Por quê</th></tr></thead>
+<tbody>
+<tr><td>Nomear tag/trigger/variável com padrão claro</td><td>"GA4 - Lead" em vez de "Tag 3" — qualquer pessoa entende sem abrir a configuração</td></tr>
+<tr><td>Testar em Preview antes de publicar</td><td>Confirma o disparo sem afetar o site ao vivo (§3.6)</td></tr>
+<tr><td>Nomear cada versão publicada com o que mudou</td><td>Permite reverter rápido se algo quebrar, sem precisar reconstruir do zero</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout science">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01M11 11h1v5"></path></svg>
+<span>Leitura Avançada — GTM do lado do servidor</span>
+</div>
+<p>
+          Em 2026, GTM do lado do servidor (server-side) ganhou força como recomendação de mercado — reduz
+          bloqueio por ad blocker e melhora performance de carregamento, movendo o processamento de tag pra
+          um servidor próprio em vez do navegador da paciente. Para uma operação pequena, isso é
+          infraestrutura adicional (servidor, custo, manutenção) — o CAPI que o <a class="modref"
+          data-mod="c3-m2">C3.M2</a> já configurou entrega boa parte do mesmo benefício (captura fora do
+          navegador) sem esse investimento. Considere GTM server-side quando o volume justificar a
+          complexidade extra, não como ponto de partida.
+        </p>
+<p class="cit">Fonte: convenção de mercado sobre adoção de GTM server-side em 2026, consultada em 18/07/2026.</p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 3.6 ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>3.6</span><span></span></div>
+<h2>Debug: 4 passos aplicados ao evento Lead</h2>
+<p class="sec-lede">
+          Antes de publicar qualquer alteração, o mesmo checklist de 4 passos — aplicado aqui ao evento
+          mais importante do funil.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>#</th><th>Passo</th><th>Aplicado ao evento Lead</th></tr></thead>
+<tbody>
+<tr><td class="t-num">1</td><td>Ativar o Preview mode</td><td>Abrir a Landing Page pelo link de preview do GTM</td></tr>
+<tr><td class="t-num">2</td><td>Reproduzir a ação</td><td>Clicar no botão do WhatsApp como uma paciente faria</td></tr>
+<tr><td class="t-num">3</td><td>Confirmar o evento na timeline</td><td>O evento <code>lead</code> aparece, com <code>content_name</code> preenchido — não vazio</td></tr>
+<tr><td class="t-num">4</td><td>Confirmar quais tags dispararam</td><td>Tag de GA4 e tag de conversão da Meta aparecem como "Fired" — se alguma não disparou, checar a condição do trigger</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>O mesmo checklist vale pros 4 eventos do C3.M2</span>
+</div>
+<p>
+          Repita os 4 passos para <code>Schedule</code>, <code>Purchase</code> e <code>ViewContent</code>
+          antes de considerar a implementação pronta — um evento não testado em Preview é um evento que só
+          vai ser descoberto quebrado quando os números do <a class="modref" data-mod="c3-m11">C3.M11</a>
+          já estiverem errados.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 3.7 ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>3.7</span><span></span></div>
+<h2>Resumo executivo</h2>
+<p class="sec-lede">
+          Sete ideias. O <a class="modref" data-mod="c3-m4">C3.M4</a> (GA4) é o primeiro sistema a de fato
+          consumir os eventos que este módulo aprende a disparar com confiança.
+        </p>
+</div>
+<div class="summary">
+<h3>As sete ideias do Módulo 3</h3>
+<ol>
+<li><b>GTM separa tag de código</b> — editar disparo vira configuração, não desenvolvimento.</li>
+<li><b>Data Layer carrega antes do container do GTM</b>, com convenção de nomenclatura única e documentada.</li>
+<li><b>Um sinal de negócio estável alimenta um trigger, que dispara várias tags</b> — nunca o inverso.</li>
+<li><b>Trigger de clique em botão é o mais frágil que existe</b> — qualquer mudança visual pode quebrá-lo silenciosamente.</li>
+<li><b>Variables leem o Data Layer sem hard-code</b> — o mesmo trigger serve pra melasma e estrias, a variável é que muda.</li>
+<li><b>Nomenclatura clara e versionamento evitam o pior cenário:</b> publicar algo quebrado sem conseguir reverter rápido.</li>
+<li><b>4 passos de debug, repetidos pra cada um dos 4 eventos</b> — não só pro Lead.</li>
+</ol>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 3</h4>
+<span class="check-count" id="upCheckCount">0 / 9</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Data Layer</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Data Layer inicializado <b>antes</b> do container do GTM</span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Convenção de nomenclatura <b>única e documentada</b></span></label>
+<div class="check-group">B · Triggers e tags</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Os 4 eventos (Lead/Schedule/Purchase/ViewContent) usam <b>trigger de Data Layer</b>, não de clique em botão</span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Cada evento dispara <b>GA4 e Meta</b> a partir do mesmo trigger</span></label>
+<div class="check-group">C · Organização</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tags, triggers e variáveis têm <b>nomenclatura clara</b></span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Cada versão publicada tem <b>nota do que mudou</b></span></label>
+<div class="check-group">D · Debug</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Testei os <b>4 eventos</b> em Preview mode, um por um</span></label>
+<label class="ci"><input data-ck="d2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Confirmei que as tags de <b>GA4 e Meta</b> aparecem como "Fired" nos 4</span></label>
+<label class="ci"><input data-ck="d3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Só publiquei depois de <b>testar em Preview</b>, nunca direto</span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>Responda de cabeça. Se travar em duas ou mais, releia antes de seguir.</p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">Por que o Data Layer precisa carregar antes do container do GTM?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">O que é o padrão "um sinal, um trigger, várias tags" — e por que ele evita trigger de clique em botão?</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">Qual é a diferença entre uma Variable e um Trigger?</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">Quais são os 4 passos de debug em Preview mode, na ordem?</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">Por que GTM server-side não é o ponto de partida recomendado pra uma operação pequena?</p></div>
+</div>
+<h3>Exercício prático</h3>
+<div class="ex">
+<div class="ex-tag">Exercício único · ~25 min</div>
+<h4>Debug dos 4 eventos</h4>
+<p>Rode os 4 passos de debug do §3.6 para cada um dos 4 eventos da taxonomia do C3.M2. Anote o resultado de cada um.</p>
+<textarea data-ex="ex1" placeholder="Lead — apareceu na timeline? ___ content_name preenchido? ___ tags disparadas: ___
+Schedule — ...
+Purchase — ...
+ViewContent — ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Módulo 4</h4>
+<span class="check-count" id="upDoneCount">0 / 5</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>7 seções</b> inteiras</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei explicar <b>Data Layer, Trigger, Tag e Variable</b> como peças distintas</span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Testei os <b>4 eventos</b> em Preview mode</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei os <b>4 passos de debug</b> de cabeça</span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz o <b>exercício</b> de debug completo</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>Platform.init({ id:"c3-m3" });</script>
+</body>
+</html>

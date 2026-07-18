@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 2 — Pixel, Dataset e Conversions API. Por que cookie sozinho não basta, o Dataset como contêiner unificado, deduplicação Pixel+CAPI, Advanced Matching com IA, o fim do limite de 8 eventos do AEM, e a taxonomia de eventos dos dois protocolos.">
+<title>Pixel, Dataset e Conversions API · Curso 3 · Engenharia e Dados</title>
+
+<!--
+  CURSO 3 · ENGENHARIA E DADOS
+  Módulo 2 — Pixel, Dataset e Conversions API
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Chrome, navegação, progresso, busca e glossário vêm do platform.js.
+  Este arquivo tem conteúdo + o que é exclusivamente dele: nada.
+
+  vol:"high" — pesquisei via WebSearch em 2026-07-18. Achado central: o limite de
+  8 eventos do AEM foi REMOVIDO em junho de 2025 — a "taxonomia dos 2 protocolos"
+  do manifest original assumia esse limite (por isso o desc mudou). Fontes
+  oficiais citadas por seção. Cross-ref pesado com C1.M4 (learning phase, EMQ já
+  no glossário) e C3.M1 (contrato de dados) — sem reexplicar.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+
+<main class="main" id="conteudo">
+ <header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Engenharia e Dados · Módulo 2</div>
+<h1>Pixel, Dataset e<br/><em>Conversions API</em></h1>
+<p class="hero-lede">
+        A camada de Coleta do <a class="modref" data-mod="c3-m1">C3.M1</a> §1.3, destrinchada: por que
+        cookie sozinho não basta mais, o Dataset como contêiner único de Pixel e CAPI, deduplicação,
+        Advanced Matching com IA — e um achado que muda o que qualquer curso antigo te ensinou sobre
+        limite de eventos.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~60 min</dd></div>
+<div><dt>Seções</dt><dd>7</dd></div>
+<div><dt>Eventos da taxonomia</dt><dd>4</dd></div>
+<div><dt>Fontes oficiais</dt><dd>3</dd></div>
+</dl>
+<div class="selo-key">
+<div><span class="selo ev">Evidência</span><p>Achado experimental revisado por pares. Vem com citação completa.</p></div>
+<div><span class="selo inf">Inferência</span><p>Extrapolação razoável para contexto <em>não</em> testado. Eu explico o salto.</p></div>
+<div><span class="selo prat">Prática</span><p>Documentação oficial da Meta ou convenção de mercado, sempre distinguidas. Fonte e data de consulta em cada uma.</p></div>
+<div><span class="selo mito">Mito</span><p>Repetido no mercado e contradito pela documentação atual — inclusive coisa que já foi verdade e deixou de ser.</p></div>
+</div>
+</div>
+</header>
+<!-- ============================================================ 2.1 ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.1</span><span></span></div>
+<h2>Por que cookie sozinho não basta mais</h2>
+<p class="sec-lede">
+          O cenário é mais dividido do que "cookies estão morrendo" — e essa divisão é exatamente o motivo
+          de precisar de <abbr data-t="Pixel">Pixel</abbr> <em>e</em> <abbr data-t="CAPI">CAPI</abbr> juntos.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Em 2026, o Chrome <strong>não</strong> bloqueia cookie de terceiro por padrão — o Google reverteu
+          o plano de descontinuação em 2024 e voltou atrás de novo em 2025, mantendo o status quo com opção
+          de desativar manualmente. Safari e Firefox, ao contrário, continuam bloqueando por padrão, e a
+          Prevenção Inteligente de Rastreamento (ITP) do Safari encurta a vida útil do cookie mesmo quando
+          ele é permitido.
+        </p>
+<p class="cit">Fonte: cobertura de mercado sobre a reversão do plano de descontinuação de cookies do Google Chrome (2024-2025), consultada em 18/07/2026.</p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Não existe um cenário único — por isso a estratégia é redundância</span>
+</div>
+<p>
+          Uma paciente no Chrome do Android pode ser bem capturada só pelo Pixel. A mesma paciente no
+          iPhone, navegando no Safari — cenário comum no seu público — perde parte do sinal por ITP (ponto
+          de perda 2 do <a class="modref" data-mod="c3-m1">C3.M1</a> §1.5). CAPI não substitui o Pixel:
+          preenche exatamente essa lacuna, capturando pelo servidor o que o navegador não deixa passar.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 2.2 ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.2</span><span></span></div>
+<h2>O que é um <abbr data-t="Dataset">Dataset</abbr></h2>
+<p class="sec-lede">
+          Antes de configurar Pixel ou CAPI, existe um contêiner que os une — é aí que o "contrato de
+          dados" do C3.M1 §1.6 vira configuração real.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Um <strong>Dataset</strong>, no Gerenciador de Eventos, é o conjunto que conecta e organiza
+          eventos vindos de fontes diferentes — site, app, <abbr data-t="CRM">CRM</abbr>, outro sistema de back-end — num lugar só.
+          Pixel e CAPI não são dois sistemas paralelos: são duas <em>fontes</em> que alimentam o mesmo
+          Dataset. A configuração de evento (nome, parâmetro) é feita uma vez, no nível do Dataset — não
+          duas vezes, uma pra cada fonte.
+        </p>
+<p class="cit">Fonte: documentação e cobertura de mercado sobre a estrutura de Dataset no Gerenciador de Eventos, consultada em 18/07/2026.</p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Isso resolve o problema do contrato de dados na prática</span>
+</div>
+<p>
+          Porque Pixel e CAPI escrevem no mesmo Dataset, o risco de "Lead" significar coisas diferentes
+          pros dois (C3.M1 §1.6) é estrutural, não só disciplina de configuração — o Dataset é onde o
+          contrato de dados vira mecanismo técnico, não só boa intenção.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 2.3 ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.3</span><span></span></div>
+<h2>Deduplicação: como Pixel e CAPI se completam sem contar duas vezes</h2>
+<p class="sec-lede">
+          O mesmo evento chega por dois caminhos — a deduplicação é o que garante que ele conte como um só.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Eventos que compartilham o mesmo <code>event_name</code> e <code>event_id</code>, recebidos
+          dentro de uma janela de <strong>48 horas</strong>, são deduplicados automaticamente — depois
+          disso, são tratados como eventos separados. O <code>event_id</code> precisa ser único por
+          conversão e <strong>idêntico</strong> nos dois envios (navegador e servidor) — normalmente um hash
+          do id do pedido mais timestamp.
+        </p>
+<p class="cit"><b>Meta Business Help Center.</b> <em>About Deduplication for Meta Pixel and Conversions API Events.</em> facebook.com/business/help/823677331451951. Consultado em 18/07/2026.</p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Como verificar se está funcionando:</strong> no Test Events do Gerenciador de Eventos,
+          evento deduplicado corretamente aparece como <strong>"1 evento de 2 fontes"</strong>. Se aparecer
+          "1 evento de 1 fonte" quando você esperava as duas, a deduplicação não está funcionando — o
+          <code>event_id</code> provavelmente diverge entre Pixel e CAPI.
+        </p>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Sem deduplicação, o número de conversão dobra silenciosamente</span>
+</div>
+<p>
+          É o erro 27 do <a class="modref" data-mod="c2-m9">C2.M9</a>: sem <code>event_id</code>
+          compartilhado, cada Purchase real vira dois eventos — e a decisão de orçamento do <a
+          class="modref" data-mod="c1-m3">C1.M3</a> passa a ser tomada em cima de um <abbr data-t="CAC">CAC</abbr> que parece metade
+          do real.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 2.4 ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.4</span><span></span></div>
+<h2><abbr data-t="Advanced Matching">Advanced Matching</abbr> e o enriquecimento por IA</h2>
+<p class="sec-lede">
+          Enviar mais dado de identificação (com hash) aumenta a chance de casar o evento com uma conta real
+          da Meta — e em 2026 parte disso passou a ser automático.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Advanced Matching</strong> é o envio de parâmetros extras de identificação — e-mail,
+          telefone, nome, IP, sempre com hash — junto do evento, aumentando a taxa de correspondência com um
+          perfil real (<abbr data-t="EMQ">EMQ</abbr>, já visto no <a class="modref"
+          data-mod="c2-m9">C2.M9</a> erro 28). Em 2026, a Meta passou a enriquecer automaticamente com IA:
+          o sistema extrai dado de formulário e da <code>dataLayer</code> da própria página, aplica o hash e
+          anexa ao evento sem configuração manual extra.
+        </p>
+<p class="cit">Fonte: cobertura de mercado sobre o enriquecimento por IA do Pixel/Advanced Matching (2026), consultada em 18/07/2026.</p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Por que isso importa mais pro seu Purchase do que pro seu Lead</span>
+</div>
+<p>
+          O evento de <strong>Purchase</strong> — a taxonomia da §2.6 — se beneficia mais de Advanced
+          Matching, porque nele você já tem nome e contato confirmados da consulta. Priorize garantir esses
+          parâmetros no evento de fechamento antes de otimizar o de Lead, que tem menos dado disponível por
+          natureza.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 2.5 ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.5</span><span></span></div>
+<h2><abbr data-t="AEM">AEM</abbr>: por que o limite de 8 eventos não existe mais</h2>
+<p class="sec-lede">
+          Se algum material que você já leu fala em "priorizar 8 eventos", ele está desatualizado — a regra
+          mudou em junho de 2025.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Até junho de 2025, a Medição Agregada de Eventos (<abbr data-t="AEM">AEM</abbr>) — o sistema que
+          reporta conversão de quem optou por não ser rastreada no iOS — exigia escolher e priorizar até 8
+          eventos por domínio; só o evento de maior prioridade era reportado quando a pessoa fazia várias
+          ações. <strong>Essa exigência foi removida.</strong> Hoje todos os eventos elegíveis são
+          processados automaticamente, sem lista manual nem ranking — a aba de priorização nem existe mais
+          no Gerenciador de Eventos.
+        </p>
+<p class="cit"><b>Meta Business Help Center.</b> <em>About Meta's Aggregated Event Measurement.</em> facebook.com/business/help/721422165168355. Mudança de junho de 2025, consultada em 18/07/2026.</p>
+</div>
+<div class="selo-box mito">
+<span class="selo mito">Mito</span>
+<p><strong>"Preciso escolher meus 8 eventos prioritários com cuidado, porque só um vai ser reportado por pessoa."</strong></p>
+<p>
+          Era verdade até junho de 2025. Curso, artigo ou consultor que ainda ensina isso como regra atual
+          está descrevendo uma versão anterior da plataforma. Não existe mais lista de 8, nem priorização
+          manual — configure os eventos que fazem sentido pro seu negócio (§2.6) sem se preocupar com
+          ranking.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 2.6 ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.6</span><span></span></div>
+<h2>A taxonomia dos 2 protocolos</h2>
+<p class="sec-lede">
+          O C3.M1 §1.6 já definiu 3 eventos no contrato de dados. Aqui eles ganham parâmetro completo — e um
+          quarto evento que separa melasma de estrias no relatório.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Evento</th><th>Quando dispara</th><th>Parâmetros obrigatórios</th></tr></thead>
+<tbody>
+<tr><td><code>Lead</code></td><td>Clique no WhatsApp a partir da Landing Page</td><td><code>content_name</code> (melasma/estrias), <code>event_id</code></td></tr>
+<tr><td><code>Schedule</code></td><td>Consulta agendada, confirmada no CRM</td><td><code>content_name</code>, <code>event_id</code></td></tr>
+<tr><td><code>Purchase</code></td><td>Protocolo fechado</td><td><code>value</code>, <code>currency</code>, <code>content_name</code>, <code>event_id</code>, Advanced Matching completo</td></tr>
+<tr><td class="t-gold"><code>ViewContent</code></td><td class="t-gold">Visita à página específica de melasma ou estrias</td><td class="t-gold"><code>content_name</code>, <code>event_id</code></td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Por que <code>content_name</code> aparece em todos os 4</span>
+</div>
+<p>
+          Sem esse parâmetro, o Dataset sabe que houve um Purchase, mas não sabe se foi de melasma ou de
+          estrias — dado que o <a class="modref" data-mod="c1-m3">C1.M3</a> precisa pra calcular margem e
+          CAC por protocolo separadamente, já que os dois têm ticket e custo variável diferentes.
+          <code>content_name</code> consistente nos 4 eventos é o que permite esse corte no <a
+          class="modref" data-mod="c3-m11">C3.M11</a> (Dashboard) depois.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 2.7 ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>2.7</span><span></span></div>
+<h2>Resumo executivo</h2>
+<p class="sec-lede">
+          Sete ideias. O <a class="modref" data-mod="c3-m3">C3.M3</a> (<abbr data-t="GTM">GTM</abbr>) entrega a ferramenta que
+          dispara esses 4 eventos sem precisar mexer no código da página toda vez.
+        </p>
+</div>
+<div class="summary">
+<h3>As sete ideias do Módulo 2</h3>
+<ol>
+<li><b>Cookie não morreu — ficou desigual.</b> Chrome mantém por padrão, Safari e Firefox bloqueiam. Por isso CAPI complementa o Pixel, não o substitui.</li>
+<li><b>Dataset é o contêiner único</b> que recebe Pixel e CAPI — é onde o contrato de dados do C3.M1 vira mecanismo técnico.</li>
+<li><b>Deduplicação exige <code>event_id</code> idêntico</b> nos dois envios, dentro de 48h — "1 evento de 2 fontes" no Test Events confirma que funciona.</li>
+<li><b>Advanced Matching ganhou enriquecimento automático por IA em 2026</b> — mas o parâmetro do Purchase importa mais que o do Lead, porque tem mais dado disponível.</li>
+<li><b>O limite de 8 eventos do AEM foi removido em junho de 2025</b> — qualquer material que ainda ensine priorização de 8 está desatualizado.</li>
+<li><b>4 eventos compõem a taxonomia dos 2 protocolos:</b> Lead, Schedule, Purchase e ViewContent, todos com content_name.</li>
+<li><b>content_name consistente é o que permite separar melasma de estrias</b> no dashboard depois — sem ele, os dois protocolos ficam misturados no relatório.</li>
+</ol>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 2</h4>
+<span class="check-count" id="upCheckCount">0 / 10</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Dataset e fontes</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho <b>1 Dataset</b> configurado recebendo Pixel e CAPI</span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Confirmei que os dois estão <b>ativos</b> (não só um dos dois)</span></label>
+<div class="check-group">B · Deduplicação</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Cada evento tem <b><code>event_id</code> idêntico</b> em Pixel e CAPI</span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Verifiquei no <b>Test Events</b> que aparece "1 evento de 2 fontes"</span></label>
+<div class="check-group">C · Advanced Matching</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">O evento <b>Purchase</b> envia parâmetros de Advanced Matching completos</span></label>
+<div class="check-group">D · Taxonomia</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Configurei os <b>4 eventos</b> da taxonomia (§2.6)</span></label>
+<label class="ci"><input data-ck="d2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Todo evento envia <b>content_name</b> (melasma/estrias)</span></label>
+<label class="ci"><input data-ck="d3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">O <b>Purchase</b> envia <code>value</code> e <code>currency</code> corretos</span></label>
+<div class="check-group">E · Atualização</div>
+<label class="ci"><input data-ck="e1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Não estou seguindo <b>priorização de 8 eventos</b> — essa regra não existe mais</span></label>
+<label class="ci"><input data-ck="e2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Agendei <b>revisão trimestral</b> deste módulo (vol:high)</span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>Responda de cabeça. Se travar em duas ou mais, releia antes de seguir.</p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">Por que CAPI não substitui o Pixel, mesmo captando o mesmo tipo de evento?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">O que é um Dataset, e por que ele é a peça que faz o contrato de dados do C3.M1 funcionar de verdade?</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">Quais dois campos precisam ser idênticos entre Pixel e CAPI pra deduplicação funcionar, e qual é a janela de tempo?</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">O que mudou no AEM em junho de 2025, e por que isso invalida conselho antigo de "escolher seus 8 eventos"?</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">Por que content_name precisa estar presente nos 4 eventos da taxonomia, não só no Purchase?</p></div>
+</div>
+<h3>Exercício prático</h3>
+<div class="ex">
+<div class="ex-tag">Exercício único · ~25 min</div>
+<h4>Audite seu Dataset</h4>
+<p>Abra o Gerenciador de Eventos e confira: existe 1 Dataset recebendo Pixel e CAPI? Os 4 eventos da taxonomia estão configurados com content_name? A deduplicação aparece como "1 evento de 2 fontes" no Test Events?</p>
+<textarea data-ex="ex1" placeholder="Dataset configurado? ___
+Pixel ativo? ___  CAPI ativo? ___
+Lead: configurado? ___ content_name? ___
+Schedule: ...
+Purchase: ...
+ViewContent: ...
+Deduplicação funcionando (Test Events)? ___"></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Módulo 3</h4>
+<span class="check-count" id="upDoneCount">0 / 5</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>7 seções</b> inteiras</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei explicar <b>Dataset, Pixel e CAPI</b> como peças do mesmo sistema</span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei os <b>4 eventos</b> da taxonomia e seus parâmetros de cabeça</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei que o <b>limite de 8 eventos não existe mais</b></span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz o <b>exercício</b> de auditoria do Dataset</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>Platform.init({ id:"c3-m2" });</script>
+</body>
+</html>

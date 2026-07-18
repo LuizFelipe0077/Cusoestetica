@@ -9,9 +9,34 @@ release final além de correções apontadas pelo validador (`validate.py`).
 31 módulos em 3 cursos (C1 Sistema Comercial, C2 Psicologia e Conteúdo, C3 Engenharia
 e Dados) + capstone SOG. Módulos concluídos até agora: c1-m1, c2-m1, c2-m2, c2-m3
 (padrão antigo, pré-2026-07-18) · c2-m4, c2-m5, c2-m6, c2-m7, c2-m8, c2-m9, c1-m2,
-c1-m3, c1-m4, c1-m5, c1-m6, c1-m7 (padrão novo, ver diretriz abaixo). **Curso 2
-completo.** Curso 1 em andamento a partir do c1-m2 (c1-m1 é padrão antigo). Falta
-só c1-m8 pra fechar o Curso 1.
+c1-m3, c1-m4, c1-m5, c1-m6, c1-m7, c1-m8 (padrão novo, ver diretriz abaixo).
+**Curso 1 completo (8 módulos). Curso 2 completo (9 módulos).** 17 de 31 módulos
+construídos. Curso 3 é o próximo.
+
+### Auditoria estrutural do Curso 1 (2026-07-18)
+Feita a pedido do dono ao fechar o Curso 1, antes de iniciar o Curso 3 — sem
+retrofit de conteúdo, só verificação. Manual (Python indisponível neste ambiente),
+mas abrangente: manifest (31 ids únicos, 0 deps inválidas, grafo acíclico, sequência
+prev/next c1-m1→...→c1-m8→c2-m1 íntegra), glossário (60 termos, 0 falhas de
+integridade referencial em `onde`/`veja`), estrutura por arquivo (seções batendo com
+`secs`, botões de conclusão sequenciais, checklists com contagem correta, `modref`
+sem `href` e todos válidos, `aria-expanded`/`aria-label` completos, nenhum recurso
+externo, nenhuma cor fixa fora do c1-m1 — ver abaixo) nos 8 módulos.
+
+**Encontrado e corrigido nesta auditoria** (módulos desta sessão, não é retrofit):
+c1-m3 tinha "SLA" e "CPA" sem `<abbr>`; c1-m4 tinha "A/B" sem `<abbr>`. Os três
+corrigidos, `onde` do glossário atualizado.
+
+**Encontrado e NÃO corrigido — backlog para a Auditoria Final** (arquivo do padrão
+antigo, fora do escopo desta verificação):
+- `c1-m1-arquitetura.html` usa `rgba(201,169,97,...)` fixo em 5 lugares (2 `fill`
+  de `<rect>` de SVG, 3 `style="background:..."` de `<tr>`) em vez de
+  `var(--gold-glow)`/token equivalente — quebra a paridade de tema claro/escuro que
+  o `validate.py` cobra. Precisa virar token no retrofit.
+- `c1-m1-arquitetura.html` usa "CBO" em texto puro sem `<abbr>` — não é erro do
+  arquivo original (CBO só entrou no glossário quando o C1.M4 foi escrito, nesta
+  sessão); é consequência de eu ter adicionado o termo depois. Envolver com
+  `<abbr data-t="CBO">` no retrofit resolve.
 
 ---
 
@@ -202,6 +227,40 @@ interrompe a produção dos módulos.**
   camadas 5-6 do funil de intenção são explicitamente delegadas ao C1.M5/C1.M6 (só
   1-4 são trabalhadas aqui). `deps` passou de `["c3-m2"]` (não construído) para
   `["c1-m4","c1-m5","c1-m6","c2-m4","c2-m8"]`.
+- c3-m1 (Arquitetura Completa) — mesma pendência de `searchindex.js`/`validate.py`.
+  Primeiro módulo do Curso 3, primeiro sob o modo de execução contínua. Mapa
+  técnico (11 sistemas, 4 camadas) deliberadamente distinto do mapa de negócio do
+  C1.M4 — não duplica. `deps` passou de `["c1-m1"]` para `["c1-m1","c1-m3","c1-m4"]`.
+- c3-m2 (Pixel, Dataset e Conversions API) — mesma pendência de `searchindex.js`/
+  `validate.py`. `vol:"high"` — pesquisado via `WebSearch` em 2026-07-18. Achado
+  mais importante: **o limite de 8 eventos do AEM foi removido em junho de 2025**
+  — a descrição original do módulo ("taxonomia dos 2 protocolos" sob priorização
+  de 8) ficou obsoleta antes mesmo de o módulo ser escrito; ajustada pra taxonomia
+  de 4 eventos sem priorização. Também confirmado: Chrome não descontinuou cookie
+  de terceiro (reverteu o plano em 2024-2025), só Safari/Firefox bloqueiam por
+  padrão — isso é o que justifica CAPI, não "cookies morreram". `deps` passou de
+  `["c3-m1"]` para `["c3-m1","c1-m3","c2-m9"]`.
+- c3-m3 (Google Tag Manager) — mesma pendência de `searchindex.js`/`validate.py`.
+  `vol:"med"` — pesquisa leve confirmando padrão "um sinal, um trigger, várias
+  tags" e adoção de GTM server-side em 2026 (tratado como Leitura Avançada, não
+  recomendação padrão pra uma operação pequena — CAPI já cobre boa parte do
+  benefício sem a infraestrutura extra). Reaproveita a taxonomia de 4 eventos do
+  C3.M2 como exemplo prático em vez de inventar exemplo novo. `deps` passou de
+  `["c3-m2"]` para `["c3-m1","c3-m2"]`.
+- c3-m4 (Google Analytics 4) — mesma pendência de `searchindex.js`/`validate.py`.
+  `vol:"high"` — pesquisado via `WebSearch` em 2026-07-18. Achado central: atribuição
+  data-driven virou padrão em outubro de 2025 (não é mais último clique), e abril
+  de 2026 trouxe a reestruturação de atribuição mais disruptiva desde o fim do
+  Universal Analytics — sinalizado no módulo como algo a reconfirmar na propriedade
+  real, não como fato estático. "Por que nunca bate com a Meta" não repete as
+  janelas de atribuição do C1.M4 §4.8, só cross-refs. `deps` passou de `["c3-m3"]`
+  para `["c3-m1","c3-m2","c3-m3"]`.
+- c3-m5 (Microsoft Clarity) — mesma pendência de `searchindex.js`/`validate.py`.
+  `vol:"med"` — pesquisa confirmando que a ferramenta segue 100% gratuita sem
+  limite de tráfego, e que o resumo de gravação por IA (Copilot) é adição de 2025
+  que muda o fluxo prático do método 20→5 (menos tempo assistindo, mesma exigência
+  de olhar as sessões mais reveladoras de verdade). `deps` passou de `["c3-m3"]`
+  para `["c3-m1","c3-m4"]`, refletindo a dependência real do funil de exploração.
 - c1-m3 (Oferta e Precificação) — mesma pendência de `searchindex.js`/`validate.py`.
   Primeiro módulo sob a Regra da Engenharia Financeira, com a primeira planilha
   lógica interativa da plataforma (ver seção própria acima). Testada de verdade no
@@ -340,6 +399,63 @@ precisarem de algo parecido:
 - **Testar de verdade no navegador antes de aprovar**, não só verificar a estrutura
   HTML. Neste módulo isso pegou um bug real (mensagem de diagnóstico errada com 0
   pacientes) que a checagem estrutural manual não pegaria.
+
+### Modo de execução contínua — permanente a partir de 2026-07-18
+Vale do C3.M1 em diante, até a Auditoria Final. Decisão explícita do dono: parar de
+pedir aprovação módulo a módulo.
+- Construir módulo, validar estruturalmente, atualizar `manifest.js`/`glossario.js`/
+  `CLAUDE.md`/pendências, e seguir direto pro próximo — tudo isso é
+  **pré-aprovado**, não precisa de confirmação.
+- Pré-aprovado sem perguntar: atualização de manifest, glossário, referências
+  cruzadas, progresso, índice, dependências, roadmap, correções estruturais,
+  correções de acessibilidade, padronização de código, qualquer melhoria interna
+  que não mude conteúdo didático.
+- **Só interromper para decisão que muda escopo, arquitetura ou experiência da
+  plataforma** — o mesmo tipo de decisão que já gerou pausa antes (formato de
+  módulo-catálogo do C2.M5, fluxo de 13 etapas do C1.M4). Dúvida sobre magnitude de
+  estatística de terceiro ou nome exato de citação **não** é motivo de pausa —
+  aplicar a mesma nota de rigor epistêmico já usada em módulos anteriores e seguir.
+- Objetivo declarado: concluir 100% do Curso 3, então iniciar a Auditoria Final.
+- Isso não afrouxa nenhuma regra de qualidade já registrada acima (densidade,
+  anti-repetição, search-first pra `vol:"high"`, aplicação prática, rigor
+  científico) — só remove a pausa de aprovação entre módulos.
+
+### FEATURE FREEZE — permanente a partir de 2026-07-18, vale até o RELEASE FINAL
+Decisão do dono ao aprovar o Curso 3 em andamento: a plataforma entra em
+estabilização. Isto **restringe** o modo de execução contínua definido acima — a
+autonomia de execução continua valendo pra concluir módulos, mas dentro destes
+limites:
+
+**Proibido até o RELEASE FINAL:**
+- Criar novo sistema, nova página, nova funcionalidade.
+- Alterar a arquitetura existente (cursos, módulos, shell, ordem).
+- Aumentar o escopo de qualquer módulo além do que já está definido no `manifest.js`.
+- Adicionar novo componente **global** (CSS/JS do shell) ou aumentar o Design
+  System — a paleta de componentes já disponível (`callout`, `selo-box`, `figure`,
+  `acc`, `check`, `qa`, `ex`, `rew`, `summary`, `grid`/`card`, tabela, e a planilha
+  lógica que o C1.M3 introduziu como padrão pontual) é o teto. Não inventar
+  componente novo pros módulos restantes — os que restam não parecem exigir isso.
+- Alterar o fluxo de navegação (prev/next, shell, breadcrumb).
+- Criar nova dependência externa (biblioteca, serviço).
+
+**Permitido e esperado:**
+- Concluir os módulos restantes do Curso 3 e o capstone, no padrão já
+  estabelecido.
+- Corrigir **erro real** encontrado (estrutural, de referência, de acessibilidade,
+  de glossário) — não é "melhoria", é correção.
+- Atualizar manifest, glossário, índices, referências cruzadas.
+- Qualquer melhoria que vier à mente (nova funcionalidade, novo componente, nova
+  ideia de conteúdo fora do escopo já definido) vai pro
+  [ROADMAP-POS-RELEASE.md](ROADMAP-POS-RELEASE.md) — **registrar, não implementar.**
+
+**Ao terminar cada módulo, rodar as 4 auditorias automaticamente** (estrutural,
+referências, glossário, navegação) antes de seguir pro próximo — mesmo processo já
+usado desde o C3.M1, agora explicitamente obrigatório por módulo, não só ao fim do
+curso.
+
+**Ao final do Curso 3:** não iniciar nenhuma melhoria. Entrar direto na Auditoria
+Final da plataforma inteira (mesmo processo já rodado pro Curso 1, agora pra tudo).
+Só depois da Auditoria Final o projeto está apto pro RELEASE FINAL.
 
 ### Meta final da plataforma
 Ao concluir todos os módulos, o dono deve conseguir: montar toda a estrutura de Meta

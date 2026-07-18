@@ -75,7 +75,7 @@ var GLOSSARIO = {
     tecnica:"Investimento ÷ conversões do evento otimizado. Atenção: o CPA que o Meta reporta é o custo do evento configurado, não da venda — se você otimiza por clique, ele mostra custo por clique com outro nome.",
     importa:"Só significa alguma coisa se o evento otimizado estiver perto do dinheiro. CPA de R$8 por 'Lead' é irrelevante se nenhum Lead vira paciente.",
     exemplo:"CPA de R$120 por conversa qualificada com 40% de fechamento = CAC real de R$300 — excelente para um ticket de R$4.000.",
-    onde:["c1-m1","c1-m4","c3-m11"], veja:["CAC","CPC","ROAS"]
+    onde:["c1-m1","c1-m3","c1-m4","c3-m11"], veja:["CAC","CPC","ROAS"]
   },
   "CAC": {
     nome:"Customer Acquisition Cost — Custo de Aquisição de Cliente",
@@ -83,7 +83,7 @@ var GLOSSARIO = {
     tecnica:"(Investimento em mídia + custo de vendas) ÷ número de clientes adquiridos no período. A versão simplificada usa só mídia; a completa inclui horas de atendimento e ferramentas.",
     importa:"É a única métrica de custo que importa no seu modelo. Custo por lead e CAC se movem em direções OPOSTAS em negócios high ticket — leads mais caros costumam produzir pacientes mais baratos.",
     exemplo:"R$3.000 de mídia gerando 10 pacientes = CAC de R$300, ou 7,5% de um ticket de R$4.000. Teto saudável recomendado: 12% do ticket.",
-    onde:["c1-m1","c1-m3","c1-m4","c1-m5","c1-m7","c2-m4","c2-m9","c3-m11"], veja:["CPA","LTV","ROAS"]
+    onde:["c1-m1","c1-m3","c1-m4","c1-m5","c1-m7","c2-m4","c2-m9","c3-m11","c3-m1","c3-m2"], veja:["CPA","LTV","ROAS"]
   },
   "LTV": {
     nome:"Lifetime Value — Valor do Cliente ao Longo do Tempo",
@@ -91,7 +91,7 @@ var GLOSSARIO = {
     tecnica:"Ticket médio × frequência de recompra × tempo de retenção. Em serviços de saúde, inclui manutenção, novos protocolos e — se você medir — o valor dos pacientes que ele indicar.",
     importa:"Define quanto você pode gastar para adquirir. Um LTV de R$4.000 permite um CAC muito menor do que um LTV de R$9.000 com manutenção e indicação.",
     exemplo:"Paciente do Melasma: R$4.000 (protocolo) + R$1.800 (manutenção ano 1) + 0,4 indicações × R$4.000 = LTV ≈ R$7.400.",
-    onde:["c1-m3","c1-m4","c2-m9","c3-m11"], veja:["CAC","Payback","ROI"]
+    onde:["c1-m3","c1-m4","c1-m8","c2-m9","c3-m11"], veja:["CAC","Payback","ROI"]
   },
   "ROI": {
     nome:"Return On Investment — Retorno sobre o Investimento",
@@ -139,7 +139,7 @@ var GLOSSARIO = {
     tecnica:"Compromisso mensurável de tempo de resposta ou entrega, com meta declarada e medição contínua.",
     importa:"O SLA de primeira resposta no WhatsApp é o vazamento mais caro e mais barato de corrigir do funil inteiro. Recupera 30–50% das conversas e custa quase nada.",
     exemplo:"SLA humano de 15 minutos em horário comercial + resposta automática em menos de 60 segundos, 24/7, terminando com uma pergunta.",
-    onde:["c1-m1","c1-m5","c2-m9"], veja:["KPI"]
+    onde:["c1-m1","c1-m3","c1-m5","c2-m9"], veja:["KPI"]
   },
 
   /* ---------------- RASTREAMENTO E META ---------------- */
@@ -199,7 +199,7 @@ var GLOSSARIO = {
     tecnica:"Biblioteca JavaScript (fbq) que dispara requisições HTTP para os servidores da Meta a cada evento, carregando cookies de identificação (_fbp, _fbc) e parâmetros do evento.",
     importa:"O Pixel NÃO mede — ele ENSINA. Cada evento é uma frase dita ao algoritmo sobre quem você quer. Otimize por clique e ele traz cliqueiros, com máxima eficiência.",
     exemplo:"Se o seu Pixel dispara Lead em todo clique no botão do WhatsApp, você está ensinando a Meta que curiosos são conversões.",
-    onde:["c1-m1","c1-m4","c2-m9","c3-m1","c3-m2"], veja:["Dataset","CAPI","fbclid"]
+    onde:["c1-m1","c1-m4","c2-m9","c3-m1","c3-m2","c3-m3","c3-m4"], veja:["Dataset","CAPI","fbclid"]
   },
   "Dataset": {
     nome:"Meta Dataset — Conjunto de Dados",
@@ -207,7 +207,7 @@ var GLOSSARIO = {
     tecnica:"Contêiner no Events Manager que agrega dados de Pixel (browser), Conversions API (servidor), app e offline em uma única fonte. O Dataset ID é o mesmo número do Pixel ID.",
     importa:"É a nomenclatura atual. Guias que ensinam a 'criar um Pixel' descrevem uma tela que mudou — hoje você cria um dataset, e o Pixel vive dentro dele. O Pixel não foi descontinuado, foi reagrupado.",
     exemplo:"Um dataset por protocolo? Não. Um dataset só, alimentado por Pixel + CAPI, com eventos distintos para Melasma e Desinflamação.",
-    onde:["c3-m2"], veja:["Pixel","CAPI"]
+    onde:["c3-m2","c3-m1"], veja:["Pixel","CAPI"]
   },
   "CAPI": {
     nome:"Conversions API — API de Conversões",
@@ -215,7 +215,7 @@ var GLOSSARIO = {
     tecnica:"API server-side que envia eventos para o mesmo Dataset do Pixel. Requer event_id compartilhado com o Pixel para deduplicação, e parâmetros de correspondência hasheados.",
     importa:"Bloqueadores, ITP do Safari e restrições de cookie derrubam de 15% a 30% dos eventos só com Pixel — e essas perdas vêm desproporcionalmente de iOS, que no seu nicho correlaciona com maior poder aquisitivo.",
     exemplo:"Sem CAPI, você está cegando o algoritmo justamente para o seu melhor público.",
-    onde:["c1-m4","c2-m9","c3-m1","c3-m2"], veja:["Pixel","Dataset","event_id","EMQ"]
+    onde:["c1-m4","c2-m9","c3-m1","c3-m2","c3-m3"], veja:["Pixel","Dataset","event_id","EMQ"]
   },
   "event_id": {
     nome:"Event ID — Identificador de Evento",
@@ -273,7 +273,7 @@ var GLOSSARIO = {
     tecnica:"Plataforma de analytics baseada em modelo de eventos (não em sessões/pageviews como o Universal Analytics). Tudo é evento com parâmetros.",
     importa:"É a única fonte que te dá tempo na página, profundidade de scroll e conversão por dispositivo/origem. E os números NUNCA vão bater com o Meta — modelos de atribuição diferentes.",
     exemplo:"Tempo médio na landing do Melasma abaixo de 90s indica ruptura de coerência entre anúncio e página.",
-    onde:["c1-m1","c1-m4","c2-m9","c3-m1","c3-m4"], veja:["GTM","UTM"]
+    onde:["c1-m1","c1-m4","c2-m9","c3-m1","c3-m4","c3-m3"], veja:["GTM","UTM"]
   },
   "GTM": {
     nome:"Google Tag Manager — Gerenciador de Tags",
@@ -281,7 +281,7 @@ var GLOSSARIO = {
     tecnica:"Contêiner JavaScript que carrega tags condicionalmente com base em triggers, alimentado por variáveis e pelo Data Layer.",
     importa:"É um roteador, não uma ferramenta de medição. Permite mudar rastreamento sem deploy — e permite quebrar tudo sem deploy também. Exige versionamento disciplinado.",
     exemplo:"Com GTM você adiciona o evento de retenção de vídeo às duas landing pages sem tocar no HTML.",
-    onde:["c3-m1","c3-m3","c3-m10"], veja:["GA4","Data Layer","CSP"]
+    onde:["c3-m1","c3-m3","c3-m10","c3-m2","c3-m4"], veja:["GA4","Data Layer","CSP"]
   },
   "Data Layer": {
     nome:"Data Layer — Camada de Dados",
@@ -289,7 +289,7 @@ var GLOSSARIO = {
     tecnica:"Array JavaScript (window.dataLayer) que serve de interface de contrato entre o site e o GTM. O site empurra objetos; o GTM escuta e reage.",
     importa:"É o que separa rastreamento frágil (GTM adivinhando por seletores CSS) de rastreamento robusto (o site declarando explicitamente o que houve). Um redesign quebra o primeiro; não quebra o segundo.",
     exemplo:"dataLayer.push({event:'video_75', protocolo:'melasma', video_id:'mecanismo_v2'})",
-    onde:["c3-m2","c3-m3"], veja:["GTM"]
+    onde:["c3-m2","c3-m3","c3-m4"], veja:["GTM"]
   },
   "Clarity": {
     nome:"Microsoft Clarity",
@@ -305,7 +305,7 @@ var GLOSSARIO = {
     tecnica:"Sistema de registro de leads, estágio do funil, histórico de interações e resultado. Pode ser uma planilha de 6 colunas.",
     importa:"Quatro das nove métricas do seu painel — tempo de resposta, taxa de agendamento, comparecimento e adesão — não existem em NENHUMA plataforma. Só existem se você registrar.",
     exemplo:"Planilha: data · origem · 1º contato · resposta · agendada · realizada · adesão. Isso vale mais que qualquer dashboard automático.",
-    onde:["c1-m5","c1-m6","c1-m7","c3-m1","c3-m11"], veja:["KPI","SLA"]
+    onde:["c1-m5","c1-m6","c1-m7","c3-m1","c3-m11","c3-m2"], veja:["KPI","SLA"]
   },
   "CRO": {
     nome:"Conversion Rate Optimization — Otimização de Taxa de Conversão",
@@ -313,7 +313,7 @@ var GLOSSARIO = {
     tecnica:"Disciplina de melhoria contínua baseada em hipótese → teste → decisão, usando dados quantitativos (GA4) e qualitativos (Clarity).",
     importa:"O CRO padrão foi construído em e-commerce, onde todo cliente extra é lucro. No seu modelo, cada cliente ERRADO custa 90 minutos de consulta. A função-objetivo é diferente, então a prescrição é diferente: sua página filtra, não persuade.",
     exemplo:"Reduzir fricção da landing do Melasma aumentaria contatos e DERRUBARIA fechamentos — porque desligaria o filtro.",
-    onde:["c3-m5","c3-m6","c3-m7"], veja:["Clarity","A/B"]
+    onde:["c3-m5","c3-m6","c3-m7","c3-m4"], veja:["Clarity","A/B"]
   },
   "SEO": {
     nome:"Search Engine Optimization — Otimização para Buscadores",
@@ -422,7 +422,7 @@ var GLOSSARIO = {
     tecnica:"Marco legal de proteção de dados pessoais. Dado de saúde é categoria de DADO PESSOAL SENSÍVEL (art. 5º, II), com regime de base legal mais restrito (art. 11).",
     importa:"Não é burocracia — é risco existencial para a operação. Além do risco jurídico, a Meta tem políticas próprias: enviar parâmetros que indiquem condição médica pode gerar restrição de conta.",
     exemplo:"Um evento custom com 'condicao=melasma' é simultaneamente violação de política da Meta e tratamento de dado sensível sem base legal adequada.",
-    onde:["c3-m2","c3-m10"], veja:["ANPD","CMP","Advanced Matching"]
+    onde:["c3-m2","c3-m10","c3-m1"], veja:["ANPD","CMP","Advanced Matching"]
   },
   "ANPD": {
     nome:"Autoridade Nacional de Proteção de Dados",
@@ -472,7 +472,7 @@ var GLOSSARIO = {
     tecnica:"Experimento com alocação aleatória entre variantes, medindo diferença numa métrica primária definida antes do teste.",
     importa:"Com ~400 visitas/mês, a diferença entre 2,1% e 2,8% NÃO é significativa — você está lendo ruído e chamando de otimização. O caminho para volume baixo é teste qualitativo e mudanças grandes.",
     exemplo:"Testar cor de botão na sua landing exigiria meses para significância. Testar a estrutura do vídeo não — porque o efeito esperado é grande.",
-    onde:["c3-m6","c3-m7"], veja:["IC","p-valor","CRO"]
+    onde:["c1-m4","c3-m6","c3-m7"], veja:["IC","p-valor","CRO"]
   },
   "IC": {
     nome:"Intervalo de Confiança",

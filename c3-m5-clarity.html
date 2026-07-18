@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 5 — Microsoft Clarity. Heatmaps, gravação de sessão com resumo por IA, os 3 sinais de frustração (dead click, rage click, quick back) e o método 20 gravações → 5 hipóteses.">
+<title>Microsoft Clarity · Curso 3 · Engenharia e Dados</title>
+
+<!--
+  CURSO 3 · ENGENHARIA E DADOS
+  Módulo 5 — Microsoft Clarity
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Chrome, navegação, progresso, busca e glossário vêm do platform.js.
+  Este arquivo tem conteúdo + o que é exclusivamente dele: nada.
+
+  vol:"med" — pesquisei via WebSearch em 2026-07-18. Confirmado: ferramenta segue
+  100% gratuita, sem limite de tráfego. Copilot AI (resumo automático de gravação)
+  é adição de 2025 que muda o fluxo prático do método da §5.5. Cross-ref pesado com
+  C3.M4 (funil de exploração) — Clarity explica O PORQUÊ de onde o Analytics já
+  mostrou ONDE quebra.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+
+<main class="main" id="conteudo">
+ <header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Engenharia e Dados · Módulo 5</div>
+<h1>Microsoft<br/><em>Clarity</em></h1>
+<p class="hero-lede">
+        O <a class="modref" data-mod="c3-m4">C3.M4</a> mostra <em>onde</em> o funil quebra. Clarity mostra
+        <em>por que</em> — heatmap, gravação de sessão com resumo por IA, e os 3 sinais de frustração que
+        entregam a resposta sem você assistir hora de vídeo.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~50 min</dd></div>
+<div><dt>Seções</dt><dd>7</dd></div>
+<div><dt>Tipos de heatmap</dt><dd>5</dd></div>
+<div><dt>Sinais de frustração</dt><dd>3</dd></div>
+</dl>
+<div class="selo-key">
+<div><span class="selo ev">Evidência</span><p>Achado experimental revisado por pares. Vem com citação completa.</p></div>
+<div><span class="selo inf">Inferência</span><p>Extrapolação razoável para contexto <em>não</em> testado. Eu explico o salto.</p></div>
+<div><span class="selo prat">Prática</span><p>Documentação da ferramenta ou método de produção testado. Fonte quando existe.</p></div>
+<div><span class="selo mito">Mito</span><p>Repetido no mercado e contradito pela evidência — ou sem fonte.</p></div>
+</div>
+</div>
+</header>
+<!-- ============================================================ 5.1 ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>5.1</span><span></span></div>
+<h2>Clarity na camada de Decisão</h2>
+<p class="sec-lede">
+          Gratuito, sem limite de tráfego, sem recurso trancado atrás de plano pago — uma escolha rara nessa
+          categoria de ferramenta, e relevante pra uma operação pequena.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          <abbr data-t="Clarity">Clarity</abbr> não tem camada paga — todo usuário acessa heatmap, gravação
+          de sessão, funis e insights por IA sem custo e sem teto de tráfego. Na camada de Decisão do <a
+          class="modref" data-mod="c3-m1">C3.M1</a> §1.3, é a ferramenta que traduz número do <a
+          class="modref" data-mod="c3-m4">C3.M4</a> em comportamento visível.
+        </p>
+<p class="cit">Fonte: documentação oficial da Microsoft Clarity sobre política de preço, consultada em 18/07/2026.</p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 5.2 ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>5.2</span><span></span></div>
+<h2>Heatmaps: 5 tipos, cada um mostra um padrão diferente</h2>
+<p class="sec-lede">
+          Uma gravação mostra uma visita. Heatmap agrega milhares — é onde padrão vira visível.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Tipo</th><th>O que mostra</th></tr></thead>
+<tbody>
+<tr><td>Click</td><td>Onde as pessoas clicam, em agregado</td></tr>
+<tr><td>Scroll</td><td>Até onde a página é rolada antes de abandonar</td></tr>
+<tr><td>Area</td><td>Atenção por região da página</td></tr>
+<tr><td>Attention</td><td>Tempo de permanência visual por seção</td></tr>
+<tr><td class="t-gold">Conversion</td><td class="t-gold">Cruza clique com quem efetivamente converteu — o mais direto pro seu caso</td></tr>
+</tbody>
+</table>
+</div>
+<p class="cit">Fonte: documentação oficial da Microsoft Clarity sobre tipos de heatmap, consultada em 18/07/2026.</p>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 5.3 ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>5.3</span><span></span></div>
+<h2>Gravação de sessão + resumo por IA</h2>
+<p class="sec-lede">
+          Desde 2025, você não precisa mais assistir cada gravação inteira — a IA resume o que aconteceu.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Cada gravação mostra URL de entrada/saída, duração, cliques, páginas vistas, país, navegador e
+          dispositivo. Desde 2025, o Copilot da Clarity gera <strong>resumo automático em linguagem
+          natural</strong> de cada sessão — identifica momento-chave, ponto de frustração e comportamento
+          notável sem você precisar assistir os 5 minutos inteiros.
+        </p>
+<p class="cit">Fonte: documentação oficial da Microsoft Clarity sobre Copilot AI (adicionado em 2025), consultada em 18/07/2026.</p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Isso muda o custo de tempo do método da §5.5</span>
+</div>
+<p>
+          Antes, 20 gravações completas custavam horas. Com resumo por IA, a triagem inicial fica muito mais
+          rápida — use o resumo pra decidir <em>quais</em> das 20 vale a pena assistir por completo, não
+          pra substituir a observação direta nas sessões mais reveladoras.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 5.4 ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>5.4</span><span></span></div>
+<h2>Os 3 sinais de frustração</h2>
+<p class="sec-lede">
+          Clarity marca automaticamente as sessões onde algo deu errado — você não precisa adivinhar qual
+          gravação vale a pena abrir.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Sinal</th><th>O que é</th><th>Hipótese que sugere</th></tr></thead>
+<tbody>
+<tr><td><strong>Dead click</strong></td><td>Clique numa área que parece clicável mas não faz nada</td><td>Elemento visual engana — parece botão e não é</td></tr>
+<tr><td><strong>Rage click</strong></td><td>Cliques rápidos e repetidos na mesma área pequena</td><td>Paciente está travada, tentando algo que não funciona</td></tr>
+<tr><td><strong>Quick back</strong></td><td>Abre a página e volta quase imediatamente</td><td>A página não entregou o que o anúncio prometeu — desalinhamento de expectativa</td></tr>
+</tbody>
+</table>
+</div>
+<p class="cit">Fonte: documentação oficial da Microsoft Clarity sobre detecção de sinais de frustração, consultada em 18/07/2026.</p>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Quick back é o sinal mais caro pro seu funil</span>
+</div>
+<p>
+          Se o funil do <a class="modref" data-mod="c3-m4">C3.M4</a> mostra queda entre impressão e
+          <code>view_content</code>, quick back alto na Landing Page é o motivo mais provável — a promessa
+          do gancho (<a class="modref" data-mod="c2-m4">C2.M4</a>) e a entrega da página (<a
+          class="modref" data-mod="c3-m7">C3.M7</a>) estão desalinhadas.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 5.5 ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>5.5</span><span></span></div>
+<h2>O método: 20 gravações → 5 hipóteses</h2>
+<p class="sec-lede">
+          Um processo fixo pra transformar observação solta em decisão de mudança concreta na Landing Page.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p><strong>Passo a passo:</strong></p>
+<ol>
+<li>Filtrar as gravações da <strong>semana</strong> por sessões com pelo menos 1 sinal de frustração (§5.4).</li>
+<li>Ler o resumo por IA (§5.3) das primeiras 20 dessas sessões.</li>
+<li>Assistir por completo as 5-8 mais reveladoras (não as 20).</li>
+<li>Escrever <strong>5 hipóteses concretas</strong> do que está causando o padrão — uma frase cada, testável.</li>
+<li>Priorizar 1-2 hipóteses pra corrigir primeiro, ligadas ao ponto de maior queda no funil do C3.M4.</li>
+</ol>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Hipótese, não certeza — é isso que o C3.M6 formaliza</span>
+</div>
+<p>
+          As 5 frases da §5.5 são pontos de partida, não conclusão — "a paciente não vê o CTA porque ele
+          está abaixo da dobra" é uma hipótese observacional, não prova. O <a class="modref"
+          data-mod="c3-m6">C3.M6</a> (Experimentação) dá o rigor estatístico pra testar se a correção
+          realmente resolveu, em vez de assumir que resolveu.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 5.6 ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>5.6</span><span></span></div>
+<h2>Erros comuns ao usar Clarity</h2>
+<p class="sec-lede">
+          Três formas de desperdiçar a ferramenta mais barata do seu stack.
+        </p>
+</div>
+<div class="rew">
+<div class="rew-row bad"><span class="rew-tag">ASSISTIR SEM FILTRO</span>
+<p class="rew-txt">Abrir gravações aleatórias em vez de filtrar por sinal de frustração primeiro — desperdiça o tempo que a própria ferramenta economiza (§5.4).</p></div>
+<div class="rew-row bad"><span class="rew-tag">CONFIAR SÓ NO RESUMO DA IA</span>
+<p class="rew-txt">Nunca assistir a gravação de verdade nas sessões mais reveladoras — o resumo é triagem, não substituto de observação direta (§5.3).</p></div>
+<div class="rew-row bad"><span class="rew-tag">HIPÓTESE SEM TESTE</span>
+<p class="rew-txt">Implementar mudança na Landing Page baseada só na hipótese, sem confirmar com o rigor do C3.M6 se a mudança realmente melhorou o número.</p></div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 5.7 ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>5.7</span><span></span></div>
+<h2>Resumo executivo</h2>
+<p class="sec-lede">
+          Sete ideias. O <a class="modref" data-mod="c3-m6">C3.M6</a> dá o rigor estatístico que transforma
+          hipótese de gravação em decisão confiável.
+        </p>
+</div>
+<div class="summary">
+<h3>As sete ideias do Módulo 5</h3>
+<ol>
+<li><b>Clarity é 100% gratuito, sem limite de tráfego</b> — raro nessa categoria de ferramenta.</li>
+<li><b>5 tipos de heatmap mostram padrão agregado</b> — Conversion é o mais direto pro seu caso.</li>
+<li><b>Resumo por IA (desde 2025) acelera a triagem</b>, mas não substitui assistir as sessões mais reveladoras.</li>
+<li><b>3 sinais de frustração</b> — dead click, rage click, quick back — cada um sugere um tipo diferente de problema.</li>
+<li><b>Quick back é o sinal mais caro pro seu funil</b> — costuma indicar desalinhamento entre gancho e página.</li>
+<li><b>O método é: filtrar por frustração, ler resumo, assistir as 5-8 mais reveladoras, escrever 5 hipóteses.</b></li>
+<li><b>Hipótese não é certeza</b> — o C3.M6 dá o rigor pra confirmar se a correção realmente funcionou.</li>
+</ol>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 5</h4>
+<span class="check-count" id="upCheckCount">0 / 8</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Configuração</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Clarity está instalado na <b>Landing Page</b></span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Configurei o heatmap de <b>Conversion</b></span></label>
+<div class="check-group">B · Rotina</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho uma <b>rotina semanal</b> de revisar sinais de frustração</span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Uso o <b>resumo por IA</b> pra triagem antes de assistir gravação completa</span></label>
+<div class="check-group">C · Método</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Segui o método <b>20 → 5</b> pelo menos uma vez</span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho <b>5 hipóteses</b> escritas, com prioridade definida</span></label>
+<div class="check-group">D · Integração</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Cruzei os sinais de frustração com o <b>ponto de queda</b> do funil (C3.M4)</span></label>
+<label class="ci"><input data-ck="d2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Não implementei mudança <b>sem plano de teste</b> (C3.M6)</span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>Responda de cabeça. Se travar em duas ou mais, releia antes de seguir.</p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">Qual dos 5 tipos de heatmap é mais direto pra ligar clique a conversão real?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">O resumo por IA substitui assistir a gravação? Por que não?</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">Qual sinal de frustração mais provavelmente indica desalinhamento entre gancho do Reel e a Landing Page?</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">Quais são os 5 passos do método 20 gravações → 5 hipóteses?</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">Por que uma hipótese de Clarity não deveria virar mudança de página sem passar pelo C3.M6?</p></div>
+</div>
+<h3>Exercício prático</h3>
+<div class="ex">
+<div class="ex-tag">Exercício único · ~30 min</div>
+<h4>Rode o método completo</h4>
+<p>Filtre as gravações da última semana por sinal de frustração, leia os resumos, assista as mais reveladoras e escreva as 5 hipóteses.</p>
+<textarea data-ex="ex1" placeholder="Sessões com sinal de frustração: ___
+Sinal mais comum: ___
+5 hipóteses:
+1.
+2.
+3.
+4.
+5.
+
+Prioridade pra corrigir primeiro: ___"></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Módulo 6</h4>
+<span class="check-count" id="upDoneCount">0 / 5</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>7 seções</b> inteiras</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei os <b>3 sinais de frustração</b> e o que cada um sugere</span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Rodei o método <b>20 → 5</b> pelo menos uma vez</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei que hipótese de gravação <b>precisa de teste</b>, não é decisão final</span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz o <b>exercício</b> completo</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>Platform.init({ id:"c3-m5" });</script>
+</body>
+</html>

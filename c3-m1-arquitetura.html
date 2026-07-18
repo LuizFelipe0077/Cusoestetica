@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 1 — Arquitetura Completa. Os 11 sistemas técnicos e as 4 camadas de dados por trás da aquisição, o caminho de um clique, os 7 pontos de perda e o contrato de dados que mantém tudo consistente.">
+<title>Arquitetura Completa · Curso 3 · Engenharia e Dados</title>
+
+<!--
+  CURSO 3 · ENGENHARIA E DADOS
+  Módulo 1 — Arquitetura Completa
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Chrome, navegação, progresso, busca e glossário vêm do platform.js.
+  Este arquivo tem conteúdo + o que é exclusivamente dele: 1 figura SVG do caminho
+  de um clique.
+
+  Diretriz: CLAUDE.md, modo de execução contínua a partir daqui. Este módulo é o
+  mapa TÉCNICO/de dados (11 sistemas, 4 camadas) — distinto do mapa de NEGÓCIO de
+  13 etapas do C1.M4. Os dois coexistem por design, sem duplicar: C1.M4 mapeia a
+  jornada da paciente, este mapeia o pipeline de dados por baixo dela.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+
+<main class="main" id="conteudo">
+ <header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Engenharia e Dados · Módulo 1</div>
+<h1>Arquitetura<br/><em>Completa</em></h1>
+<p class="hero-lede">
+        O <a class="modref" data-mod="c1-m4">C1.M4</a> mapeou a jornada da paciente em 13 etapas. Este
+        módulo mapeia o que roda <em>por baixo</em> dela: 11 sistemas técnicos, 4 camadas de dados, e os 7
+        pontos onde a informação se perde no caminho — o mapa que todo o resto do Curso 3 aprofunda peça
+        por peça.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~55 min</dd></div>
+<div><dt>Seções</dt><dd>7</dd></div>
+<div><dt>Sistemas</dt><dd>11</dd></div>
+<div><dt>Pontos de perda</dt><dd>7</dd></div>
+</dl>
+<div class="selo-key">
+<div><span class="selo ev">Evidência</span><p>Achado experimental revisado por pares. Vem com citação completa.</p></div>
+<div><span class="selo inf">Inferência</span><p>Extrapolação razoável para contexto <em>não</em> testado. Eu explico o salto.</p></div>
+<div><span class="selo prat">Prática</span><p>Convenção de engenharia de dados testada no mercado. Útil, comum, sem teste controlado.</p></div>
+<div><span class="selo mito">Mito</span><p>Repetido no mercado e contradito pela evidência — ou sem fonte.</p></div>
+</div>
+</div>
+</header>
+<!-- ============================================================ 1.1 ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.1</span><span></span></div>
+<h2>Por que existe um mapa técnico separado do mapa de negócio</h2>
+<p class="sec-lede">
+          O C1.M4 respondeu "o que a paciente vive". Este módulo responde "o que o sistema registra" — e os
+          dois quase nunca coincidem perfeitamente, o que já é uma lição por si só.
+        </p>
+</div>
+<p>
+        Cada etapa da jornada da paciente (<a class="modref" data-mod="c1-m4">C1.M4</a> §4.1) deixa um
+        rastro de dado — ou deveria deixar. Quando o rastro falha, a etapa continua acontecendo na vida
+        real, mas desaparece dos números. O <a class="modref" data-mod="c1-m3">C1.M3</a> §3.3 já mostrou
+        que decisão de negócio depende de <abbr data-t="CAC">CAC</abbr> real; CAC real depende desse rastro estar íntegro. Este
+        módulo é onde a integridade do rastro se torna o assunto principal.
+      </p>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 1.2 ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.2</span><span></span></div>
+<h2>Os 11 sistemas</h2>
+<p class="sec-lede">
+          Onze peças de tecnologia, cada uma com um papel específico — e cada uma aprofundada em um módulo
+          próprio deste curso.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>#</th><th>Sistema</th><th>Papel</th><th>Aprofundado em</th></tr></thead>
+<tbody>
+<tr><td class="t-num">1</td><td>Instagram</td><td>Onde o conteúdo e o anúncio aparecem</td><td><a class="modref" data-mod="c2-m7">C2.M7</a></td></tr>
+<tr><td class="t-num">2</td><td>Meta Ads (Gerenciador)</td><td>Configura, entrega e mede o anúncio</td><td><a class="modref" data-mod="c1-m4">C1.M4</a></td></tr>
+<tr><td class="t-num">3</td><td><abbr data-t="Pixel">Pixel</abbr></td><td>Captura evento no navegador da paciente</td><td><a class="modref" data-mod="c3-m2">C3.M2</a></td></tr>
+<tr><td class="t-num">4</td><td><abbr data-t="CAPI">CAPI</abbr></td><td>Captura o mesmo evento pelo servidor, sem depender do navegador</td><td><a class="modref" data-mod="c3-m2">C3.M2</a></td></tr>
+<tr><td class="t-num">5</td><td><abbr data-t="GTM">GTM</abbr></td><td>Organiza e dispara as tags sem precisar mexer no código da página</td><td><a class="modref" data-mod="c3-m3">C3.M3</a></td></tr>
+<tr><td class="t-num">6</td><td>Landing Page</td><td>Onde o clique vira lead qualificado</td><td><a class="modref" data-mod="c3-m7">C3.M7</a></td></tr>
+<tr><td class="t-num">7</td><td><abbr data-t="GA4">GA4</abbr></td><td>Consolida sessão e comportamento fora do ecossistema Meta</td><td><a class="modref" data-mod="c3-m4">C3.M4</a></td></tr>
+<tr><td class="t-num">8</td><td><abbr data-t="Clarity">Clarity</abbr></td><td>Mostra o comportamento real na página — heatmap e gravação</td><td><a class="modref" data-mod="c3-m5">C3.M5</a></td></tr>
+<tr><td class="t-num">9</td><td>WhatsApp</td><td>Onde a conversa qualificada acontece</td><td><a class="modref" data-mod="c1-m5">C1.M5</a></td></tr>
+<tr><td class="t-num">10</td><td><abbr data-t="CRM">CRM</abbr> mínimo</td><td>Registra o estado de cada conversa</td><td><a class="modref" data-mod="c1-m5">C1.M5</a> §5.6</td></tr>
+<tr><td class="t-num">11</td><td>Dashboard</td><td>Consolida tudo numa decisão</td><td><a class="modref" data-mod="c3-m11">C3.M11</a></td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Onze sistemas, uma operação — não onze projetos separados</span>
+</div>
+<p>
+          A tentação é tratar cada sistema como um projeto de configuração isolado. O efeito prático é o
+          oposto: cada sistema só vale alguma coisa pela consistência com os outros dez — um Pixel bem
+          configurado que manda evento com nome diferente do que o GA4 espera já quebra a análise antes de
+          qualquer relatório ser aberto (§1.6).
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 1.3 ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.3</span><span></span></div>
+<h2>As 4 camadas</h2>
+<p class="sec-lede">
+          Os 11 sistemas se agrupam em 4 funções — e cada camada só é tão boa quanto a anterior lhe entrega.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Camada</th><th>Função</th><th>Sistemas</th></tr></thead>
+<tbody>
+<tr><td><strong>1 · Coleta</strong></td><td>Capturar o evento no momento em que ele acontece</td><td>Pixel, CAPI, GTM</td></tr>
+<tr><td><strong>2 · Transporte</strong></td><td>Levar o evento capturado até onde ele é armazenado</td><td>GTM, servidores da Meta e do Google</td></tr>
+<tr><td><strong>3 · Processamento</strong></td><td>Organizar, deduplicar e consolidar o dado</td><td>GA4, Meta Ads (<abbr data-t="Dataset">Dataset</abbr>)</td></tr>
+<tr><td><strong>4 · Decisão</strong></td><td>Transformar dado em ação humana</td><td>Dashboard, Clarity, GA4 (explorações)</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>A camada 4 nunca corrige erro das camadas 1-3</span>
+</div>
+<p>
+          Um dashboard bonito não conserta um evento mal disparado na coleta — só exibe o número errado
+          com mais clareza visual. A ordem de prioridade de investimento de tempo é sempre 1 → 2 → 3 → 4,
+          nunca o contrário: dashboard é a última coisa a configurar, não a primeira.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 1.4 ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.4</span><span></span></div>
+<h2>O caminho de um clique</h2>
+<p class="sec-lede">
+          Seguindo um único clique do Reel até o dashboard, passando pelos 11 sistemas — a melhor forma de
+          ver a arquitetura funcionando de verdade.
+        </p>
+</div>
+<div class="figure">
+<div class="figure-frame">
+<svg aria-label="O caminho de um único clique através dos 11 sistemas, da impressão do Reel até o dashboard" role="img" viewbox="0 0 700 400">
+<rect class="svg-node-gold" height="40" rx="3" width="200" x="10" y="10"></rect><text class="svg-t-gold" x="20" y="35">1 · Vê o Reel no Instagram</text>
+<line class="svg-line" x1="110" x2="110" y1="50" y2="66"></line>
+<rect class="svg-node" height="40" rx="3" width="200" x="10" y="66"></rect><text class="svg-t" x="20" y="91">2 · Clica — Meta Ads registra</text>
+<line class="svg-line" x1="110" x2="110" y1="106" y2="122"></line>
+<rect class="svg-node" height="40" rx="3" width="200" x="10" y="122"></rect><text class="svg-t" x="20" y="147">3 · Pixel dispara PageView (GTM)</text>
+<line class="svg-line" x1="110" x2="380" y1="142" y2="142"></line>
+<rect class="svg-node" height="40" rx="3" width="200" x="380" y="122"></rect><text class="svg-t" x="390" y="147">3b · CAPI confirma pelo servidor</text>
+<line class="svg-line" x1="110" x2="110" y1="162" y2="178"></line>
+<rect class="svg-node" height="40" rx="3" width="200" x="10" y="178"></rect><text class="svg-t" x="20" y="203">4 · Chega na Landing Page</text>
+<line class="svg-line" x1="110" x2="110" y1="218" y2="234"></line>
+<rect class="svg-node" height="40" rx="3" width="200" x="10" y="234"></rect><text class="svg-t" x="20" y="259">5 · GA4 registra sessão + Clarity grava</text>
+<line class="svg-line" x1="110" x2="110" y1="274" y2="290"></line>
+<rect class="svg-node" height="40" rx="3" width="200" x="10" y="290"></rect><text class="svg-t" x="20" y="315">6 · Clica WhatsApp — evento Lead</text>
+<line class="svg-line" x1="110" x2="110" y1="330" y2="346"></line>
+<rect class="svg-node" height="40" rx="3" width="200" x="10" y="346"></rect><text class="svg-t" x="20" y="371">7 · CRM registra conversa (C1.M5)</text>
+<line class="svg-line" x1="210" x2="480" y1="366" y2="366"></line>
+<rect class="svg-node-ok" height="70" rx="3" width="200" x="480" y="331"></rect><text class="svg-t-ok" x="490" y="353">8 · Compra confirmada</text><text class="svg-t-sm" x="490" y="369">CAPI ENVIA PURCHASE</text><text class="svg-t-sm" x="490" y="383">DASHBOARD CONSOLIDA (C3.M11)</text>
+</svg>
+</div>
+<p class="figure-cap">
+<b>Figura 1.4.1</b> — Repare no passo 3/3b: Pixel e CAPI disparam <em>o mesmo evento</em> por dois
+          caminhos diferentes — é redundância deliberada, não duplicação de erro, desde que os dois usem o
+          mesmo <code>event_id</code> pra deduplicação (aprofundado no <a class="modref"
+          data-mod="c3-m2">C3.M2</a>). Cada seta deste caminho é um ponto onde a §1.5 lista uma forma
+          específica de perder o sinal.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 1.5 ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.5</span><span></span></div>
+<h2>Os 7 pontos de perda</h2>
+<p class="sec-lede">
+          Cada seta da figura 1.4.1 pode falhar de um jeito diferente. Nomear os sete evita que "os números
+          não batem" vire mistério.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>#</th><th>Ponto de perda</th><th>O que acontece</th><th>Onde tratar</th></tr></thead>
+<tbody>
+<tr><td class="t-num">1</td><td>Bloqueador de anúncio/rastreamento</td><td>Pixel não dispara no navegador — evento nunca chega por esse caminho</td><td><a class="modref" data-mod="c3-m2">C3.M2</a></td></tr>
+<tr><td class="t-num">2</td><td>Prevenção de rastreamento do iOS</td><td>Cookie de terceiro limitado — Pixel sozinho subestima conversão</td><td>C3.M2</td></tr>
+<tr><td class="t-num">3</td><td>Consentimento negado (<abbr data-t="LGPD">LGPD</abbr>)</td><td>Tag não pode disparar sem consentimento — perda legítima, não bug</td><td><a class="modref" data-mod="c3-m10">C3.M10</a></td></tr>
+<tr><td class="t-num">4</td><td>Erro de JavaScript na página</td><td>Tag do GTM não dispara porque outro script quebrou a página antes</td><td><a class="modref" data-mod="c3-m3">C3.M3</a></td></tr>
+<tr><td class="t-num">5</td><td>Abandono antes do disparo</td><td>Paciente sai da página no meio do carregamento, antes da tag rodar</td><td><a class="modref" data-mod="c3-m8">C3.M8</a> (performance)</td></tr>
+<tr><td class="t-num">6</td><td>Janela de atribuição incompatível</td><td>Meta e GA4 usam janelas diferentes — mesmo evento, números diferentes</td><td><a class="modref" data-mod="c1-m4">C1.M4</a> §4.8 · <a class="modref" data-mod="c3-m4">C3.M4</a></td></tr>
+<tr><td class="t-num">7</td><td>Handoff pro WhatsApp</td><td>Clique sai do navegador pro app — sessão web se perde nesse salto</td><td><a class="modref" data-mod="c3-m2">C3.M2</a></td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Nem toda perda é bug — algumas são o sistema funcionando certo</span>
+</div>
+<p>
+          O ponto 3 (consentimento negado) é perda <em>correta</em> — a paciente exerceu um direito, e
+          contorná-lo é o que o <a class="modref" data-mod="c3-m10">C3.M10</a> trata como risco legal, não
+          como otimização. Os pontos 1, 2, 4 e 5 são técnicos e corrigíveis; os pontos 3, 6 e 7 são
+          estruturais — reduzem, mas raramente somem por completo.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 1.6 ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.6</span><span></span></div>
+<h2>O contrato de dados</h2>
+<p class="sec-lede">
+          Onze sistemas só funcionam juntos se concordarem no vocabulário — o mesmo evento precisa significar
+          a mesma coisa em todos eles.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Contrato de dados</strong> é a lista fixa de nomes de evento e parâmetros que todos os 11
+          sistemas usam do mesmo jeito — "Lead" significa exatamente a mesma ação em Pixel, CAPI, GTM e
+          GA4, com os mesmos parâmetros (valor, moeda, <code>event_id</code>). Sem esse contrato, cada
+          sistema desenvolve sua própria definição, e comparar número entre eles vira comparação de coisas
+          diferentes com o mesmo nome.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Evento</th><th>Quando dispara</th><th>Onde é definido no C3</th></tr></thead>
+<tbody>
+<tr><td><code>Lead</code></td><td>Clique no WhatsApp a partir da Landing Page</td><td><a class="modref" data-mod="c3-m2">C3.M2</a></td></tr>
+<tr><td><code>Schedule</code></td><td>Consulta agendada</td><td>C3.M2</td></tr>
+<tr><td><code>Purchase</code></td><td>Protocolo fechado, com valor</td><td>C3.M2</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>É por isso que Meta e GA4 nunca batem exatamente</span>
+</div>
+<p>
+          Mesmo com contrato de dados impecável, Meta Ads e GA4 usam modelos de atribuição e janelas
+          diferentes (<a class="modref" data-mod="c1-m4">C1.M4</a> §4.8) — o contrato garante que o
+          <em>evento</em> seja o mesmo, não que a <em>contagem</em> final seja idêntica. O <a
+          class="modref" data-mod="c3-m4">C3.M4</a> aprofunda exatamente esse ponto.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 1.7 ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>1.7</span><span></span></div>
+<h2>Resumo executivo</h2>
+<p class="sec-lede">
+          Sete ideias. Cada uma das próximas 12 seções do Curso 3 aprofunda uma peça específica deste mapa.
+        </p>
+</div>
+<div class="summary">
+<h3>As sete ideias do Módulo 1</h3>
+<ol>
+<li><b>O mapa técnico é distinto do mapa de negócio do C1.M4</b> — um mostra a jornada da paciente, o outro mostra o rastro de dado que ela deixa (ou não deixa).</li>
+<li><b>11 sistemas, cada um com um papel específico</b> — nenhum funciona isolado, todos dependem de consistência entre si.</li>
+<li><b>4 camadas em ordem fixa de prioridade:</b> Coleta → Transporte → Processamento → Decisão. Dashboard nunca corrige erro de coleta.</li>
+<li><b>O caminho de um clique atravessa os 11 sistemas</b> — Pixel e CAPI disparam o mesmo evento por dois caminhos como redundância deliberada.</li>
+<li><b>7 pontos de perda</b>, uns técnicos e corrigíveis, outros estruturais — consentimento negado é perda correta, não bug.</li>
+<li><b>Contrato de dados garante que "Lead" significa a mesma coisa</b> em todos os sistemas — sem ele, comparar números é comparar coisas diferentes com o mesmo nome.</li>
+<li><b>Meta e GA4 nunca batem exatamente</b>, mesmo com contrato perfeito — porque usam janela de atribuição diferente, não porque um dos dois está errado.</li>
+</ol>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 1</h4>
+<span class="check-count" id="upCheckCount">0 / 9</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Mapa</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei nomear os <b>11 sistemas</b> e a camada de cada um</span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei traçar o <b>caminho de um clique</b> da figura 1.4.1 de cabeça</span></label>
+<div class="check-group">B · Pontos de perda</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei distinguir <b>perda técnica</b> de <b>perda estrutural</b> nos 7 pontos</span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei qual módulo do C3 trata cada um dos 7 pontos</span></label>
+<div class="check-group">C · Contrato de dados</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Entendo por que <b>Lead/Schedule/Purchase</b> precisam do mesmo significado em todo sistema</span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Aceito que <b>Meta e GA4 nunca vão bater exatamente</b>, mesmo tudo certo</span></label>
+<div class="check-group">D · Ordem de prioridade</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei que a ordem de investimento é <b>Coleta → Transporte → Processamento → Decisão</b></span></label>
+<label class="ci"><input data-ck="d2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Não vou configurar <b>Dashboard (C3.M11) antes</b> de Pixel/CAPI/GTM estarem certos</span></label>
+<label class="ci"><input data-ck="d3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei a <b>ordem dos próximos módulos</b> do Curso 3, e por que essa é a ordem</span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>Responda de cabeça. Se travar em duas ou mais, releia antes de seguir.</p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">Qual é a diferença entre o mapa do C1.M4 e o mapa deste módulo?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">Por que Pixel e CAPI disparam o mesmo evento por dois caminhos — é erro ou design?</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">Cite 2 pontos de perda técnicos e corrigíveis, e 1 estrutural — por que o estrutural raramente some por completo?</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">O que é o contrato de dados, e o que ele garante — e o que ele NÃO garante?</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">Por que configurar o dashboard antes de resolver a coleta é perda de tempo?</p></div>
+</div>
+<h3>Exercício prático</h3>
+<div class="ex">
+<div class="ex-tag">Exercício único · ~25 min</div>
+<h4>Audite seus 11 sistemas</h4>
+<p>Para cada um dos 11 sistemas, marque se já está configurado, parcialmente configurado ou ausente na sua operação hoje. Isso vira o mapa de prioridade dos próximos módulos do Curso 3.</p>
+<textarea data-ex="ex1" placeholder="1. Instagram: configurado / parcial / ausente
+2. Meta Ads: ...
+3. Pixel: ...
+...
+11. Dashboard: ...
+
+Prioridade dos 3 mais urgentes: ___"></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Módulo 2</h4>
+<span class="check-count" id="upDoneCount">0 / 5</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>7 seções</b> inteiras</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei os <b>11 sistemas</b> e as <b>4 camadas</b> de cabeça</span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei os <b>7 pontos de perda</b> e qual é técnico vs. estrutural</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Auditei meus <b>11 sistemas</b> e sei a prioridade dos 3 mais urgentes</span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz o <b>exercício</b> — de verdade, não mentalmente</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>Platform.init({ id:"c3-m1" });</script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 4 — Google Analytics 4. Modelo de eventos e sessão, UTM, funis de exploração, o novo modelo de atribuição de 2026 e por que GA4 nunca bate exatamente com o Meta Ads.">
+<title>Google Analytics 4 · Curso 3 · Engenharia e Dados</title>
+
+<!--
+  CURSO 3 · ENGENHARIA E DADOS
+  Módulo 4 — Google Analytics 4
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Chrome, navegação, progresso, busca e glossário vêm do platform.js.
+  Este arquivo tem conteúdo + o que é exclusivamente dele: nada.
+
+  vol:"high" — pesquisei via WebSearch em 2026-07-18. Achado central: a
+  reestruturação de atribuição de abril de 2026 (a mais disruptiva desde o fim do
+  Universal Analytics) e a virada pra atribuição data-driven como padrão desde
+  outubro de 2025. Não reexplica janela de atribuição do Meta (já no C1.M4 §4.8) —
+  só a diferença estrutural que faz os dois nunca baterem.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+
+<main class="main" id="conteudo">
+ <header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Engenharia e Dados · Módulo 4</div>
+<h1>Google<br/><em>Analytics 4</em></h1>
+<p class="hero-lede">
+        A camada de Processamento do <a class="modref" data-mod="c3-m1">C3.M1</a> §1.3, fora do ecossistema
+        Meta: modelo de eventos, UTM, funis de exploração, o modelo de atribuição que mudou em abril de
+        2026 — e por que, mesmo com tudo certo, GA4 e Meta Ads nunca vão bater exatamente.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~55 min</dd></div>
+<div><dt>Seções</dt><dd>7</dd></div>
+<div><dt>Eventos automáticos</dt><dd>4</dd></div>
+<div><dt>Motivos de divergência</dt><dd>4</dd></div>
+</dl>
+<div class="selo-key">
+<div><span class="selo ev">Evidência</span><p>Achado experimental revisado por pares. Vem com citação completa.</p></div>
+<div><span class="selo inf">Inferência</span><p>Extrapolação razoável para contexto <em>não</em> testado. Eu explico o salto.</p></div>
+<div><span class="selo prat">Prática</span><p>Documentação e cobertura de mercado sobre a plataforma. Fonte e data em cada uma.</p></div>
+<div><span class="selo mito">Mito</span><p>Repetido no mercado e contradito pela documentação atual.</p></div>
+</div>
+</div>
+</header>
+<!-- ============================================================ 4.1 ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.1</span><span></span></div>
+<h2>Por que <abbr data-t="GA4">GA4</abbr> existe ao lado do Meta Ads</h2>
+<p class="sec-lede">
+          O Meta Ads mede o que acontece dentro do seu próprio ecossistema. GA4 mede o que acontece na sua
+          Landing Page, para qualquer origem de tráfego — inclusive a que a Meta não vê.
+        </p>
+</div>
+<p>
+        Meta Ads não enxerga o que a paciente faz depois que sai do clique — só o que o <a class="modref"
+        data-mod="c3-m2">C3.M2</a> consegue reportar via <abbr data-t="Pixel">Pixel</abbr>/CAPI de volta pra ele. GA4, alimentado pelo
+        <a class="modref" data-mod="c3-m3">C3.M3</a> (<abbr data-t="GTM">GTM</abbr>), consolida a sessão inteira — origem, tempo na
+        página, funil de abandono — independente da paciente ter vindo de Instagram, busca do Google ou
+        link direto.
+      </p>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.2 ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.2</span><span></span></div>
+<h2>Modelo de eventos e sessão</h2>
+<p class="sec-lede">
+          GA4 já rastreia alguns eventos sozinho. Os 4 do <a class="modref" data-mod="c3-m2">C3.M2</a> se
+          somam a eles, não os substituem.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Tipo</th><th>Eventos</th><th>Origem</th></tr></thead>
+<tbody>
+<tr><td>Automáticos</td><td><code>session_start</code>, <code>first_visit</code>, <code>page_view</code>, <code>user_engagement</code></td><td>GA4 sozinho, sem configuração</td></tr>
+<tr><td class="t-gold">Personalizados (taxonomia)</td><td class="t-gold"><code>lead</code>, <code>schedule</code>, <code>purchase</code>, <code>view_content</code></td><td class="t-gold"><a class="modref" data-mod="c3-m3">C3.M3</a> via <abbr data-t="Data Layer">Data Layer</abbr> + GTM</td></tr>
+</tbody>
+</table>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Uma <strong>sessão</strong> agrupa os eventos de uma visita. Relatório de landing page usa
+          atribuição no nível de sessão por padrão desde 2026 — uma sessão que começa na página de melasma
+          e continua pra página de estrias atribui o engajamento só à primeira. Dimensão em nível de usuário
+          reflete de onde ela veio originalmente; em nível de evento, o modelo de atribuição configurado
+          (§4.5) é o que decide o crédito.
+        </p>
+<p class="cit">Fonte: documentação e cobertura de mercado sobre a atualização de escopo de atribuição do GA4 (2026), consultada em 18/07/2026.</p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.3 ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.3</span><span></span></div>
+<h2><abbr data-t="UTM">UTM</abbr>: como a campanha vira dimensão dentro do GA4</h2>
+<p class="sec-lede">
+          Sem UTM na URL do anúncio, GA4 sabe que alguém chegou — mas não sabe de qual Reel, de qual
+          estrutura de gancho, veio.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Quando a paciente clica num link com parâmetro UTM, o GA4 captura os valores no <strong>início da
+          sessão</strong> e anexa a todos os eventos dela — os valores populam dimensões em nível de sessão,
+          visíveis em relatórios e Explorações. A dimensão-chave pra ver desempenho por campanha é
+          "Origem/mídia da sessão".
+        </p>
+<p class="cit">Fonte: documentação sobre captura de UTM no GA4, consultada em 18/07/2026.</p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Parâmetro</th><th>Uso sugerido</th></tr></thead>
+<tbody>
+<tr><td><code>utm_source</code></td><td><code>instagram</code></td></tr>
+<tr><td><code>utm_medium</code></td><td><code>paid_social</code></td></tr>
+<tr><td><code>utm_campaign</code></td><td>nome da campanha do <a class="modref" data-mod="c1-m4">C1.M4</a></td></tr>
+<tr><td><code>utm_content</code></td><td>código da estrutura de gancho (<a class="modref" data-mod="c2-m5">C2.M5</a>) — ex. "A3"</td></tr>
+</tbody>
+</table>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.4 ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.4</span><span></span></div>
+<h2>Funis de exploração: onde a paciente abandona</h2>
+<p class="sec-lede">
+          Um funil de exploração encadeia os 4 eventos da taxonomia e mostra exatamente em qual passo o
+          abandono concentra.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          No workspace de Explorações, um funil <code>view_content</code> → <code>lead</code> →
+          <code>schedule</code> → <code>purchase</code>, com origem/mídia da sessão como dimensão de
+          recorte, mostra como cada canal progride pelo funil de conversão — e onde ele quebra mais.
+        </p>
+<p class="cit">Fonte: documentação do GA4 sobre Funil de Exploração, consultada em 18/07/2026.</p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>É aqui que "problema de <abbr data-t="CRO">CRO</abbr>" e "problema de mídia" se separam</span>
+</div>
+<p>
+          Se a queda concentra entre <code>view_content</code> e <code>lead</code>, o problema está na
+          Landing Page (<a class="modref" data-mod="c3-m7">C3.M7</a>) — a página não convence quem chega. Se
+          concentra entre <code>lead</code> e <code>schedule</code>, o problema é conversa (<a
+          class="modref" data-mod="c1-m5">C1.M5</a>), não tráfego. Sem o funil de exploração, os dois
+          problemas se disfarçam de "campanha não funciona".
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.5 ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.5</span><span></span></div>
+<h2>Atribuição: o modelo mudou em 2026</h2>
+<p class="sec-lede">
+          Se você aprendeu GA4 antes de outubro de 2025, o modelo padrão que você conhece não é mais o
+          padrão atual.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Desde outubro de 2025, <strong>atribuição orientada por dados</strong> (data-driven) é o padrão
+          pra todo evento de conversão novo — o modelo de último clique deixou de ser a opção padrão. Em
+          abril de 2026, o GA4 passou pela reestruturação de atribuição mais disruptiva desde o fim do
+          Universal Analytics: configuração de atribuição ajustável por conversão individualmente, e mais
+          formas de comparar relatório do Analytics contra relatório do Google Ads.
+        </p>
+<p class="cit">Fonte: cobertura de mercado sobre a reestruturação de atribuição do GA4 de abril de 2026 e a virada pra data-driven de outubro de 2025, consultada em 18/07/2026. Recomendo confirmar a configuração atual direto na sua propriedade — mudança dessa magnitude costuma vir acompanhada de ajustes finos posteriores.</p>
+</div>
+<div class="selo-box mito">
+<span class="selo mito">Mito</span>
+<p><strong>"GA4 sempre credita a conversão ao último clique, igual o Google Analytics antigo fazia."</strong></p>
+<p>
+          Era o padrão do Universal Analytics e foi o padrão inicial do GA4. Não é mais — desde outubro de
+          2025, o modelo padrão distribui crédito entre vários pontos de contato (data-driven), não só o
+          último. Comparar "GA4 versus Meta" achando que os dois usam a mesma lógica de último clique é
+          comparação inválida desde então.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.6 ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.6</span><span></span></div>
+<h2>Por que GA4 nunca bate com o Meta</h2>
+<p class="sec-lede">
+          Quatro motivos estruturais — nenhum deles é "um dos dois está errado".
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>#</th><th>Motivo</th><th>Efeito</th></tr></thead>
+<tbody>
+<tr><td class="t-num">1</td><td>Janela de atribuição diferente</td><td>Meta usa 7 dias clique + 1 dia engajamento (<a class="modref" data-mod="c1-m4">C1.M4</a> §4.8); GA4 usa a janela configurada na propriedade — raramente idêntica</td></tr>
+<tr><td class="t-num">2</td><td>Modelo de atribuição diferente</td><td>Data-driven do GA4 (§4.5) distribui crédito diferente do modelo interno da Meta</td></tr>
+<tr><td class="t-num">3</td><td>Escopo de sessão diferente</td><td>GA4 conta sessão; Meta conta pessoa/conta — a mesma paciente em duas sessões conta uma vez pra Meta, duas pro GA4</td></tr>
+<tr><td class="t-num">4</td><td>Perda de sinal assimétrica</td><td>Os 7 pontos de perda do <a class="modref" data-mod="c3-m1">C3.M1</a> §1.5 não afetam Pixel e o script do GA4 do mesmo jeito</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>A pergunta certa não é "qual bate", é "os dois se movem juntos"</span>
+</div>
+<p>
+          Não gaste tempo tentando fazer os números baterem exatamente — gaste tempo confirmando que quando
+          um sobe, o outro também sobe, na mesma direção e proporção aproximada. Divergência estável ao
+          longo do tempo é esperada; divergência que muda de padrão de repente é o sinal real de problema
+          (ponto de perda do C3.M1, ou mudança de configuração não percebida).
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.7 ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.7</span><span></span></div>
+<h2>Resumo executivo</h2>
+<p class="sec-lede">
+          Sete ideias. O <a class="modref" data-mod="c3-m6">C3.M6</a> (Experimentação) dá a base
+          estatística pra interpretar variação nesses números sem enganar a si mesma.
+        </p>
+</div>
+<div class="summary">
+<h3>As sete ideias do Módulo 4</h3>
+<ol>
+<li><b>GA4 mede a sessão inteira, de qualquer origem</b> — Meta só enxerga o que volta pelo Pixel/CAPI.</li>
+<li><b>4 eventos automáticos + os 4 da taxonomia do C3.M2</b> — os dois grupos coexistem, não competem.</li>
+<li><b>UTM é capturado no início da sessão</b> e vale pra sessão inteira — sem ele, campanha e estrutura de gancho ficam invisíveis no GA4.</li>
+<li><b>Funil de exploração separa problema de página de problema de conversa</b> — a queda entre view_content e lead é diferente da queda entre lead e schedule.</li>
+<li><b>Atribuição data-driven é o padrão desde outubro de 2025</b> — GA4 não usa mais último clique por padrão.</li>
+<li><b>4 motivos estruturais explicam a divergência com o Meta</b> — janela, modelo, escopo de sessão e perda de sinal assimétrica.</li>
+<li><b>A pergunta certa é "os dois se movem juntos", não "os dois batem"</b> — mudança de padrão de divergência é o sinal real de problema.</li>
+</ol>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 4</h4>
+<span class="check-count" id="upCheckCount">0 / 9</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Configuração</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Os <b>4 eventos da taxonomia</b> aparecem no GA4, vindos do GTM</span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Todo link de anúncio usa <b>UTM completo</b>, incluindo utm_content com a estrutura de gancho</span></label>
+<div class="check-group">B · Exploração</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Montei o <b>funil de exploração</b> dos 4 eventos</span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei onde o funil <b>quebra mais</b> hoje</span></label>
+<div class="check-group">C · Atribuição</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Confirmei o <b>modelo de atribuição</b> ativo na minha propriedade</span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Não presumo mais <b>último clique</b> como padrão</span></label>
+<div class="check-group">D · Reconciliação</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei os <b>4 motivos</b> de divergência de cabeça</span></label>
+<label class="ci"><input data-ck="d2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Acompanho se GA4 e Meta <b>se movem juntos</b>, não se batem exatamente</span></label>
+<label class="ci"><input data-ck="d3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Agendei <b>revisão trimestral</b> deste módulo (vol:high)</span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>Responda de cabeça. Se travar em duas ou mais, releia antes de seguir.</p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">Por que GA4 enxerga tráfego que o Meta Ads não vê?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">Qual dimensão do UTM permite comparar desempenho por estrutura de gancho, não só por campanha?</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">Se o funil de exploração mostra queda entre lead e schedule, o problema é de página ou de conversa? Por quê?</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">O que mudou no modelo de atribuição padrão do GA4 em outubro de 2025?</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">Cite 2 dos 4 motivos estruturais de GA4 e Meta nunca baterem exatamente.</p></div>
+</div>
+<h3>Exercício prático</h3>
+<div class="ex">
+<div class="ex-tag">Exercício único · ~25 min</div>
+<h4>Monte o funil e compare com o Meta</h4>
+<p>Monte o funil de exploração dos 4 eventos no GA4. Compare o número de Purchase do GA4 com o número de conversão de compra reportado pelo Meta Ads no mesmo período — anote a diferença e qual dos 4 motivos provavelmente explica.</p>
+<textarea data-ex="ex1" placeholder="Onde o funil quebra mais: ...
+Purchase no GA4: ___  Purchase reportado pelo Meta: ___
+Diferença: ___%
+Motivo mais provável: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Módulo 5</h4>
+<span class="check-count" id="upDoneCount">0 / 5</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>7 seções</b> inteiras</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Montei o <b>funil de exploração</b> dos 4 eventos</span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei o <b>modelo de atribuição</b> atual da minha propriedade</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei os <b>4 motivos</b> de divergência com o Meta, de cabeça</span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz o <b>exercício</b> de comparação</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>Platform.init({ id:"c3-m4" });</script>
+</body>
+</html>
