@@ -144,6 +144,39 @@ var GLOSSARIO = {
     onde:["c2-m1","c2-m4"], veja:["Sistema 1"]
   },
 
+  "CFBM": {
+    nome:"Conselho Federal de Biomedicina",
+    simples:"O conselho que regula a sua profissão — e o único cujas regras de publicidade valem para você.",
+    tecnica:"Autarquia federal criada pela Lei 6.684/1979 que regulamenta o exercício da Biomedicina. Edita o Código de Ética da profissão e resoluções vinculantes, com Conselhos Regionais (CRBM) executando a fiscalização.",
+    importa:"O Código de Ética do CFBM (art. 37) rege a sua publicidade, e prevê penalidade de multa de até 5 anuidades e/ou suspensão de até 12 meses para publicidade em desacordo. Não é detalhe burocrático — é risco de exercício profissional.",
+    exemplo:"Todo consultor que disser “pelo CFM você pode fazer antes e depois” está citando a lei de outra profissão. A sua é esta.",
+    onde:["c2-m3","c3-m10"], veja:["CFM","CRBM"]
+  },
+  "CFM": {
+    nome:"Conselho Federal de Medicina",
+    simples:"O conselho que regula médicos. Não regula você.",
+    tecnica:"Autarquia que normatiza o exercício da medicina. A Resolução CFM nº 2.336/2023, em vigor desde março de 2024, revogou a 1.974/2011 e flexibilizou a publicidade médica — permitindo redes sociais, divulgação de preços e uso de imagens sob condições estritas.",
+    importa:"É a norma mais citada em marketing de saúde no Brasil, porque o material sobre marketing médico é abundante. Aplicá-la a uma biomédica é erro de categoria — e é um erro comum.",
+    exemplo:"A 2.336/2023 flexibilizou o antes/depois para médicos, com exigências pesadas (texto educativo, complicações, evoluções insatisfatórias, anonimato). Nada disso te autoriza: quem te autoriza ou veda é o CFBM.",
+    onde:["c2-m3"], veja:["CFBM"]
+  },
+  "CRBM": {
+    nome:"Conselho Regional de Biomedicina",
+    simples:"O braço regional do CFBM — quem fiscaliza e quem você consulta na dúvida.",
+    tecnica:"Conselhos regionais que executam registro, fiscalização e processo ético-disciplinar dos biomédicos em sua jurisdição, aplicando as normas editadas pelo CFBM.",
+    importa:"É a instância que responde dúvida concreta sobre o que você pode publicar. Quando um módulo desta plataforma disser “confirme com o seu conselho”, é aqui.",
+    exemplo:"Antes de publicar qualquer caso clínico, a pergunta vai para o seu CRBM regional — não para um blog de agência nem para este curso.",
+    onde:["c2-m3"], veja:["CFBM"]
+  },
+  "ABI": {
+    nome:"Ability–Benevolence–Integrity — Modelo Integrativo de Confiança",
+    simples:"As três variáveis independentes que compõem o quanto alguém parece confiável.",
+    tecnica:"Modelo de Mayer, Davis e Schoorman (1995) que decompõe a confiabilidade percebida em habilidade (competência no domínio), benevolência (querer o bem do outro sem motivo egoísta) e integridade (aderir consistentemente a princípios aceitáveis). Meta-analisado por Colquitt et al. (2007).",
+    importa:"A independência é o achado útil: alta habilidade com baixa benevolência não gera confiança — gera medo competente. Seu diploma move uma das três, e é a que ela menos duvida.",
+    exemplo:"“Ela sabe muito — e está me vendendo alguma coisa” é falha de benevolência com habilidade intacta. Nenhum diploma a mais resolve.",
+    onde:["c2-m3"], veja:["Sistema 1","Sistema 2"]
+  },
+
   "Pixel": {
     nome:"Meta Pixel (antigo Facebook Pixel)",
     simples:"Um pedaço de código no seu site que avisa a Meta o que as pessoas fizeram ali.",

@@ -77,7 +77,7 @@ var PLATFORM = {
           desc:"Identificação ≠ empatia, o mundo interno, dor identitária, 9 medos, 7 frustrações, 12 objeções e a biblioteca de reescritas.",
           was:"Curso 2 · Módulo 2" },
         { id:"c2-m3", n:3, title:"Neurociência da Confiança",
-          file:"c2-m3-confianca.html", status:"todo", vol:"low", min:70, secs:11, deps:["c2-m2"],
+          file:"c2-m3-confianca.html", status:"done", vol:"low", min:70, secs:11, deps:["c2-m2"],
           desc:"Confiança como aposta, competência × calor, os 5 riscos, prova social ética e resultado sem promessa.",
           was:"Curso 2 · Módulo 3" },
         { id:"c2-m4", n:4, title:"Engenharia dos Reels",

@@ -52,3 +52,9 @@ O validador é estático (parseia HTML/CSS/JS). Não abre a página. Um smoke te
 | Curso 4 (Analytics/CRO/Growth), 12 módulos | ~87% redundante com os Cursos 1 e 3. Dissolvido: M4 virou C3.M6, o SOG virou o capstone, o resto já existia. |
 | Módulos auto-contidos (arquivo único) | 73.780 linhas de duplicação em 31 módulos. Substituído pelo Platform Shell. |
 | Busca global em runtime, sem índice | `fetch()` não funciona em `file://`. Impossível sem build step. |
+
+## R-09 · Validação semântica de `<abbr data-t>`
+**Origem:** C2.M3. Eu escrevi à mão `<abbr data-t="MELASQOL">biomédica</abbr>` — chave válida, semântica errada. O validador aprovou, porque só checa se a chave existe no glossário.
+**Ideia:** exigir que o texto dentro do `<abbr>` corresponda à sigla ou a uma variação registrada dela.
+**Contra:** casos legítimos existem (marcar "Pixel" com `data-t="Pixel"` mas também "pixel" minúsculo). Precisaria de lista de aliases por termo.
+**Prioridade sugerida:** média — pega uma classe de erro que hoje só o olho pega.
