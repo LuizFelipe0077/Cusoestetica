@@ -21,6 +21,22 @@
 var GLOSSARIO = {
 
   /* ---------------- MÍDIA E MÉTRICAS ---------------- */
+  "ABO": {
+    nome:"Ad Set Budget Optimization — Orçamento por Conjunto de Anúncios",
+    simples:"Você define o orçamento de cada conjunto de anúncios separadamente, em vez de deixar a Meta distribuir.",
+    tecnica:"Modo de orçamento em que o valor é fixado no nível do conjunto de anúncios, não da campanha. Cada conjunto recebe verba garantida, independente do desempenho relativo dos outros.",
+    importa:"Garante que todo público ou criativo em teste recebe verba mínima pra gerar sinal — sem isso, um conjunto pode ficar sem dado suficiente pra ser avaliado de verdade.",
+    exemplo:"Testando 3 estruturas de gancho diferentes (C2.M5) ao mesmo tempo, ABO garante que as 3 rodem com orçamento igual até você decidir qual venceu.",
+    onde:["c1-m4"], veja:["CBO","CAC"]
+  },
+  "CBO": {
+    nome:"Campaign Budget Optimization — hoje \"Advantage+ Campaign Budget\"",
+    simples:"A Meta decide sozinha quanto orçamento cada conjunto de anúncios recebe dentro da campanha, priorizando o que performa melhor.",
+    tecnica:"Orçamento fixado no nível da campanha; a Meta distribui dinamicamente entre os conjuntos em tempo real, concentrando verba nos que geram mais resultado pelo custo definido. Renomeado para Advantage+ Campaign Budget.",
+    importa:"Reduz custo por conversão quando já existe conjunto vencedor identificado — mas sem dado histórico, a Meta não tem o que otimizar e pode concentrar tudo num conjunto só, matando a diversidade de teste.",
+    exemplo:"Depois de identificar que um dos 3 ganchos testados converte melhor (ABO), migrar pra CBO/Advantage+ Budget concentra o orçamento nele automaticamente.",
+    onde:["c1-m4"], veja:["ABO","CAC"]
+  },
   "CTR": {
     nome:"Click Through Rate — Taxa de Cliques",
     simples:"De cada 100 pessoas que veem seu anúncio, quantas clicam.",
@@ -67,7 +83,7 @@ var GLOSSARIO = {
     tecnica:"(Investimento em mídia + custo de vendas) ÷ número de clientes adquiridos no período. A versão simplificada usa só mídia; a completa inclui horas de atendimento e ferramentas.",
     importa:"É a única métrica de custo que importa no seu modelo. Custo por lead e CAC se movem em direções OPOSTAS em negócios high ticket — leads mais caros costumam produzir pacientes mais baratos.",
     exemplo:"R$3.000 de mídia gerando 10 pacientes = CAC de R$300, ou 7,5% de um ticket de R$4.000. Teto saudável recomendado: 12% do ticket.",
-    onde:["c1-m1","c1-m3","c2-m4","c2-m9","c3-m11"], veja:["CPA","LTV","ROAS"]
+    onde:["c1-m1","c1-m3","c1-m4","c1-m5","c2-m4","c2-m9","c3-m11"], veja:["CPA","LTV","ROAS"]
   },
   "LTV": {
     nome:"Lifetime Value — Valor do Cliente ao Longo do Tempo",
@@ -75,7 +91,7 @@ var GLOSSARIO = {
     tecnica:"Ticket médio × frequência de recompra × tempo de retenção. Em serviços de saúde, inclui manutenção, novos protocolos e — se você medir — o valor dos pacientes que ele indicar.",
     importa:"Define quanto você pode gastar para adquirir. Um LTV de R$4.000 permite um CAC muito menor do que um LTV de R$9.000 com manutenção e indicação.",
     exemplo:"Paciente do Melasma: R$4.000 (protocolo) + R$1.800 (manutenção ano 1) + 0,4 indicações × R$4.000 = LTV ≈ R$7.400.",
-    onde:["c1-m3","c2-m9","c3-m11"], veja:["CAC","Payback","ROI"]
+    onde:["c1-m3","c1-m4","c2-m9","c3-m11"], veja:["CAC","Payback","ROI"]
   },
   "ROI": {
     nome:"Return On Investment — Retorno sobre o Investimento",
@@ -91,7 +107,7 @@ var GLOSSARIO = {
     tecnica:"Receita atribuída ÷ investimento em anúncios. Não desconta custo de entrega, impostos nem overhead.",
     importa:"O ROAS que o Meta reporta é fantasia no seu caso: você não passa valor de compra online, então a plataforma não sabe quanto você faturou. Calcule manualmente.",
     exemplo:"R$40.000 ÷ R$3.000 = ROAS 13,3. Mas o Gerenciador vai mostrar 0 — porque a venda aconteceu na consulta, fora da internet.",
-    onde:["c1-m1","c3-m11"], veja:["ROI","CAC","CAPI"]
+    onde:["c1-m1","c1-m4","c3-m11"], veja:["ROI","CAC","CAPI"]
   },
   "Payback": {
     nome:"Payback Period — Período de Retorno",
@@ -183,7 +199,7 @@ var GLOSSARIO = {
     tecnica:"Biblioteca JavaScript (fbq) que dispara requisições HTTP para os servidores da Meta a cada evento, carregando cookies de identificação (_fbp, _fbc) e parâmetros do evento.",
     importa:"O Pixel NÃO mede — ele ENSINA. Cada evento é uma frase dita ao algoritmo sobre quem você quer. Otimize por clique e ele traz cliqueiros, com máxima eficiência.",
     exemplo:"Se o seu Pixel dispara Lead em todo clique no botão do WhatsApp, você está ensinando a Meta que curiosos são conversões.",
-    onde:["c1-m1","c2-m9","c3-m1","c3-m2"], veja:["Dataset","CAPI","fbclid"]
+    onde:["c1-m1","c1-m4","c2-m9","c3-m1","c3-m2"], veja:["Dataset","CAPI","fbclid"]
   },
   "Dataset": {
     nome:"Meta Dataset — Conjunto de Dados",
@@ -199,7 +215,7 @@ var GLOSSARIO = {
     tecnica:"API server-side que envia eventos para o mesmo Dataset do Pixel. Requer event_id compartilhado com o Pixel para deduplicação, e parâmetros de correspondência hasheados.",
     importa:"Bloqueadores, ITP do Safari e restrições de cookie derrubam de 15% a 30% dos eventos só com Pixel — e essas perdas vêm desproporcionalmente de iOS, que no seu nicho correlaciona com maior poder aquisitivo.",
     exemplo:"Sem CAPI, você está cegando o algoritmo justamente para o seu melhor público.",
-    onde:["c2-m9","c3-m1","c3-m2"], veja:["Pixel","Dataset","event_id","EMQ"]
+    onde:["c1-m4","c2-m9","c3-m1","c3-m2"], veja:["Pixel","Dataset","event_id","EMQ"]
   },
   "event_id": {
     nome:"Event ID — Identificador de Evento",
@@ -257,7 +273,7 @@ var GLOSSARIO = {
     tecnica:"Plataforma de analytics baseada em modelo de eventos (não em sessões/pageviews como o Universal Analytics). Tudo é evento com parâmetros.",
     importa:"É a única fonte que te dá tempo na página, profundidade de scroll e conversão por dispositivo/origem. E os números NUNCA vão bater com o Meta — modelos de atribuição diferentes.",
     exemplo:"Tempo médio na landing do Melasma abaixo de 90s indica ruptura de coerência entre anúncio e página.",
-    onde:["c1-m1","c2-m9","c3-m1","c3-m4"], veja:["GTM","UTM"]
+    onde:["c1-m1","c1-m4","c2-m9","c3-m1","c3-m4"], veja:["GTM","UTM"]
   },
   "GTM": {
     nome:"Google Tag Manager — Gerenciador de Tags",

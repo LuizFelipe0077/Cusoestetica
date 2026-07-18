@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 5 — WhatsApp: A Sala de Espera Digital. SLA de resposta, script de qualificação, filtro de preço, cadência de follow-up sem reatância e um CRM mínimo — aplicados à consulta online de melasma e estrias.">
+<title>WhatsApp: A Sala de Espera Digital · Curso 1 · Sistema Comercial</title>
+
+<!--
+  CURSO 1 · SISTEMA COMERCIAL
+  Módulo 5 — WhatsApp: A Sala de Espera Digital
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Chrome, navegação, progresso, busca e glossário vêm do platform.js.
+  Este arquivo tem conteúdo + o que é exclusivamente dele: nada — todo o chrome e
+  todos os componentes vêm do shell.
+
+  Diretriz de conteúdo: CLAUDE.md — Regra do Sistema Comercial (bloco
+  "Implementação no Meu Negócio") + regra de densidade padrão (45-60min, sem
+  exceção aqui — só o C1.M4 é módulo-âncora). Reaproveita psicologia do C2.M2
+  (medos, técnica do espelho) e C2.M3 (mito dos 7 contatos) em vez de reexplicar.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+
+<main class="main" id="conteudo">
+ <header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Sistema Comercial · Módulo 5</div>
+<h1>WhatsApp: A Sala<br/><em>de Espera Digital</em></h1>
+<p class="hero-lede">
+        No mapa do <a class="modref" data-mod="c1-m4">C1.M4</a>, o WhatsApp é a etapa 8: recebe quem a
+        campanha qualificou e decide se isso vira consulta agendada (etapa 9). Este módulo entrega o
+        sistema completo — SLA, script, filtro de preço, cadência e o CRM mínimo pra não depender de
+        memória.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~55 min</dd></div>
+<div><dt>Seções</dt><dd>7</dd></div>
+<div><dt>Etapas do funil de WhatsApp</dt><dd>5</dd></div>
+<div><dt>Campos do CRM mínimo</dt><dd>7</dd></div>
+</dl>
+<div class="selo-key">
+<div><span class="selo ev">Evidência</span><p>Achado experimental revisado por pares. Vem com citação completa.</p></div>
+<div><span class="selo inf">Inferência</span><p>Extrapolação razoável para contexto <em>não</em> testado. Eu explico o salto.</p></div>
+<div><span class="selo prat">Prática</span><p>Convenção operacional testada e pesquisa de mercado (não peer-review). Fonte citada quando existe.</p></div>
+<div><span class="selo mito">Mito</span><p>Repetido no mercado e contradito pela evidência — ou sem fonte.</p></div>
+</div>
+</div>
+</header>
+<!-- ============================================================ 5.1 ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>5.1</span><span></span></div>
+<h2>WhatsApp como sala de espera, não como balcão de vendas</h2>
+<p class="sec-lede">
+          A metáfora importa: numa sala de espera boa, ninguém tenta vender nada — o ambiente já prepara a
+          consulta. É esse o papel do WhatsApp aqui, não o de fechar venda por mensagem.
+        </p>
+</div>
+<p>
+        O <a class="modref" data-mod="c2-m3">C2.M3</a> §3.6 já estabeleceu: a consulta precisa ser
+        reenquadrada como investigação, não veredito. O WhatsApp é onde esse reenquadramento
+        <strong>começa</strong> — antes da consulta, não durante. Se a conversa tenta fechar venda ali, ela
+        compete com o papel da consulta em vez de prepará-la.
+      </p>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>#</th><th>Etapa da conversa</th><th>Objetivo</th></tr></thead>
+<tbody>
+<tr><td class="t-num">1</td><td>Resposta inicial</td><td>Confirmar que uma pessoa real está do outro lado, dentro do SLA (§5.2)</td></tr>
+<tr><td class="t-num">2</td><td>Qualificação</td><td>Entender o caso sem virar interrogatório (§5.3)</td></tr>
+<tr><td class="t-num">3</td><td>Filtro de preço</td><td>Alinhar expectativa de investimento antes da consulta (§5.4)</td></tr>
+<tr><td class="t-num">4</td><td>Agendamento</td><td>Transformar interesse em data marcada</td></tr>
+<tr><td class="t-num">5</td><td>Follow-up</td><td>Reconquistar quem não respondeu, sem reatância (§5.5)</td></tr>
+</tbody>
+</table>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 5.2 ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>5.2</span><span></span></div>
+<h2><abbr data-t="SLA">SLA</abbr> de resposta: velocidade decide antes do conteúdo</h2>
+<p class="sec-lede">
+          O erro 33 do <a class="modref" data-mod="c2-m9">C2.M9</a> já nomeou isso. Aqui está o porquê e o
+          SLA prático pro seu negócio.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Pesquisa amplamente citada sobre resposta a leads comerciais (baseada em dados reais de milhares
+          de empresas, não experimento de laboratório) encontrou que a chance de qualificar um lead cai de
+          forma <strong>abrupta</strong> nos primeiros minutos após o contato inicial — não gradual. A janela
+          em que a pessoa ainda está no estado mental de quem acabou de decidir agir é curta, e depois dela
+          a decisão esfria ou vai pra outra opção.
+        </p>
+<p class="cit"><b>Oldroyd, J. B., McElheran, K. &amp; Elkington, D. (2011).</b> <em>The Short Life of Online Sales Leads.</em> Harvard Business Review. — Nota de rigor: não tenho certeza dos números exatos citados por essa pesquisa em coberturas secundárias; uso aqui só a direção do achado (queda abrupta, não gradual), que é a parte consistente entre as fontes.</p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Horário</th><th>SLA recomendado</th><th>Como sustentar</th></tr></thead>
+<tbody>
+<tr><td>Horário comercial</td><td>Até 15 minutos</td><td>Notificação ativa + resposta humana, não só bot</td></tr>
+<tr><td>Fora do horário</td><td>Até a próxima abertura + mensagem automática imediata</td><td>Resposta automática que confirma recebimento e dá prazo real de retorno — não silêncio</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Resposta automática não é SLA — é ponte até o SLA</span>
+</div>
+<p>
+          Um bot que responde em segundos não substitui a resposta humana dentro do SLA — só evita o
+          silêncio total. Se a mensagem automática promete algo que a resposta humana demora a cumprir
+          ("já te chamo"), ela cria expectativa que o próprio atraso quebra — voltando ao mesmo problema do
+          risco 3 (social/confiança) do <a class="modref" data-mod="c2-m3">C2.M3</a> §3.6.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 5.3 ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>5.3</span><span></span></div>
+<h2>Script de qualificação sem interrogatório</h2>
+<p class="sec-lede">
+          Qualificar é preciso — mas uma sequência de perguntas fechadas seguidas soa como triagem de
+          call center, não como cuidado. A estrutura importa tanto quanto a pergunta.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Aplicação direta do <a class="modref" data-mod="c2-m5">C2.M5</a> estrutura D5 (convite à
+          autotriagem) e da técnica do espelho do <a class="modref" data-mod="c2-m2">C2.M2</a> §2.11: cada
+          pergunta de qualificação vem <strong>acompanhada de um reconhecimento</strong>, não isolada. A
+          diferença entre interrogatório e conversa é essa alternância.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Passo</th><th>O que fazer</th><th>Exemplo (melasma)</th></tr></thead>
+<tbody>
+<tr><td>1 · Acolher</td><td>Reconhecer o motivo do contato antes de perguntar qualquer coisa</td><td>"Que bom que você chamou! Pelo que vi, você tem procurado entender melhor a causa da sua mancha, é isso?"</td></tr>
+<tr><td>2 · Qualificar o caso</td><td>Pergunta específica, não genérica</td><td>"Ela aparece sempre no mesmo lugar ou muda? Isso já me ajuda a entender o padrão."</td></tr>
+<tr><td>3 · Qualificar histórico</td><td>Entender o que já foi tentado, sem julgar</td><td>"Você já investigou algum fator hormonal antes, ou só tratou por fora até agora?"</td></tr>
+<tr><td>4 · Qualificar intenção</td><td>Confirmar prontidão sem pressionar</td><td>"Faz sentido pra você marcar uma consulta de investigação, ou ainda está só pesquisando?"</td></tr>
+<tr><td>5 · Encaminhar</td><td>Ligar a resposta ao próximo passo concreto</td><td>"Perfeito — pelo que você me contou, faz sentido começarmos pela investigação do fator. Vou te mostrar como funciona."</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Por que "faz sentido pra você" substitui "você quer marcar?"</span>
+</div>
+<p>
+          "Você quer marcar?" pede decisão binária antes da hora — reproduz o risco identitário do <a
+          class="modref" data-mod="c2-m3">C2.M3</a> §3.6 (veredito, não investigação). "Faz sentido pra
+          você" pede uma avaliação, não um compromisso — e é o mesmo espírito do critério de elegibilidade
+          da estrutura D4 do <a class="modref" data-mod="c2-m5">C2.M5</a>.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 5.4 ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>5.4</span><span></span></div>
+<h2>Filtro de preço: alinhar expectativa sem negociar cedo demais</h2>
+<p class="sec-lede">
+          Não falar de preço nenhum gera lead desqualificado que só descobre o valor na consulta. Falar
+          preço demais cedo transforma o WhatsApp em negociação. O filtro fica no meio.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Filtro de preço não é tabela de preço.</strong> É uma faixa de investimento mencionada
+          <em>depois</em> da qualificação (§5.3), nunca antes — na mesma lógica de ancoragem do <a
+          class="modref" data-mod="c1-m2">C1.M2</a> §2.2: a primeira menção de valor precisa ser o
+          protocolo completo, nunca um número solto sem contexto.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Momento</th><th>O que dizer</th><th>O que evitar</th></tr></thead>
+<tbody>
+<tr><td>Antes de qualificar</td><td>Nada sobre preço — foco em entender o caso</td><td>"Nosso protocolo custa R$X" logo na primeira mensagem</td></tr>
+<tr><td>Depois de qualificar, antes de agendar</td><td>"O investimento no protocolo completo de investigação gira em torno de R$X — faz sentido pra você dentro dessa faixa?"</td><td>Fracionar em "consulta é R$Y, se precisar de mais é R$Z" — isso ancora no menor número</td></tr>
+<tr><td>Se objetar</td><td>Reconhecer sem descontar — aplicar o teste do C2.M3 §3.9 na resposta</td><td>Oferecer desconto ou parcelamento imediato como reflexo — trate objeção de preço como informação, não como sinal pra negociar na hora</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>O filtro protege a margem, não só a conversa</span>
+</div>
+<p>
+          Filtrar preço cedo evita gastar o SLA e a capacidade de atendimento (<a class="modref"
+          data-mod="c1-m3">C1.M3</a> §3.4) com quem nunca teria orçamento pro protocolo — o mesmo problema
+          que o critério de elegibilidade do <a class="modref" data-mod="c1-m1">C1.M1</a> já cobre em nível
+          de negócio. Aqui é a implementação em nível de conversa.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 5.5 ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>5.5</span><span></span></div>
+<h2>Cadência de follow-up sem virar insistência</h2>
+<p class="sec-lede">
+          O <a class="modref" data-mod="c2-m3">C2.M3</a> §3.5 já derrubou o mito dos "7 contatos". Aqui está
+          a cadência real, baseada em intervalo e ângulo — não em contagem.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Cada follow-up muda de <strong>ângulo</strong>, não repete a mesma pergunta com palavras
+          diferentes. Repetir "oi, ainda tem interesse?" é o padrão que mais aciona reatância (C2.M3 §3.5,
+          origem D) — cada mensagem deveria valer a pena ser lida sozinha, não depender das anteriores.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Quando</th><th>Ângulo</th><th>Exemplo</th></tr></thead>
+<tbody>
+<tr><td>D+1</td><td>Continuação natural, sem cobrança</td><td>"Fiquei pensando no que você me contou — separei uma informação que pode ajudar antes da nossa conversa."</td></tr>
+<tr><td>D+3</td><td>Valor novo, não repetição</td><td>Um conteúdo curto (formato checklist do <a class="modref" data-mod="c2-m4">C2.M4</a> §4.6) relevante ao caso específico dela</td></tr>
+<tr><td>D+7</td><td>Redução de fricção</td><td>"Se ainda fizer sentido, consigo dois horários essa semana — quer que eu separe um?"</td></tr>
+<tr><td>D+14</td><td>Saída honesta, sem culpa</td><td>"Não quero insistir — se não for o momento certo, tudo bem. Fico à disposição quando fizer sentido."</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Silêncio depois de alto engajamento pode ser o risco 5, não desinteresse</span>
+</div>
+<p>
+          O <a class="modref" data-mod="c2-m3">C2.M3</a> §3.6 já descreveu esse padrão: quem lê tudo e some
+          pode estar protegendo a esperança, não perdendo o interesse. O follow-up de D+14 (saída honesta)
+          existe pra não fechar essa porta — ele reduz a pressão exatamente no ponto em que insistir mais
+          reforça o risco identitário.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 5.6 ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>5.6</span><span></span></div>
+<h2><abbr data-t="CRM">CRM</abbr> mínimo: o sistema que substitui memória</h2>
+<p class="sec-lede">
+          Não precisa de software caro pra começar — precisa de 7 campos preenchidos com disciplina, em
+          qualquer planilha.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Sem registro estruturado, toda decisão de follow-up e todo diagnóstico de gargalo dependem de
+          memória — e memória não escala além de poucas conversas simultâneas. O mínimo viável é uma
+          planilha com 7 campos, atualizada a cada interação.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>#</th><th>Campo</th><th>Por que rastrear</th></tr></thead>
+<tbody>
+<tr><td class="t-num">1</td><td>Nome</td><td>Identificação básica</td></tr>
+<tr><td class="t-num">2</td><td>Origem (qual Reel/estrutura de gancho)</td><td>Liga o <abbr data-t="CAC">CAC</abbr> (C1.M3) a qual criativo trouxe o lead — dado que o C1.M4 §4.9 usa pra decisão de mídia</td></tr>
+<tr><td class="t-num">3</td><td>Data do primeiro contato</td><td>Mede o SLA real (§5.2) e a idade da conversa pro follow-up (§5.5)</td></tr>
+<tr><td class="t-num">4</td><td>Estágio atual (1 a 5 da tabela §5.1)</td><td>Mostra onde a conversa travou</td></tr>
+<tr><td class="t-num">5</td><td>Protocolo de interesse</td><td>Melasma ou estrias — direciona qual roteiro/estrutura usar</td></tr>
+<tr><td class="t-num">6</td><td>Resultado (agendou / não respondeu / declinou)</td><td>Alimenta a taxa de conversa qualificada do C1.M4 §4.9</td></tr>
+<tr><td class="t-num">7</td><td>Motivo, se não fechou</td><td>É o dado bruto do exercício de autópsia das três variáveis, C2.M3</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Quando migrar de planilha pra CRM de verdade</span>
+</div>
+<p>
+          Planilha resolve enquanto uma pessoa consegue acompanhar todas as conversas ativas de cabeça
+          razoável. O sinal de migrar pra uma ferramenta dedicada (com automação de cadência e alerta de SLA)
+          é quantitativo, não de preferência: quando o volume de conversas simultâneas passar de ~15-20 —
+          próximo da capacidade de atendimento definida no <a class="modref" data-mod="c1-m3">C1.M3</a>
+          §3.4 — a planilha começa a falhar silenciosamente, sem avisar que falhou.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 5.7 ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>5.7</span><span></span></div>
+<h2>Resumo executivo</h2>
+<p class="sec-lede">
+          Sete ideias, os erros que mais quebram a conversa, e o bloco de implementação. O <a class="modref"
+          data-mod="c1-m6">C1.M6</a> pega de onde este módulo termina — a consulta em si.
+        </p>
+</div>
+<div class="rew">
+<div class="rew-row bad"><span class="rew-tag">SEM SLA</span>
+<p class="rew-txt">Responder quando dá tempo, sem prazo definido. É o erro 33 do C2.M9 — a lead esfria na janela mais curta que qualquer conteúdo consegue compensar.</p></div>
+<div class="rew-row bad"><span class="rew-tag">INTERROGATÓRIO</span>
+<p class="rew-txt">Perguntas fechadas em sequência, sem reconhecimento entre elas (§5.3). Qualifica o caso e desqualifica a relação ao mesmo tempo.</p></div>
+<div class="rew-row bad"><span class="rew-tag">PREÇO CEDO OU TARDE DEMAIS</span>
+<p class="rew-txt">Preço na primeira mensagem assusta; preço só na consulta desperdiça capacidade de atendimento com quem nunca teria orçamento (§5.4).</p></div>
+<div class="rew-row bad"><span class="rew-tag">FOLLOW-UP REPETITIVO</span>
+<p class="rew-txt">"Oi, ainda tem interesse?" reciclado a cada poucos dias aciona reatância em vez de reconquistar (§5.5).</p></div>
+</div>
+<div class="summary">
+<h3>As sete ideias do Módulo 5</h3>
+<ol>
+<li><b>WhatsApp prepara a consulta, não substitui ela.</b> Tentar fechar venda por mensagem compete com o papel da consulta como investigação.</li>
+<li><b>SLA decide antes do conteúdo da mensagem.</b> A queda de chance de qualificar é abrupta nos primeiros minutos, não gradual.</li>
+<li><b>Qualificação alterna pergunta e reconhecimento</b> — nunca pergunta isolada atrás de pergunta.</li>
+<li><b>Filtro de preço vem depois da qualificação, nunca antes</b> — e a primeira menção é sempre o protocolo completo.</li>
+<li><b>Follow-up muda de ângulo, não de contagem.</b> O mito dos 7 contatos já foi derrubado no C2.M3 — o que importa é intervalo e valor novo por mensagem.</li>
+<li><b>CRM mínimo são 7 campos numa planilha</b>, atualizados com disciplina — migre pra ferramenta dedicada só quando o volume ultrapassar ~15-20 conversas simultâneas.</li>
+<li><b>Silêncio depois de alto engajamento pode ser o risco identitário</b>, não desinteresse — o follow-up de saída honesta existe pra não fechar essa porta.</li>
+</ol>
+</div>
+<h3>Implementação no Meu Negócio</h3>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>O que executar depois de ler este módulo</span>
+</div>
+<p><strong>Como aplicar no meu sistema:</strong> implementar as 5 etapas da conversa (§5.1) como um roteiro padrão, com o script de qualificação do §5.3 adaptado aos meus dois protocolos.</p>
+<p><strong>O que configurar:</strong> mensagem automática de fora do horário, SLA de 15 minutos em horário comercial, e a planilha de CRM mínimo com os 7 campos do §5.6.</p>
+<p><strong>O que produzir:</strong> o script de qualificação escrito por completo (não só na cabeça), a faixa de investimento a comunicar no filtro de preço, e as 4 mensagens de follow-up (D+1, D+3, D+7, D+14).</p>
+<p><strong>Como medir se funcionou:</strong> comparar tempo médio de resposta real contra o SLA de 15 minutos, e taxa de conversa qualificada (quantas viram agendamento) antes e depois de implementar o script estruturado.</p>
+<p><strong>Indicadores a acompanhar:</strong> tempo médio de resposta, taxa de agendamento por conversa, taxa de resposta a cada follow-up (D+1 a D+14), motivo mais comum de não-fechamento (campo 7 do CRM).</p>
+<p><strong>Erros a evitar:</strong> os 4 do bloco acima — sem SLA, interrogatório, preço no momento errado, follow-up repetitivo.</p>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 5</h4>
+<span class="check-count" id="upCheckCount">0 / 12</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · SLA</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Configurei <b>mensagem automática</b> pra fora do horário comercial</span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini <b>SLA de 15 minutos</b> em horário comercial e tenho como cumprir</span></label>
+<div class="check-group">B · Script de qualificação</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Escrevi o script completo das <b>5 etapas</b> pros dois protocolos</span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Cada pergunta vem com <b>reconhecimento</b> antes, não isolada</span></label>
+<div class="check-group">C · Filtro de preço</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini a <b>faixa de investimento</b> a comunicar, alinhada ao C1.M3</span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Confirmei que o preço só é mencionado <b>depois</b> da qualificação</span></label>
+<div class="check-group">D · Follow-up</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Escrevi as <b>4 mensagens</b> de follow-up (D+1, D+3, D+7, D+14)</span></label>
+<label class="ci"><input data-ck="d2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Nenhuma repete a mesma pergunta com <b>palavras diferentes</b></span></label>
+<div class="check-group">E · CRM mínimo</div>
+<label class="ci"><input data-ck="e1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Criei a planilha com os <b>7 campos</b> do §5.6</span></label>
+<label class="ci"><input data-ck="e2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Registrei as <b>conversas ativas</b> atuais na planilha</span></label>
+<label class="ci"><input data-ck="e3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei o <b>volume de conversas</b> que sinaliza migrar pra ferramenta dedicada</span></label>
+<label class="ci"><input data-ck="e4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini a <b>rotina de leitura</b> dos indicadores do bloco de implementação</span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>Responda de cabeça. Se travar em duas ou mais, releia antes de seguir.</p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">Por que o WhatsApp não deveria tentar fechar a venda, e qual etapa faz isso?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">Qual é o SLA recomendado em horário comercial, e por que uma resposta automática não o substitui?</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">O que diferencia qualificação de interrogatório na estrutura do §5.3?</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">Por que o filtro de preço deve vir depois da qualificação, e por que a primeira menção nunca deve ser um número fracionado?</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">O que muda de uma mensagem de follow-up pra outra, se não é a contagem de tentativas?</p></div>
+<div class="qa-item"><span class="qa-n">6</span><p class="qa-q">Quais são os 7 campos do CRM mínimo, e qual deles alimenta diretamente a decisão de mídia do C1.M4?</p></div>
+</div>
+<h3>Exercícios práticos</h3>
+<div class="ex">
+<div class="ex-tag">Exercício 1 · ~25 min</div>
+<h4>Escreva o script completo</h4>
+<p>Usando a tabela do §5.3, escreva o script de qualificação completo para melasma e para estrias — as 5 etapas, com as perguntas e reconhecimentos específicos do seu caso.</p>
+<textarea data-ex="ex1" placeholder="Melasma:
+1. Acolher: ...
+2. Qualificar o caso: ...
+3. Qualificar histórico: ...
+4. Qualificar intenção: ...
+5. Encaminhar: ...
+
+Estrias: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 2 · ~20 min</div>
+<h4>Monte a cadência de follow-up</h4>
+<p>Escreva as 4 mensagens de follow-up (D+1, D+3, D+7, D+14) usando os ângulos do §5.5, com conteúdo específico do seu negócio — não genérico.</p>
+<textarea data-ex="ex2" placeholder="D+1: ...
+D+3: ...
+D+7: ...
+D+14: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 3 · ~15 min</div>
+<h4>Crie o CRM mínimo</h4>
+<p>Monte a planilha com os 7 campos do §5.6 e preencha com as conversas ativas que você já tem hoje.</p>
+<textarea data-ex="ex3" placeholder="Ferramenta que vou usar (planilha/app): ...
+Conversas ativas registradas: ___
+Data que vou revisar pela primeira vez: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Módulo 6</h4>
+<span class="check-count" id="upDoneCount">0 / 6</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>7 seções</b> inteiras</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho o <b>script de qualificação</b> escrito pros dois protocolos</span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho as <b>4 mensagens de follow-up</b> escritas</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">O <b>CRM mínimo</b> está criado e em uso</span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei o <b>SLA</b> e como vou cumprir de cabeça</span></label>
+<label class="ci"><input data-dk="k6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz os <b>3 exercícios</b> — de verdade, não mentalmente</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>Platform.init({ id:"c1-m5" });</script>
+</body>
+</html>

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 3 — Oferta e Precificação. Engenharia financeira da operação: margem de contribuição, CAC máximo, ROAS mínimo, ponto de equilíbrio, LTV, capacidade de atendimento e uma planilha lógica interativa aplicada a melasma e estrias.">
+<title>Oferta e Precificação · Curso 1 · Sistema Comercial</title>
+
+<!--
+  CURSO 1 · SISTEMA COMERCIAL
+  Módulo 3 — Oferta e Precificação
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Chrome, navegação, progresso, busca e glossário vêm do platform.js.
+  Este arquivo tem conteúdo + o que é exclusivamente dele: a planilha lógica
+  interativa (§3.8) — CSS e JS exclusivos do módulo, só tokens do shell, sem cor
+  fixa, um único bloco de estilo do módulo (ver head).
+
+  Diretriz de conteúdo: CLAUDE.md, Regra do Sistema Comercial + Regra da Engenharia
+  Financeira (2026-07-18): preço é consequência da estrutura financeira, não o
+  argumento em si. Termos já definidos no glossário (CAC, LTV, ROI, ROAS, Payback)
+  são referenciados via <abbr>, não redefinidos.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+<style>
+.calc-sheet{border:1px solid var(--gold-line);border-radius:var(--radius-lg);background:var(--surface);
+  padding:var(--sp-5);margin:var(--sp-5) 0;display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-5)}
+.calc-col h4{margin:0 0 var(--sp-3);font-family:var(--display);font-weight:400;color:var(--gold);font-size:1.1rem}
+.calc-field{display:flex;flex-direction:column;gap:.3rem;margin-bottom:var(--sp-3)}
+.calc-field label{font-size:var(--fs-xs);color:var(--text-3);letter-spacing:.04em}
+.calc-field input{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);
+  color:var(--text);font-family:var(--mono);font-size:var(--fs-base);padding:.5rem .7rem}
+.calc-field input:focus{border-color:var(--gold);outline:none}
+.calc-out{display:flex;justify-content:space-between;align-items:baseline;gap:var(--sp-3);
+  padding:.5rem 0;border-bottom:1px solid var(--line-soft)}
+.calc-out:last-child{border-bottom:0}
+.calc-out span:first-child{font-size:var(--fs-sm);color:var(--text-3)}
+.calc-out b{font-family:var(--mono);color:var(--text);font-size:var(--fs-base);white-space:nowrap}
+.calc-out b.warn-v{color:var(--warn)}
+.calc-out b.ok-v{color:var(--ok)}
+.calc-signal{grid-column:1/-1;border-radius:var(--radius);padding:var(--sp-4);
+  border:1px solid var(--gold-line);background:var(--gold-glow);font-size:var(--fs-sm);
+  color:var(--text-2);line-height:1.6}
+.calc-signal b{color:var(--gold)}
+@media (max-width:640px){.calc-sheet{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<main class="main" id="conteudo">
+ <header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Sistema Comercial · Módulo 3</div>
+<h1>Oferta<br/><em>e Precificação</em></h1>
+<p class="hero-lede">
+        O <a class="modref" data-mod="c1-m2">C1.M2</a> definiu o território. Este módulo não ensina "como
+        cobrar mais" — ensina a <strong>engenharia financeira</strong> que torna qualquer preço sustentável:
+        margem, CAC máximo, ponto de equilíbrio, capacidade. No fim, uma planilha lógica calcula tudo isso
+        com os seus números.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~60 min</dd></div>
+<div><dt>Seções</dt><dd>8</dd></div>
+<div><dt>Fórmulas</dt><dd>11</dd></div>
+<div><dt>Planilha lógica</dt><dd>1</dd></div>
+</dl>
+<div class="selo-key">
+<div><span class="selo ev">Evidência</span><p>Achado experimental revisado por pares. Vem com citação completa.</p></div>
+<div><span class="selo inf">Inferência</span><p>Extrapolação razoável para contexto <em>não</em> testado. Eu explico o salto.</p></div>
+<div><span class="selo prat">Prática</span><p>Engenharia financeira padrão de operação de serviço. Fórmula, não achado — aplicação correta importa mais que fonte.</p></div>
+<div><span class="selo mito">Mito</span><p>Repetido no mercado e contradito pela evidência — ou sem fonte.</p></div>
+</div>
+</div>
+</header>
+<!-- ============================================================ 3.1 ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>3.1</span><span></span></div>
+<h2>Preço é consequência da estrutura financeira, não o contrário</h2>
+<p class="sec-lede">
+          A pergunta errada é "quanto eu cobro". A certa é "que estrutura de custo, margem e capacidade
+          preciso ter pra qualquer preço ser sustentável e escalável".
+        </p>
+</div>
+<p>
+        O <a class="modref" data-mod="c1-m2">C1.M2</a> mostrou por que preço é sinal, não só custo de
+        acesso — e por que território tira você da comparação direta. Isso resolve a pergunta de
+        <strong>posicionamento</strong>. Não resolve a de <strong>engenharia</strong>: mesmo com território
+        definido, um preço mal calculado quebra a operação — ou por margem insuficiente, ou por capacidade
+        que a demanda ultrapassa.
+      </p>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>O que este módulo entrega</span>
+</div>
+<p>
+          Sete peças de engenharia financeira, cada uma respondendo uma pergunta operacional: margem de
+          contribuição (§3.2), <abbr data-t="CAC">CAC</abbr> máximo e <abbr data-t="ROAS">ROAS</abbr> mínimo
+          (§3.3), ponto de equilíbrio, capacidade e fluxo de caixa (§3.4), <abbr data-t="LTV">LTV</abbr>
+          real (§3.5). A §3.6 junta tudo numa simulação numérica completa, e a §3.8 entrega a planilha que
+          calcula com os seus números.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 3.2 ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>3.2</span><span></span></div>
+<h2>Margem de contribuição: o número que decide tudo</h2>
+<p class="sec-lede">
+          Não é lucro. É o que sobra do ticket depois do custo variável — e é a base de toda conta que vem
+          depois neste módulo.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Margem de contribuição unitária = Ticket − Custo variável por atendimento.</strong>
+          Custo variável é o que só existe se aquele atendimento específico acontecer: insumo usado na
+          consulta, taxa de pagamento, comissão. Não inclui aluguel, ferramenta ou equipe fixa — isso é
+          custo operacional (§3.4), que existe independente de quantos atendimentos você faz.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Item</th><th>Melasma</th><th>Estrias</th></tr></thead>
+<tbody>
+<tr><td>Ticket médio</td><td>R$ 4.000</td><td>R$ 3.200</td></tr>
+<tr><td>Custo variável (insumo + taxa)</td><td>R$ 400</td><td>R$ 350</td></tr>
+<tr><td><strong>Margem de contribuição unitária</strong></td><td><strong>R$ 3.600</strong></td><td><strong>R$ 2.850</strong></td></tr>
+<tr><td>Margem de contribuição %</td><td>90%</td><td>89%</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>O erro mais caro: decidir com faturamento, não com margem</span>
+</div>
+<p>
+          Faturamento sobe com qualquer venda. Lucro só sobe se a margem de contribuição cobrir o custo fixo
+          e ainda sobrar. Toda decisão de preço, investimento em mídia ou desconto neste módulo usa margem
+          de contribuição como base — nunca faturamento bruto. É o erro de engenharia financeira mais comum
+          do nicho: comemorar faturamento alto com margem estreita.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 3.3 ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>3.3</span><span></span></div>
+<h2><abbr data-t="CAC">CAC</abbr> máximo, <abbr data-t="ROAS">ROAS</abbr> mínimo e orçamento de aquisição</h2>
+<p class="sec-lede">
+          O glossário já define CAC e ROAS. Aqui, a pergunta é operacional: até quanto você pode gastar por
+          paciente sem destruir a margem — e quanto disso vira orçamento de mídia?
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong><abbr data-t="CAC">CAC</abbr> máximo aceitável = Margem de contribuição unitária − Lucro
+          mínimo desejado por paciente.</strong> Não é uma % arbitrária do ticket — é o que sobra da margem
+          depois de garantir que cada paciente ainda deixa lucro real, não só cobre o próprio custo de
+          aquisição.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong><abbr data-t="ROAS">ROAS</abbr> mínimo de equilíbrio = Ticket ÷ Margem de contribuição
+          unitária.</strong> É o ROAS abaixo do qual cada real investido em mídia gera menos retorno do que
+          o custo variável consegue sustentar — abaixo dele, cada venda paga a mídia mas não sobra margem
+          suficiente pro resto da operação.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Cenário (melasma)</th><th>Fórmula</th><th>Resultado</th></tr></thead>
+<tbody>
+<tr><td>Margem de contribuição unitária</td><td>R$ 4.000 − R$ 400</td><td>R$ 3.600</td></tr>
+<tr><td>Lucro mínimo desejado</td><td>—</td><td>R$ 800</td></tr>
+<tr><td class="t-gold"><strong>CAC máximo aceitável</strong></td><td class="t-gold">R$ 3.600 − R$ 800</td><td class="t-gold"><strong>R$ 2.800</strong></td></tr>
+<tr><td class="t-gold"><strong>ROAS mínimo de equilíbrio</strong></td><td class="t-gold">R$ 4.000 ÷ R$ 3.600</td><td class="t-gold"><strong>1,11</strong></td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Orçamento de aquisição não é "quanto sobrou" — é uma decisão</span>
+</div>
+<p>
+          Orçamento mensal de aquisição = número de pacientes que você quer fechar × CAC máximo aceitável,
+          <em>respeitando a capacidade de atendimento</em> (§3.4). Investir mais que isso não é agressividade
+          — é operar acima do CAC máximo, mesmo que o <a class="modref" data-mod="c1-m4">C1.M4</a> (estrutura
+          de campanha) esteja tecnicamente bem configurado.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 3.4 ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>3.4</span><span></span></div>
+<h2>Ponto de equilíbrio, capacidade de atendimento e fluxo de caixa</h2>
+<p class="sec-lede">
+          Três limites que travam a operação em direções diferentes — financeiro, físico e temporal. Ignorar
+          qualquer um deles quebra os outros dois.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Ponto de equilíbrio (em pacientes) = (Custo operacional fixo + Investimento em mídia) ÷
+          Margem de contribuição unitária.</strong> É quantos pacientes por mês cobrem todo o custo fixo e a
+          mídia — abaixo disso, a operação está no vermelho naquele mês, mesmo com margem de contribuição
+          positiva por paciente.
+        </p>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Capacidade de atendimento é o limite que a mídia não respeita sozinha</span>
+</div>
+<p>
+          Se a sua capacidade máxima é 15 consultas/mês e a campanha gera demanda pra 22, você não fechou
+          mais — perdeu qualidade de atendimento nas 15 e perdeu 7 pacientes que esperaram demais (erro 33
+          do <a class="modref" data-mod="c2-m9">C2.M9</a>, SLA de resposta). <strong>Nunca escale mídia
+          além da capacidade de atendimento</strong> — escale capacidade primeiro, depois mídia.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Fluxo de caixa não é o mesmo que lucro.</strong> O investimento em mídia sai do caixa no
+          início do mês; o faturamento de parte dos pacientes que fecharam pode entrar parcelado nos meses
+          seguintes. Uma operação lucrativa no papel pode quebrar de caixa se o intervalo entre pagar mídia e
+          receber parcela for maior do que o caixa disponível aguenta. Reserve um colchão de caixa de pelo
+          menos 1 mês de custo operacional fixo antes de escalar investimento.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 3.5 ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>3.5</span><span></span></div>
+<h2><abbr data-t="LTV">LTV</abbr> real: por que ele muda o CAC máximo que faz sentido</h2>
+<p class="sec-lede">
+          O CAC máximo do §3.3 usa só o ticket do primeiro protocolo. Contando manutenção e indicação, o
+          teto real costuma ser maior.
+        </p>
+</div>
+<p>
+        O glossário já define <abbr data-t="LTV">LTV</abbr> e <abbr data-t="Payback">Payback</abbr> —
+        aqui, a aplicação prática: se uma paciente de melasma costuma voltar pra manutenção (R$1.800/ano) e
+        indica 0,4 outra paciente em média, o LTV real passa de R$4.000 pra ~R$7.400. O CAC máximo calculado
+        só sobre o ticket inicial (§3.3) é <strong>conservador</strong> — subestima quanto você pode investir
+        se a manutenção e a indicação forem consistentes.
+      </p>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Use o CAC máximo do ticket pra decidir hoje, o de LTV pra decidir o teto real</span>
+</div>
+<p>
+          Regra prática: dimensione orçamento de mídia (§3.3) pelo CAC máximo baseado só no ticket — é o
+          número seguro, que não depende de manutenção/indicação se concretizarem. Use o CAC baseado em LTV
+          como <em>teto superior</em>, só pra avaliar se vale abrir exceção pontual (ex.: campanha de
+          expansão pra praça nova). O <abbr data-t="ROI">ROI</abbr> da operação toda também melhora com LTV
+          maior — mais um motivo pra investir no pós-venda do <a class="modref" data-mod="c1-m8">C1.M8</a>
+          em vez de só em aquisição.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 3.6 ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>3.6</span><span></span></div>
+<h2>Simulação numérica completa</h2>
+<p class="sec-lede">
+          Um mês inteiro de operação de melasma, do investimento em mídia ao lucro líquido, com todas as
+          fórmulas anteriores encadeadas.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Passo</th><th>Cálculo</th><th>Resultado</th></tr></thead>
+<tbody>
+<tr><td>1. Investimento em Meta Ads</td><td>—</td><td>R$ 3.000</td></tr>
+<tr><td>2. Leads gerados no mês</td><td>—</td><td>60</td></tr>
+<tr><td>3. Taxa de conversão lead → paciente</td><td>—</td><td>15%</td></tr>
+<tr><td>4. Pacientes fechados</td><td>60 × 15%</td><td>9</td></tr>
+<tr><td>5. Faturamento</td><td>9 × R$ 4.000</td><td>R$ 36.000</td></tr>
+<tr><td>6. CAC atual</td><td>R$ 3.000 ÷ 9</td><td>R$ 333</td></tr>
+<tr><td>7. Margem de contribuição total</td><td>9 × R$ 3.600</td><td>R$ 32.400</td></tr>
+<tr><td>8. Custo operacional fixo</td><td>—</td><td>R$ 3.500</td></tr>
+<tr><td class="t-gold">9. <strong>Lucro líquido do mês</strong></td><td class="t-gold">R$ 32.400 − R$ 3.500 − R$ 3.000</td><td class="t-gold"><strong>R$ 25.900</strong></td></tr>
+<tr><td class="t-gold">10. <strong><abbr data-t="ROAS">ROAS</abbr> do mês</strong></td><td class="t-gold">R$ 36.000 ÷ R$ 3.000</td><td class="t-gold"><strong>12,0</strong></td></tr>
+<tr><td class="t-gold">11. <strong>Ponto de equilíbrio</strong></td><td class="t-gold">(R$3.500+R$3.000) ÷ R$3.600</td><td class="t-gold"><strong>1,8 pacientes</strong></td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Leia o resultado: CAC (R$333) está bem abaixo do teto (R$2.800, §3.3)</span>
+</div>
+<p>
+          Isso significa que, com capacidade de atendimento disponível (§3.4), essa operação tem espaço real
+          pra escalar investimento — cada real a mais em mídia, dentro dessa mesma taxa de conversão, ainda
+          gera lucro. Mude qualquer um dos passos 1–3 na planilha da §3.8 pra ver como o resultado muda com
+          os seus números reais.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 3.7 ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>3.7</span><span></span></div>
+<h2>Erros de engenharia financeira</h2>
+<p class="sec-lede">
+          Quatro erros que a matemática das seções anteriores já evita — desde que você use as fórmulas de
+          verdade, não de memória.
+        </p>
+</div>
+<div class="rew">
+<div class="rew-row bad"><span class="rew-tag">DECIDIR POR FATURAMENTO</span>
+<p class="rew-txt">Comemorar mês de faturamento alto sem checar margem de contribuição e lucro líquido (§3.2). Faturamento sobe até com prejuízo, se o custo subir junto.</p></div>
+<div class="rew-row bad"><span class="rew-tag">CONFUNDIR CAC COM CPA</span>
+<p class="rew-txt">Otimizar campanha pelo custo do evento mais barato (clique, lead) em vez do CAC real por paciente pagante — o mesmo erro 22 do <a class="modref" data-mod="c2-m9">C2.M9</a>.</p></div>
+<div class="rew-row bad"><span class="rew-tag">ESCALAR SEM CAPACIDADE</span>
+<p class="rew-txt">Aumentar investimento em mídia sem checar se a capacidade de atendimento aguenta o volume novo (§3.4) — gera fila, SLA quebrado e paciente perdida por demora.</p></div>
+<div class="rew-row bad"><span class="rew-tag">IGNORAR O CUSTO FIXO NO PONTO DE EQUILÍBRIO</span>
+<p class="rew-txt">Calcular "quanto preciso vender" olhando só a margem por paciente, sem somar custo operacional fixo e investimento em mídia — subestima quantos pacientes realmente cobrem o mês.</p></div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 3.8 ============================================================ -->
+<section class="sec reveal" id="s8">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>3.8</span><span></span></div>
+<h2>Resumo executivo</h2>
+<p class="sec-lede">
+          Sete ideias, o bloco de implementação e a planilha lógica que responde às perguntas financeiras da
+          sua operação com os seus números. O <a class="modref" data-mod="c1-m4">C1.M4</a> usa o CAC máximo
+          e o orçamento de aquisição definidos aqui pra estruturar a campanha.
+        </p>
+</div>
+<div class="summary">
+<h3>As sete ideias do Módulo 3</h3>
+<ol>
+<li><b>Preço é consequência da estrutura financeira</b> — margem, CAC máximo, ponto de equilíbrio e capacidade decidem se um preço é sustentável, não o contrário.</li>
+<li><b>Margem de contribuição, não faturamento, é a base de toda decisão.</b> Ticket menos custo variável — nunca receita bruta.</li>
+<li><b>CAC máximo = margem de contribuição − lucro mínimo desejado.</b> Não é uma % do ticket arbitrária, é o que sobra depois de garantir lucro real por paciente.</li>
+<li><b>ROAS mínimo de equilíbrio = ticket ÷ margem de contribuição unitária.</b> Abaixo dele, a mídia se paga mas não sobra margem suficiente pro resto da operação.</li>
+<li><b>Nunca escale mídia além da capacidade de atendimento.</b> Demanda que a operação não consegue atender vira paciente perdida, não faturamento extra.</li>
+<li><b>Fluxo de caixa é diferente de lucro</b> — reserve colchão de caixa antes de escalar, porque mídia sai do caixa antes do faturamento parcelado entrar.</li>
+<li><b>LTV real amplia o CAC máximo</b>, mas use o CAC baseado só no ticket pra decisão do dia a dia — o de LTV é teto superior, não regra padrão.</li>
+</ol>
+</div>
+<h3>Implementação no Meu Negócio</h3>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>O que executar depois de ler este módulo</span>
+</div>
+<p><strong>Como aplicar no meu sistema:</strong> preencher a planilha lógica abaixo com os números reais de melasma e de estrias, separadamente, e guardar os resultados (CAC máximo, ROAS mínimo, ponto de equilíbrio) como referência de decisão mensal.</p>
+<p><strong>O que configurar:</strong> uma rotina mensal de atualização dos custos (variável e fixo) e da capacidade de atendimento disponível — esses números mudam com o tempo e a planilha só é confiável se for atualizada.</p>
+<p><strong>O que produzir:</strong> um documento simples (pode ser a própria tela desta planilha, salva ou impressa) com o CAC máximo e o orçamento de aquisição aprovados para o mês, pra usar como teto na hora de configurar campanha no <a class="modref" data-mod="c1-m4">C1.M4</a>.</p>
+<p><strong>Como medir se funcionou:</strong> ao final de cada mês, comparar o CAC atual real com o CAC máximo calculado — se estiver consistentemente abaixo, há espaço pra escalar; se estiver acima, é sinal de correção antes de aumentar investimento.</p>
+<p><strong>Indicadores a acompanhar:</strong> CAC atual, ROAS atual, número de pacientes vs. capacidade, lucro líquido do mês, saldo de caixa disponível.</p>
+<p><strong>Erros a evitar:</strong> decidir por faturamento em vez de margem; confundir CAC com CPA; escalar mídia acima da capacidade de atendimento; ignorar custo fixo no cálculo de ponto de equilíbrio (§3.7).</p>
+</div>
+<h3>Planilha Lógica — Sua Engenharia Financeira</h3>
+<p>
+        Preencha com os números reais da sua operação. Os valores abaixo já vêm com o exemplo da §3.6 —
+        troque por qualquer protocolo, os resultados recalculam sozinhos.
+      </p>
+<div class="calc-sheet" id="calcSheet">
+<div class="calc-col">
+<h4>Seus números</h4>
+<div class="calc-field"><label for="cTicket">Ticket médio do protocolo (R$)</label><input id="cTicket" min="0" step="50" type="number" value="4000"/></div>
+<div class="calc-field"><label for="cVarCost">Custo variável por atendimento (R$)</label><input id="cVarCost" min="0" step="10" type="number" value="400"/></div>
+<div class="calc-field"><label for="cFixedCost">Custo operacional fixo mensal (R$)</label><input id="cFixedCost" min="0" step="50" type="number" value="3500"/></div>
+<div class="calc-field"><label for="cCapacity">Capacidade máxima de atendimentos/mês</label><input id="cCapacity" min="0" step="1" type="number" value="15"/></div>
+<div class="calc-field"><label for="cAdSpend">Investimento mensal em Meta Ads (R$)</label><input id="cAdSpend" min="0" step="50" type="number" value="3000"/></div>
+<div class="calc-field"><label for="cLeads">Leads gerados por mês</label><input id="cLeads" min="0" step="1" type="number" value="60"/></div>
+<div class="calc-field"><label for="cConvRate">Taxa de conversão lead → paciente (%)</label><input id="cConvRate" min="0" max="100" step="0.5" type="number" value="15"/></div>
+<div class="calc-field"><label for="cMinProfit">Lucro mínimo desejado por paciente (R$)</label><input id="cMinProfit" min="0" step="50" type="number" value="800"/></div>
+</div>
+<div class="calc-col">
+<h4>Sua engenharia financeira</h4>
+<div class="calc-out"><span>Pacientes/mês</span><b id="oPacientes">—</b></div>
+<div class="calc-out"><span>Faturamento/mês</span><b id="oFaturamento">—</b></div>
+<div class="calc-out"><span>Margem de contribuição unitária</span><b id="oMargemUnit">—</b></div>
+<div class="calc-out"><span>Margem de contribuição %</span><b id="oMargemPct">—</b></div>
+<div class="calc-out"><span>Quanto posso investir por paciente (CAC máximo)</span><b id="oCacMax">—</b></div>
+<div class="calc-out"><span>CAC atual</span><b id="oCacAtual">—</b></div>
+<div class="calc-out"><span>ROAS mínimo de equilíbrio</span><b id="oRoasMin">—</b></div>
+<div class="calc-out"><span>ROAS atual</span><b id="oRoasAtual">—</b></div>
+<div class="calc-out"><span>Quanto preciso vender por mês (ponto de equilíbrio)</span><b id="oFatEq">—</b></div>
+<div class="calc-out"><span>Pacientes necessários pro equilíbrio</span><b id="oPeq">—</b></div>
+<div class="calc-out"><span>Lucro líquido do mês</span><b id="oLucro">—</b></div>
+</div>
+<div class="calc-signal" id="oSinal">—</div>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 3</h4>
+<span class="check-count" id="upCheckCount">0 / 12</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Margem e custo</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Calculei a <b>margem de contribuição unitária</b> real dos dois protocolos</span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Separei <b>custo variável</b> de <b>custo operacional fixo</b> corretamente</span></label>
+<div class="check-group">B · CAC e ROAS</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Calculei o <b>CAC máximo aceitável</b> pros dois protocolos</span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Calculei o <b>ROAS mínimo de equilíbrio</b></span></label>
+<label class="ci"><input data-ck="b3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei o <b>CAC atual</b> da minha operação, se já tiver dado histórico</span></label>
+<div class="check-group">C · Capacidade e caixa</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini minha <b>capacidade máxima</b> de atendimentos/mês, com margem realista</span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Reservei <b>colchão de caixa</b> de pelo menos 1 mês de custo fixo</span></label>
+<div class="check-group">D · Ponto de equilíbrio e LTV</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Calculei o <b>ponto de equilíbrio</b> em pacientes e em faturamento</span></label>
+<label class="ci"><input data-ck="d2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Estimei o <b>LTV real</b> considerando manutenção e indicação</span></label>
+<div class="check-group">E · Planilha e decisão</div>
+<label class="ci"><input data-ck="e1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Preenchi a <b>planilha lógica</b> com os números reais dos dois protocolos</span></label>
+<label class="ci"><input data-ck="e2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Anotei o <b>orçamento de aquisição</b> aprovado para o próximo mês</span></label>
+<label class="ci"><input data-ck="e3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Revisei os <b>4 erros</b> do §3.7 contra minha operação atual</span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>Responda de cabeça. Se travar em duas ou mais, releia antes de seguir.</p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">Por que margem de contribuição, e não faturamento, deve guiar toda decisão de preço e investimento?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">Qual é a fórmula do CAC máximo aceitável, e o que ela garante que uma % arbitrária do ticket não garante?</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">O que acontece quando a mídia gera mais demanda do que a capacidade de atendimento aguenta?</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">Por que lucro no papel não garante que o caixa aguenta escalar investimento?</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">Quando faz sentido usar o CAC máximo baseado em LTV em vez do baseado só no ticket?</p></div>
+</div>
+<h3>Exercícios práticos</h3>
+<div class="ex">
+<div class="ex-tag">Exercício 1 · ~25 min</div>
+<h4>Preencha a planilha com seus dois protocolos</h4>
+<p>Rode a planilha lógica da §3.8 duas vezes — uma para melasma, uma para estrias — com seus números reais (ou as melhores estimativas que você tem hoje). Anote os resultados principais.</p>
+<textarea data-ex="ex1" placeholder="Melasma — CAC máximo: ... ROAS mínimo: ... Ponto de equilíbrio: ...
+Estrias — CAC máximo: ... ROAS mínimo: ... Ponto de equilíbrio: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 2 · ~20 min</div>
+<h4>Audite o mês passado</h4>
+<p>Se você já tem dado de investimento em mídia e pacientes fechados do mês anterior, calcule o CAC real e compare com o CAC máximo. Está dentro ou fora?</p>
+<textarea data-ex="ex2" placeholder="Investimento no mês: ...
+Pacientes fechados: ...
+CAC real: ...
+Dentro ou fora do CAC máximo? ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 3 · ~15 min</div>
+<h4>Defina o orçamento de aquisição do próximo mês</h4>
+<p>Usando o CAC máximo e a capacidade de atendimento disponível, calcule o orçamento de aquisição do próximo mês (pacientes-alvo × CAC máximo, respeitando a capacidade).</p>
+<textarea data-ex="ex3" placeholder="Pacientes-alvo (dentro da capacidade): ...
+CAC máximo: ...
+Orçamento de aquisição do mês: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Módulo 4</h4>
+<span class="check-count" id="upDoneCount">0 / 6</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>8 seções</b> inteiras</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei as <b>fórmulas de CAC máximo e ROAS mínimo</b> de cabeça</span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Preenchi a <b>planilha lógica</b> com os dois protocolos</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho o <b>orçamento de aquisição</b> do próximo mês definido</span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei minha <b>capacidade máxima</b> de atendimento de cabeça</span></label>
+<label class="ci"><input data-dk="k6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz os <b>3 exercícios</b> — de verdade, não mentalmente</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s8">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>Platform.init({ id:"c1-m3" });</script>
+<script>
+(function(){
+  var ids = ["cTicket","cVarCost","cFixedCost","cCapacity","cAdSpend","cLeads","cConvRate","cMinProfit"];
+  function num(id){ var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? 0 : v; }
+  function brl(n){
+    if (!isFinite(n)) return "—";
+    return n.toLocaleString("pt-BR", { style:"currency", currency:"BRL", maximumFractionDigits:0 });
+  }
+  function pct(n){
+    if (!isFinite(n)) return "—";
+    return (n*100).toLocaleString("pt-BR", { maximumFractionDigits:1 }) + "%";
+  }
+  function num1(n){
+    if (!isFinite(n)) return "—";
+    return n.toLocaleString("pt-BR", { maximumFractionDigits:1 });
+  }
+  function setOut(id, text, cls){
+    var el = document.getElementById(id);
+    el.textContent = text;
+    el.className = cls || "";
+  }
+  function calc(){
+    var ticket = num("cTicket");
+    var varCost = num("cVarCost");
+    var fixedCost = num("cFixedCost");
+    var capacity = num("cCapacity");
+    var adSpend = num("cAdSpend");
+    var leads = num("cLeads");
+    var convRate = num("cConvRate");
+    var minProfit = num("cMinProfit");
+
+    var pacientes = leads * (convRate/100);
+    var faturamento = pacientes * ticket;
+    var margemUnit = ticket - varCost;
+    var margemPct = ticket > 0 ? margemUnit/ticket : NaN;
+    var margemTotal = margemUnit * pacientes;
+    var cacAtual = pacientes > 0 ? adSpend/pacientes : NaN;
+    var cacMax = margemUnit - minProfit;
+    var roasAtual = adSpend > 0 ? faturamento/adSpend : NaN;
+    var roasMin = margemUnit > 0 ? ticket/margemUnit : NaN;
+    var peq = margemUnit > 0 ? (fixedCost+adSpend)/margemUnit : NaN;
+    var fatEq = peq * ticket;
+    var lucro = margemTotal - fixedCost - adSpend;
+
+    setOut("oPacientes", num1(pacientes));
+    setOut("oFaturamento", brl(faturamento));
+    setOut("oMargemUnit", brl(margemUnit), margemUnit < 0 ? "warn-v" : "ok-v");
+    setOut("oMargemPct", pct(margemPct));
+    setOut("oCacMax", brl(cacMax), cacMax < 0 ? "warn-v" : "ok-v");
+    setOut("oCacAtual", brl(cacAtual), (isFinite(cacAtual) && isFinite(cacMax) && cacAtual > cacMax) ? "warn-v" : "ok-v");
+    setOut("oRoasMin", isFinite(roasMin) ? roasMin.toLocaleString("pt-BR",{maximumFractionDigits:2}) : "—");
+    setOut("oRoasAtual", isFinite(roasAtual) ? roasAtual.toLocaleString("pt-BR",{maximumFractionDigits:2}) : "—", (isFinite(roasAtual) && isFinite(roasMin) && roasAtual < roasMin) ? "warn-v" : "ok-v");
+    setOut("oFatEq", brl(fatEq));
+    setOut("oPeq", num1(peq));
+    setOut("oLucro", brl(lucro), lucro < 0 ? "warn-v" : "ok-v");
+
+    var sinal = "";
+    if (pacientes <= 0) {
+      sinal = "Preencha leads e taxa de conversão maiores que zero pra ver o diagnóstico de escala.";
+    } else if (capacity > 0 && pacientes >= capacity) {
+      sinal = "<b>Acima da capacidade.</b> A demanda projetada (" + num1(pacientes) + " pacientes) já alcança ou ultrapassa sua capacidade máxima (" + num1(capacity) + "). Não escale mídia agora — expanda capacidade de atendimento primeiro, senão a qualidade do atendimento cai e o CAC efetivo sobe por paciente perdida.";
+    } else if (isFinite(cacMax) && isFinite(cacAtual) && cacAtual > cacMax) {
+      sinal = "<b>Reduza investimento ou ajuste a oferta.</b> O CAC atual (" + brl(cacAtual) + ") está acima do CAC máximo aceitável (" + brl(cacMax) + ") — cada paciente nova está custando mais do que a margem sustenta.";
+    } else if (capacity > 0 && pacientes >= capacity * 0.85) {
+      sinal = "<b>Perto da capacidade.</b> Planeje expandir atendimento antes de aumentar o investimento em mídia.";
+    } else if (isFinite(cacMax) && cacMax > 0) {
+      sinal = "<b>Pode escalar.</b> O CAC atual está dentro do teto e ainda há capacidade de atendimento disponível — espaço pra aumentar o investimento em mídia gradualmente, revisando os números a cada mudança.";
+    } else {
+      sinal = "Preencha os campos ao lado com os números da sua operação para ver o diagnóstico.";
+    }
+    document.getElementById("oSinal").innerHTML = sinal;
+  }
+  ids.forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("input", calc);
+  });
+  calc();
+})();
+</script>
+</body>
+</html>

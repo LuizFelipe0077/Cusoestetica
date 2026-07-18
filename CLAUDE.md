@@ -8,8 +8,9 @@ release final além de correções apontadas pelo validador (`validate.py`).
 
 31 módulos em 3 cursos (C1 Sistema Comercial, C2 Psicologia e Conteúdo, C3 Engenharia
 e Dados) + capstone SOG. Módulos concluídos até agora: c1-m1, c2-m1, c2-m2, c2-m3
-(padrão antigo, pré-2026-07-18) · c2-m4, c2-m5, c2-m6, c2-m7, c2-m8, c2-m9 (padrão
-novo, ver diretriz abaixo). **Curso 2 completo.**
+(padrão antigo, pré-2026-07-18) · c2-m4, c2-m5, c2-m6, c2-m7, c2-m8, c2-m9, c1-m2,
+c1-m3, c1-m4, c1-m5 (padrão novo, ver diretriz abaixo). **Curso 2 completo.** Curso
+1 em andamento a partir do c1-m2 (c1-m1 é padrão antigo).
 
 ---
 
@@ -152,6 +153,46 @@ interrompe a produção dos módulos.**
   que vem, não uma dependência de leitura. Onze abreviações de glossário usadas
   (CPM, CPC, CAC, LTV, SLA, Pixel, CAPI, event_id, EMQ, GA4, LCP) — todas com
   `<abbr>` confirmado; `onde` de todas as 11 atualizado com `c2-m9` em `glossario.js`.
+- c1-m2 (Posicionamento e Luxo Silencioso) — mesma pendência de `searchindex.js`/
+  `validate.py`. Primeiro módulo do Curso 1 e primeiro sob a Regra do Sistema
+  Comercial (bloco "Implementação no Meu Negócio" no fechamento, cenário fixo do
+  dono aplicado em toda seção). `deps` passou de `["c2-m3"]` para
+  `["c1-m1","c2-m3","c2-m4","c2-m6"]`. Verificação manual sem erros de primeira
+  (checklist 12/12 e 6/6 bateram na primeira tentativa).
+- c1-m4 (Meta Ads e a Arquitetura de Aquisição) — mesma pendência de
+  `searchindex.js`/`validate.py`. `vol:"high"` — pesquisado via `WebSearch` em
+  2026-07-18 (learning phase, Categoria Especial de saúde, janelas de atribuição,
+  Advantage+/CBO→Advantage+ Campaign Budget), fontes oficiais citadas por seção com
+  URL e data. **Módulo-âncora deliberado**: por pedido do dono, este módulo excede a
+  regra de densidade de 45-60min (ficou em ~90min) — decisão explícita dele diante
+  da tensão entre a Regra de Densidade e o volume de conteúdo que pediu (18 subtemas
+  de Meta Ads + engenharia de decisão + plano operacional completo). O mapa de 13
+  etapas (paciente ideal → indicação) é só contexto breve com referência cruzada, e
+  não duplica o `C3.M1 — Arquitetura Completa` (ainda não construído) nem os 6
+  módulos futuros que cada etapa não-Meta-Ads já tem reservados — decisão tomada
+  entre duas opções apresentadas ao dono. Título mudou de "Meta Ads: Estrutura de
+  Campanha" para "Meta Ads e a Arquitetura de Aquisição"; `deps` passou de
+  `["c2-m5","c3-m2"]` (o antigo incluía um módulo ainda não construído) para só
+  módulos já prontos: `["c1-m1","c1-m2","c1-m3","c2-m4","c2-m5","c2-m6","c2-m9"]`.
+  Duas siglas novas adicionadas ao glossário: `ABO` e `CBO` (com nota de que CBO
+  hoje se chama "Advantage+ Campaign Budget"), `onde` de CAC/LTV/ROAS/Pixel/CAPI/GA4
+  atualizado com `c1-m4`.
+- c1-m5 (WhatsApp: A Sala de Espera Digital) — mesma pendência de
+  `searchindex.js`/`validate.py`. Densidade padrão (não é módulo-âncora como o
+  C1.M4). Reaproveita psicologia do C2.M2 (técnica do espelho) e C2.M3 (mito dos 7
+  contatos, risco identitário) em vez de reexplicar. `deps` passou de `["c2-m2"]`
+  para `["c1-m2","c1-m3","c1-m4","c2-m2","c2-m3"]`. Citação de pesquisa sobre tempo
+  de resposta a leads (Oldroyd, McElheran & Elkington, HBR 2011) marcada com nota de
+  incerteza sobre números exatos — usei só a direção do achado.
+- c1-m3 (Oferta e Precificação) — mesma pendência de `searchindex.js`/`validate.py`.
+  Primeiro módulo sob a Regra da Engenharia Financeira, com a primeira planilha
+  lógica interativa da plataforma (ver seção própria acima). Testada de verdade no
+  navegador via `javascript_tool` (o ambiente marca arquivos fora da pasta do
+  projeto como "static snapshot" pra `computer`/screenshot, então a verificação foi
+  por execução direta de JS na página, não por captura visual) — achei e corrigi um
+  bug real (sinal de diagnóstico errado com 0 pacientes) antes de aprovar. `min`
+  ficou em 60 (teto da faixa de densidade), justificado pela quantidade de fórmulas
+  + simulação numérica completa que o dono pediu explicitamente.
 
 ### Módulos-catálogo (bibliotecas de ganchos/roteiros/erros) — regra permanente, 2026-07-18 (refinada em 2026-07-18)
 Para módulos cujo valor é a extensão do fichário (C2.M5 — biblioteca de ganchos,
@@ -255,6 +296,32 @@ WhatsApp, automações, funis, remarketing, escala, mensuração, conversão. Se
 um conceito puder ser demonstrado com os protocolos dele (melasma/estrias), usar os
 protocolos dele — mesma regra de exemplos já vale para toda a plataforma, aqui é
 reforço específico porque o Curso 1 é o "manual operacional" da empresa.
+
+### Regra da Engenharia Financeira — específica do C1.M3 (permanente, 2026-07-18)
+O C1.M3 (Oferta e Precificação) não ensina só técnica de preço — ensina a engenharia
+financeira que torna a operação sustentável: margem de contribuição, CAC máximo,
+ROAS mínimo, ponto de equilíbrio, capacidade de atendimento, fluxo de caixa e LTV
+real, sempre com simulação numérica completa (não só fórmula abstrata) aplicada a
+melasma/estrias/consulta online. O preço é tratado como consequência dessa
+estrutura, nunca como ponto de partida.
+
+**Planilha lógica interativa — novo padrão de componente.** Esse módulo introduziu
+o primeiro componente interativo real da plataforma: uma calculadora em HTML/CSS/JS
+que responde perguntas financeiras (quanto investir por paciente, CAC máximo, ROAS
+mínimo, quanto vender por mês, quando escalar/reduzir) com os números do dono,
+recalculando ao vivo. Regras pra manter esse padrão em módulos futuros que
+precisarem de algo parecido:
+- Um único bloco `<style>` no `<head>`, só com `var(--token)` — nunca cor fixa
+  (`#hex`/`rgba`), nunca redeclarar seletor/token do shell (`.card{`, `.callout{`,
+  `--gold:`, `--bg:`, etc.) — mesma regra que já vale pro CSS do módulo em geral.
+- JS num `<script>` isolado (IIFE), depois do `Platform.init`, sem depender de nada
+  do `platform.js` — só lê/escreve nos próprios elementos do módulo.
+- Sempre guardar divisão por zero e valores negativos (retornar "—" em vez de
+  `NaN`/`Infinity` na tela) — testado neste módulo com leads=0 e custo variável >
+  ticket antes de fechar.
+- **Testar de verdade no navegador antes de aprovar**, não só verificar a estrutura
+  HTML. Neste módulo isso pegou um bug real (mensagem de diagnóstico errada com 0
+  pacientes) que a checagem estrutural manual não pegaria.
 
 ### Meta final da plataforma
 Ao concluir todos os módulos, o dono deve conseguir: montar toda a estrutura de Meta

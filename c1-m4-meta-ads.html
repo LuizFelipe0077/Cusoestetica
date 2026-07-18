@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 4 — Meta Ads e a Arquitetura de Aquisição. O mapa das 13 etapas de aquisição, e Meta Ads a fundo: objetivos, Advantage+, estrutura, orçamento, públicos e a Categoria Especial de saúde, aprendizado, otimização, escala, testes A/B e as métricas que importam — com plano operacional completo.">
+<title>Meta Ads e a Arquitetura de Aquisição · Curso 1 · Sistema Comercial</title>
+
+<!--
+  CURSO 1 · SISTEMA COMERCIAL
+  Módulo 4 — Meta Ads e a Arquitetura de Aquisição
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Chrome, navegação, progresso, busca e glossário vêm do platform.js.
+  Este arquivo tem conteúdo + o que é exclusivamente dele: 1 figura SVG do mapa
+  de 13 etapas. Sem CSS/JS exclusivo além disso.
+
+  vol:"high" — pesquisado via WebSearch em 2026-07-18 (regra do manifest.js:
+  search-first). Fontes oficiais citadas por seção; boas práticas de mercado e
+  hipóteses marcadas como tal, nunca apresentadas como regra — pedido explícito
+  do dono. Tratado como módulo-âncora do Curso 1 (exceção deliberada à regra de
+  densidade de 45-60min, decisão registrada no CLAUDE.md): o mapa de 13 etapas é
+  só contexto breve com referência cruzada — a arquitetura completa fica pro
+  C3.M1, ainda não construído, pra não duplicar.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+
+<main class="main" id="conteudo">
+ <header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Sistema Comercial · Módulo 4</div>
+<h1>Meta Ads e a<br/><em>Arquitetura de Aquisição</em></h1>
+<p class="hero-lede">
+        Meta Ads não opera sozinho — é uma peça de um sistema de 13 etapas, do paciente ideal até a
+        indicação. Este módulo mapeia o sistema em uma seção e depois vai a fundo só na peça Meta Ads: da
+        estrutura de campanha ao plano operacional completo pra montar a sua primeira estrutura de
+        aquisição.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~90 min</dd></div>
+<div><dt>Seções</dt><dd>10</dd></div>
+<div><dt>Etapas do funil</dt><dd>13</dd></div>
+<div><dt>Decisões críticas</dt><dd>9</dd></div>
+</dl>
+<div class="selo-key">
+<div><span class="selo ev">Evidência</span><p>Achado experimental revisado por pares. Vem com citação completa.</p></div>
+<div><span class="selo inf">Inferência</span><p>Extrapolação razoável para contexto <em>não</em> testado. Eu explico o salto.</p></div>
+<div><span class="selo prat">Prática</span><p>Aqui, dividida em duas: documentação oficial da Meta (citada com fonte e data) e boas práticas de mercado (consenso de quem roda campanha, sem ser regra da plataforma).</p></div>
+<div><span class="selo mito">Mito</span><p>Repetido no mercado e contradito pela documentação oficial — ou hipótese vendida como regra.</p></div>
+</div>
+</div>
+</header>
+<!-- ============================================================ 4.1 ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.1</span><span></span></div>
+<h2>O mapa: 13 etapas, do paciente ideal à indicação</h2>
+<p class="sec-lede">
+          Cada etapa influencia a seguinte — e cada uma tem, ou vai ter, o módulo que a aprofunda. Aqui é só
+          o mapa; a arquitetura técnica completa (sistemas, camadas, pontos de perda) é o <a class="modref"
+          data-mod="c3-m1">C3.M1</a>, ainda por construir.
+        </p>
+</div>
+<div class="figure">
+<div class="figure-frame">
+<svg aria-label="Fluxo de 13 etapas de aquisição de pacientes, do paciente ideal até a indicação, com Meta Ads como uma das etapas" role="img" viewbox="0 0 700 620">
+<rect class="svg-node" height="34" rx="3" width="260" x="220" y="6"></rect><text class="svg-t" x="350" y="28" text-anchor="middle">1 · Paciente ideal</text>
+<line class="svg-line" x1="350" x2="350" y1="40" y2="52"></line>
+<rect class="svg-node" height="34" rx="3" width="260" x="220" y="52"></rect><text class="svg-t" x="350" y="74" text-anchor="middle">2 · Posicionamento</text>
+<line class="svg-line" x1="350" x2="350" y1="86" y2="98"></line>
+<rect class="svg-node" height="34" rx="3" width="260" x="220" y="98"></rect><text class="svg-t" x="350" y="120" text-anchor="middle">3 · Criativo</text>
+<line class="svg-line" x1="350" x2="350" y1="132" y2="144"></line>
+<rect class="svg-node" height="34" rx="3" width="260" x="220" y="144"></rect><text class="svg-t" x="350" y="166" text-anchor="middle">4 · Campanha</text>
+<line class="svg-line" x1="350" x2="350" y1="178" y2="190"></line>
+<rect class="svg-node-gold" height="34" rx="3" width="260" x="220" y="190"></rect><text class="svg-t-gold" x="350" y="212" text-anchor="middle">5 · Meta Ads — §4.2 a §4.9</text>
+<line class="svg-line" x1="350" x2="350" y1="224" y2="236"></line>
+<rect class="svg-node" height="34" rx="3" width="260" x="220" y="236"></rect><text class="svg-t" x="350" y="258" text-anchor="middle">6 · Landing Page</text>
+<line class="svg-line" x1="350" x2="350" y1="270" y2="282"></line>
+<rect class="svg-node" height="34" rx="3" width="260" x="220" y="282"></rect><text class="svg-t" x="350" y="304" text-anchor="middle">7 · Pixel + CAPI</text>
+<line class="svg-line" x1="350" x2="350" y1="316" y2="328"></line>
+<rect class="svg-node" height="34" rx="3" width="260" x="220" y="328"></rect><text class="svg-t" x="350" y="350" text-anchor="middle">8 · WhatsApp</text>
+<line class="svg-line" x1="350" x2="350" y1="362" y2="374"></line>
+<rect class="svg-node" height="34" rx="3" width="260" x="220" y="374"></rect><text class="svg-t" x="350" y="396" text-anchor="middle">9 · Consulta</text>
+<line class="svg-line" x1="350" x2="350" y1="408" y2="420"></line>
+<rect class="svg-node-ok" height="34" rx="3" width="260" x="220" y="420"></rect><text class="svg-t-ok" x="350" y="442" text-anchor="middle">10 · Venda</text>
+<line class="svg-line" x1="350" x2="350" y1="454" y2="466"></line>
+<rect class="svg-node" height="34" rx="3" width="260" x="220" y="466"></rect><text class="svg-t" x="350" y="488" text-anchor="middle">11 · Pós-venda</text>
+<line class="svg-line" x1="350" x2="350" y1="500" y2="512"></line>
+<rect class="svg-node" height="34" rx="3" width="260" x="220" y="512"></rect><text class="svg-t" x="350" y="534" text-anchor="middle">12 · Remarketing</text>
+<line class="svg-line" x1="350" x2="350" y1="546" y2="558"></line>
+<rect class="svg-node-ok" height="34" rx="3" width="260" x="220" y="558"></rect><text class="svg-t-ok" x="350" y="580" text-anchor="middle">13 · Indicação</text>
+<path d="M480 575 C 600 575, 620 100, 480 65" fill="none" stroke="var(--gold)" stroke-dasharray="4 3" stroke-width="1.2"></path>
+<text class="svg-t-sm" x="490" y="330" transform="rotate(90 490 330)">INDICAÇÃO REALIMENTA O TOPO — NOVO PACIENTE IDEAL</text>
+</svg>
+</div>
+<p class="figure-cap">
+<b>Figura 4.1.1</b> — O ciclo não é linear: a etapa 13 realimenta a etapa 1 (indicação gera novo
+          paciente ideal), o que o <a class="modref" data-mod="c1-m1">C1.M1</a> §1.4 já chamou de ciclo
+          fechado. Meta Ads (5) é uma peça — depende de Posicionamento e Criativo prontos antes, e só
+          funciona se Landing Page, <abbr data-t="Pixel">Pixel</abbr>/<abbr data-t="CAPI">CAPI</abbr> e WhatsApp estiverem prontos depois.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>#</th><th>Etapa</th><th>O que decide pra etapa seguinte</th><th>Aprofundada em</th></tr></thead>
+<tbody>
+<tr><td class="t-num">1</td><td>Paciente ideal</td><td>Quem a campanha vai buscar</td><td><a class="modref" data-mod="c1-m1">C1.M1</a></td></tr>
+<tr><td class="t-num">2</td><td>Posicionamento</td><td>Que território e preço sustentam a oferta</td><td><a class="modref" data-mod="c1-m2">C1.M2</a></td></tr>
+<tr><td class="t-num">3</td><td>Criativo</td><td>O que a campanha vai efetivamente exibir</td><td><a class="modref" data-mod="c2-m4">C2.M4</a> · <a class="modref" data-mod="c2-m5">C2.M5</a> · <a class="modref" data-mod="c2-m6">C2.M6</a></td></tr>
+<tr><td class="t-num">4</td><td>Campanha</td><td>Objetivo e estrutura — §4.3 a §4.5</td><td>Este módulo</td></tr>
+<tr style="background:var(--gold-glow)"><td class="t-num t-gold">5</td><td class="t-gold"><strong>Meta Ads</strong></td><td class="t-gold">Quem vê, quando, e por quanto — §4.2 a §4.9</td><td class="t-gold">Este módulo</td></tr>
+<tr><td class="t-num">6</td><td>Landing Page</td><td>Se o clique vira lead qualificado</td><td><a class="modref" data-mod="c3-m7">C3.M7</a></td></tr>
+<tr><td class="t-num">7</td><td>Pixel + CAPI</td><td>Se a campanha aprende com o evento certo</td><td><a class="modref" data-mod="c3-m2">C3.M2</a></td></tr>
+<tr><td class="t-num">8</td><td>WhatsApp</td><td>Se o lead vira conversa qualificada</td><td><a class="modref" data-mod="c1-m5">C1.M5</a></td></tr>
+<tr><td class="t-num">9</td><td>Consulta</td><td>Se a conversa vira investigação agendada</td><td><a class="modref" data-mod="c1-m6">C1.M6</a></td></tr>
+<tr><td class="t-num">10</td><td>Venda</td><td>Se a consulta fecha o protocolo</td><td><a class="modref" data-mod="c1-m6">C1.M6</a></td></tr>
+<tr><td class="t-num">11</td><td>Pós-venda</td><td>Se a paciente vira <abbr data-t="LTV">LTV</abbr> real (<a class="modref" data-mod="c1-m3">C1.M3</a> §3.5)</td><td><a class="modref" data-mod="c1-m8">C1.M8</a></td></tr>
+<tr><td class="t-num">12</td><td>Remarketing</td><td>Se quem não fechou de primeira volta depois</td><td><a class="modref" data-mod="c1-m7">C1.M7</a></td></tr>
+<tr><td class="t-num">13</td><td>Indicação</td><td>Se a operação gera aquisição sem CAC de mídia</td><td><a class="modref" data-mod="c1-m8">C1.M8</a></td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Por que Meta Ads falha mesmo bem configurado</span>
+</div>
+<p>
+          A causa mais comum de campanha "que não funciona" não está na etapa 5 — está numa etapa vizinha:
+          criativo fraco (3), landing page lenta ou confusa (6), Pixel mal configurado inflando ou perdendo
+          evento (7), ou WhatsApp que demora a responder (8, erro 33 do <a class="modref"
+          data-mod="c2-m9">C2.M9</a>). Antes de mexer em qualquer configuração de Meta Ads, confirme que as
+          etapas 1 a 3 e 6 a 8 já estão prontas — é o erro 21 do C2.M9: escalar orçamento antes de validar o
+          resto do sistema.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.2 ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.2</span><span></span></div>
+<h2>Como usar este módulo: 3 níveis de certeza</h2>
+<p class="sec-lede">
+          Nenhuma hipótese aparece como regra. Todo ponto crítico do módulo é marcado num dos três níveis —
+          e a distinção muda o quanto você deve confiar em cada afirmação.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Nível</th><th>O que significa</th><th>Exemplo neste módulo</th></tr></thead>
+<tbody>
+<tr><td><span class="selo prat">Prática</span> <strong>oficial</strong></td><td>Documentação publicada pela própria Meta — Business Help Center, Transparency Center. Cito URL e data de consulta.</td><td>Janela de atribuição padrão, mecânica do aprendizado, regras da Categoria Especial</td></tr>
+<tr><td><span class="selo prat">Prática</span> <strong>de mercado</strong></td><td>Consenso de quem roda campanha — não é regra da plataforma, pode mudar sem aviso e varia por conta.</td><td>"Testar com orçamento por conjunto, escalar com orçamento por campanha"</td></tr>
+<tr><td><span class="selo inf">Inferência</span></td><td>Extrapolação minha, ligando a mecânica da Meta ao seu caso específico — marco o salto.</td><td>Como a Categoria Especial de saúde interage especificamente com os seus dois protocolos</td></tr>
+</tbody>
+</table>
+</div>
+<p>
+        Todas as informações sobre a plataforma foram pesquisadas em 18/07/2026. Meta Ads muda estrutura e
+        política com frequência — revisão trimestral é obrigatória pra este módulo, mesma regra de todo
+        módulo <code>vol:"high"</code> da plataforma.
+      </p>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.3 ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.3</span><span></span></div>
+<h2>Objetivos, Advantage+ e estrutura por estágio de funil</h2>
+<p class="sec-lede">
+          A Meta fundiu o fluxo manual e o Advantage+ numa interface só, e Advantage+ virou o padrão de toda
+          campanha nova. A decisão que sobrou pra você é outra: como organizar campanhas por estágio de
+          funil.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Em 2026, Advantage+ é o padrão de qualquer campanha nova criada no Gerenciador — a Meta uniu os
+          fluxos manual e Advantage+ numa única interface, tornando a otimização por IA o comportamento
+          padrão, não mais uma escolha à parte. Isso não elimina decisão sua: você ainda escolhe objetivo
+          (venda, geração de cadastros, tráfego), orçamento, público de partida e criativo — o Advantage+
+          decide entrega, posicionamento e leilão dentro do que você definiu.
+        </p>
+<p class="cit">Fonte: cobertura de mercado consolidada sobre a unificação de fluxo Advantage+ (2026), consultada em 18/07/2026 — não é uma página única do Business Help Center, é o comportamento documentado por múltiplas fontes independentes de forma consistente.</p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Organizar por estágio de funil, não por variável demográfica:</strong> campanha separada
+          pra tráfego frio (quem nunca te viu), remarketing morno (engajou mas não converteu) e remarketing
+          quente (visitou a landing page ou iniciou conversa). É a organização mais citada como eficaz em
+          2026 — evita misturar sinais de intenção muito diferentes na mesma campanha, o que confunde o
+          aprendizado do algoritmo (§4.6).
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Decisão</th><th>Por que fazer</th><th>Quando fazer</th><th>Quando NÃO fazer</th><th>Impacto</th></tr></thead>
+<tbody>
+<tr><td><strong>Usar Advantage+ como padrão</strong></td><td>É o comportamento nativo da plataforma agora — lutar contra ele é nadar contra a maré do leilão</td><td>Sempre que estiver testando um criativo/oferta nova</td><td>Se você já tem dado histórico robusto e uma hipótese específica de segmentação a testar isoladamente</td><td>Menor controle manual, geralmente melhor eficiência de entrega</td></tr>
+<tr><td><strong>Separar campanha por estágio de funil</strong></td><td>Sinais de intenção muito diferentes (frio vs quente) confundem o aprendizado</td><td>Assim que você tiver volume pra alimentar mais de uma campanha (ver §4.6, os 50 eventos)</td><td>Com orçamento muito baixo pra fragmentar em 3 campanhas — nesse caso, uma campanha só, focada em conversão</td><td>CAC mais previsível por estágio; exige mais orçamento total pra manter todas aprendendo</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Tradução pro seu negócio</span>
+</div>
+<p>
+          Com orçamento inicial modesto (ver simulação do <a class="modref" data-mod="c1-m3">C1.M3</a>
+          §3.6), comece com <strong>uma campanha</strong>, objetivo de conversão (mensagem ou lead,
+          dependendo de onde você qualifica — ver <a class="modref" data-mod="c1-m5">C1.M5</a>), usando os
+          criativos do <a class="modref" data-mod="c2-m4">C2.M4</a>. Só separe por estágio de funil quando
+          o volume de conversas justificar mais de uma campanha aprendendo ao mesmo tempo — ver o plano em
+          §4.10.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.4 ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.4</span><span></span></div>
+<h2>Orçamento: ABO, Advantage+ Campaign Budget e quanto investir</h2>
+<p class="sec-lede">
+          O que era "CBO" agora se chama Advantage+ Campaign Budget. A pergunta de "quanto investir" já foi
+          respondida pela planilha do C1.M3 — aqui está como distribuir esse número.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Orçamento no nível de conjunto de anúncios (<abbr data-t="ABO">ABO</abbr>, orçamento por conjunto)
+          dá controle manual sobre quanto cada público recebe. Orçamento no nível de campanha (hoje chamado
+          Advantage+ Campaign Budget, antigo <abbr data-t="CBO">CBO</abbr>) deixa a Meta distribuir
+          dinamicamente entre conjuntos, priorizando o que performa melhor em tempo real.
+        </p>
+<p class="cit">Fonte: documentação e cobertura de mercado sobre a renomeação de CBO para Advantage+ Campaign Budget, consultada em 18/07/2026.</p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Decisão</th><th>Por que</th><th>Quando</th><th>Quando NÃO</th><th>Risco</th></tr></thead>
+<tbody>
+<tr><td><strong>ABO pra testar</strong></td><td>Garante que cada criativo/público novo recebe verba mínima garantida pra gerar sinal</td><td>Testando 2-4 variações de criativo ou público, fase inicial</td><td>Depois que um vencedor já foi identificado</td><td>Baixo — é o modo mais seguro de aprender, mas mais lento pra escalar</td></tr>
+<tr><td><strong>Advantage+ Budget pra escalar</strong></td><td>Concentra verba automaticamente no que já provou funcionar, reduzindo custo por conversão</td><td>Depois de identificar o(s) conjunto(s) vencedor(es) com volume mínimo de conversão</td><td>Sem nenhum dado histórico — a Meta não tem o que otimizar ainda</td><td>Médio — pode concentrar tudo num único conjunto e matar a diversidade de teste</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>O teto de orçamento já está calculado — no C1.M3</span>
+</div>
+<p>
+          Não decida orçamento por "quanto sobra no mês" — decida pelo <strong>orçamento de aquisição</strong>
+          que a planilha lógica do <a class="modref" data-mod="c1-m3">C1.M3</a> §3.3 calcula: pacientes-alvo
+          × <abbr data-t="CAC">CAC</abbr> máximo, respeitando a capacidade de atendimento. Esse número é o
+          orçamento mensal total — ABO ou Advantage+ Budget é só a forma de distribuí-lo.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.5 ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.5</span><span></span></div>
+<h2>Públicos e a Categoria Especial de Anúncio de saúde</h2>
+<p class="sec-lede">
+          Esta é a seção mais importante do módulo pro seu caso específico: as regras genéricas de
+          "público" que todo curso de Meta Ads ensina <strong>não se aplicam integralmente</strong> a
+          conteúdo de saúde.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          A partir de 2026, a detecção de conteúdo de saúde deixou de depender só de palavra-chave —
+          passou a incluir <strong>detecção multimodal</strong>, que analisa a imagem do próprio anúncio. Na
+          prática: mesmo que você não marque a Categoria Especial manualmente, a Meta pode aplicá-la
+          automaticamente se o classificador identificar conteúdo de saúde no criativo. Trate a Categoria
+          Especial como <strong>certa</strong>, não como opcional a evitar.
+        </p>
+<p class="cit"><b>Meta Business Help Center.</b> <em>How to choose a Special Ad Category.</em> facebook.com/business/help/298000447747885 · <b>Meta Transparency Center.</b> <em>Introduction to the Advertising Standards.</em> transparency.meta.com/policies/ad-standards. Consultado em 18/07/2026.</p>
+</div>
+<h3>O que muda na prática, sob Categoria Especial de saúde</h3>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Restrição</th><th>O que significa pra você</th></tr></thead>
+<tbody>
+<tr><td><strong>Públicos semelhantes (lookalike) desativados</strong></td><td>Não dá pra escalar público a partir de uma lista de pacientes atuais — a estratégia de lookalike, padrão em outros nichos, não está disponível aqui.</td></tr>
+<tr><td><strong>"Públicos especiais" (Special Ad Audiences) descontinuados</strong></td><td>A alternativa que a própria Meta oferecia antes do lookalike tradicional também não existe mais para saúde.</td></tr>
+<tr><td><strong>Segmentação por idade travada em 18–65+</strong></td><td>Não dá pra restringir por faixa etária mais específica — a Meta aplica automaticamente ao detectar a categoria.</td></tr>
+<tr><td><strong>Raio mínimo de localização de 15km</strong></td><td>Segmentação hiperlocal (bairro específico) não é possível — o raio mínimo é aplicado mesmo em cidades grandes.</td></tr>
+<tr><td><strong>Sem exclusão de localização em nível de cidade</strong></td><td>Não dá pra excluir cidades específicas do público — só incluir regiões.</td></tr>
+<tr><td class="t-err"><strong>Antes/depois — banido, inclusive "transformação implícita"</strong></td><td class="t-err">A restrição não é só sobre a foto dividida clássica: mostrar produto ao lado de pessoa com pele "ideal" já conta como antes/depois implícito.</td></tr>
+<tr><td class="t-err"><strong>Política de atributos pessoais</strong></td><td class="t-err">Anúncio não pode implicar que sabe da condição de quem vê — "para quem tem melasma" no texto do anúncio paga é risco; a partir de 2026 isso vale até pra frases indiretas em segunda pessoa.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="selo-box inf">
+<span class="selo inf">Inferência</span>
+<p>
+<strong>O salto:</strong> a busca não confirmou explicitamente se públicos de remarketing por
+          site/engajamento (visitantes da landing page, quem interagiu com o Instagram) continuam
+          disponíveis sob Categoria Especial de saúde — só confirmou a desativação de <em>lookalike</em> e
+          <em>Special Ad Audiences</em>, que são coisas diferentes de remarketing direto. Minha leitura, por
+          como a Meta historicamente trata essas duas famílias de público de forma separada: remarketing de
+          primeira parte (quem já te visitou) provavelmente continua disponível. <strong>Confirme direto no
+          Gerenciador de Anúncios antes de montar a estratégia de remarketing do §4.8</strong> — não tome
+          isso como certo.
+        </p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>O que sobra pra segmentar — e por que isso é bom</span>
+</div>
+<p>
+          Sem lookalike, o público de partida é <strong>interesse e comportamento amplo + Advantage+</strong>
+          deixando a IA encontrar o padrão dentro do que ainda é permitido. Isso é mais compatível com o que
+          o §4.3 já recomendava (organização por funil, confiar no Advantage+) do que uma limitação — o
+          nicho inteiro de saúde já opera sob essa restrição, então não é desvantagem competitiva
+          específica sua.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.6 ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.6</span><span></span></div>
+<h2>Aprendizado: os 50 eventos e o que nunca fazer com uma campanha aprendendo</h2>
+<p class="sec-lede">
+          Toda campanha nova (ou editada de forma significativa) passa por uma fase em que a Meta ainda está
+          descobrindo pra quem entregar. Mexer nela nessa fase reinicia o processo.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          A fase de aprendizado dura até o conjunto de anúncios acumular <strong>~50 eventos de
+          otimização numa janela rolante de 7 dias</strong>. Atingido o limiar, o status muda de
+          "Aprendizagem" pra "Ativo" — o algoritmo estabilizou o modelo de entrega.
+        </p>
+<p class="cit"><b>Meta Business Help Center.</b> <em>About the Learning Phase.</em> facebook.com/business/help/112167992830700. Consultado em 18/07/2026.</p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>O que reinicia o aprendizado:</strong> mudança de segmentação, aumento de orçamento acima
+          de 20%, mudança de estratégia de lance, adicionar ou remover anúncio do conjunto, pausar por 7+
+          dias, mudar o evento de otimização. Desde a atualização Andromeda de abril de 2026, o limiar do
+          que conta como "edição significativa" ficou mais sensível — algumas mudanças que antes não
+          reiniciavam, agora reiniciam.
+        </p>
+<p class="cit">Fonte: cobertura de mercado sobre a atualização do algoritmo Andromeda (abril de 2026), consultada em 18/07/2026.</p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Decisão</th><th>Quando fazer</th><th>Quando NÃO fazer</th><th>Risco de fazer errado</th></tr></thead>
+<tbody>
+<tr><td><strong>Editar conjunto em aprendizagem</strong></td><td>Só se o desempenho estiver claramente ruim e sem sinal de melhora após dados suficientes</td><td>Nos primeiros dias, por ansiedade de ver poucos resultados — é o comportamento mais comum e mais destrutivo</td><td>Reinicia o contador de 50 eventos, atrasando estabilização e geralmente subindo o CAC no curto prazo</td></tr>
+<tr><td><strong>Aumentar orçamento</strong></td><td>Em incrementos de até 20% de cada vez, espaçados</td><td>Dobrando o orçamento de uma vez, mesmo que o CAC esteja ótimo</td><td>Reinicia aprendizado — o CAC bom de ontem não se repete automaticamente hoje</td></tr>
+<tr><td><strong>Pausar campanha</strong></td><td>Por poucos dias, se necessário</td><td>Por mais de 7 dias, esperando "reaproveitar" o aprendizado depois</td><td>Aprendizado se perde por completo — reativar é como recomeçar do zero</td></tr>
+</tbody>
+</table>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.7 ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.7</span><span></span></div>
+<h2>Otimização: eventos de conversão, valor, frequência e fadiga</h2>
+<p class="sec-lede">
+          Quatro decisões que, juntas, definem se a campanha aprende a buscar paciente ou só clique barato.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Evento de conversão</strong> é o que você diz pra Meta otimizar — e é a mesma lição do erro
+          22 do <a class="modref" data-mod="c2-m9">C2.M9</a>: otimizar por clique ou lead barato traz
+          curioso, não paciente. O evento certo depende do que o <a class="modref" data-mod="c3-m2">C3.M2</a>
+          (Pixel e CAPI, ainda por construir) vai configurar como "conversa qualificada" — aqui, o que
+          importa é escolher o evento mais próximo possível da venda que você tiver volume suficiente pra
+          alimentar (ver os 50 eventos, §4.6).
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Otimização por valor</strong> ensina o algoritmo a buscar não só "quem converte", mas "quem
+          converte gerando mais receita" — passando o valor de cada evento (ex.: ticket do protocolo) de
+          volta pra Meta. Exige volume de conversão maior que otimização simples pra funcionar bem, e exige
+          que o valor do evento esteja configurado corretamente no Pixel/CAPI.
+        </p>
+<p class="cit">Fonte: documentação e cobertura de mercado sobre otimização por valor no Gerenciador de Anúncios, consultada em 18/07/2026.</p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Conceito</th><th>O que é</th><th>Impacto se ignorado</th></tr></thead>
+<tbody>
+<tr><td><strong>Frequência</strong></td><td>Quantas vezes, em média, a mesma pessoa vê o anúncio</td><td>Frequência alta sem conversão é orçamento queimado repetindo pra quem já decidiu que não</td></tr>
+<tr><td><strong>Fadiga criativa</strong></td><td>Queda de desempenho quando o mesmo criativo é visto repetidas vezes pelo mesmo público</td><td><abbr data-t="CPM">CPM</abbr> sobe, <abbr data-t="CTR">CTR</abbr> cai — sinal de que é hora de trocar o criativo, não de aumentar orçamento</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>O sinal de fadiga é criativo, não é conta</span>
+</div>
+<p>
+          Frequência subindo com CTR caindo não significa que "esgotou o público" — geralmente significa que
+          o gancho do <a class="modref" data-mod="c2-m4">C2.M4</a> §4.2 está velho pra aquele público
+          específico. A correção é rotacionar estrutura de gancho (<a class="modref"
+          data-mod="c2-m5">C2.M5</a> §5.6), não necessariamente ampliar o público.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.8 ============================================================ -->
+<section class="sec reveal" id="s8">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.8</span><span></span></div>
+<h2>Escala, remarketing, exclusões e janelas de atribuição</h2>
+<p class="sec-lede">
+          Quatro peças que decidem se o crescimento é sustentável ou se vira gasto sem controle — a
+          continuação direta do §3.4 do C1.M3 (ponto de equilíbrio e capacidade).
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Decisão</th><th>Por que</th><th>Quando</th><th>Quando NÃO</th><th>Risco financeiro</th></tr></thead>
+<tbody>
+<tr><td><strong>Escalar orçamento</strong></td><td>CAC atual consistentemente abaixo do CAC máximo (C1.M3 §3.3)</td><td>Depois de sair da fase de aprendizado, com capacidade de atendimento disponível</td><td>Se pacientes/mês já está perto da capacidade máxima (C1.M3 §3.4)</td><td>CAC pode subir com o aumento — reinicia aprendizado se o incremento passar de 20%</td></tr>
+<tr><td><strong>Pausar campanha</strong></td><td>CAC consistentemente acima do máximo, sem sinal de melhora</td><td>Depois de dar tempo suficiente pro aprendizado (§4.6), não nos primeiros dias</td><td>Só porque um dia teve CAC ruim — variação diária é normal</td><td>Perde o histórico de aprendizado acumulado se pausar por 7+ dias</td></tr>
+<tr><td><strong>Duplicar campanha</strong></td><td>Testar variação (novo público, novo criativo) sem arriscar o histórico da campanha original</td><td>Quando a original já está estável e você quer testar algo novo em paralelo</td><td>Só pra "resetar" uma campanha com desempenho ruim — duplicar não resolve criativo fraco</td><td>Duplica orçamento consumido sem necessariamente duplicar resultado</td></tr>
+<tr><td><strong>Configurar remarketing</strong></td><td>Quem visitou a landing page ou iniciou conversa sem fechar já demonstrou intenção — CAC de reconquista tende a ser menor</td><td>Assim que Pixel/CAPI (C3.M2) estiver configurado e gerando volume de visitantes</td><td>Sem confirmar antes se remarketing de primeira parte está disponível sob Categoria Especial (§4.5 — verificar no Gerenciador)</td><td>Alto retorno potencial — é o público mais barato de reconquistar, se disponível</td></tr>
+</tbody>
+</table>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Exclusões</strong> impedem que a mesma campanha gaste orçamento mostrando anúncio de
+          aquisição pra quem já é paciente ou já está em conversa ativa no WhatsApp — configurar exclusão de
+          quem já converteu é básico de higiene de campanha, evita CAC desperdiçado com quem já vai fechar
+          de qualquer jeito.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Janela de atribuição</strong> padrão em 2026: 7 dias após clique, 1 dia após engajamento
+          (curtir, salvar, assistir vídeo sem clicar), 1 dia após visualização. As janelas de 7 e 28 dias por
+          visualização foram removidas permanentemente em janeiro de 2026, e desde março de 2026
+          "clique" passou a significar só clique de link de verdade — curtida, compartilhamento ou salvamento
+          não contam mais como clique pra atribuição.
+        </p>
+<p class="cit"><b>Meta Business Help Center</b> — janelas de atribuição, consultado em 18/07/2026 via cobertura de mercado consolidada sobre as mudanças de janeiro e março de 2026.</p>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Por que o ROAS reportado pode ter caído sem a campanha ter piorado</span>
+</div>
+<p>
+          Se você comparar resultado de antes e depois de janeiro/março de 2026, uma queda no ROAS reportado
+          pode ser só efeito da janela de atribuição mais curta — menos conversões sendo creditadas à
+          mídia, não necessariamente menos conversões acontecendo. Cruze sempre com o <a class="modref"
+          data-mod="c3-m4">C3.M4</a> (<abbr data-t="GA4">GA4</abbr>, ainda por construir) antes de decidir que uma campanha piorou.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s8">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.9 ============================================================ -->
+<section class="sec reveal" id="s9">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.9</span><span></span></div>
+<h2>Testes A/B e as métricas que realmente importam</h2>
+<p class="sec-lede">
+          Poucas métricas decidem qualquer coisa — o resto é ruído bonito no painel.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Teste A/B</strong> na ferramenta nativa da Meta isola uma variável por vez (criativo,
+          público ou posicionamento) com divisão de audiência controlada, evitando que os grupos se
+          sobreponham e contaminem o resultado — diferente de rodar duas campanhas separadas competindo pelo
+          mesmo público no mesmo leilão, o que distorce comparação.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Métrica</th><th>O que decide</th><th>Frequência de leitura</th></tr></thead>
+<tbody>
+<tr><td class="t-gold"><strong><abbr data-t="CAC">CAC</abbr> real (por paciente pagante)</strong></td><td class="t-gold">Se a operação inteira está saudável — não <abbr data-t="CPA">CPA</abbr> de evento intermediário</td><td>Semanal e mensal</td></tr>
+<tr><td><strong>Hook rate / hold rate</strong> (<a class="modref" data-mod="c2-m4">C2.M4</a> §4.5)</td><td>Se o criativo está com fadiga ou nunca funcionou</td><td>Diária, nos primeiros dias de um criativo novo</td></tr>
+<tr><td><strong><abbr data-t="ROAS">ROAS</abbr></strong></td><td>Se o investimento está gerando faturamento suficiente — cruzar com o ROAS mínimo do <a class="modref" data-mod="c1-m3">C1.M3</a> §3.3</td><td>Semanal</td></tr>
+<tr><td><strong>Frequência</strong></td><td>Se está na hora de rotacionar criativo (§4.7)</td><td>Semanal</td></tr>
+<tr><td><strong>Taxa de conversa qualificada</strong></td><td>Se o lead que a campanha traz é do perfil certo — problema de público, não de mídia, se cair</td><td>Semanal</td></tr>
+<tr><td><strong>Status de aprendizado</strong></td><td>Se dá pra fazer qualquer alteração sem penalidade (§4.6)</td><td>Antes de qualquer edição</td></tr>
+</tbody>
+</table>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s9">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 4.10 ============================================================ -->
+<section class="sec reveal" id="s10">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>4.10</span><span></span></div>
+<h2>Resumo executivo</h2>
+<p class="sec-lede">
+          Nove ideias e o plano operacional completo. O <a class="modref" data-mod="c3-m2">C3.M2</a> (Pixel
+          e CAPI) e o <a class="modref" data-mod="c3-m7">C3.M7</a> (Landing Pages) completam as peças
+          técnicas que este módulo pressupõe prontas.
+        </p>
+</div>
+<div class="summary">
+<h3>As nove ideias do Módulo 4</h3>
+<ol>
+<li><b>Meta Ads é uma de 13 etapas</b> — falha na etapa 5 é, com frequência, sintoma de falha nas etapas 1-3 ou 6-8.</li>
+<li><b>Advantage+ é o padrão agora, não uma opção.</b> A decisão que sobra é objetivo, orçamento, público de partida e criativo.</li>
+<li><b>Separe campanha por estágio de funil</b> (frio/morno/quente) só quando tiver volume pra alimentar mais de uma aprendendo.</li>
+<li><b>O orçamento já está calculado no C1.M3</b> — ABO pra testar, Advantage+ Budget pra escalar o que já provou.</li>
+<li><b>Categoria Especial de saúde muda as regras do jogo</b>: sem lookalike, idade travada 18-65+, raio mínimo 15km, antes/depois banido inclusive implícito.</li>
+<li><b>Fase de aprendizado exige ~50 eventos em 7 dias</b> — editar antes disso reinicia o processo e geralmente piora o CAC no curto prazo.</li>
+<li><b>Fadiga costuma ser problema de criativo, não de conta</b> — a correção é rotacionar gancho, não ampliar público.</li>
+<li><b>Janela de atribuição mudou em 2026</b> — queda de ROAS reportado pode ser efeito de medição, não de performance real.</li>
+<li><b>CAC real e status de aprendizado são as métricas que decidem qualquer ação</b> — o resto é diagnóstico secundário.</li>
+</ol>
+</div>
+<h3>Implementação no Meu Negócio</h3>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Plano operacional — sua primeira estrutura de aquisição</span>
+</div>
+<p><strong>Quais campanhas criar, em qual ordem:</strong></p>
+<ol>
+<li>Confirmar que Posicionamento (C1.M2), Criativo (C2.M4-M6), Landing Page (C3.M7) e WhatsApp (C1.M5) estão prontos antes de criar qualquer campanha.</li>
+<li>1 campanha única, objetivo de conversão (mensagem/lead — o que a sua landing page e WhatsApp suportarem), Categoria Especial de saúde já assumida.</li>
+<li>2 a 4 conjuntos com <abbr data-t="ABO">ABO</abbr>, testando criativos diferentes dos 10 roteiros do C2.M6, público amplo (sem lookalike disponível).</li>
+<li>Depois de identificar 1-2 conjuntos vencedores com volume suficiente (§4.6), migrar orçamento pra Advantage+ Campaign Budget.</li>
+<li>Só depois de estável: criar campanha separada de remarketing (§4.8), confirmando antes no Gerenciador se o público está disponível sob Categoria Especial.</li>
+</ol>
+<p><strong>Quais públicos testar:</strong> público amplo por interesse relacionado a estética/dermatologia + geolocalização (respeitando raio mínimo de 15km), sem tentar segmentação hiperespecífica — a Categoria Especial não permite, e o Advantage+ tende a compensar com aprendizado.</p>
+<p><strong>Quanto investir:</strong> o orçamento de aquisição calculado na planilha do <a class="modref" data-mod="c1-m3">C1.M3</a> §3.3 — nunca "quanto sobra".</p>
+<p><strong>Quando escalar:</strong> CAC real consistentemente abaixo do CAC máximo, fora da fase de aprendizado, com capacidade de atendimento disponível — incrementos de até 20% por vez.</p>
+<p><strong>Quando pausar:</strong> CAC consistentemente acima do máximo depois de tempo suficiente de aprendizado — nunca nos primeiros dias.</p>
+<p><strong>Quando duplicar:</strong> pra testar público ou criativo novo em paralelo a uma campanha já estável — nunca como tentativa de "resetar" desempenho ruim.</p>
+<p><strong>Métricas diárias:</strong> status de aprendizado (nos primeiros dias de qualquer criativo/conjunto novo), hook rate/hold rate de criativo novo.</p>
+<p><strong>Métricas semanais:</strong> CAC real, ROAS, frequência, taxa de conversa qualificada.</p>
+<p><strong>Métricas mensais:</strong> CAC vs. CAC máximo (C1.M3), lucro líquido da operação, capacidade de atendimento utilizada.</p>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 4</h4>
+<span class="check-count" id="upCheckCount">0 / 14</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Antes de criar a campanha</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Confirmei que <b>Posicionamento, Criativo, Landing Page e WhatsApp</b> estão prontos</span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho o <b>orçamento de aquisição</b> calculado no C1.M3</span></label>
+<div class="check-group">B · Estrutura</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Criei <b>1 campanha</b> com objetivo de conversão, Categoria Especial assumida</span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Criei <b>2-4 conjuntos com ABO</b> testando criativos diferentes</span></label>
+<label class="ci"><input data-ck="b3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Configurei <b>exclusão</b> de quem já converteu</span></label>
+<div class="check-group">C · Públicos e compliance</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Usei público <b>amplo por interesse</b>, sem tentar lookalike</span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Confirmei que nenhum criativo usa <b>antes/depois</b>, explícito ou implícito</span></label>
+<label class="ci"><input data-ck="c3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Confirmei que nenhuma copy de anúncio <b>implica conhecer a condição</b> de quem vê</span></label>
+<div class="check-group">D · Aprendizado e edição</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Não editei <b>nenhum conjunto</b> antes de sair da fase de aprendizado</span></label>
+<label class="ci"><input data-ck="d2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Qualquer aumento de orçamento ficou <b>abaixo de 20%</b> por vez</span></label>
+<div class="check-group">E · Métricas e decisão</div>
+<label class="ci"><input data-ck="e1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Defini a rotina de <b>métricas diárias/semanais/mensais</b> do bloco acima</span></label>
+<label class="ci"><input data-ck="e2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei o <b>CAC máximo</b> de cabeça pra comparar contra o CAC real</span></label>
+<label class="ci"><input data-ck="e3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Verifiquei no Gerenciador se <b>remarketing de primeira parte</b> está disponível pra minha conta</span></label>
+<label class="ci"><input data-ck="e4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Agendei <b>revisão trimestral</b> deste módulo — política de Meta Ads muda rápido</span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>Responda de cabeça. Se travar em três ou mais, releia antes de seguir.</p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">Se uma campanha "não funciona", quais etapas do mapa de 13 (fora Meta Ads) você checaria primeiro?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">Qual é a diferença entre ABO e Advantage+ Campaign Budget, e quando usar cada um?</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">Cite 3 restrições da Categoria Especial de saúde que mudam a estratégia de público padrão.</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">O que reinicia a fase de aprendizado, e por que editar uma campanha aprendendo geralmente piora o CAC?</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">Frequência subindo com CTR caindo — isso é problema de público ou de criativo? Por quê?</p></div>
+<div class="qa-item"><span class="qa-n">6</span><p class="qa-q">Por que uma queda de ROAS reportado pode não significar queda de performance real, desde 2026?</p></div>
+</div>
+<h3>Exercícios práticos</h3>
+<div class="ex">
+<div class="ex-tag">Exercício 1 · ~30 min</div>
+<h4>Monte o plano da primeira campanha</h4>
+<p>Usando o plano operacional acima, escreva a estrutura completa da sua primeira campanha: objetivo, número de conjuntos, orçamento (do C1.M3), públicos de teste, e os critérios que vão decidir quando migrar pra Advantage+ Budget.</p>
+<textarea data-ex="ex1" placeholder="Objetivo: ...
+Nº de conjuntos: ...
+Orçamento total/mês: ...
+Públicos de teste: ...
+Critério pra migrar orçamento: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 2 · ~20 min</div>
+<h4>Auditoria de compliance de criativo</h4>
+<p>Revise os criativos que você pretende usar na campanha (os do C2.M4-M6) contra as restrições da Categoria Especial: antes/depois implícito, atributos pessoais, promessa de desfecho.</p>
+<textarea data-ex="ex2" placeholder="Criativo 1 — passa nas 3 restrições? ___
+Criativo 2 — ...
+..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<div class="ex">
+<div class="ex-tag">Exercício 3 · ~15 min</div>
+<h4>Defina sua rotina de métricas</h4>
+<p>Escreva o horário fixo da semana em que você vai revisar CAC, ROAS e frequência — e o que vai fazer em cada um dos 3 cenários: CAC dentro do teto, CAC acima do teto, frequência alta com CTR caindo.</p>
+<textarea data-ex="ex3" placeholder="Horário fixo semanal: ...
+Se CAC dentro do teto: ...
+Se CAC acima do teto: ...
+Se frequência alta + CTR caindo: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Módulo 5</h4>
+<span class="check-count" id="upDoneCount">0 / 6</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>10 seções</b> inteiras</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei distinguir <b>documentação oficial</b> de <b>boas práticas de mercado</b> em qualquer afirmação deste módulo</span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei as <b>restrições da Categoria Especial</b> de cabeça</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho o <b>plano da primeira campanha</b> escrito, com orçamento do C1.M3</span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei o que <b>nunca fazer</b> numa campanha em fase de aprendizado</span></label>
+<label class="ci"><input data-dk="k6" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz os <b>3 exercícios</b> — de verdade, não mentalmente</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s10">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>Platform.init({ id:"c1-m4" });</script>
+</body>
+</html>
