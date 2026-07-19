@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 7 — CRO. Hierarquia visual, contraste (WCAG) e tipografia, CTA na Landing Page, formulários como fricção, prova social aplicada à página, e como testar com volume baixo.">
+<title>CRO · Curso 3 · Engenharia e Dados</title>
+
+<!--
+  CURSO 3 · ENGENHARIA E DADOS
+  Módulo 7 — CRO
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Chrome, navegação, progresso, busca e glossário vêm do platform.js.
+  Este arquivo tem conteúdo + o que é exclusivamente dele: nada.
+
+  FEATURE FREEZE em vigor. Módulo de síntese: CTA reaproveita C2.M4 §4.5/C1.M5/
+  C1.M6, prova social reaproveita C2.M3 §3.8, teste A/B reaproveita C3.M6 inteiro
+  — só cross-ref, sem reexplicar. É o módulo que a maioria dos outros já citava
+  como "aprofundado no C3.M7".
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+
+<main class="main" id="conteudo">
+ <header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Engenharia e Dados · Módulo 7</div>
+<h1><abbr data-t="CRO">CRO</abbr></h1>
+<p class="hero-lede">
+        A Landing Page é a etapa 6 do mapa do <a class="modref" data-mod="c1-m4">C1.M4</a> — onde o clique
+        vira lead qualificado, ou vira quick back (<a class="modref" data-mod="c3-m5">C3.M5</a>). Este
+        módulo entrega hierarquia visual, contraste, CTA, formulário e prova social — testados com o rigor
+        do <a class="modref" data-mod="c3-m6">C3.M6</a>.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~55 min</dd></div>
+<div><dt>Seções</dt><dd>7</dd></div>
+<div><dt>Padrão de leitura</dt><dd>1</dd></div>
+<div><dt>Contraste mínimo (WCAG)</dt><dd>4.5:1</dd></div>
+</dl>
+<div class="selo-key">
+<div><span class="selo ev">Evidência</span><p>Achado experimental ou padrão técnico formal. Vem com citação completa.</p></div>
+<div><span class="selo inf">Inferência</span><p>Extrapolação razoável para contexto <em>não</em> testado. Eu explico o salto.</p></div>
+<div><span class="selo prat">Prática</span><p>Pesquisa de UX de mercado ou convenção testada. Fonte quando existe.</p></div>
+<div><span class="selo mito">Mito</span><p>Repetido no mercado e contradito pela evidência — ou sem fonte.</p></div>
+</div>
+</div>
+</header>
+<!-- ============================================================ 7.1 ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>7.1</span><span></span></div>
+<h2>CRO é a última milha do funil</h2>
+<p class="sec-lede">
+          Todo investimento em criativo e mídia paga passa pela mesma página — se ela falha, o resto do
+          sistema trabalhou de graça.
+        </p>
+</div>
+<p>
+        O <a class="modref" data-mod="c3-m4">C3.M4</a> §4.4 já mostrou como separar queda de página de
+        queda de conversa no funil de exploração. Se a queda concentra entre <code>view_content</code> e
+        <code>lead</code>, o problema está aqui. Este módulo trabalha os 5 elementos que mais decidem essa
+        queda — na ordem em que os olhos da paciente realmente processam a página.
+      </p>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 7.2 ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>7.2</span><span></span></div>
+<h2>Hierarquia visual: o que os olhos leem primeiro</h2>
+<p class="sec-lede">
+          Rastreamento ocular mostra um padrão consistente de leitura em página com muito texto — e ele
+          define onde colocar o que importa mais.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Estudo de rastreamento ocular em larga escala encontrou um <strong>padrão em F</strong> na leitura
+          de páginas de texto: as pessoas leem a primeira linha inteira, depois escaneiam mais rápido e mais
+          curto a segunda, e descem escaneando a coluna esquerda — formando visualmente um F. O padrão
+          aparece mais em página densa de texto; em página com hierarquia visual clara (título, subtítulo,
+          bloco curto), a leitura se torna mais linear.
+        </p>
+<p class="cit"><b>Nielsen, J. (2006).</b> <em>F-Shaped Pattern For Reading Web Content.</em> Nielsen Norman Group.</p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>A implicação: informação crítica não fica em bloco de texto denso</span>
+</div>
+<p>
+          Se o mecanismo do protocolo (o que passa no teste de verdade do <a class="modref"
+          data-mod="c2-m3">C2.M3</a> §3.9) está enterrado no meio de um parágrafo longo, boa parte da
+          leitura em F nunca chega até ele. Título, subtítulo e blocos curtos — não parágrafo corrido —
+          carregam a informação que precisa ser vista, mesmo por quem só escaneia.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 7.3 ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>7.3</span><span></span></div>
+<h2>Contraste e tipografia</h2>
+<p class="sec-lede">
+          Não é preferência estética — é padrão técnico formal, com número mínimo definido.
+        </p>
+</div>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          A diretriz de acessibilidade web (WCAG 2.1, nível AA) exige razão de
+          contraste mínima de <strong>4.5:1</strong> entre texto e fundo para texto normal, e 3:1 para texto
+          grande. Não é sugestão — é o padrão que define se o conteúdo é legível pra quem tem baixa visão, e
+          serve como piso de legibilidade pra qualquer pessoa, inclusive lendo no sol, no celular.
+        </p>
+<p class="cit"><b>W3C.</b> <em>Web Content Accessibility Guidelines (WCAG) 2.1, Success Criterion 1.4.3 Contrast (Minimum).</em> w3.org/TR/WCAG21.</p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Tipografia: tamanho de fonte legível em mobile (mínimo ~16px pro corpo do texto, sem precisar dar
+          zoom), altura de linha confortável (1.4-1.6× o tamanho da fonte), e no máximo 2 famílias
+          tipográficas na página — mais que isso compete visualmente com a hierarquia da §7.2 em vez de
+          reforçá-la.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 7.4 ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>7.4</span><span></span></div>
+<h2>CTA na Landing Page: as mesmas regras, aplicadas ao layout</h2>
+<p class="sec-lede">
+          O <a class="modref" data-mod="c2-m4">C2.M4</a> §4.5 e o <a class="modref" data-mod="c1-m5">C1.M5</a>
+          já definiram <em>o que</em> o CTA diz. Aqui é só <em>onde</em> ele fica e <em>como</em> se
+          destaca.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Regra</th><th>Já estabelecida em</th><th>Aplicação na página</th></tr></thead>
+<tbody>
+<tr><td>Um CTA só</td><td>C2.M4 §4.5</td><td>Um botão de ação principal por página — os demais links (Instagram, telefone) visualmente secundários</td></tr>
+<tr><td>Sem promessa de desfecho</td><td>C2.M3 §3.9</td><td>Texto do botão: "Quero investigar meu caso", não "Garanta seu resultado"</td></tr>
+<tr><td>Filtro de preço já alinhado</td><td>C1.M5 §5.4</td><td>Se a página menciona valor, ele vem depois do mecanismo — nunca no topo</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Contraste do botão segue a mesma régua da §7.3</span>
+</div>
+<p>
+          O botão de CTA precisa passar no mesmo teste de contraste mínimo — um botão "elegante" cinza claro
+          sobre fundo branco pode ser bonito e ainda assim ser o motivo de ninguém encontrá-lo na leitura em
+          F da §7.2.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 7.5 ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>7.5</span><span></span></div>
+<h2>Formulários: cada campo é fricção</h2>
+<p class="sec-lede">
+          Se a sua conversão principal é clique no WhatsApp (não formulário), essa seção é curta — mas o
+          princípio vale pra qualquer campo que você pedir antes da conversa.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Cada campo adicional num formulário é uma nova decisão que a paciente precisa tomar antes de agir
+          — mesma lógica do <a class="modref" data-mod="c1-m5">C1.M5</a> §5.3 (qualificação sem
+          interrogatório), aplicada ao formulário em vez da conversa. Peça o mínimo pra iniciar contato;
+          qualificação detalhada acontece depois, na conversa.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 7.6 ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>7.6</span><span></span></div>
+<h2>Prova social na página, e como testar com volume baixo</h2>
+<p class="sec-lede">
+          A hierarquia de prova já existe no C2.M3. O rigor de teste já existe no C3.M6. Aqui é só a
+          aplicação dos dois na própria página.
+        </p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Prova social na página segue a mesma hierarquia do C2.M3 §3.8</span>
+</div>
+<p>
+          História com mecanismo continua sendo a forma mais forte — colocada perto do bloco que explica o
+          protocolo, não isolada no rodapé. Estrelinha genérica continua sendo a mais fraca e a de maior
+          risco (C2.M3 §3.8, item 6) — a mesma regra vale pra página que pra Reel.
+        </p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Testar mudança de página segue o C3.M6 inteiro, sem exceção</span>
+</div>
+<p>
+          Com o volume de tráfego da sua Landing Page, teste <abbr data-t="A/B">A/B</abbr> fino de elemento pequeno (cor de botão,
+          uma palavra do título) não tem poder estatístico suficiente (<a class="modref"
+          data-mod="c3-m6">C3.M6</a> §6.4-§6.5). Priorize <strong>mudança grande</strong> — reescrever a
+          seção inteira de mecanismo, não trocar uma palavra — e valide com gravação e heatmap do <a
+          class="modref" data-mod="c3-m5">C3.M5</a> antes de assumir que funcionou.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 7.7 ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>7.7</span><span></span></div>
+<h2>Resumo executivo</h2>
+<p class="sec-lede">
+          Sete ideias, quase todas aplicação de regras já estabelecidas — este módulo é onde tudo converge
+          numa página só. O <a class="modref" data-mod="c3-m8">C3.M8</a> garante que essa página carrega
+          rápido o suficiente pra alguém chegar até ela.
+        </p>
+</div>
+<div class="summary">
+<h3>As sete ideias do Módulo 7</h3>
+<ol>
+<li><b>CRO é a última milha</b> — todo investimento em mídia e criativo passa pela mesma página.</li>
+<li><b>Leitura em F favorece hierarquia visual clara</b> — título, subtítulo, bloco curto, não parágrafo denso.</li>
+<li><b>Contraste mínimo de 4.5:1 é padrão técnico (WCAG)</b>, não preferência estética — inclusive no botão de CTA.</li>
+<li><b>CTA na página segue as mesmas regras já estabelecidas</b> — um só, sem promessa, preço só depois do mecanismo.</li>
+<li><b>Cada campo de formulário é fricção</b> — peça o mínimo, qualifique na conversa.</li>
+<li><b>Prova social na página segue a mesma hierarquia do C2.M3</b> — história com mecanismo forte, estrelinha genérica fraca e arriscada.</li>
+<li><b>Teste de página segue o C3.M6 inteiro</b> — mudança grande, validada por gravação, não A/B fino sem poder estatístico.</li>
+</ol>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 7</h4>
+<span class="check-count" id="upCheckCount">0 / 10</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Hierarquia e contraste</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Informação crítica está em <b>título/subtítulo</b>, não em parágrafo denso</span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Testei o <b>contraste</b> do texto principal e do botão contra o padrão WCAG (4.5:1)</span></label>
+<label class="ci"><input data-ck="a3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fonte legível em mobile, <b>máximo 2 famílias</b> tipográficas</span></label>
+<div class="check-group">B · CTA</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Um <b>CTA principal só</b>, visualmente destacado</span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Texto do botão <b>sem promessa de desfecho</b></span></label>
+<div class="check-group">C · Formulário e prova</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Formulário (se houver) pede <b>o mínimo</b> de campos</span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Prova social usa <b>história com mecanismo</b>, não estrelinha genérica</span></label>
+<div class="check-group">D · Teste</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Qualquer mudança planejada é <b>grande</b>, não A/B fino de elemento pequeno</span></label>
+<label class="ci"><input data-ck="d2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Valido mudança com <b>gravação/heatmap</b> (C3.M5), não só número de conversão</span></label>
+<label class="ci"><input data-ck="d3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei qual etapa do <b>funil de exploração</b> (C3.M4) essa página resolve</span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>Responda de cabeça. Se travar em duas ou mais, releia antes de seguir.</p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">O que é o padrão de leitura em F, e o que ele implica sobre onde colocar informação crítica?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">Qual é a razão de contraste mínima do WCAG pra texto normal, e por que ela vale também pro botão de CTA?</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">Quais 3 regras de CTA já estabelecidas em outros módulos se aplicam à Landing Page?</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">Por que cada campo extra num formulário é comparável ao erro de interrogatório do C1.M5?</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">Por que "mudança grande + validação por gravação" é a estratégia certa de teste pra Landing Page com o seu volume?</p></div>
+</div>
+<h3>Exercício prático</h3>
+<div class="ex">
+<div class="ex-tag">Exercício único · ~25 min</div>
+<h4>Audite sua Landing Page contra os 5 elementos</h4>
+<p>Percorra sua Landing Page atual e avalie: hierarquia visual, contraste, CTA, formulário e prova social. Anote o que já está certo e o que precisa de mudança grande.</p>
+<textarea data-ex="ex1" placeholder="Hierarquia visual: ok / precisa mudar — o quê: ...
+Contraste: ok / precisa mudar — o quê: ...
+CTA: ok / precisa mudar — o quê: ...
+Formulário: ok / precisa mudar — o quê: ...
+Prova social: ok / precisa mudar — o quê: ...
+
+Mudança grande prioritária: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Módulo 8</h4>
+<span class="check-count" id="upDoneCount">0 / 5</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>7 seções</b> inteiras</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Auditei a Landing Page contra os <b>5 elementos</b></span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei o <b>contraste mínimo WCAG</b> de cabeça</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei por que <b>teste A/B fino</b> não é a estratégia certa pro meu volume</span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz o <b>exercício</b> de auditoria completo</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>Platform.init({ id:"c3-m7" });</script>
+</body>
+</html>

@@ -316,8 +316,8 @@
 </marker>
 </defs>
 <!-- Faixas de fase -->
-<rect fill="rgba(201,169,97,.03)" height="100" rx="3" width="760" x="0" y="10"></rect>
-<rect fill="rgba(201,169,97,.03)" height="100" rx="3" width="760" x="0" y="230"></rect>
+<rect fill="var(--gold-glow)" height="100" rx="3" width="760" x="0" y="10"></rect>
+<rect fill="var(--gold-glow)" height="100" rx="3" width="760" x="0" y="230"></rect>
 <text class="svg-t-sm" x="8" y="26">FASE 1 — DESCONHECIMENTO</text>
 <text class="svg-t-sm" x="8" y="136">FASE 2 — CONSIDERAÇÃO</text>
 <text class="svg-t-sm" x="8" y="246">FASE 3 — DECISÃO</text>
@@ -1047,13 +1047,13 @@
 <tr><td>Qualificada → agendada</td><td class="t-num">55%</td><td class="t-num">66%</td><td class="t-num">+11 pt</td></tr>
 <tr><td>Agendada → realizada</td><td class="t-num">80%</td><td class="t-num">92%</td><td class="t-num">+12 pt</td></tr>
 <tr><td>Realizada → adesão</td><td class="t-num">40%</td><td class="t-num">48%</td><td class="t-num">+8 pt</td></tr>
-<tr style="background:rgba(201,169,97,.06)">
+<tr style="background:var(--gold-glow)">
 <td><strong>Taxa composta</strong></td>
 <td class="t-num t-warn"><strong>0,032%</strong></td>
 <td class="t-num t-ok"><strong>0,077%</strong></td>
 <td class="t-num t-gold"><strong>+141%</strong></td>
 </tr>
-<tr style="background:rgba(201,169,97,.06)">
+<tr style="background:var(--gold-glow)">
 <td><strong>CAC (CPM R$25)</strong></td>
 <td class="t-num t-warn"><strong>R$78</strong></td>
 <td class="t-num t-ok"><strong>R$32</strong></td>
@@ -1398,7 +1398,7 @@
 <td class="t-num">8</td><td><strong>Consulta → adesão</strong></td>
 <td class="t-num">35% – 55%</td><td>Planilha / CRM</td><td>Consulta ou valor. G6.</td>
 </tr>
-<tr style="background:rgba(201,169,97,.06)">
+<tr style="background:var(--gold-glow)">
 <td class="t-num">9</td><td><strong>CAC real (mídia ÷ pacientes)</strong></td>
 <td class="t-num t-gold">&lt; 12% do ticket</td><td>Cálculo manual mensal</td><td>É o resultado de tudo acima.</td>
 </tr>
@@ -1475,7 +1475,7 @@
 <div class="acc" data-acc="">
 <div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">01</span>Começar a anunciar antes de ter um mecanismo definido<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>Sem mecanismo, o anúncio só pode falar de resultado ou de preço. Ambos te colocam na prateleira da comoditização, onde o único critério de escolha é quem cobra menos. Você não está anunciando cedo demais — está anunciando <em>sem uma resposta para a pergunta "por que você e não o outro?"</em>. E o mercado vai responder essa pergunta por você, da pior forma possível.</p></div></div></div>
 <div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">02</span>Anunciar os dois protocolos na mesma campanha<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>Melasma e desinflamação são dores diferentes, públicos com sobreposição parcial e jornadas com velocidades distintas. Misturar contamina o aprendizado do algoritmo: ele recebe sinais contraditórios sobre quem é "boa conversão" e converge para o meio-termo, que não serve para nenhum dos dois. Contas separadas de campanha, públicos separados, pixels com eventos distintos.</p></div></div></div>
-<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">03</span>Copiar a estrutura de conta de um infoprodutor<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Infoproduto tem ticket baixo, volume alto, entrega instantânea e capacidade infinita. Você tem o oposto em todos os quatro eixos. As estruturas que funcionam lá (CBO agressivo, muitos conjuntos, otimização por lead, escala vertical rápida) produzem exatamente o resultado errado aqui. Não é que os infoprodutores estejam errados — é que eles resolvem um problema diferente do seu.</p></div></div></div>
+<div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">03</span>Copiar a estrutura de conta de um infoprodutor<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Infoproduto tem ticket baixo, volume alto, entrega instantânea e capacidade infinita. Você tem o oposto em todos os quatro eixos. As estruturas que funcionam lá (<abbr data-t="CBO">CBO</abbr> agressivo, muitos conjuntos, otimização por lead, escala vertical rápida) produzem exatamente o resultado errado aqui. Não é que os infoprodutores estejam errados — é que eles resolvem um problema diferente do seu.</p></div></div></div>
 <div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">04</span>Definir orçamento por "quanto sobra" em vez de por meta de pacientes<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>Orçamento residual gera investimento intermitente, que gera reset constante de aprendizado, que gera CPA alto, que confirma a crença de que "anúncio não funciona". É uma profecia autorrealizável. Calcule de trás para frente: quantas pacientes você quer × CAC estimado = orçamento mínimo. Se o número não cabe, o problema é o modelo, não o orçamento.</p></div></div></div>
 <div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">05</span>Esperar retorno em 7 dias<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg><span class="sev high">crítico</span></button><div class="acc-panel"><div class="acc-body"><p>O ciclo de decisão do seu protocolo é de 3 a 12 semanas. Uma campanha avaliada em 7 dias está sendo julgada antes que a primeira coorte tenha terminado de decidir. Você vai matar campanhas que estavam funcionando. Janela mínima de avaliação: 21 dias. E a atribuição correta exige comparar coortes, não dias.</p></div></div></div>
 <div class="acc-item"><button aria-expanded="false" class="acc-btn"><span class="acc-idx">06</span>Tratar Meta Ads como canal, não como sistema<svg class="acc-chev" fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button><div class="acc-panel"><div class="acc-body"><p>"Vou colocar tráfego" pressupõe que o resto está pronto. Tráfego é um amplificador: ele amplifica um sistema bom e amplifica um sistema ruim com a mesma eficiência. Colocar mídia em cima de um WhatsApp que responde em 6 horas é pagar para descobrir mais rápido que você não responde o WhatsApp.</p></div></div></div>

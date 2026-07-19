@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 11 — Dashboard Executivo. As 3 camadas de decisão, saúde do Pixel, qualidade de tráfego, funil unificado, alertas, e o dashboard completo — consolidando as métricas já definidas nos módulos anteriores.">
+<title>Dashboard Executivo · Curso 3 · Engenharia e Dados</title>
+
+<!--
+  CURSO 3 · ENGENHARIA E DADOS
+  Módulo 11 — Dashboard Executivo
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Chrome, navegação, progresso, busca e glossário vêm do platform.js.
+  Este arquivo tem conteúdo + o que é exclusivamente dele: nada.
+
+  FEATURE FREEZE em vigor — nenhuma ferramenta interativa nova. "O dashboard
+  construído" é uma tabela de especificação (o que colocar, onde, com que
+  cadência), não um componente de software novo. Consolida métricas já definidas
+  em C1.M3, C1.M4, C3.M2, C3.M4, C3.M5, C3.M8 — zero métrica nova criada aqui.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+
+<main class="main" id="conteudo">
+ <header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Engenharia e Dados · Módulo 11</div>
+<h1>Dashboard<br/><em>Executivo</em></h1>
+<p class="hero-lede">
+        A camada de Decisão do <a class="modref" data-mod="c3-m1">C3.M1</a> §1.3, por último de propósito.
+        Nenhuma métrica nova aqui — só a organização de tudo que os módulos 3 (financeiro) a 10 já
+        definiram, numa estrutura de 3 camadas que você consulta diariamente, semanalmente e mensalmente.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~55 min</dd></div>
+<div><dt>Seções</dt><dd>7</dd></div>
+<div><dt>Camadas</dt><dd>3</dd></div>
+<div><dt>Alertas definidos</dt><dd>5</dd></div>
+</dl>
+<div class="selo-key">
+<div><span class="selo ev">Evidência</span><p>Achado experimental revisado por pares. Vem com citação completa.</p></div>
+<div><span class="selo inf">Inferência</span><p>Extrapolação razoável para contexto <em>não</em> testado. Eu explico o salto.</p></div>
+<div><span class="selo prat">Prática</span><p>Convenção de organização de dashboard testada. Útil, comum, sem teste controlado.</p></div>
+<div><span class="selo mito">Mito</span><p>Repetido no mercado e contradito pela evidência — ou sem fonte.</p></div>
+</div>
+</div>
+</header>
+<!-- ============================================================ 11.1 ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>11.1</span><span></span></div>
+<h2>Por que dashboard vem por último</h2>
+<p class="sec-lede">
+          O <a class="modref" data-mod="c3-m1">C3.M1</a> §1.3 já avisou: a camada de Decisão nunca corrige
+          erro das camadas anteriores — ela só exibe com clareza o que as outras já capturaram certo.
+        </p>
+</div>
+<p>
+        Se você chegou até aqui seguindo o Curso 3 na ordem, já tem: CAC/<abbr data-t="LTV">LTV</abbr>/ROAS definidos (<a
+        class="modref" data-mod="c1-m3">C1.M3</a>), <abbr data-t="Pixel">Pixel</abbr>/CAPI configurados (<a class="modref"
+        data-mod="c3-m2">C3.M2</a>), <abbr data-t="GA4">GA4</abbr> com funil de exploração (<a class="modref"
+        data-mod="c3-m4">C3.M4</a>), sinais de frustração do <abbr data-t="Clarity">Clarity</abbr> (<a class="modref"
+        data-mod="c3-m5">C3.M5</a>) e performance medida (<a class="modref" data-mod="c3-m8">C3.M8</a>).
+        Este módulo não cria nada novo — organiza o que já existe.
+      </p>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 11.2 ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>11.2</span><span></span></div>
+<h2>As 3 camadas do dashboard</h2>
+<p class="sec-lede">
+          A mesma cadência diária/semanal/mensal que o <a class="modref" data-mod="c1-m4">C1.M4</a> já
+          estabeleceu pras métricas de mídia — aqui ela vira estrutura de dashboard completa.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Camada</th><th>Frequência</th><th>Pergunta que responde</th></tr></thead>
+<tbody>
+<tr><td><strong>Operacional</strong></td><td>Diária</td><td>Algo quebrou desde ontem?</td></tr>
+<tr><td><strong>Tática</strong></td><td>Semanal</td><td>O funil está performando dentro do esperado?</td></tr>
+<tr><td><strong>Estratégica</strong></td><td>Mensal</td><td>A operação está lucrativa e escalável?</td></tr>
+</tbody>
+</table>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 11.3 ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>11.3</span><span></span></div>
+<h2>Saúde do Pixel: a camada operacional</h2>
+<p class="sec-lede">
+          Antes de olhar qualquer número de resultado, confirme que o sistema de medição está funcionando —
+          senão você está lendo ruído de instrumento quebrado.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Indicador</th><th>Onde checar</th><th>Sinal de problema</th></tr></thead>
+<tbody>
+<tr><td><abbr data-t="EMQ">EMQ</abbr></td><td><a class="modref" data-mod="c3-m2">C3.M2</a></td><td>Queda repentina de qualidade de correspondência</td></tr>
+<tr><td>Deduplicação</td><td>Test Events (C3.M2 §2.3)</td><td>"1 evento de 1 fonte" quando deveria ser 2</td></tr>
+<tr><td>Status de aprendizado</td><td><a class="modref" data-mod="c1-m4">C1.M4</a> §4.6</td><td>Conjunto travado em aprendizagem por dias</td></tr>
+</tbody>
+</table>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 11.4 ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>11.4</span><span></span></div>
+<h2>Qualidade de tráfego: a camada tática</h2>
+<p class="sec-lede">
+          Volume não é o número que importa — qualidade do que chega é o que decide se o funil converte.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Indicador</th><th>Onde já foi definido</th></tr></thead>
+<tbody>
+<tr><td>Taxa de conversa qualificada</td><td><a class="modref" data-mod="c1-m4">C1.M4</a> §4.9</td></tr>
+<tr><td>Sinais de frustração (dead/rage click, quick back)</td><td><a class="modref" data-mod="c3-m5">C3.M5</a> §5.4</td></tr>
+<tr><td>Funil de exploração (onde quebra)</td><td><a class="modref" data-mod="c3-m4">C3.M4</a> §4.4</td></tr>
+</tbody>
+</table>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 11.5 ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>11.5</span><span></span></div>
+<h2>Funil unificado: negócio e dado, lado a lado</h2>
+<p class="sec-lede">
+          O mapa de 13 etapas do C1.M4 e o mapa técnico de 11 sistemas do C3.M1 finalmente se encontram
+          numa visão só.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Etapa de negócio (C1.M4)</th><th>Métrica que a representa</th><th>Sistema fonte</th></tr></thead>
+<tbody>
+<tr><td>Criativo / Campanha</td><td>Hook rate, hold rate</td><td>Meta Ads</td></tr>
+<tr><td>Landing Page</td><td>Taxa view_content → lead</td><td>GA4</td></tr>
+<tr><td>WhatsApp</td><td>Taxa lead → schedule</td><td><abbr data-t="CRM">CRM</abbr> (C1.M5)</td></tr>
+<tr><td>Consulta / Venda</td><td>Taxa schedule → purchase</td><td>CRM + Pixel/CAPI</td></tr>
+<tr><td>Pós-venda / Indicação</td><td>LTV real vs. projetado</td><td>CRM (C1.M8)</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Cada linha desta tabela já é uma métrica definida em outro módulo</span>
+</div>
+<p>
+          É por isso que a auditoria estrutural desta plataforma verifica referência cruzada com tanto
+          cuidado — se cada métrica está corretamente ligada ao módulo que a definiu, o funil unificado é
+          só a junção de peças já prontas, não um sistema novo de mensuração paralelo.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 11.6 ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>11.6</span><span></span></div>
+<h2>Alertas: o que dispara ação imediata</h2>
+<p class="sec-lede">
+          Cinco condições que não esperam a revisão semanal — cada uma já tem a resposta definida em outro
+          módulo.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>#</th><th>Alerta</th><th>Ação já definida em</th></tr></thead>
+<tbody>
+<tr><td class="t-num">1</td><td><abbr data-t="CAC">CAC</abbr> real acima do CAC máximo por 2 semanas seguidas</td><td><a class="modref" data-mod="c1-m4">C1.M4</a> §4.8</td></tr>
+<tr><td class="t-num">2</td><td>Deduplicação quebrada (Test Events)</td><td><a class="modref" data-mod="c3-m2">C3.M2</a> §2.3</td></tr>
+<tr><td class="t-num">3</td><td><abbr data-t="SLA">SLA</abbr> de resposta do WhatsApp estourado</td><td><a class="modref" data-mod="c1-m5">C1.M5</a> §5.2</td></tr>
+<tr><td class="t-num">4</td><td>Core Web Vitals fora do limiar "bom"</td><td><a class="modref" data-mod="c3-m8">C3.M8</a> §8.2</td></tr>
+<tr><td class="t-num">5</td><td>Capacidade de atendimento no limite</td><td><a class="modref" data-mod="c1-m3">C1.M3</a> §3.4</td></tr>
+</tbody>
+</table>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 11.7 ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>11.7</span><span></span></div>
+<h2>Resumo executivo</h2>
+<p class="sec-lede">
+          Sete ideias e o dashboard completo, numa tabela só. O <a class="modref" data-mod="c3-m12">C3.M12</a>
+          entrega o plano de 4 semanas pra implementar tudo isso na ordem certa.
+        </p>
+</div>
+<div class="summary">
+<h3>As sete ideias do Módulo 11</h3>
+<ol>
+<li><b>Dashboard é a última camada, nunca corrige erro de coleta</b> — só exibe com clareza o que já foi capturado certo.</li>
+<li><b>3 camadas por frequência:</b> operacional (diária), tática (semanal), estratégica (mensal).</li>
+<li><b>Saúde do Pixel vem antes de qualquer número de resultado</b> — EMQ, deduplicação, status de aprendizado.</li>
+<li><b>Qualidade de tráfego importa mais que volume</b> — taxa de conversa qualificada, sinais de frustração, funil de exploração.</li>
+<li><b>O funil unificado junta o mapa de negócio (C1.M4) e o mapa técnico (C3.M1)</b> numa visão só.</li>
+<li><b>5 alertas disparam ação imediata</b>, cada um com resposta já definida em outro módulo.</li>
+<li><b>Nenhuma métrica nova foi criada neste módulo</b> — é organização, não invenção.</li>
+</ol>
+</div>
+<h3>O dashboard construído</h3>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Camada</th><th>O que exibir</th><th>Fonte</th></tr></thead>
+<tbody>
+<tr><td rowspan="3"><strong>Operacional (diária)</strong></td><td>Status de aprendizado das campanhas ativas</td><td>Meta Ads</td></tr>
+<tr><td>EMQ e status de deduplicação</td><td>C3.M2</td></tr>
+<tr><td>SLA de resposta do WhatsApp</td><td>C1.M5</td></tr>
+<tr><td rowspan="3"><strong>Tática (semanal)</strong></td><td>Hook rate / hold rate dos criativos ativos</td><td>Meta Ads / C2.M4</td></tr>
+<tr><td>Funil de exploração (onde quebra)</td><td>C3.M4</td></tr>
+<tr><td>Sinais de frustração agregados</td><td>C3.M5</td></tr>
+<tr><td rowspan="3"><strong>Estratégica (mensal)</strong></td><td>CAC real vs. CAC máximo, por protocolo</td><td>C1.M3 / C3.M2</td></tr>
+<tr><td>LTV real vs. projetado</td><td>C1.M3 / C1.M8</td></tr>
+<tr><td>Lucro líquido da operação</td><td>C1.M3 §3.6</td></tr>
+</tbody>
+</table>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 11</h4>
+<span class="check-count" id="upCheckCount">0 / 10</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Operacional</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Reviso <b>status de aprendizado</b> e EMQ diariamente</span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Reviso <b>SLA do WhatsApp</b> diariamente</span></label>
+<div class="check-group">B · Tática</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Reviso <b>hook rate/hold rate</b> semanalmente</span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Reviso o <b>funil de exploração</b> semanalmente</span></label>
+<label class="ci"><input data-ck="b3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Reviso <b>sinais de frustração</b> semanalmente</span></label>
+<div class="check-group">C · Estratégica</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Reviso <b>CAC real vs. máximo</b> por protocolo mensalmente</span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Reviso <b>LTV real vs. projetado</b> mensalmente</span></label>
+<label class="ci"><input data-ck="c3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Reviso <b>lucro líquido</b> mensalmente</span></label>
+<div class="check-group">D · Alertas</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho os <b>5 alertas</b> definidos com resposta clara pra cada um</span></label>
+<label class="ci"><input data-ck="d2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei onde cada métrica do dashboard <b>foi originalmente definida</b></span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>Responda de cabeça. Se travar em duas ou mais, releia antes de seguir.</p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">Por que dashboard nunca deveria ser a primeira coisa configurada no sistema de dados?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">Quais são as 3 camadas do dashboard e a frequência de cada uma?</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">Por que checar saúde do Pixel vem antes de olhar qualquer número de resultado?</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">Cite 3 dos 5 alertas que disparam ação imediata.</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">Por que este módulo não cria nenhuma métrica nova?</p></div>
+</div>
+<h3>Exercício prático</h3>
+<div class="ex">
+<div class="ex-tag">Exercício único · ~25 min</div>
+<h4>Monte seu dashboard real</h4>
+<p>Usando a tabela "O dashboard construído", liste onde cada indicador vai morar na prática (planilha, painel do Meta Ads, GA4) e marque quais já estão disponíveis hoje vs. quais ainda precisam ser configurados.</p>
+<textarea data-ex="ex1" placeholder="Camada operacional:
+- Status de aprendizado: onde vou olhar: ___ disponível hoje? ___
+- EMQ: ...
+- SLA WhatsApp: ...
+
+Camada tática: ...
+
+Camada estratégica: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Módulo 12</h4>
+<span class="check-count" id="upDoneCount">0 / 5</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>7 seções</b> inteiras</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei as <b>3 camadas</b> e sua frequência de cabeça</span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho os <b>5 alertas</b> definidos</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Montei meu <b>dashboard real</b> com base na tabela do módulo</span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz o <b>exercício</b> completo</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>Platform.init({ id:"c3-m11" });</script>
+</body>
+</html>

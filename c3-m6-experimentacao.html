@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 6 — Experimentação e Estatística Aplicada. Como formular hipótese testável, amostragem e viés, significância e poder estatístico, tempo mínimo de teste com volume baixo, e correlação vs causalidade.">
+<title>Experimentação e Estatística Aplicada · Curso 3 · Engenharia e Dados</title>
+
+<!--
+  CURSO 3 · ENGENHARIA E DADOS
+  Módulo 6 — Experimentação e Estatística Aplicada
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Chrome, navegação, progresso, busca e glossário vêm do platform.js.
+  Este arquivo tem conteúdo + o que é exclusivamente dele: nada.
+
+  FEATURE FREEZE em vigor (CLAUDE.md, 2026-07-18) — nenhum componente novo, escopo
+  travado no manifest.js. Reaproveita as definições já existentes no glossário
+  (A/B, IC, p-valor) verbatim, sem redefinir. Dá o rigor que o C3.M5 §5.5 já
+  prometia pra transformar hipótese de gravação em decisão confiável.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+
+<main class="main" id="conteudo">
+ <header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Engenharia e Dados · Módulo 6</div>
+<h1>Experimentação e<br/><em>Estatística Aplicada</em></h1>
+<p class="hero-lede">
+        O <a class="modref" data-mod="c3-m5">C3.M5</a> §5.5 terminou com 5 hipóteses e um aviso: hipótese
+        não é certeza. Este módulo dá o rigor — e, com o volume de tráfego real da sua operação, esse rigor
+        aponta pra uma estratégia diferente da que a maioria dos cursos de <abbr data-t="CRO">CRO</abbr> ensina.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~55 min</dd></div>
+<div><dt>Seções</dt><dd>7</dd></div>
+<div><dt>Conceitos centrais</dt><dd>7</dd></div>
+<div><dt>Vieses cobertos</dt><dd>3</dd></div>
+</dl>
+<div class="selo-key">
+<div><span class="selo ev">Evidência</span><p>Achado experimental revisado por pares. Vem com citação completa.</p></div>
+<div><span class="selo inf">Inferência</span><p>Extrapolação razoável para contexto <em>não</em> testado. Eu explico o salto.</p></div>
+<div><span class="selo prat">Prática</span><p>Convenção de estatística aplicada. Útil, comum, sem ser achado experimental em si.</p></div>
+<div><span class="selo mito">Mito</span><p>Repetido no mercado e contradito pela evidência — ou sem fonte.</p></div>
+</div>
+</div>
+</header>
+<!-- ============================================================ 6.1 ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>6.1</span><span></span></div>
+<h2>Por que hipótese de gravação não é decisão</h2>
+<p class="sec-lede">
+          Ver um padrão em 5-8 gravações é observação. Confirmar que a correção funcionou é outra coisa —
+          e é aí que a maioria das operações pequenas se engana sozinha.
+        </p>
+</div>
+<p>
+        Sem volume alto de tráfego, é fácil implementar uma mudança na Landing Page, ver o número subir na
+        semana seguinte, e concluir que a correção funcionou — quando pode ser variação normal que
+        aconteceria de qualquer jeito. Este módulo dá o vocabulário e o processo pra distinguir sinal de
+        ruído com o volume real que uma clínica de dois protocolos tem.
+      </p>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 6.2 ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>6.2</span><span></span></div>
+<h2>Formular uma hipótese testável</h2>
+<p class="sec-lede">
+          As 5 frases do C3.M5 precisam virar um formato específico antes de qualquer teste começar.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Formato de hipótese testável:</strong> "Se eu mudar [X], espero que [métrica] mude
+          [direção], porque [mecanismo observado]." Uma hipótese sem métrica definida <em>antes</em> do
+          teste não é testável — é só uma opinião com nome bonito.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Vaga (não testável)</th><th>Testável</th></tr></thead>
+<tbody>
+<tr><td>"A página parece confusa"</td><td>"Se eu mover o CTA pra acima da dobra, espero que a taxa de clique em WhatsApp suba, porque o quick back do C3.M5 concentra nos primeiros segundos"</td></tr>
+</tbody>
+</table>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 6.3 ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>6.3</span><span></span></div>
+<h2>Amostragem e viés: o que engana antes mesmo do teste começar</h2>
+<p class="sec-lede">
+          Três vieses que distorcem a leitura mesmo com estatística perfeita depois.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Viés</th><th>O que é</th><th>Como aparece no seu funil</th></tr></thead>
+<tbody>
+<tr><td><strong>Viés de seleção</strong></td><td>A amostra não representa quem você quer entender</td><td>Medir só quem chegou até a Landing Page ignora quem nunca clicou no anúncio</td></tr>
+<tr><td><strong>Viés de sazonalidade</strong></td><td>Período testado não é representativo</td><td>Testar mudança de preço só na semana de uma campanha de feriado</td></tr>
+<tr><td><strong>Viés de confirmação</strong></td><td>Ver o que já se espera ver, ignorar o resto</td><td>Assistir só as gravações que confirmam a hipótese favorita, ignorar as que contradizem</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Testar muitas variações ao mesmo tempo já é um viés</span>
+</div>
+<p>
+          Quanto mais variações testadas simultaneamente, maior a chance de achar uma "vencedora" só por
+          acaso — testar 10 variações e achar uma com resultado aparentemente bom é o esperado por sorte,
+          não necessariamente uma descoberta real. Pesquisa sobre flexibilidade metodológica em análise de
+          dados mostra que decisões tomadas durante a coleta/análise (parar de testar quando o resultado
+          parece bom, testar várias métricas e reportar só a que "deu certo") inflam a taxa de falso
+          positivo muito além dos 5% nominais.
+        </p>
+<p class="cit"><b>Simmons, J. P., Nelson, L. D. &amp; Simonsohn, U. (2011).</b> <em>False-positive psychology: Undisclosed flexibility in data collection and analysis allows presenting anything as significant.</em> Psychological Science, 22(11), 1359–1366.</p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 6.4 ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>6.4</span><span></span></div>
+<h2>Significância e poder estatístico</h2>
+<p class="sec-lede">
+          O glossário já define os dois termos que mais são mal usados no marketing. Aqui, a aplicação.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          <abbr data-t="p-valor">p-valor</abbr> pequeno não significa "está provado" — significa "seria
+          incomum se não houvesse diferença nenhuma". <abbr data-t="IC">IC</abbr> (intervalo de confiança) é
+          mais informativo, porque mostra a <em>magnitude</em> plausível do efeito, não só se ele existe. Um
+          IC que cruza o zero é "não sei", não "não funcionou".
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+<strong>Poder estatístico</strong> é a capacidade do teste de detectar um efeito real quando ele
+          existe. Com volume baixo, poder baixo é o padrão — o que significa que um teste "sem resultado
+          significativo" pode simplesmente não ter tido dados suficientes pra detectar um efeito real, não
+          que o efeito não existe.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 6.5 ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>6.5</span><span></span></div>
+<h2>Tempo mínimo de teste e por que volume baixo muda a estratégia</h2>
+<p class="sec-lede">
+          A regra do glossário já é clara: com ~400 visitas/mês, testar cor de botão é perda de tempo.
+          Aqui está o porquê e a alternativa.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Detectar uma diferença pequena (ex.: 2,1% vs. 2,8% de conversão) exige volume alto — com poucas
+          centenas de visitas por mês, essa diferença é ruído estatístico, não sinal. O caminho certo pra
+          volume baixo não é testar <abbr data-t="A/B">A/B</abbr> fino: é <strong>mudança grande</strong> (reescrever a página inteira,
+          não trocar cor de botão) combinada com <strong>observação qualitativa</strong> — exatamente o que
+          o <a class="modref" data-mod="c3-m5">C3.M5</a> já entrega via gravação e heatmap.
+        </p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Isso não é desculpa pra pular rigor — é rigor aplicado ao seu volume real</span>
+</div>
+<p>
+          "Não tenho volume pra testar" não significa "decido no achismo" — significa que o instrumento
+          certo é diferente. Efeito grande, medido antes/depois com atenção a sazonalidade (§6.3), é mais
+          confiável que um teste A/B mal-amostrado que parece rigoroso mas não tem poder suficiente pra
+          dizer nada.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 6.6 ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>6.6</span><span></span></div>
+<h2>Correlação vs. causalidade</h2>
+<p class="sec-lede">
+          O erro mais caro de todos: mudar duas coisas ao mesmo tempo e não saber qual causou o resultado.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Duas variáveis andarem juntas não prova que uma causa a outra — pode haver uma terceira causa
+          comum, ou pura coincidência de período. Mudar o criativo da campanha e o preço do protocolo na
+          mesma semana e ver o <abbr data-t="CAC">CAC</abbr> cair não diz <em>qual</em> mudança causou a queda — as duas ficam
+          confundidas (<em>confounded</em>) na mesma janela de tempo.
+        </p>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Regra prática: uma mudança por vez, quando possível</span>
+</div>
+<p>
+          Com volume baixo, esperar uma mudança de cada vez custa tempo — mas misturar mudanças custa
+          <em>certeza</em>. Se duas mudanças precisam acontecer juntas por necessidade operacional, registre
+          as duas explicitamente e trate qualquer conclusão sobre qual causou o quê como hipótese, não fato.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 6.7 ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>6.7</span><span></span></div>
+<h2>Resumo executivo</h2>
+<p class="sec-lede">
+          Sete ideias. O <a class="modref" data-mod="c3-m7">C3.M7</a> (CRO) aplica esse rigor direto na
+          Landing Page.
+        </p>
+</div>
+<div class="summary">
+<h3>As sete ideias do Módulo 6</h3>
+<ol>
+<li><b>Hipótese de gravação precisa de formato testável</b> — mudança, métrica e direção esperada, definidos antes do teste.</li>
+<li><b>3 vieses distorcem a leitura antes da estatística entrar em jogo:</b> seleção, sazonalidade, confirmação.</li>
+<li><b>Testar muitas variações ao mesmo tempo já é um viés</b> — a chance de achar um "vencedor" por acaso sobe com o número de testes.</li>
+<li><b>p-valor pequeno não é prova — é "seria incomum sob a hipótese nula".</b> IC é mais informativo por mostrar magnitude.</li>
+<li><b>Poder estatístico baixo é o padrão com volume baixo</b> — "sem resultado significativo" pode ser falta de dado, não ausência de efeito.</li>
+<li><b>Com ~400 visitas/mês, teste A/B fino não funciona</b> — mudança grande + observação qualitativa (C3.M5) é a estratégia certa pro seu volume.</li>
+<li><b>Correlação não é causalidade</b> — mudar duas coisas na mesma janela confunde qual causou o resultado.</li>
+</ol>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 6</h4>
+<span class="check-count" id="upCheckCount">0 / 8</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Hipótese</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Reescrevi as <b>5 hipóteses</b> do C3.M5 no formato testável</span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Cada hipótese tem <b>métrica e direção</b> definidas antes do teste</span></label>
+<div class="check-group">B · Viés</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Verifiquei <b>sazonalidade</b> antes de testar mudança de preço ou oferta</span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Não estou testando <b>muitas variações</b> ao mesmo tempo</span></label>
+<div class="check-group">C · Volume e estratégia</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei meu <b>volume real</b> de tráfego/mês</span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Escolhi <b>mudança grande + observação qualitativa</b> em vez de A/B fino, dado meu volume</span></label>
+<div class="check-group">D · Causalidade</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Evito mudar <b>duas coisas ao mesmo tempo</b> quando possível</span></label>
+<label class="ci"><input data-ck="d2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Trato conclusão sobre causa como <b>hipótese</b> quando mudanças se sobrepõem</span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>Responda de cabeça. Se travar em duas ou mais, releia antes de seguir.</p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">O que falta numa hipótese como "a página parece confusa" pra virar testável?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">Cite os 3 vieses do §6.3 e um exemplo de cada aplicado ao seu funil.</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">Por que testar 10 variações e achar uma "vencedora" pode não significar nada?</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">O que um IC que cruza o zero está dizendo, exatamente?</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">Por que testar cor de botão é perda de tempo com o seu volume de tráfego, e o que fazer em vez disso?</p></div>
+</div>
+<h3>Exercício prático</h3>
+<div class="ex">
+<div class="ex-tag">Exercício único · ~25 min</div>
+<h4>Reescreva as hipóteses do C3.M5</h4>
+<p>Pegue as 5 hipóteses que você escreveu no exercício do C3.M5 e reescreva cada uma no formato testável do §6.2 — mudança, métrica, direção esperada, mecanismo.</p>
+<textarea data-ex="ex1" placeholder="Hipótese 1 original: ...
+Reescrita testável: 'Se eu mudar ___, espero que ___ mude ___, porque ___'
+
+Hipótese 2: ...
+..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Módulo 7</h4>
+<span class="check-count" id="upDoneCount">0 / 5</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>7 seções</b> inteiras</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei formular hipótese no <b>formato testável</b></span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei os <b>3 vieses</b> e reconheço quando estão presentes</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei por que meu volume pede <b>mudança grande</b>, não A/B fino</span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz o <b>exercício</b> de reescrita das hipóteses</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>Platform.init({ id:"c3-m6" });</script>
+</body>
+</html>

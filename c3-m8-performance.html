@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 8 — Performance. Os 3 Core Web Vitals e seus limiares oficiais, campo vs laboratório, otimização de imagens, fontes, vídeo e JavaScript aplicada à Landing Page.">
+<title>Performance · Curso 3 · Engenharia e Dados</title>
+
+<!--
+  CURSO 3 · ENGENHARIA E DADOS
+  Módulo 8 — Performance
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Chrome, navegação, progresso, busca e glossário vêm do platform.js.
+  Este arquivo tem conteúdo + o que é exclusivamente dele: nada.
+
+  vol:"med" — pesquisei limiares atuais via WebSearch em 2026-07-18. Reaproveita
+  as definições de LCP/INP/CLS já no glossário (não redefine). Cross-ref pesado
+  com C3.M1 (ponto de perda 5) e C3.M5 (quick back).
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+
+<main class="main" id="conteudo">
+ <header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Engenharia e Dados · Módulo 8</div>
+<h1>Performance</h1>
+<p class="hero-lede">
+        O ponto de perda 5 do <a class="modref" data-mod="c3-m1">C3.M1</a> §1.5 é abandono antes do disparo
+        — a paciente sai antes da página carregar. Este módulo entrega os 3 Core Web Vitals, seus limiares
+        oficiais, e o que corrigir primeiro numa página com foto de protocolo.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~50 min</dd></div>
+<div><dt>Seções</dt><dd>7</dd></div>
+<div><dt>Core Web Vitals</dt><dd>3</dd></div>
+<div><dt>Limiar "bom" de LCP</dt><dd>2,5s</dd></div>
+</dl>
+<div class="selo-key">
+<div><span class="selo ev">Evidência</span><p>Achado experimental ou padrão técnico oficial. Vem com citação completa.</p></div>
+<div><span class="selo inf">Inferência</span><p>Extrapolação razoável para contexto <em>não</em> testado. Eu explico o salto.</p></div>
+<div><span class="selo prat">Prática</span><p>Convenção de otimização web testada. Fonte quando existe.</p></div>
+<div><span class="selo mito">Mito</span><p>Repetido no mercado e contradito pela evidência — ou sem fonte.</p></div>
+</div>
+</div>
+</header>
+<!-- ============================================================ 8.1 ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>8.1</span><span></span></div>
+<h2>Por que performance é ponto de perda, não detalhe técnico</h2>
+<p class="sec-lede">
+          Página lenta não é só "menos elegante" — é orçamento de mídia pago transformado em quick back.
+        </p>
+</div>
+<p>
+        Cada segundo de carregamento é tempo em que a paciente pode simplesmente fechar a aba — o
+        <strong>quick back</strong> que o <a class="modref" data-mod="c3-m5">C3.M5</a> §5.4 já descreveu
+        como sinal de frustração pode ter causa técnica, não só de conteúdo. Antes de reescrever a página
+        (<a class="modref" data-mod="c3-m7">C3.M7</a>), confirme que ela carrega rápido o suficiente pra
+        alguém ver o conteúdo reescrito.
+      </p>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 8.2 ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>8.2</span><span></span></div>
+<h2>Os 3 Core Web Vitals e seus limiares</h2>
+<p class="sec-lede">
+          O glossário já define <abbr data-t="LCP">LCP</abbr>, <abbr data-t="INP">INP</abbr> e <abbr
+          data-t="CLS">CLS</abbr>. Aqui estão os números que decidem "bom" ou "precisa melhorar".
+        </p>
+</div>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          Limiares oficiais pra classificação "bom": <strong>LCP abaixo de 2,5 segundos</strong>,
+          <strong>INP abaixo de 200 milissegundos</strong>, <strong>CLS abaixo de 0,1</strong>. A avaliação é
+          no percentil 75 dos visitantes reais — pra passar, pelo menos 75% das visitas precisam estar na
+          faixa "boa" nas três métricas.
+        </p>
+<p class="cit"><b>Google Search Central.</b> <em>Understanding Core Web Vitals and Google Search results.</em> developers.google.com/search/docs/appearance/core-web-vitals. Consultado em 18/07/2026.</p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 8.3 ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>8.3</span><span></span></div>
+<h2>Campo vs. laboratório</h2>
+<p class="sec-lede">
+          Dois números diferentes, dois propósitos diferentes — confundir os dois leva a otimizar o
+          relatório errado.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th></th><th>Campo (field)</th><th>Laboratório (lab)</th></tr></thead>
+<tbody>
+<tr><td>Fonte</td><td><abbr data-t="CrUX">CrUX</abbr> — dado real de visitantes Chrome</td><td>Lighthouse/DevTools — simulação controlada</td></tr>
+<tr><td>Representa</td><td>O que sua paciente real vive, em conexões e aparelhos variados</td><td>Um cenário fixo, reproduzível, útil pra comparar antes/depois</td></tr>
+<tr><td>Quando usar</td><td>Para saber a situação real hoje</td><td>Para testar se uma mudança específica ajudou, antes de publicar</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Nota de rigor pro seu volume</span>
+</div>
+<p>
+          Com pouco tráfego, o CrUX pode não ter dado suficiente pra sua página específica — a mesma
+          limitação de poder estatístico do <a class="modref" data-mod="c3-m6">C3.M6</a> §6.4 se aplica
+          aqui. Nesse caso, o teste de laboratório vira sua referência principal, não só complementar.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 8.4 ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>8.4</span><span></span></div>
+<h2>Imagens e fontes: os culpados mais comuns do seu LCP</h2>
+<p class="sec-lede">
+          Numa página de estética, a maior imagem da tela costuma ser foto de resultado ou de protocolo —
+          exatamente o que mais atrasa o LCP se não for otimizada.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Elemento</th><th>Prática recomendada</th></tr></thead>
+<tbody>
+<tr><td>Imagem principal</td><td>Comprimir e servir em formato moderno (WebP/AVIF), dimensionada pro tamanho real de exibição — não a foto original da câmera</td></tr>
+<tr><td>Fonte web</td><td>Carregar só os pesos usados (não a família inteira), com <code>font-display: swap</code> pra não bloquear a renderização do texto</td></tr>
+</tbody>
+</table>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 8.5 ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>8.5</span><span></span></div>
+<h2>Vídeo na Landing Page</h2>
+<p class="sec-lede">
+          Vídeo de depoimento ou explicação do protocolo é comum na página — e é fácil de fazer errado do
+          jeito que mais pesa o carregamento.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Vídeo não deve iniciar automaticamente com carregamento antecipado do arquivo inteiro — usar
+          thumbnail estático com play sob demanda evita que o vídeo compita com a imagem principal pelo
+          orçamento de carregamento que decide o LCP.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 8.6 ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>8.6</span><span></span></div>
+<h2>JavaScript e renderização</h2>
+<p class="sec-lede">
+          Cada script carregado — inclusive o <abbr data-t="GTM">GTM</abbr> (<a class="modref" data-mod="c3-m3">C3.M3</a>) que dispara os
+          seus 4 eventos — tem custo de performance. A pergunta não é "remover", é "carregar direito".
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          <abbr data-t="TBT">TBT</abbr> mede quanto tempo a página fica travada por JavaScript. O <a
+          class="modref" data-mod="c3-m3">C3.M3</a> §3.5 já mencionou GTM server-side como opção avançada —
+          uma das vantagens dela é justamente mover processamento pro servidor, reduzindo o que roda no
+          navegador da paciente. Pra a maioria das operações pequenas, garantir que o <abbr data-t="Data Layer">Data Layer</abbr> carrega
+          sem bloquear a renderização (C3.M3 §3.2) já resolve a maior parte do problema, sem precisar da
+          infraestrutura extra.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 8.7 ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>8.7</span><span></span></div>
+<h2>Resumo executivo</h2>
+<p class="sec-lede">
+          Sete ideias. O <a class="modref" data-mod="c3-m9">C3.M9</a> (<abbr data-t="SEO">SEO</abbr> Técnico) usa essa mesma base de
+          performance como um dos fatores de ranqueamento orgânico.
+        </p>
+</div>
+<div class="summary">
+<h3>As sete ideias do Módulo 8</h3>
+<ol>
+<li><b>Performance é ponto de perda 5 do C3.M1</b> — abandono antes do disparo, não detalhe técnico secundário.</li>
+<li><b>3 limiares oficiais:</b> LCP < 2,5s, INP < 200ms, CLS < 0,1, avaliados no percentil 75.</li>
+<li><b>Campo (CrUX) mostra a realidade; laboratório (Lighthouse) testa mudança específica</b> — com volume baixo, laboratório vira referência principal.</li>
+<li><b>Imagem principal e fonte web são os culpados mais comuns de LCP</b> numa página de estética.</li>
+<li><b>Vídeo sob demanda, não autoplay com carregamento antecipado</b> — evita competir com a imagem principal.</li>
+<li><b>JavaScript, inclusive GTM, tem custo — a resposta é carregar direito, não remover.</b></li>
+<li><b>GTM server-side (C3.M3) é uma solução avançada</b> — pra maioria, o Data Layer bem carregado já resolve o essencial.</li>
+</ol>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 8</h4>
+<span class="check-count" id="upCheckCount">0 / 8</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Medição</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Medi <b>LCP, INP e CLS</b> da minha Landing Page</span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei se estou usando <b>dado de campo ou laboratório</b> pra cada número</span></label>
+<div class="check-group">B · Imagem e fonte</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Imagem principal está <b>comprimida e no tamanho certo</b></span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fonte web usa <b>font-display: swap</b></span></label>
+<div class="check-group">C · Vídeo e script</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Vídeo (se houver) é <b>sob demanda</b>, não autoplay</span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Data Layer do GTM <b>não bloqueia</b> a renderização</span></label>
+<div class="check-group">D · Prioridade</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei qual dos 3 Vitals está <b>pior</b> hoje</span></label>
+<label class="ci"><input data-ck="d2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Corrigi a <b>causa mais provável</b> antes de qualquer outra otimização</span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>Responda de cabeça. Se travar em duas ou mais, releia antes de seguir.</p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">Quais são os 3 limiares "bom" dos Core Web Vitals?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">Qual a diferença entre dado de campo e de laboratório — e quando usar cada um?</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">Por que, com pouco tráfego, o dado de laboratório vira referência principal?</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">Por que vídeo autoplay com carregamento antecipado prejudica o LCP?</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">Por que a resposta pra JavaScript pesado não é "remover o GTM"?</p></div>
+</div>
+<h3>Exercício prático</h3>
+<div class="ex">
+<div class="ex-tag">Exercício único · ~20 min</div>
+<h4>Meça e priorize</h4>
+<p>Rode um teste de laboratório (PageSpeed Insights ou equivalente) na sua Landing Page. Anote os 3 números e qual deles está mais longe do limiar "bom".</p>
+<textarea data-ex="ex1" placeholder="LCP: ___s   INP: ___ms   CLS: ___
+Pior métrica: ___
+Causa mais provável: ___
+Ação prioritária: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Módulo 9</h4>
+<span class="check-count" id="upDoneCount">0 / 5</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>7 seções</b> inteiras</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei os <b>3 limiares</b> dos Core Web Vitals de cabeça</span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Medi a <b>performance real</b> da minha página</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei distinguir <b>campo</b> de <b>laboratório</b></span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz o <b>exercício</b> de medição</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>Platform.init({ id:"c3-m8" });</script>
+</body>
+</html>

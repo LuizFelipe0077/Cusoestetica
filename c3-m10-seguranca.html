@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 10 — Segurança e LGPD. HTTPS, headers (HSTS, CSP), XSS, dado de saúde como categoria sensível (LGPD Art. 11, fiscalização ANPD 2026), consentimento e a mudança do Consent Mode de junho de 2026.">
+<title>Segurança e LGPD · Curso 3 · Engenharia e Dados</title>
+
+<!--
+  CURSO 3 · ENGENHARIA E DADOS
+  Módulo 10 — Segurança e LGPD
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Chrome, navegação, progresso, busca e glossário vêm do platform.js.
+  Este arquivo tem conteúdo + o que é exclusivamente dele: nada.
+
+  vol:"med" — pesquisei via WebSearch em 2026-07-18 (LGPD/ANPD, Consent Mode).
+  Achado crítico: mudança de 15/06/2026 no Consent Mode — ad_storage virou
+  autoridade única, Google Signals deixou de servir de fallback. Reaproveita
+  definições já existentes no glossário (LGPD, ANPD, CMP, CSP, HSTS, XSS).
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+
+<main class="main" id="conteudo">
+ <header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Engenharia e Dados · Módulo 10</div>
+<h1>Segurança<br/><em>e LGPD</em></h1>
+<p class="hero-lede">
+        Dado de saúde é categoria sensível por definição legal — não uma interpretação cautelosa. Este
+        módulo entrega a base técnica (HTTPS, headers, XSS) e o que a ANPD está fiscalizando de verdade em
+        2026, incluindo uma mudança recente que já afeta como o <abbr data-t="Pixel">Pixel</abbr> e o <abbr data-t="GA4">GA4</abbr> recebem consentimento.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~55 min</dd></div>
+<div><dt>Seções</dt><dd>7</dd></div>
+<div><dt>Sinais do Consent Mode</dt><dd>4</dd></div>
+<div><dt>Ações de fiscalização ANPD 2026</dt><dd>10</dd></div>
+</dl>
+<div class="selo-key">
+<div><span class="selo ev">Evidência</span><p>Texto de lei ou documentação oficial. Vem com citação completa.</p></div>
+<div><span class="selo inf">Inferência</span><p>Extrapolação razoável para contexto <em>não</em> testado. Eu explico o salto.</p></div>
+<div><span class="selo prat">Prática</span><p>Convenção técnica de segurança ou cobertura de mercado sobre regulação. Fonte quando existe.</p></div>
+<div><span class="selo mito">Mito</span><p>Repetido no mercado e contradito pela lei ou documentação oficial.</p></div>
+</div>
+</div>
+</header>
+<!-- ============================================================ 10.1 ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>10.1</span><span></span></div>
+<h2>Por que isso é currículo técnico, não só jurídico</h2>
+<p class="sec-lede">
+          A taxonomia de eventos do <a class="modref" data-mod="c3-m2">C3.M2</a> já coleta dado ligado à
+          saúde da paciente — isso já é dado sensível, com regras técnicas de segurança específicas.
+        </p>
+</div>
+<p>
+        O ponto de perda 3 do <a class="modref" data-mod="c3-m1">C3.M1</a> §1.5 (consentimento negado) já
+        apontava pra este módulo. Aqui está o porquê de tratar isso como segurança de dado, não só
+        formalidade — e o que muda tecnicamente quando o dado é de saúde.
+      </p>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 10.2 ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>10.2</span><span></span></div>
+<h2>HTTPS e headers básicos</h2>
+<p class="sec-lede">
+          O piso técnico — sem isso, nada do resto do módulo importa.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          HTTPS (conexão criptografada) é pré-requisito, não diferencial — hoje é padrão mínimo esperado
+          por navegador, usuário e pelo próprio Google (afeta <abbr data-t="SEO">SEO</abbr>,
+          <a class="modref" data-mod="c3-m9">C3.M9</a>, indiretamente). <abbr data-t="HSTS">HSTS</abbr> reforça isso, obrigando o navegador a nunca tentar
+          a versão sem criptografia do seu site, nem por engano.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 10.3 ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>10.3</span><span></span></div>
+<h2><abbr data-t="CSP">CSP</abbr> e <abbr data-t="XSS">XSS</abbr></h2>
+<p class="sec-lede">
+          Uma regra de navegador que reduz drasticamente o risco de um tipo de ataque comum em página com
+          múltiplos scripts de terceiro — como a sua, com Pixel, <abbr data-t="GTM">GTM</abbr> e <abbr data-t="Clarity">Clarity</abbr>.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          <abbr data-t="XSS">XSS</abbr> é injeção de código malicioso na página — mais provável quanto mais
+          scripts de terceiro a página carrega, exatamente o cenário de uma Landing Page com <a
+          class="modref" data-mod="c3-m2">Pixel</a>, <a class="modref" data-mod="c3-m3">GTM</a> e <a
+          class="modref" data-mod="c3-m5">Clarity</a>. <abbr data-t="CSP">CSP</abbr> restringe quais origens
+          de script o navegador aceita executar, reduzindo o espaço de ataque sem impedir os scripts
+          legítimos que você já configurou.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 10.4 ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>10.4</span><span></span></div>
+<h2>Dado de saúde como categoria sensível</h2>
+<p class="sec-lede">
+          Não é interpretação cautelosa — é definição literal da lei, com fiscalização real intensificando
+          em 2026.
+        </p>
+</div>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          A <abbr data-t="LGPD">LGPD</abbr>, art. 11, define <strong>dado de saúde</strong> como categoria
+          de dado pessoal sensível — junto com origem racial/étnica, convicção religiosa, opinião política e
+          dado genético/biométrico. Tratamento de dado sensível exige base legal específica; consentimento é
+          uma delas, mas existem alternativas — inclusive tutela de saúde por profissional ou serviço de
+          saúde.
+        </p>
+<p class="cit"><b>Lei nº 13.709/2018 (LGPD), art. 11.</b> planalto.gov.br. Consultado em 18/07/2026.</p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          A <abbr data-t="ANPD">ANPD</abbr> definiu meta de <strong>10 ações de fiscalização sobre dado
+          sensível até o fim de 2026</strong>, com foco em dado de saúde, biométrico e financeiro — e
+          sinalizou que vai avaliar <em>efetividade da prática</em>, não só a existência formal de política
+          e documento. Ter uma política de privacidade publicada não é suficiente se a prática real não
+          corresponde a ela.
+        </p>
+<p class="cit">Fonte: cobertura de mercado sobre a agenda regulatória da ANPD 2025-2026, consultada em 18/07/2026.</p>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Controles técnicos que a fiscalização espera encontrar</span>
+</div>
+<p>
+          Criptografia forte de dado sensível em repouso e em trânsito, controle de acesso por perfil com
+          log de auditoria, retenção mais curta com exclusão segura ao fim da finalidade, e anonimização ou
+          pseudonimização quando o tratamento não exigir identificação direta.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 10.5 ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>10.5</span><span></span></div>
+<h2>Consentimento e CMP</h2>
+<p class="sec-lede">
+          O banner de cookies não é formalidade decorativa — é o registro técnico do que a paciente
+          autorizou, e alimenta diretamente o que o Pixel e o GA4 têm permissão de fazer.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Um <abbr data-t="CMP">CMP</abbr> (plataforma de gestão de consentimento) precisa registrar
+          <em>o que</em> foi autorizado, <em>quando</em>, e permitir revogação tão fácil quanto a concessão.
+          Banner que só tem botão "aceitar" visível, escondendo "recusar" atrás de mais cliques, não cumpre
+          o espírito da lei — e é exatamente o tipo de prática que a fiscalização de efetividade da §10.4
+          está mirando.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 10.6 ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>10.6</span><span></span></div>
+<h2>Consent Mode: os 4 sinais e a mudança de junho de 2026</h2>
+<p class="sec-lede">
+          Desde 15 de junho de 2026, o sinal que o seu CMP manda pra Meta e Google é a <strong>única</strong>
+          autoridade sobre o que pode ser coletado — não existe mais rede de segurança.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          O Consent Mode envia 4 sinais de sim/não: <code>ad_storage</code> (cookie de anúncio),
+          <code>analytics_storage</code> (armazenamento do GA4), <code>ad_user_data</code> (envio de dado
+          de usuário pra anúncio) e <code>ad_personalization</code> (uso pra remarketing/personalização).
+          Obrigatório desde março de 2024 pra usuário da UE/Reino Unido — boa prática global recomendada
+          além disso, inclusive pro Brasil, dado que a LGPD também exige rastro de consentimento.
+        </p>
+<p class="cit"><b>Google for Developers.</b> <em>Set up consent mode on websites.</em> developers.google.com/tag-platform/security/guides/consent. Consultado em 18/07/2026.</p>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>O que mudou em 15 de junho de 2026</span>
+</div>
+<p>
+          Antes dessa data, o Google Ads também considerava a configuração de Google Signals dentro do
+          GA4 — duas fontes precisavam concordar. Depois dela, <strong><code>ad_storage</code> é a única
+          autoridade</strong>: o Google Ads parou de considerar a configuração do GA4 e passou a depender
+          só do sinal de consentimento do seu CMP. Se o banner manda o sinal errado, não existe mais nada
+          rio abaixo que corrija isso.
+        </p>
+<p class="cit">Fonte: cobertura de mercado sobre a mudança de autoridade do Consent Mode em 15/06/2026, consultada em 18/07/2026.</p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Prioridade prática: testar o CMP, não só instalar</span>
+</div>
+<p>
+          Instalar um CMP certificado não basta — confirme, no Test Events (<a class="modref"
+          data-mod="c3-m2">C3.M2</a> §2.3), que o sinal muda de verdade quando você recusa consentimento no
+          banner. Um CMP mal integrado que sempre manda "autorizado" é pior que não ter CMP — cria falsa
+          sensação de conformidade.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 10.7 ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>10.7</span><span></span></div>
+<h2>Resumo executivo</h2>
+<p class="sec-lede">
+          Sete ideias. O <a class="modref" data-mod="c3-m11">C3.M11</a> (Dashboard) consolida tudo o que os
+          10 módulos técnicos já construíram numa visão só.
+        </p>
+</div>
+<div class="summary">
+<h3>As sete ideias do Módulo 10</h3>
+<ol>
+<li><b>Dado de saúde já entra no seu sistema pela taxonomia do C3.M2</b> — segurança de dado é currículo técnico, não só formalidade jurídica.</li>
+<li><b>HTTPS e HSTS são piso, não diferencial.</b></li>
+<li><b>CSP reduz o risco de XSS</b>, mais relevante quanto mais script de terceiro a página carrega — que é o seu caso, com Pixel, GTM e Clarity.</li>
+<li><b>Dado de saúde é sensível por definição literal da LGPD (art. 11)</b> — e a ANPD está fiscalizando efetividade de prática, não só documento, com meta de 10 ações até fim de 2026.</li>
+<li><b>CMP precisa registrar consentimento de forma real</b>, com recusa tão fácil quanto aceite — banner que esconde "recusar" não cumpre o espírito da lei.</li>
+<li><b>Desde 15/06/2026, ad_storage é a única autoridade</b> sobre coleta de anúncio — Google Ads parou de considerar a configuração do GA4 como rede de segurança.</li>
+<li><b>Testar o CMP no Test Events é obrigatório</b> — CMP mal integrado que sempre autoriza é pior que não ter CMP.</li>
+</ol>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 10</h4>
+<span class="check-count" id="upCheckCount">0 / 9</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Base técnica</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Site usa <b>HTTPS</b> com HSTS configurado</span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho <b>CSP</b> configurado, permitindo só os scripts legítimos</span></label>
+<div class="check-group">B · LGPD e dado sensível</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei qual <b>base legal</b> uso pro tratamento de dado de saúde</span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho <b>retenção definida</b> e processo de exclusão segura</span></label>
+<label class="ci"><input data-ck="b3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Minha prática real <b>corresponde</b> à política de privacidade publicada</span></label>
+<div class="check-group">C · Consentimento</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">CMP tem <b>recusar tão fácil</b> quanto aceitar</span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Os <b>4 sinais</b> do Consent Mode estão configurados</span></label>
+<label class="ci"><input data-ck="c3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Testei no <b>Test Events</b> que o sinal muda de verdade ao recusar</span></label>
+<div class="check-group">D · Atualização</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Agendei <b>revisão trimestral</b> deste módulo (vol:med)</span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>Responda de cabeça. Se travar em duas ou mais, releia antes de seguir.</p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">Por que dado de saúde é categoria sensível por definição, não por precaução?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">O que a ANPD está avaliando na fiscalização de 2026 — só documento ou também prática?</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">Quais são os 4 sinais do Consent Mode?</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">O que mudou em 15 de junho de 2026 sobre a autoridade do ad_storage?</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">Por que um CMP que sempre manda "autorizado" é pior que não ter CMP nenhum?</p></div>
+</div>
+<h3>Exercício prático</h3>
+<div class="ex">
+<div class="ex-tag">Exercício único · ~20 min</div>
+<h4>Teste seu CMP de verdade</h4>
+<p>Abra sua Landing Page, recuse consentimento no banner, e confirme no Test Events do Gerenciador de Eventos se os eventos do C3.M2 realmente param ou mudam de comportamento.</p>
+<textarea data-ex="ex1" placeholder="CMP instalado? ___
+Recusar é tão fácil quanto aceitar? ___
+Ao recusar, o sinal ad_storage muda no Test Events? ___
+Ação necessária: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Módulo 11</h4>
+<span class="check-count" id="upDoneCount">0 / 5</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>7 seções</b> inteiras</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei por que dado de saúde é <b>sensível por lei</b></span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei os <b>4 sinais</b> do Consent Mode de cabeça</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Testei meu <b>CMP de verdade</b>, não só instalei</span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz o <b>exercício</b> de teste</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>Platform.init({ id:"c3-m10" });</script>
+</body>
+</html>

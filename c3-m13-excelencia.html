@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 13 — Engenharia de Excelência. Organização e nomenclatura, código limpo, o princípio por trás do SOLID sem a sigla, Git como rede de segurança, testes antes de publicar, e as 4 auditorias como checklist de revisão pra qualquer entrega técnica.">
+<title>Engenharia de Excelência · Curso 3 · Engenharia e Dados</title>
+
+<!--
+  CURSO 3 · ENGENHARIA E DADOS
+  Módulo 13 — Engenharia de Excelência (último módulo do Curso 3)
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Chrome, navegação, progresso, busca e glossário vêm do platform.js.
+  Este arquivo tem conteúdo + o que é exclusivamente dele: nada.
+
+  FEATURE FREEZE em vigor. Público-alvo: dono do negócio, não desenvolvedor —
+  tudo traduzido pra "o que pedir/avaliar num freelancer ou dev", não "como
+  programar". SOLID e CI/CD deliberadamente simplificados (Regra da Simplicidade,
+  CLAUDE.md). Seção de fechamento reaproveita as 4 auditorias já usadas pra
+  construir a própria plataforma, como checklist transferível.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+
+<main class="main" id="conteudo">
+ <header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Engenharia e Dados · Módulo 13</div>
+<h1>Engenharia<br/><em>de Excelência</em></h1>
+<p class="hero-lede">
+        Fecha o Curso 3. Você não precisa programar — mas precisa saber o que pedir de quem programa pra
+        você, e como avaliar se o trabalho entregue é bom. As mesmas 4 auditorias usadas pra manter esta
+        plataforma consistente viram, aqui, um checklist que você pode aplicar em qualquer entrega técnica
+        futura.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~50 min</dd></div>
+<div><dt>Seções</dt><dd>7</dd></div>
+<div><dt>Curso 3</dt><dd>Módulo final</dd></div>
+<div><dt>Auditorias transferíveis</dt><dd>4</dd></div>
+</dl>
+<div class="selo-key">
+<div><span class="selo ev">Evidência</span><p>Achado experimental revisado por pares. Vem com citação completa.</p></div>
+<div><span class="selo inf">Inferência</span><p>Extrapolação razoável para contexto <em>não</em> testado. Eu explico o salto.</p></div>
+<div><span class="selo prat">Prática</span><p>Convenção de engenharia de software testada. Útil, comum, sem teste controlado.</p></div>
+<div><span class="selo mito">Mito</span><p>Repetido no mercado e contradito pela evidência — ou sem fonte.</p></div>
+</div>
+</div>
+</header>
+<!-- ============================================================ 13.1 ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>13.1</span><span></span></div>
+<h2>Por que isso importa mesmo sem programar</h2>
+<p class="sec-lede">
+          Você não escreve código — mas contrata, briefa e avalia quem escreve. As duas coisas exigem
+          vocabulário e critério, não fluência técnica completa.
+        </p>
+</div>
+<p>
+        Toda a infraestrutura dos módulos 1 a 12 (<abbr data-t="Pixel">Pixel</abbr>, <abbr data-t="GTM">GTM</abbr>, Landing Page, dashboard) tende a ser mantida
+        ou expandida por um freelancer ou agência, não por você diretamente. Este módulo entrega o
+        vocabulário mínimo pra brief bem e pra reconhecer trabalho malfeito antes que ele quebre a coleta de
+        dados que o resto do curso levou 12 módulos pra construir.
+      </p>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 13.2 ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>13.2</span><span></span></div>
+<h2>Organização e nomenclatura</h2>
+<p class="sec-lede">
+          A mesma regra que rege o manifest desta plataforma — "fonte única de verdade" — é o critério
+          número um pra avaliar organização técnica de qualquer sistema.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Pergunta de avaliação simples: se um dado (preço do protocolo, nome de evento, texto de CTA)
+          precisa mudar, existe <strong>um lugar só</strong> pra mudar, ou está espalhado em vários arquivos
+          com risco de esquecer um? Nomenclatura consistente (mesmo padrão de nome em toda parte, sem
+          "Lead" num lugar e "lead_evento" em outro) é o segundo sinal mais fácil de checar sem saber
+          programar.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 13.3 ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>13.3</span><span></span></div>
+<h2>Código limpo, na prática</h2>
+<p class="sec-lede">
+          Você não vai ler o código — mas pode pedir 3 coisas que qualquer desenvolvedor de verdade entrega
+          sem reclamar.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>O que pedir</th><th>Por que</th></tr></thead>
+<tbody>
+<tr><td>Nada de código morto (funcionalidade desligada, deixada "por via das dúvidas")</td><td>Acumula confusão e risco de segurança sem benefício</td></tr>
+<tr><td>Comentário só onde a lógica não é óbvia</td><td>Código com comentário em tudo geralmente esconde código confuso, não documenta bem</td></tr>
+<tr><td>Nomes de variável e função que dizem o que fazem</td><td>Reduz a dependência de quem escreveu pra manter no futuro</td></tr>
+</tbody>
+</table>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 13.4 ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>13.4</span><span></span></div>
+<h2>O princípio por trás do "SOLID", sem a sigla</h2>
+<p class="sec-lede">
+          Você não precisa saber os 5 princípios formais — precisa reconhecer o problema que eles evitam:
+          mudar uma coisa pequena e quebrar três outras sem querer.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Um sistema bem construído tem peças pequenas e independentes — mudar o texto do CTA não deveria
+          arriscar quebrar o disparo do evento de Purchase. Se um desenvolvedor diz "não dá pra mudar só
+          isso sem mexer em outras 5 coisas" com frequência, é sinal de peças mal separadas, não de
+          complexidade inevitável do seu negócio.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 13.5 ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>13.5</span><span></span></div>
+<h2>Git: sua rede de segurança</h2>
+<p class="sec-lede">
+          A mesma disciplina de versionamento do <a class="modref" data-mod="c3-m12">C3.M12</a> §12.6,
+          agora com o nome da ferramenta que a maioria dos desenvolvedores já usa por padrão.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Git registra <strong>quem mudou o quê, quando</strong> — histórico completo, com opção de voltar
+          pra qualquer ponto anterior. Pergunta de avaliação: "isso está versionado em Git?" — se a resposta
+          for não, qualquer mudança é uma aposta sem rede de segurança.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 13.6 ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>13.6</span><span></span></div>
+<h2>Testes antes de publicar, em qualquer escala</h2>
+<p class="sec-lede">
+          <abbr data-t="CI/CD">CI/CD</abbr> é o nome formal do que o <a class="modref"
+          data-mod="c3-m3">C3.M3</a> já ensinou manualmente: nunca publicar sem testar primeiro.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Em times maiores, esse teste roda automaticamente antes de qualquer publicação (integração e
+          entrega contínua). Na sua escala, a versão manual — Preview mode do GTM (<a class="modref"
+          data-mod="c3-m3">C3.M3</a> §3.6), checklist de validação do <a class="modref"
+          data-mod="c3-m12">C3.M12</a> §12.6 — cumpre a mesma função. O princípio é idêntico em qualquer
+          escala: nada vai ao ar sem confirmação de que funciona.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 13.7 ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>13.7</span><span></span></div>
+<h2>Resumo executivo: as 4 auditorias como checklist transferível</h2>
+<p class="sec-lede">
+          Fecha o Curso 3 inteiro. As mesmas 4 verificações usadas em cada módulo desta plataforma viram seu
+          checklist padrão pra qualquer entrega técnica futura, dentro ou fora daqui.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Auditoria</th><th>Pergunta que você faz, sem precisar programar</th></tr></thead>
+<tbody>
+<tr><td><strong>Estrutural</strong></td><td>O que foi entregue funciona de ponta a ponta, testado de verdade — não só "parece pronto"?</td></tr>
+<tr><td><strong>Referências</strong></td><td>Se isso depende de outra parte do sistema (Pixel, <abbr data-t="CRM">CRM</abbr>, campanha), a ligação foi testada?</td></tr>
+<tr><td><strong>Consistência</strong></td><td>Os nomes, textos e números batem em todos os lugares onde aparecem?</td></tr>
+<tr><td><strong>Navegação/fluxo</strong></td><td>Uma pessoa real, do início ao fim, consegue usar sem travar?</td></tr>
+</tbody>
+</table>
+</div>
+<div class="summary">
+<h3>As sete ideias do Módulo 13</h3>
+<ol>
+<li><b>Você não programa, mas briefa e avalia quem programa</b> — vocabulário mínimo é suficiente.</li>
+<li><b>Fonte única de verdade e nomenclatura consistente</b> são os sinais mais fáceis de checar sem saber código.</li>
+<li><b>Código limpo se resume a 3 pedidos simples:</b> sem código morto, comentário só onde precisa, nomes que dizem o que fazem.</li>
+<li><b>O problema que o SOLID evita:</b> mudar uma coisa pequena e quebrar três outras. Se isso acontece com frequência, as peças estão mal separadas.</li>
+<li><b>Git é rede de segurança</b> — "isso está versionado?" é pergunta obrigatória antes de qualquer mudança.</li>
+<li><b>CI/CD é a versão automática do que você já faz manualmente</b> desde o C3.M3 e o C3.M12 — testar antes de publicar, sempre.</li>
+<li><b>As 4 auditorias desta plataforma são um checklist transferível</b> — use em qualquer entrega técnica futura, não só aqui.</li>
+</ol>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 13</h4>
+<span class="check-count" id="upCheckCount">0 / 8</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Organização</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei perguntar <b>"existe um lugar só pra mudar isso?"</b> antes de aprovar um sistema</span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Confirmo <b>nomenclatura consistente</b> em qualquer entrega</span></label>
+<div class="check-group">B · Qualidade técnica</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Peço confirmação de que não há <b>código morto</b></span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Pergunto se está <b>versionado em Git</b></span></label>
+<label class="ci"><input data-ck="b3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Pergunto se foi <b>testado antes de publicar</b></span></label>
+<div class="check-group">C · As 4 auditorias</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei aplicar as <b>4 auditorias</b> em qualquer entrega técnica</span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Uso esse checklist antes de aprovar trabalho de <b>freelancer/agência</b></span></label>
+<div class="check-group">D · Fechamento do Curso 3</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Revisei o <b>plano de 4 semanas</b> do C3.M12 como próximo passo real</span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>Responda de cabeça. Se travar em duas ou mais, releia antes de seguir.</p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">Qual pergunta simples revela se um sistema tem "fonte única de verdade" ou dado espalhado?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">Quais são os 3 pedidos simples de "código limpo" que você pode fazer sem saber programar?</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">Qual é o sinal de que as peças de um sistema estão mal separadas?</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">Por que "isso está versionado em Git?" é uma pergunta obrigatória antes de qualquer mudança?</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">Quais são as 4 auditorias, e como cada uma vira pergunta prática pra você usar sem programar?</p></div>
+</div>
+<h3>Exercício prático</h3>
+<div class="ex">
+<div class="ex-tag">Exercício único · ~20 min</div>
+<h4>Aplique as 4 auditorias num sistema real</h4>
+<p>Escolha qualquer parte técnica da sua operação (Landing Page, automação de WhatsApp, planilha de CRM) e aplique as 4 perguntas do checklist da §13.7.</p>
+<textarea data-ex="ex1" placeholder="Sistema escolhido: ...
+Estrutural — funciona de ponta a ponta? ___
+Referências — as dependências foram testadas? ___
+Consistência — nomes e números batem em todo lugar? ___
+Navegação/fluxo — uma pessoa real consegue usar sem travar? ___"></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Capstone</h4>
+<span class="check-count" id="upDoneCount">0 / 5</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>7 seções</b> inteiras</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei as <b>4 auditorias</b> como perguntas práticas de cabeça</span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei os <b>3 pedidos</b> de código limpo</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Apliquei o checklist num <b>sistema real</b> da minha operação</span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Completei os <b>3 cursos</b> — pronta pro capstone <abbr data-t="SOG">SOG</abbr></span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>Platform.init({ id:"c3-m13" });</script>
+</body>
+</html>

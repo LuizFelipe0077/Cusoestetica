@@ -7,11 +7,12 @@ pacientes para estética integrativa. Fonte única de verdade da estrutura de cu
 release final além de correções apontadas pelo validador (`validate.py`).
 
 31 módulos em 3 cursos (C1 Sistema Comercial, C2 Psicologia e Conteúdo, C3 Engenharia
-e Dados) + capstone SOG. Módulos concluídos até agora: c1-m1, c2-m1, c2-m2, c2-m3
-(padrão antigo, pré-2026-07-18) · c2-m4, c2-m5, c2-m6, c2-m7, c2-m8, c2-m9, c1-m2,
-c1-m3, c1-m4, c1-m5, c1-m6, c1-m7, c1-m8 (padrão novo, ver diretriz abaixo).
-**Curso 1 completo (8 módulos). Curso 2 completo (9 módulos).** 17 de 31 módulos
-construídos. Curso 3 é o próximo.
+e Dados) + capstone SOG. **TODOS OS 31 MÓDULOS CONSTRUÍDOS (2026-07-19).** Curso 1
+completo (8), Curso 2 completo (9), Curso 3 completo (13), capstone SOG completo
+(1). c1-m1, c2-m1, c2-m2, c2-m3 são do padrão antigo (pré-2026-07-18); todo o
+resto (c1-m2 a c1-m8, c2-m4 a c2-m9, c3-m1 a c3-m13, sog) é do padrão novo. A
+plataforma entra agora na Auditoria Final, conforme o Feature Freeze definido
+acima — sem nenhuma melhoria nova até o RELEASE FINAL.
 
 ### Auditoria estrutural do Curso 1 (2026-07-18)
 Feita a pedido do dono ao fechar o Curso 1, antes de iniciar o Curso 3 — sem
@@ -261,6 +262,77 @@ interrompe a produção dos módulos.**
   que muda o fluxo prático do método 20→5 (menos tempo assistindo, mesma exigência
   de olhar as sessões mais reveladoras de verdade). `deps` passou de `["c3-m3"]`
   para `["c3-m1","c3-m4"]`, refletindo a dependência real do funil de exploração.
+- c3-m6 (Experimentação e Estatística Aplicada) — mesma pendência de
+  `searchindex.js`/`validate.py`. Primeiro módulo sob Feature Freeze — as 4
+  auditorias (estrutural, referências, glossário, navegação) rodadas
+  explicitamente e documentadas. Reaproveita verbatim as definições de A/B, IC e
+  p-valor já existentes no glossário (não redefine). `deps` passou de `["c3-m4"]`
+  para `["c3-m5"]`, refletindo que o módulo parte diretamente das hipóteses do
+  C3.M5, não do GA4 diretamente.
+- c3-m7 (CRO) — mesma pendência de `searchindex.js`/`validate.py`. As 4 auditorias
+  rodadas e limpas. Módulo majoritariamente de síntese — CTA (C2.M4/C1.M5), prova
+  social (C2.M3 §3.8) e teste com volume baixo (C3.M6 inteiro) só cross-ref;
+  conteúdo genuinamente novo é hierarquia visual (padrão em F, Nielsen 2006) e
+  contraste mínimo WCAG 2.1 (4.5:1). Corrigi um erro próprio antes de fechar: tinha
+  marcado a palavra errada ("diretriz") com `data-t="CWV"` por engano — CWV não
+  tem relação com WCAG, removido. `deps` passou de `["c3-m5","c3-m6","c2-m2"]`
+  para `["c2-m3","c2-m4","c1-m5","c3-m4","c3-m5","c3-m6"]`.
+- c3-m8 (Performance) — mesma pendência de `searchindex.js`/`validate.py`. As 4
+  auditorias rodadas e limpas. `vol:"med"` — pesquisei os limiares atuais dos Core
+  Web Vitals via `WebSearch`, confirmados estáveis em 2026 (LCP < 2,5s, INP <
+  200ms, CLS < 0,1, avaliados no p75). Reaproveita as definições já existentes no
+  glossário (LCP/INP/CLS/TBT), sem redefinir. Corrigido um bug do meu próprio
+  script de checagem de glossário nesta sessão: `<abbr>` quebrado em duas linhas
+  não era detectado pelo regex antigo, gerando falso positivo — corrigido,
+  documentado aqui pra não repetir a suposição errada em módulos futuros. `deps`
+  passou de `["c3-m1"]` para `["c3-m1","c3-m3","c3-m5","c3-m6","c3-m7"]`.
+- c3-m9 (SEO Técnico) — mesma pendência de `searchindex.js`/`validate.py`. As 4
+  auditorias rodadas e limpas. `vol:"high"` — pesquisado via `WebSearch` em
+  2026-07-18. Achado central: dado estruturado não é fator de ranking direto
+  (confirmado pelo próprio Google), mas alimenta AI Overviews e chatbots — mais de
+  40 milhões de perguntas de saúde/dia só no ChatGPT, com hiato grande entre quem
+  rankeia bem no Google (35,9% no pacote local) e quem é citado por IA (1,2% no
+  ChatGPT — número de uma única pesquisa de mercado, marcado como estimativa, não
+  fato confirmado). "Dilema do noindex" aplicado ao caso real dos 2 protocolos:
+  a solução é diferenciar conteúdo, nunca esconder uma página. `deps` passou de
+  `["c3-m8"]` para `["c1-m4","c3-m7","c3-m8"]`.
+- c3-m10 (Segurança e LGPD) — mesma pendência de `searchindex.js`/`validate.py`. As
+  4 auditorias rodadas e limpas. `vol:"med"` — pesquisei LGPD/ANPD e Consent Mode
+  via `WebSearch`. Achado crítico: em 15/06/2026, `ad_storage` do Consent Mode
+  virou autoridade única sobre coleta de anúncio — Google Ads parou de considerar
+  a configuração do GA4 como rede de segurança, dependendo só do CMP. Também
+  confirmado: ANPD tem meta de 10 ações de fiscalização sobre dado sensível até
+  fim de 2026, avaliando efetividade de prática, não só documento. `deps` passou
+  de `["c3-m3"]` para `["c3-m1","c3-m2","c3-m3","c3-m5"]`.
+- c3-m11 (Dashboard Executivo) — mesma pendência de `searchindex.js`/`validate.py`.
+  As 4 auditorias rodadas e limpas. Zero métrica nova — módulo inteiro de
+  consolidação, sob Feature Freeze. "O dashboard construído" é tabela de
+  especificação (3 camadas × indicador × fonte), não ferramenta interativa nova
+  (proibida no freeze). `deps` passou de `["c3-m4","c3-m5","c1-m1"]` para
+  `["c1-m1","c1-m3","c1-m4","c3-m1","c3-m2","c3-m4","c3-m5","c3-m8"]`.
+- c3-m12 (Plano de Implementação) — mesma pendência de `searchindex.js`/
+  `validate.py`. As 4 auditorias rodadas e limpas. Síntese pura: sequencia os 11
+  módulos técnicos do Curso 3 em 4 semanas por dependência real do `manifest.js` —
+  zero conteúdo técnico novo. `deps` passou de `["c3-m11"]` para os 11 módulos
+  técnicos completos (`c3-m1` a `c3-m11`).
+- c3-m13 (Engenharia de Excelência) — mesma pendência de `searchindex.js`/
+  `validate.py`. As 4 auditorias rodadas e limpas. **Fecha o Curso 3 inteiro.**
+  Público-alvo tratado como não-desenvolvedor: SOLID e CI/CD deliberadamente
+  simplificados (Regra da Simplicidade) — traduzidos em perguntas de avaliação de
+  fornecedor, não teoria de programação. Seção de fechamento reaproveita as 4
+  auditorias já usadas pra construir a própria plataforma como checklist
+  transferível — fechamento reflexivo proposital. Termo novo no glossário:
+  `CI/CD` (nova seção "ENGENHARIA" criada — permitido no freeze, é atualização de
+  glossário, não componente novo). `deps` passou de `["c3-m12"]` para
+  `["c3-m3","c3-m12"]`.
+- sog (Capstone — SOG) — mesma pendência de `searchindex.js`/`validate.py`. As 4
+  auditorias rodadas e limpas. **Fecha os 31 módulos da plataforma.** Framework
+  proprietário nomeado: 3 motores (Aquisição/C1, Conteúdo/C2, Dados/C3) + 2 ciclos
+  transversais (Governança, Crescimento) — 100% síntese, zero conceito técnico
+  novo (Feature Freeze respeitado). A única figura do capstone mostra o circuito
+  fechado entre os 3 motores. `min` ficou em 110 (perto do teto original de 120),
+  justificado por ser o fechamento de 30 módulos — mesmo tipo de exceção
+  documentada do C1.M4.
 - c1-m3 (Oferta e Precificação) — mesma pendência de `searchindex.js`/`validate.py`.
   Primeiro módulo sob a Regra da Engenharia Financeira, com a primeira planilha
   lógica interativa da plataforma (ver seção própria acima). Testada de verdade no

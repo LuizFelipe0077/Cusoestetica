@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Módulo 9 — SEO Técnico. Crawl, index e rank, dados estruturados (schema/JSON-LD), Open Graph, canonical e o dilema do noindex entre seus dois protocolos, sitemap, SEO local, e a nova fronteira: visibilidade em busca por IA.">
+<title>SEO Técnico · Curso 3 · Engenharia e Dados</title>
+
+<!--
+  CURSO 3 · ENGENHARIA E DADOS
+  Módulo 9 — SEO Técnico
+  ---------------------------------------------------------------
+  MÓDULO DO PLATFORM SHELL.
+  Chrome, navegação, progresso, busca e glossário vêm do platform.js.
+  Este arquivo tem conteúdo + o que é exclusivamente dele: nada.
+
+  vol:"high" — pesquisado via WebSearch em 2026-07-18. Achado central: dados
+  estruturados não são fator de ranking direto (Google confirma), mas alimentam
+  AI Overviews e chatbots — 40M+ perguntas de saúde por dia só no ChatGPT. GEO
+  (visibilidade em busca por IA) tratada como extensão do SEO clássico, não
+  substituição. "Dilema do noindex" aplicado ao caso real dos 2 protocolos.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+</head>
+<body>
+
+<main class="main" id="conteudo">
+ <header class="hero" id="top">
+<div class="wrap">
+<div class="hero-eyebrow">Engenharia e Dados · Módulo 9</div>
+<h1><abbr data-t="SEO">SEO</abbr><br/><em>Técnico</em></h1>
+<p class="hero-lede">
+        Meta Ads é o motor principal do <a class="modref" data-mod="c1-m4">C1.M4</a>. SEO é o complemento
+        que reduz CAC agregado ao longo do tempo — e que, em 2026, decide se você aparece quando alguém
+        pergunta pra uma IA em vez de pesquisar no Google.
+      </p>
+<dl class="hero-meta">
+<div><dt>Leitura</dt><dd>~55 min</dd></div>
+<div><dt>Seções</dt><dd>7</dd></div>
+<div><dt>Estágios (crawl/index/rank)</dt><dd>3</dd></div>
+<div><dt>Formato de schema</dt><dd>JSON-LD</dd></div>
+</dl>
+<div class="selo-key">
+<div><span class="selo ev">Evidência</span><p>Achado experimental revisado por pares. Vem com citação completa.</p></div>
+<div><span class="selo inf">Inferência</span><p>Extrapolação razoável para contexto <em>não</em> testado. Eu explico o salto.</p></div>
+<div><span class="selo prat">Prática</span><p>Documentação oficial do Google ou cobertura de mercado sobre a plataforma. Fonte e data em cada uma.</p></div>
+<div><span class="selo mito">Mito</span><p>Repetido no mercado e contradito pela documentação oficial.</p></div>
+</div>
+</div>
+</header>
+<!-- ============================================================ 9.1 ============================================================ -->
+<section class="sec reveal" id="s1">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>9.1</span><span></span></div>
+<h2>Por que SEO importa quando o motor é Meta Ads</h2>
+<p class="sec-lede">
+          SEO não compete com mídia paga — reduz o CAC agregado da operação enquanto o Meta Ads continua
+          sendo o motor de volume previsível.
+        </p>
+</div>
+<p>
+        Tráfego orgânico não substitui o <a class="modref" data-mod="c1-m4">C1.M4</a> — não é rápido nem
+        controlável o suficiente pra ser o motor principal. Mas cada paciente que chega organicamente é uma
+        paciente com <abbr data-t="CAC">CAC</abbr> de mídia zero, baixando a média do <a class="modref"
+        data-mod="c1-m3">C1.M3</a> §3.3 sem gastar orçamento. Em 2026, esse tráfego orgânico já não vem só
+        do Google tradicional — parte relevante vem de resposta gerada por IA.
+      </p>
+<div class="done-bar">
+<button class="done-btn" data-done="s1">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 9.2 ============================================================ -->
+<section class="sec reveal" id="s2">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>9.2</span><span></span></div>
+<h2>Crawl, index, rank: os 3 estágios</h2>
+<p class="sec-lede">
+          Se a página não é rastreada, nada do resto importa. Se é rastreada mas não indexada, também não.
+          Só depois disso "ranking" vira uma pergunta relevante.
+        </p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Estágio</th><th>O que significa</th><th>O que quebra isso</th></tr></thead>
+<tbody>
+<tr><td><strong>Crawl</strong></td><td>O Google encontra e lê a página</td><td>robots.txt bloqueando, link quebrado, página sem link de entrada nenhum</td></tr>
+<tr><td><strong>Index</strong></td><td>A página entra no banco de dados de busca do Google</td><td><code>noindex</code> sem querer (§9.4), conteúdo considerado duplicado</td></tr>
+<tr><td><strong>Rank</strong></td><td>A posição da página nos resultados pra uma busca</td><td>Performance ruim (<a class="modref" data-mod="c3-m8">C3.M8</a>), conteúdo raso, autoridade baixa</td></tr>
+</tbody>
+</table>
+</div>
+<p class="cit">Fonte: cobertura de mercado consolidada sobre os fundamentos de SEO técnico, consultada em 18/07/2026 — mecânica estável, sem mudança relevante reportada em 2026.</p>
+<div class="done-bar">
+<button class="done-btn" data-done="s2">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 9.3 ============================================================ -->
+<section class="sec reveal" id="s3">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>9.3</span><span></span></div>
+<h2><abbr data-t="Schema">Schema</abbr>: não é fator de ranking, mas alimenta a IA</h2>
+<p class="sec-lede">
+          O dado mais mal-entendido do SEO técnico: dado estruturado não sobe seu ranking diretamente — e
+          mesmo assim, em 2026, é mais importante do que nunca.
+        </p>
+</div>
+<div class="selo-box ev">
+<span class="selo ev">Evidência</span>
+<p>
+          O próprio Google afirma explicitamente que dado estruturado <strong>não é fator de ranking
+          direto</strong>. O que ele faz: torna a página elegível pra rich snippet, apoia verificação de
+          entidade, e amplifica sinais de clareza e credibilidade que <em>indiretamente</em> influenciam
+          performance de busca. O formato recomendado é <strong>JSON-LD</strong> — o único que vale a pena
+          usar em 2026.
+        </p>
+<p class="cit">Fonte: documentação e orientação oficial do Google sobre dados estruturados, consultada em 18/07/2026.</p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>É por isso que schema virou prioridade em 2026 — mesmo sem ser fator de ranking</span>
+</div>
+<p>
+          Dado estruturado também alimenta AI Overviews e chatbots — a IA usa conteúdo enriquecido com
+          schema pra gerar resposta. Em saúde, esse dado ajuda o sistema de IA a <em>validar autoridade
+          clínica</em> antes de citar sua página. Configure ao menos <code>MedicalBusiness</code> ou
+          <code>LocalBusiness</code> e <code>FAQPage</code> (se a página tiver perguntas frequentes) — os
+          tipos mais relevantes pro seu caso.
+        </p>
+<p class="cit">Fonte: cobertura de mercado sobre o papel de dados estruturados em AI Overviews e busca por IA (2026), consultada em 18/07/2026.</p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s3">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 9.4 ============================================================ -->
+<section class="sec reveal" id="s4">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>9.4</span><span></span></div>
+<h2><abbr data-t="OG">Open Graph</abbr>, canonical e o dilema do noindex</h2>
+<p class="sec-lede">
+          Um problema técnico real do seu caso específico: duas páginas de protocolo parecidas — quando
+          isso vira duplicidade, e o que fazer.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Open Graph controla como o link aparece quando compartilhado (Instagram, WhatsApp) — título,
+          imagem, descrição. <code>canonical</code> diz ao Google qual versão de uma página é a "oficial"
+          quando existem variações (com/sem parâmetro <abbr data-t="UTM">UTM</abbr>, por exemplo).
+        </p>
+</div>
+<div class="callout warn">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>O dilema: página de melasma e de estrias, estruturalmente parecidas</span>
+</div>
+<p>
+          Se as duas páginas de protocolo compartilham a mesma estrutura (hierarquia visual do <a
+          class="modref" data-mod="c3-m7">C3.M7</a>, mesmos blocos, mudando só o texto), o Google pode
+          interpretar como conteúdo próximo demais de duplicado — o que dilui a força de indexação das
+          duas. A tentação é usar <code>noindex</code> numa delas pra "concentrar força" na outra. <strong>
+          Não faça isso</strong>: cada página deve continuar indexada, porque cada uma captura uma intenção
+          de busca diferente (quem procura "melasma" não é quem procura "estrias"). A solução certa é
+          <strong>diferenciar o conteúdo de verdade</strong> — mecanismo específico, exemplo específico, não
+          template repetido com find-and-replace.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s4">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 9.5 ============================================================ -->
+<section class="sec reveal" id="s5">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>9.5</span><span></span></div>
+<h2>Sitemap e SEO local</h2>
+<p class="sec-lede">
+          Duas peças pequenas de configuração com retorno desproporcional pro seu caso — atendimento online
+          com base regional.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          <strong>Sitemap</strong> (arquivo XML listando as páginas do site) ajuda o crawler a encontrar
+          tudo mesmo sem link interno perfeito — configuração única, baixo custo de manutenção.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          <strong>Perfil da Empresa no Google</strong> (Google Business Profile) ganhou integração direta
+          com o Gemini em 2026 — a IA passou a gerenciar e responder a partir do perfil (horário, contato,
+          resumo de avaliações). Um perfil completo e atualizado alimenta tanto o pacote local tradicional
+          quanto a recomendação por IA.
+        </p>
+<p class="cit">Fonte: documentação e cobertura de mercado sobre a integração Gemini-Google Business Profile (lançamento global em junho de 2026), consultada em 18/07/2026.</p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s5">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 9.6 ============================================================ -->
+<section class="sec reveal" id="s6">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>9.6</span><span></span></div>
+<h2>A nova fronteira: visibilidade em busca por IA</h2>
+<p class="sec-lede">
+          Mais de 40 milhões de perguntas de saúde por dia só no ChatGPT — e a maioria dos negócios locais
+          ainda não aparece nessas respostas.
+        </p>
+</div>
+<div class="selo-box prat">
+<span class="selo prat">Prática</span>
+<p>
+          Levantamento de mercado encontrou apenas <strong>1,2% dos estabelecimentos</strong> recomendados
+          pelo ChatGPT em buscas locais, contra <strong>35,9%</strong> aparecendo no pacote local tradicional
+          do Google — um hiato grande entre quem rankeia bem no Google e quem é citado pela IA. Três dos
+          principais fatores de visibilidade em IA são ligados a citação: presença em listas de referência
+          do nicho, menção em domínios relevantes da área, e qualidade de citação não-estruturada (menção
+          editorial, não só ficha técnica).
+        </p>
+<p class="cit">Fonte: levantamento de mercado sobre visibilidade de negócios locais em busca por IA (2026), consultada em 18/07/2026 — número específico de uma pesquisa, não confirmado por múltiplas fontes independentes; trate como estimativa de mercado, não estatística oficial.</p>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Tudo que este módulo já ensinou já aponta pra isso</span>
+</div>
+<p>
+          Schema estruturado (§9.3), perfil completo (§9.5) e conteúdo diferenciado de verdade em vez de
+          template (§9.4) são exatamente os ingredientes de citação por IA — não existe um "SEO de IA"
+          separado do SEO técnico bem feito. A diferença é a consequência: além de aparecer no Google, você
+          passa a ser citável quando alguém pergunta pra uma IA sobre melasma ou estrias.
+        </p>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s6">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+<!-- ============================================================ 9.7 ============================================================ -->
+<section class="sec reveal" id="s7">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-tag"><span>9.7</span><span></span></div>
+<h2>Resumo executivo</h2>
+<p class="sec-lede">
+          Sete ideias. O <a class="modref" data-mod="c3-m10">C3.M10</a> (Segurança e <abbr data-t="LGPD">LGPD</abbr>) fecha a parte
+          técnica com o que protege tudo isso legalmente.
+        </p>
+</div>
+<div class="summary">
+<h3>As sete ideias do Módulo 9</h3>
+<ol>
+<li><b>SEO reduz CAC agregado</b> — não substitui o Meta Ads como motor principal, complementa.</li>
+<li><b>3 estágios em sequência:</b> crawl → index → rank. Sem o primeiro, os outros dois não importam.</li>
+<li><b>Schema não é fator de ranking direto</b> — mas alimenta rich snippet e, cada vez mais, resposta de IA.</li>
+<li><b>Open Graph controla compartilhamento; canonical resolve variação de URL.</b></li>
+<li><b>O dilema do noindex: não esconda uma página pra "concentrar força"</b> — diferencie o conteúdo de verdade entre melasma e estrias.</li>
+<li><b>Sitemap e Perfil da Empresa no Google são configuração barata com retorno alto</b> — o perfil agora também alimenta o Gemini.</li>
+<li><b>Visibilidade em IA usa os mesmos ingredientes do SEO bem feito</b> — schema, perfil completo, conteúdo diferenciado — não é uma disciplina separada.</li>
+</ol>
+</div>
+<h3>Checklist de implementação</h3>
+<div class="check">
+<div class="check-head">
+<h4>Checklist do Módulo 9</h4>
+<span class="check-count" id="upCheckCount">0 / 9</span>
+</div>
+<div class="check-body" id="upCheckBody">
+<div class="check-group">A · Fundamentos</div>
+<label class="ci"><input data-ck="a1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Confirmei que as páginas estão <b>rastreáveis e indexadas</b></span></label>
+<label class="ci"><input data-ck="a2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Tenho um <b>sitemap</b> configurado</span></label>
+<div class="check-group">B · Schema e OG</div>
+<label class="ci"><input data-ck="b1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Configurei <b>schema JSON-LD</b> (MedicalBusiness/LocalBusiness)</span></label>
+<label class="ci"><input data-ck="b2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Configurei <b>Open Graph</b> pra compartilhamento correto</span></label>
+<div class="check-group">C · Duplicidade</div>
+<label class="ci"><input data-ck="c1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">As páginas de <b>melasma e estrias</b> têm conteúdo genuinamente diferente, não template repetido</span></label>
+<label class="ci"><input data-ck="c2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Nenhuma das duas está com <b>noindex</b> sem motivo</span></label>
+<div class="check-group">D · Local e IA</div>
+<label class="ci"><input data-ck="d1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt"><b>Perfil da Empresa no Google</b> completo e atualizado</span></label>
+<label class="ci"><input data-ck="d2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Testei perguntar sobre meu protocolo numa <b>IA de busca</b> pra ver se apareço</span></label>
+<label class="ci"><input data-ck="d3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Agendei <b>revisão trimestral</b> deste módulo (vol:high)</span></label>
+</div>
+</div>
+<h3>Perguntas para autoavaliação</h3>
+<p>Responda de cabeça. Se travar em duas ou mais, releia antes de seguir.</p>
+<div class="qa">
+<div class="qa-item"><span class="qa-n">1</span><p class="qa-q">Quais são os 3 estágios do SEO técnico, na ordem, e o que quebra cada um?</p></div>
+<div class="qa-item"><span class="qa-n">2</span><p class="qa-q">Por que configurar schema mesmo sabendo que não é fator de ranking direto?</p></div>
+<div class="qa-item"><span class="qa-n">3</span><p class="qa-q">Qual é o dilema do noindex no seu caso específico, e por que "esconder uma página" é a solução errada?</p></div>
+<div class="qa-item"><span class="qa-n">4</span><p class="qa-q">Cite 2 dos 3 fatores de visibilidade em busca por IA ligados a citação.</p></div>
+<div class="qa-item"><span class="qa-n">5</span><p class="qa-q">Por que "SEO de IA" não é uma disciplina separada do SEO técnico bem feito?</p></div>
+</div>
+<h3>Exercício prático</h3>
+<div class="ex">
+<div class="ex-tag">Exercício único · ~25 min</div>
+<h4>Audite schema, OG e duplicidade</h4>
+<p>Verifique se suas páginas de melasma e estrias têm schema configurado, Open Graph correto, e se o conteúdo das duas é genuinamente diferente ou segue o mesmo template com poucas trocas.</p>
+<textarea data-ex="ex1" placeholder="Página melasma — schema: ___  OG: ___
+Página estrias — schema: ___  OG: ___
+As duas são genuinamente diferentes ou é template repetido? ___
+O que preciso diferenciar mais: ..."></textarea>
+<div class="ex-saved">Salvo</div>
+</div>
+<h3>Checklist de conclusão do módulo</h3>
+<div class="check">
+<div class="check-head">
+<h4>Estou pronta para o Módulo 10</h4>
+<span class="check-count" id="upDoneCount">0 / 5</span>
+</div>
+<div class="check-body" id="upDoneBody">
+<label class="ci"><input data-dk="k1" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Li as <b>7 seções</b> inteiras</span></label>
+<label class="ci"><input data-dk="k2" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei os <b>3 estágios</b> de cabeça</span></label>
+<label class="ci"><input data-dk="k3" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Entendo o <b>dilema do noindex</b> e a solução certa</span></label>
+<label class="ci"><input data-dk="k4" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Sei por que <b>schema</b> importa mesmo sem ser fator de ranking</span></label>
+<label class="ci"><input data-dk="k5" type="checkbox"/><span class="ci-box"></span><span class="ci-txt">Fiz o <b>exercício</b> de auditoria</span></label>
+</div>
+</div>
+<div class="done-bar">
+<button class="done-btn" data-done="s7">
+<svg fill="none" stroke-width="2" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg><span class="done-lbl">Marcar seção como concluída</span></button>
+</div>
+</div>
+</section>
+
+
+  <!-- Rodapé de navegação: preenchido pelo platform.js -->
+  <div class="wrap"><div class="modfoot" id="upModFoot"></div></div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>Platform.init({ id:"c3-m9" });</script>
+</body>
+</html>
