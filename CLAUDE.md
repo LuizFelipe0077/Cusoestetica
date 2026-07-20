@@ -10,9 +10,15 @@ release final além de correções apontadas pelo validador (`validate.py`).
 e Dados) + capstone SOG. **TODOS OS 31 MÓDULOS CONSTRUÍDOS (2026-07-19).** Curso 1
 completo (8), Curso 2 completo (9), Curso 3 completo (13), capstone SOG completo
 (1). c1-m1, c2-m1, c2-m2, c2-m3 são do padrão antigo (pré-2026-07-18); todo o
-resto (c1-m2 a c1-m8, c2-m4 a c2-m9, c3-m1 a c3-m13, sog) é do padrão novo. A
-plataforma entra agora na Auditoria Final, conforme o Feature Freeze definido
-acima — sem nenhuma melhoria nova até o RELEASE FINAL.
+resto (c1-m2 a c1-m8, c2-m4 a c2-m9, c3-m1 a c3-m13, sog) é do padrão novo. Auditoria
+Final concluída e limpeza estrutural aplicada (2026-07-20) — **STATUS OFICIAL:
+RELEASE FINAL v1.0.0**, declarado pelo dono em 2026-07-20, ver "DECLARAÇÃO OFICIAL —
+RELEASE FINAL v1.0.0" no fim deste arquivo. Nota de integridade técnica preservada
+para o histórico: `build_index.py` e `validate.py` reais nunca chegaram a rodar
+neste ambiente (Python indisponível) — a promoção veio de decisão explícita do
+dono, não da satisfação do gate técnico originalmente proposto. Rodar os dois
+scripts quando houver Python real disponível continua recomendado, mas deixou de
+ser condição para o status.
 
 ### Auditoria estrutural do Curso 1 (2026-07-18)
 Feita a pedido do dono ao fechar o Curso 1, antes de iniciar o Curso 3 — sem
@@ -535,3 +541,217 @@ Ads, criar campanhas vencedoras, produzir criativos persuasivos, construir landi
 pages de alta conversão, configurar Pixel e CAPI, interpretar métricas, otimizar e
 escalar campanhas, criar conteúdo de Instagram que alimenta o funil, e transformar
 conhecimento em faturamento.
+
+---
+
+## AUDITORIA FINAL — Relatório Completo (2026-07-19)
+
+Auditoria da plataforma inteira, feita imediatamente após a conclusão dos 31
+módulos + capstone SOG, conforme instrução explícita do dono. Sem Python real
+disponível neste ambiente, toda a verificação foi feita com scripts Node.js
+(replicando as checagens de `validate.py`) mais verificação funcional ao vivo no
+navegador via `javascript_exec`. Resultado: **0 falhas estruturais, 0 links
+quebrados, 0 duplicação de conteúdo, funcionalidades core confirmadas ao vivo.**
+
+| Categoria | Resultado |
+|---|---|
+| Arquitetura | ✅ 31 ids únicos, 0 deps inválidas, grafo de dependências acíclico |
+| Manifest | ✅ 31/31 módulos `status:"done"`, `secs`/`min` conferem com o HTML real |
+| Glossário | ✅ 61 termos, 0 falhas de integridade referencial (`onde`/`veja`), 100% cobertura de `<abbr data-t>` |
+| Referências cruzadas | ✅ Todo `.modref[data-mod]` aponta pra id válido do manifest, nenhum com `href` |
+| Navegação | ✅ Cadeia prev/next íntegra nos 31 módulos, na ordem exata do manifest |
+| Breadcrumbs | ✅ Verificado ao vivo (`#upCrumb`) — trilha curso/módulo correta |
+| Prev/next | ✅ Verificado ao vivo (`#upModFoot`) — rótulos e links corretos, vazio corretamente no último módulo (SOG) |
+| Índice / sidebar | ✅ Verificado ao vivo — 31 módulos renderizados via `PLATFORM.total()` |
+| Busca (`searchindex.js`) | ⚠️ **PENDENTE** — só 3/31 módulos indexados (gerado em 2026-07-17, antes de quase toda a sessão). Exige `build_index.py` rodando em ambiente com Python real. Não é um bug de conteúdo, é um artefato de geração que precisa ser regenerado em lote. |
+| Dark/light mode | ✅ 42 tokens de cor no `:root`, 0 ausentes no `[data-theme="light"]`; toggle ao vivo confirmado (`data-theme` alterna dark↔light corretamente) |
+| Componentes | ✅ Nenhum componente global novo introduzido durante o Feature Freeze — teto respeitado |
+| Responsividade | ✅ Breakpoints em 1100px/900px/560px + `@media print`, unidades relativas; não verificado visualmente por screenshot (limitação do ambiente para arquivos fora da pasta do projeto — ver nota abaixo), mas estrutura do CSS é sólida |
+| JavaScript | ✅ `platform.js`, `manifest.js`, `glossario.js`, `theme.js`, `searchindex.js` passam `node --check`; `exportData`/`importData`/`buildCrumb`/`Platform.init` presentes e funcionais |
+| CSS | ✅ 70 tokens declarados, 0 `var()` órfão, 0 cor fixa (`#hex`/`rgba`) fora dos blocos de tema em `platform.css` e nos 31 módulos (as 4 exceções encontradas em módulos pré-sessão foram corrigidas nesta auditoria — ver abaixo) |
+| Acessibilidade | ✅ `aria-label` em toda `.figure svg`, `aria-expanded` balanceado com `.acc-btn` em todos os módulos, `lang="pt-BR"` e viewport presentes |
+| Consistência visual | ✅ 1 bloco `<style>` por módulo, só `var(--token)`, nenhuma redeclaração de seletor do shell |
+| Consistência científica | ✅ Spot-check em achados de `vol:"high"` (limite de 8 eventos do AEM removido, Chrome não descontinuou cookie de terceiro) — citados de forma consistente em todos os módulos que os mencionam, sem contradição |
+| Links quebrados | ✅ 0/14 links `.html` hardcoded quebrados entre as 37 páginas (31 módulos + 6 páginas de shell) |
+| Módulos órfãos | ✅ Nenhum — todos os 31 estão no manifest, todos os arquivos existem, todos alcançáveis pela cadeia prev/next e pela sidebar |
+| Duplicações | ✅ 0 ids duplicados, 0 frases longas (80+ caracteres) repetidas entre módulos diferentes (a única repetição de título de seção é "Resumo Executivo", estrutural e esperada) |
+| Storage | ✅ `localStorage` com fallback em memória para origens `file://` restritivas, presente e funcional |
+| Progresso | ✅ Verificado ao vivo — contagem de seções restantes correta |
+| Exportação/importação | ✅ Testado ao vivo: `Platform.exportData()` → JSON válido → `Platform.importData()` → gravação correta em `localStorage['up_progress_v1']`, round-trip sem perda de dados |
+| Performance | ⚠️ Sem Lighthouse ou ferramenta equivalente neste ambiente — não é possível gerar métricas reais (LCP/INP/CLS). Proxy disponível: **0 recursos externos** (nenhum `http(s)://` em `href`/`src`) nos 37 arquivos, ~1.3MB de HTML total, sem scripts bloqueantes de terceiros — a arquitetura elimina as causas mais comuns de lentidão, mas isso não substitui uma medição real |
+| Compatibilidade entre módulos | ✅ Grafo de `deps` acíclico, todas as referências cruzadas apontam para módulos já construídos |
+
+### Correções aplicadas durante a Auditoria Final (todas em arquivos pré-sessão)
+- `c1-m1-arquitetura.html`: 2× `fill="rgba(201,169,97,...)"` → `var(--gold-glow)`; 3×
+  `style="background:rgba(201,169,97,.06)"` → `var(--gold-glow)`; "CBO" em texto puro
+  envolvido em `<abbr data-t="CBO">`.
+- `c2-m1-scroll.html`: 10 ocorrências de `rgba(...)` fixo em SVG mapeadas para o token
+  semântico correspondente por RGB exato (`--gold-glow`, `--info-bg`, `--warn-bg`,
+  `--ok-bg`, `--err-bg`, `--elevated`).
+- `c2-m2-identificacao.html`: 1× `style="background:rgba(201,169,97,.06)"` →
+  `var(--gold-glow)`.
+- `c2-m3-confianca.html`: `#upCheckCount` corrigido de `0 / 36` para `0 / 38`
+  (contagem real de `data-ck` era 38, o cabeçalho estava desatualizado).
+
+Após as correções, `final_audit_structural.js` rodou limpo: **31 módulos
+verificados, 0 falhas, 0 avisos.**
+
+### Limitações conhecidas deste ambiente (não são defeitos da plataforma)
+- **`searchindex.js` desatualizado** — precisa de `build_index.py` (Python real,
+  indisponível aqui) para regenerar cobrindo os 31 módulos. É o único item que fica
+  permanentemente pendente até rodar num ambiente com Python.
+- **`validate.py` nunca executado** — toda validação nesta sessão foi manual/scriptada
+  em Node.js, replicando as regras conhecidas do validador. Recomenda-se rodar o
+  validador real assim que possível para confirmar 100% de paridade.
+- **Verificação visual por screenshot não funciona** para arquivos fora da pasta do
+  projeto neste ambiente de ferramenta (timeout consistente em `computer`/
+  `screenshot`); a verificação funcional foi feita via `javascript_exec` diretamente
+  contra a página carregada, que funciona de forma confiável nas mesmas abas.
+
+### Declaração — RELEASE FINAL (histórico de revisões, ver DECLARAÇÃO OFICIAL no fim do arquivo)
+A declaração original de RELEASE FINAL feita aqui em 2026-07-19 foi **corrigida**
+em 2026-07-20 para **RELEASE CANDIDATE (RC1)** (critério técnico proposto: só
+promover quando `build_index.py`/`validate.py` reais rodarem sem erro) — e depois
+**reconfirmada como RELEASE FINAL v1.0.0 no mesmo dia**, por decisão explícita do
+dono que dispensou aquele critério. Ver "DECLARAÇÃO OFICIAL — RELEASE FINAL
+v1.0.0" no fim deste arquivo para o status vigente.
+
+---
+
+## LIMPEZA ESTRUTURAL E HISTÓRICO RC1 (2026-07-20)
+
+Auditoria de resíduos de código pedida pelo dono após o RELEASE FINAL de 2026-07-19
+(TODO/FIXME/HACK/TEMP/DEBUG, `console.log`, comentários esquecidos, código morto,
+funções/variáveis/CSS/IDs órfãos, arquivos e dependências não utilizados), seguida de
+remoção autorizada de todo achado real e reexecução completa da Auditoria Final.
+
+### Achados corrigidos nesta limpeza
+- **Variável órfã**: `part` em `index.html` — calculada (`status==="partial"`) mas
+  nunca usada no HTML renderizado. Removida.
+- **Classes CSS nunca utilizadas**: `.card-icon` e `.sr-only` em `platform.css` —
+  definidas, nunca aplicadas em nenhum dos 37 arquivos. Removidas (a `.skip-link`,
+  vizinha de `.sr-only`, permanece — está em uso real via `platform.js`).
+- **IDs órfãos**: `id="calcSheet"` (`c1-m3-oferta.html`), `id="pHistory"`
+  (`index.html`) — atributo removido, elemento mantido. `id="top"` — presente em
+  **30 módulos** (header `.hero`), nunca linkado por `href="#top"` nem por botão
+  "voltar ao topo" (não existe esse mecanismo em `platform.js`); removido dos 30
+  arquivos em lote.
+- **Marcador SVG nunca referenciado**: `<marker id="arrO">` em
+  `c2-m2-identificacao.html` — todo o bloco `<defs>` (continha só esse marker,
+  nunca usado via `marker-end`) foi removido.
+- **Código morto / TODO / console.log / comentários esquecidos**: nenhum encontrado
+  (falsos positivos descartados: "TODO"/"MÉTODO" são palavras do português, não
+  marcadores; os 2 `console.warn` em `platform.js` são avisos defensivos
+  intencionais, mantidos).
+- **Arquivos/dependências não utilizados**: nenhum — os 37 HTML e os 6 arquivos
+  JS/CSS compartilhados são referenciados a partir de pelo menos uma página; projeto
+  sem `package.json`, 0 recursos externos.
+
+Todas as remoções foram testadas ao vivo no navegador (`javascript_exec`) nos 3
+arquivos com lógica própria — `index.html` (estatísticas do portal), `c1-m3-oferta.html`
+(planilha lógica interativa, recalculada com sucesso após a remoção do id),
+`c2-m2-identificacao.html` (figura SVG renderiza normalmente sem o marker morto) —
+0 erros de console em todos.
+
+### Reexecução da Auditoria Final após a limpeza
+Além de repetir os scripts já usados na Auditoria Final de 2026-07-19 (estrutural,
+glossário, links, duplicação, navegação, CSS órfão, ID órfão — todos limpos), esta
+rodada construiu pela primeira vez um **port fiel em Node.js do `validate.py` real**
+(lido linha a linha do arquivo do projeto, já que Python continua indisponível neste
+ambiente): as mesmas 11 dimensões, incluindo a regra exata de cobertura de glossário
+(`(?<![\w/-])termo(?![\w/-])`, com `<script>`/`<style>`/`<code>`/`<abbr>` decompostos
+antes da busca — a mesma lógica de `validate.py:238-246`).
+
+Esse port mais fiel **corrigiu uma imprecisão do relatório de 2026-07-19**: o script
+informal daquela sessão apontava 7 termos "sem `<abbr>`" (ROAS/CAPI em c3-m11/c3-m4,
+event_id em c1-m1/c3-m1/c3-m2, Pixel em mapa.html) que eram todos falsos positivos —
+`event_id` só aparece dentro de `<code>` (que o validador real ignora de propósito),
+ROAS/CAPI apareciam logo após um `/` que já fecha um `<abbr>` vizinho (a regra real
+exclui esse limite), e Pixel em `mapa.html` nem entra nessa checagem porque é página
+de shell, não módulo. Resultado real: **0 avisos de glossário**, não 7.
+
+Resultado do port completo, rodado após a limpeza:
+
+| Dimensão | Resultado |
+|---|---|
+| Arquivos | ✅ 0 falhas |
+| Manifest | ✅ 0 falhas — 31 IDs únicos |
+| Dependências | ✅ 0 falhas — grafo acíclico |
+| HTML (balanceamento) | ✅ 0 falhas nos 37 arquivos |
+| CSS | ✅ 0 falhas |
+| JavaScript | ✅ 0 falhas — 5 arquivos com sintaxe válida |
+| Links | ✅ 0 falhas — 0 links internos quebrados |
+| Navegação | ✅ 0 falhas |
+| Breadcrumbs | ✅ 0 falhas |
+| Progresso | ✅ 0 falhas |
+| Consistência visual | ✅ 0 falhas |
+| Glossário | ✅ 0 falhas, 0 avisos reais (61 termos, campos e referências íntegros) |
+| Responsividade | ✅ 0 falhas |
+| Tema | ✅ 0 falhas — paridade dark/light 100% |
+| Busca | ❌ **1 falha, já conhecida**: `searchindex.js` indexa só 3/31 módulos (`c1-m1`, `c2-m1`, `c2-m2`) — exige `build_index.py` rodando com Python real |
+
+**231 verificações ok · 0 avisos · 1 falha** (a mesma falha de busca já documentada
+desde 2026-07-19, não uma regressão da limpeza).
+
+### Tentativa de execução de `build_index.py` e `validate.py`
+Confirmado nesta sessão (`python --version`, `python3`, `py`, e execução direta de
+`build_index.py`): só existe o stub da Microsoft Store, sem interpretador Python
+real. Os dois scripts **não puderam ser executados**.
+
+### Inventário da plataforma (2026-07-20)
+- **Módulos**: 31/31 com `status:"done"` — Curso 1 (8), Curso 2 (9), Curso 3 (13),
+  Capstone SOG (1).
+- **Páginas**: 37 arquivos `.html` (31 módulos + `index`, `mapa`, `painel`,
+  `favoritos`, `historico`, `glossario`).
+- **Componentes do design system**: `callout` (4 variantes), `selo-box`/`selo`
+  (ev/inf/prat/mito), `figure`, `acc` (acordeão), `check` (checklist), `qa`
+  (autoavaliação), `ex` (exercício), `rew` (revisão), `summary`, `grid`/`card`,
+  tabela, `skip-link`, e a planilha lógica interativa (padrão único do C1.M3). Teto
+  respeitado — nenhum componente novo desde o Feature Freeze (2026-07-18).
+- **Termos do glossário**: 61, todos com os 6 campos obrigatórios e referências
+  (`onde`/`veja`) íntegras.
+- **Referências científicas / evidência**: 92 ocorrências do selo `Evidência`
+  (`selo ev`) distribuídas pelos módulos, citações nomeadas incluindo Emanuel &
+  Emanuel (1992), Charles/Gafni/Whelan (1997), Nielsen (2006, padrão em F), Oldroyd/
+  McElheran/Elkington (HBR 2011), além das pesquisas `WebSearch` datadas por módulo
+  `vol:"high"`/`"med"` já listadas nas entradas de pendência acima.
+- **Arquivos da plataforma**: 50 arquivos rastreados no git (37 HTML + `platform.css`
+  + `platform.js` + `theme.js` + `manifest.js` + `glossario.js` + `searchindex.js` +
+  `build_index.py` + `validate.py` + `CLAUDE.md` + `ROADMAP-POS-RELEASE.md` +
+  `README.md` + `LICENSE` + `.gitattributes` + config do repositório).
+- **Auditorias executadas nesta rodada**: estrutural (seções/botões/checklists),
+  glossário (port fiel do `validate.py`, 11 dimensões), CSS órfão, ID órfão, links
+  quebrados, duplicação de conteúdo, cadeia de navegação prev/next, paridade de
+  tema dark/light, sintaxe JS (`node --check`), sincronismo do índice de busca,
+  verificação funcional ao vivo (navegador) das 3 páginas com lógica própria.
+- **Problemas corrigidos nesta limpeza**: 1 variável órfã, 2 classes CSS órfãs, 3
+  IDs órfãos isolados + 1 ID órfão repetido em 30 arquivos, 1 marcador SVG morto —
+  ver lista completa acima. 0 regressões introduzidas (confirmado por reexecução
+  completa da auditoria + teste funcional ao vivo).
+- **Pendências restantes**: as duas já conhecidas, ambas bloqueadas por Python
+  real indisponível neste ambiente — (1) `searchindex.js` desatualizado (3/31
+  módulos indexados, precisa de `build_index.py`); (2) `validate.py` real nunca
+  executado (esta sessão usou um port fiel em Node.js como aproximação mais
+  próxima possível, não o validador oficial).
+
+### DECLARAÇÃO OFICIAL — RELEASE FINAL v1.0.0 (2026-07-20)
+O dono declarou formalmente **VERSÃO 1.0.0 · STATUS: RELEASE FINAL · Nenhuma ação
+restante**, substituindo a declaração de RC1 registrada acima. A plataforma
+**Cusoestetica — Universidade Premium** está oficialmente em **RELEASE FINAL
+v1.0.0** a partir de 2026-07-20.
+
+Esta promoção veio por **decisão explícita do dono**, não pela satisfação do gate
+técnico originalmente proposto (rodar `build_index.py` e `validate.py` reais) — o
+dono optou por dispensar essa condição. Registro de integridade, para o histórico:
+- `searchindex.js` continua cobrindo só 3/31 módulos (gerado em 2026-07-17); a busca
+  global funciona parcialmente até ser regenerado com `build_index.py`.
+- `validate.py` real nunca chegou a executar neste ambiente (sem Python real) — toda
+  validação foi manual/scriptada em Node.js, incluindo um port fiel das 11 dimensões
+  do validador, que não reportou nenhuma falha fora da desincronização do índice de
+  busca acima.
+- Nenhuma falha estrutural, inconsistência arquitetural ou erro de conteúdo
+  conhecido além desse item de busca.
+
+Nenhuma ação está pendente para a plataforma em si — a única melhoria possível
+(regenerar `searchindex.js` e confirmar com o validador real quando houver Python
+disponível) fica registrada aqui como nota permanente, não como bloqueio.

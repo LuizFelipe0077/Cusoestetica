@@ -35,7 +35,7 @@
   <div class="wrap">
     <div id="pCourses"></div>
 
-    <section class="sec" id="pHistory" style="border-bottom:0">
+    <section class="sec" style="border-bottom:0">
       <div class="sec-head">
         <div class="sec-tag"><span>Consolidação</span><span></span></div>
         <h2>O que foi absorvido e removido</h2>
@@ -73,7 +73,6 @@
   /* ---------- Estatísticas ---------- */
   var all   = PLATFORM.all();
   var done  = all.filter(function(m){ return m.status === "done"; }).length;
-  var part  = all.filter(function(m){ return m.status === "partial"; }).length;
   var mins  = all.reduce(function(a,m){ return a + (m.min||0); }, 0);
   var hrs   = Math.round(mins/60);
 
