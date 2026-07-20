@@ -32,6 +32,7 @@ var Platform = (function(){
   var KEY  = (typeof PLATFORM !== "undefined") ? PLATFORM.storageKey : "up_progress_v1";
   var CUR  = null;   // módulo atual (objeto do manifest)
   var SECS = [];     // seções do módulo atual
+  var courseNodes = []; // { id, btn, mods } — cursos da sidebar, para o acordeão
 
   /* ============================================================
      1. STORE — localStorage com fallback elegante
@@ -89,7 +90,7 @@ var Platform = (function(){
   var SCHEMA = 2;
 
   function blank(){
-    return { v:SCHEMA, updated:null, prefs:{ theme:null },
+    return { v:SCHEMA, updated:null, prefs:{ theme:null, openCourse:null },
              progress:{}, favorites:{ modules:[], terms:[] },
              history:{ modules:[], searches:[] } };
   }
@@ -114,7 +115,8 @@ var Platform = (function(){
     if (!d.progress)  d.progress  = {};
     if (!d.favorites) d.favorites = { modules:[], terms:[] };
     if (!d.history)   d.history   = { modules:[], searches:[] };
-    if (!d.prefs)     d.prefs     = { theme:null };
+    if (!d.prefs)     d.prefs     = { theme:null, openCourse:null };
+    if (d.prefs.openCourse === undefined) d.prefs.openCourse = null;
     return d;
   }
   function write(d){ d.v = SCHEMA; d.updated = new Date().toISOString(); Store.set(KEY, JSON.stringify(d)); }
@@ -160,6 +162,10 @@ var Platform = (function(){
     var d = read(); d.prefs.theme = t; write(d);
     setTimeout(function(){ html.classList.remove("theme-anim"); }, 300);
   }
+
+  /* ---------- Curso aberto na sidebar (acordeão, um por vez) ---------- */
+  function getOpenCourse(){ return read().prefs.openCourse || null; }
+  function setOpenCourse(id){ var d = read(); d.prefs.openCourse = id || null; write(d); }
   /* Se o usuário nunca escolheu, seguir o sistema em tempo real */
   if (window.matchMedia){
     var mq = window.matchMedia("(prefers-color-scheme: light)");
@@ -243,6 +249,7 @@ var Platform = (function(){
       '<div class="sb-prog-sub" id="upPctSub"></div>'));
 
     var tree = el("nav", { class:"sb-tree", id:"upTree", "aria-label":"Índice da plataforma" });
+    courseNodes = [];
     PLATFORM.courses.forEach(function(c){ tree.appendChild(courseBlock(c)); });
     tree.appendChild(capstoneBlock());
     sb.appendChild(tree);
@@ -271,7 +278,8 @@ var Platform = (function(){
 
   function courseBlock(c){
     var wrap = el("div", { class:"sb-course" });
-    var open = !CUR || CUR.courseId === c.id;
+    /* dentro de um módulo, o curso dele manda; no portal, vale o último salvo */
+    var open = CUR ? (CUR.courseId === c.id) : (getOpenCourse() === c.id);
     var doneN = c.modules.filter(function(m){ return isDone(m.id); }).length;
 
     var btn = el("button", { class:"sb-course-btn", "aria-expanded": open ? "true" : "false" },
@@ -285,10 +293,18 @@ var Platform = (function(){
     c.modules.forEach(function(m){ mods.appendChild(modLink(m, c)); });
     wrap.appendChild(mods);
 
+    var node = { id:c.id, btn:btn, mods:mods };
+    courseNodes.push(node);
+
     btn.addEventListener("click", function(){
-      var isOpen = btn.getAttribute("aria-expanded") === "true";
-      btn.setAttribute("aria-expanded", isOpen ? "false" : "true");
-      mods.style.maxHeight = isOpen ? "0px" : mods.scrollHeight + "px";
+      var wasOpen = btn.getAttribute("aria-expanded") === "true";
+      /* acordeão: só um curso aberto por vez — abrir o clicado fecha os outros */
+      courseNodes.forEach(function(n){
+        var shouldOpen = !wasOpen && n === node;
+        n.btn.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
+        n.mods.style.maxHeight = shouldOpen ? n.mods.scrollHeight + "px" : "0px";
+      });
+      setOpenCourse(wasOpen ? null : c.id);
     });
     requestAnimationFrame(function(){ mods.style.maxHeight = open ? mods.scrollHeight + "px" : "0px"; });
     return wrap;
