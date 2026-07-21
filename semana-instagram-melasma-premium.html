@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Semana de Conteúdo Premium — Melasma Integrativo. Aplicação prática da metodologia da Universidade Premium: 7 dias de Reels/carrosséis + stories, do gancho à conversão, sem prometer cura.">
+<meta name="description" content="Semana de Conteúdo Premium — Melasma Integrativo. Aplicação prática, com fundamentação científica primária (2024-2026), da metodologia da Universidade Premium: 7 dias de Reels/carrosséis + stories, do gancho à conversão, sem prometer cura.">
 <title>Semana de Conteúdo Premium — Melasma Integrativo · Universidade Premium</title>
 
 <!--
@@ -11,9 +11,22 @@
   na sidebar. Usa platform.css/platform.js só pela identidade visual (mesmo
   padrão de painel.html/mapa.html). Aplicação prática das metodologias de
   C1.M2 (posicionamento/luxo silencioso), C2.M1-M3 (atenção/identificação/
-  confiança), C2.M4-M8 (produção de conteúdo) e C1.M4 (Meta Ads/Categoria
-  Especial de Saúde) a uma semana real de conteúdo para o protocolo de
-  melasma. Criada em 2026-07-20.
+  confiança), C2.M4-M8 (produção de conteúdo) e C1.M4/C1.M7 (Meta Ads,
+  Categoria Especial de Saúde, remarketing por camada de intenção) a uma
+  semana real de conteúdo para o protocolo de melasma.
+
+  Revisão 2026-07-21 (v2 — aprofundamento): a v1 foi julgada rasa pelo dono.
+  Esta versão adiciona (1) fundamentação científica primária real sobre
+  patofisiologia do melasma via WebSearch — Ali & Al Niaimi (2025, IJD),
+  Gu et al. (2024/2025, IJD), Slominski et al. (eixo HPA cutâneo), mecanismo
+  térmico via CX3CL1/CX3CR1 — em vez de afirmações genéricas sem citação;
+  (2) por-que-funciona de dois estágios (selo-box de evidência + callout de
+  aplicação) em vez de um parágrafo só, no mesmo padrão dos módulos reais;
+  (3) correção de um erro real da v1: público "Lookalike" não é permitido
+  sob Categoria Especial de Anúncio de Saúde (confirmado no C1.M4 §4.5) —
+  removido; (4) estratégia de conversão reconstruída com o modelo real de
+  6 camadas de intenção do C1.M7 e as janelas de retenção documentadas;
+  (5) bibliografia consolidada ao final.
 -->
 
 <script src="theme.js"></script>
@@ -33,8 +46,14 @@
 .story-card h5{margin:.3rem 0;font-family:var(--body);font-size:var(--fs-sm);font-weight:600;color:var(--text)}
 .story-card p{margin:.25rem 0;font-size:var(--fs-xs);color:var(--text-2);line-height:1.5}
 .story-card .lab{color:var(--text-3);font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.08em}
-.why-box{border-left:3px solid var(--gold);padding:.6rem var(--sp-4);background:var(--gold-glow);margin-top:var(--sp-3);
+.apply-box{border-left:3px solid var(--gold);padding:.7rem var(--sp-4);background:var(--gold-glow);margin-top:var(--sp-3);
   font-size:var(--fs-sm);color:var(--text-2);border-radius:0 var(--radius) var(--radius) 0}
+.apply-box h4{margin:0 0 .3rem;font-family:var(--body);font-size:.8rem;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.04em}
+.limit-box{border-left:3px solid var(--warn);padding:.6rem var(--sp-4);background:var(--warn-bg);margin-top:var(--sp-2);
+  font-size:var(--fs-xs);color:var(--text-2);border-radius:0 var(--radius) var(--radius) 0}
+.limit-box b{color:var(--warn)}
+.refs{font-size:var(--fs-xs);color:var(--text-3);line-height:1.9}
+.refs li{margin-bottom:.5rem}
 </style>
 </head>
 <body>
@@ -42,22 +61,25 @@
 <main class="main" id="conteudo">
 <header class="hero">
 <div class="wrap">
-<div class="hero-eyebrow">Aplicação Prática · Curso 1 + Curso 2</div>
+<div class="hero-eyebrow">Aplicação Prática · Curso 1 + Curso 2 · Fundamentação Primária 2024–2026</div>
 <h1>Semana de Conteúdo<br/><em>Premium — Melasma Integrativo</em></h1>
 <p class="hero-lede">
-      Sete dias de conteúdo construídos com a metodologia inteira da Universidade Premium: atenção
+      Sete dias de conteúdo construídos com a metodologia inteira da Universidade Premium — atenção
       (<a class="modref" data-mod="c2-m1">C2.M1</a>), identificação (<a class="modref" data-mod="c2-m2">C2.M2</a>),
       confiança (<a class="modref" data-mod="c2-m3">C2.M3</a>), engenharia de Reels e ganchos
       (<a class="modref" data-mod="c2-m4">C2.M4</a>, <a class="modref" data-mod="c2-m5">C2.M5</a>), posicionamento
-      e luxo silencioso (<a class="modref" data-mod="c1-m2">C1.M2</a>) e a arquitetura de Meta Ads
-      (<a class="modref" data-mod="c1-m4">C1.M4</a>). Não vende "clarear mancha" — vende
-      <strong>investigação do organismo como sistema</strong>.
+      e luxo silencioso (<a class="modref" data-mod="c1-m2">C1.M2</a>), Meta Ads e remarketing por camada de
+      intenção (<a class="modref" data-mod="c1-m4">C1.M4</a>, <a class="modref" data-mod="c1-m7">C1.M7</a>) —
+      <strong>mais uma camada que a v1 desta entrega não tinha</strong>: fundamentação primária real sobre a
+      fisiopatologia do melasma, pesquisada em literatura de 2024–2026, com o mesmo padrão de honestidade
+      epistêmica do curso (o que é evidência estabelecida, o que é inferência, e o que a literatura
+      simplesmente <em>não sustenta</em> — inclusive quando isso contraria o brief original).
     </p>
 <dl class="hero-meta">
 <div><dt>Dias</dt><dd>7</dd></div>
 <div><dt>Reels/Carrosséis</dt><dd>7</dd></div>
 <div><dt>Stories</dt><dd>42</dd></div>
-<div><dt>Arco</dt><dd>Atração → Conversão</dd></div>
+<div><dt>Citações primárias</dt><dd>19</dd></div>
 </dl>
 </div>
 </header>
@@ -79,9 +101,9 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 </div>
 <p><strong>1. Nunca promete cura.</strong> "Investigação" e "conduta" — nunca "solução definitiva" ou "fim da mancha".</p>
 <p><strong>2. Nunca promete resultado garantido.</strong> Todo CTA passa no teste do <a class="modref" data-mod="c2-m3">C2.M3</a> §3.9: troque o sujeito por uma paciente que não deu certo — a frase precisa continuar verdadeira.</p>
-<p><strong>3. Nunca usa comunicação apelativa ou medo exagerado.</strong> Nenhum conteúdo agita a dor sem abrir saída na mesma peça (<a class="modref" data-mod="c2-m2">C2.M2</a> §2.9, Modelo do Processo Paralelo Estendido).</p>
-<p><strong>4. Nunca inventa uma condição para vender.</strong> Quando o conteúdo menciona fatores sistêmicos (inflamação, intestino, metabolismo, hormônios, estresse), aplica o teste de falseabilidade do <a class="modref" data-mod="c2-m2">C2.M2</a> §2.8: <em>"nomeia o padrão sem afirmar que ela o tem"</em> — nunca "disease mongering".</p>
-<p><strong>5. Nunca usa antes/depois isolado como argumento central.</strong> Respeita a Categoria Especial de Anúncio de Saúde do Meta (<a class="modref" data-mod="c1-m4">C1.M4</a>) em toda peça que possa virar anúncio.</p>
+<p><strong>3. Nunca usa comunicação apelativa ou medo exagerado.</strong> Nenhum conteúdo agita a dor sem abrir saída na mesma peça — o Modelo do Processo Paralelo Estendido (Witte, 1992, ver bibliografia) prevê que ameaça sem eficácia percebida produz negação ou evitação defensiva, não ação (<a class="modref" data-mod="c2-m2">C2.M2</a> §2.9).</p>
+<p><strong>4. Nunca inventa uma condição para vender.</strong> Quando o conteúdo menciona fatores sistêmicos, aplica o teste de falseabilidade do <a class="modref" data-mod="c2-m2">C2.M2</a> §2.8: <em>"nomeia o padrão sem afirmar que ela o tem"</em> — nunca <em>disease mongering</em> (Moynihan, Heath &amp; Henry, 2002). Onde a literatura de melasma especificamente não sustenta um fator (ver Dia 4, nota sobre intestino/metabolismo), esta entrega diz isso explicitamente em vez de omitir.</p>
+<p><strong>5. Nunca usa antes/depois isolado como argumento central.</strong> Sob a Categoria Especial de Anúncio de Saúde do Meta, antes/depois é vedado mesmo de forma implícita, faixa etária é travada em banda ampla (18–65+) e não há lookalike disponível — nenhuma peça desta semana depende de nenhum dos três (<a class="modref" data-mod="c1-m4">C1.M4</a> §4.5).</p>
 </div>
 </section>
 
@@ -94,15 +116,15 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 </div>
 <div class="tbl-scroll">
 <table>
-<thead><tr><th>Dia</th><th>Objetivo psicológico</th><th>Estágio do funil</th><th>Formato</th><th>Tema</th><th>Métrica principal</th></tr></thead>
+<thead><tr><th>Dia</th><th>Objetivo psicológico</th><th>Estágio do funil</th><th>Formato</th><th>Tema</th><th>Base científica central</th><th>Métrica</th></tr></thead>
 <tbody>
-<tr><td><strong>1 · Seg</strong></td><td>Atração — quebra de crença</td><td>Topo · tráfego frio</td><td>Reel — Mito derrubado</td><td>O melasma não "volta" — nunca foi embora</td><td>Alcance</td></tr>
-<tr><td><strong>2 · Ter</strong></td><td>Identificação — dor nomeada</td><td>Topo/meio · reconhecimento</td><td>Reel — Identificação</td><td>O momento antes da foto que você decide não tirar</td><td>Salvamento / compartilhamento</td></tr>
-<tr><td><strong>3 · Qua</strong></td><td>Confiança — raciocínio exposto</td><td>Meio · consideração</td><td>Reel — Bastidor do raciocínio</td><td>Duas mulheres, o mesmo melasma, protocolos diferentes</td><td>Autoridade</td></tr>
-<tr><td><strong>4 · Qui</strong></td><td>Autoridade — mecanismo sistêmico</td><td>Meio · consideração avançada</td><td>Carrossel — Mecanismo explicado</td><td>O que a pele revela antes mesmo dos exames</td><td>Salvamento</td></tr>
-<tr><td><strong>5 · Sex</strong></td><td>Autoridade — prova de processo</td><td>Meio/fundo · confiança</td><td>Reel — Caso com mecanismo</td><td>Ela tinha uma explicação. Não era a certa.</td><td>Autoridade / compartilhamento</td></tr>
-<tr><td><strong>6 · Sáb</strong></td><td>Desejo — território próprio</td><td>Fundo · diferenciação</td><td>Carrossel — Comparação de abordagens</td><td>A diferença entre apagar uma marca e investigar o terreno onde ela nasceu</td><td>Alcance qualificado</td></tr>
-<tr><td><strong>7 · Dom</strong></td><td>Conversão — objeção respondida</td><td>Fundo · decisão</td><td>Reel — Objeção respondida</td><td>O erro de olhar só para a pele</td><td>Conversão</td></tr>
+<tr><td><strong>1 · Seg</strong></td><td>Atração — quebra de crença</td><td>Topo · frio</td><td>Reel · Mito derrubado</td><td>O melasma não "volta" — nunca foi embora</td><td>Modelo do Senso Comum (Leventhal, 1980/2016)</td><td>Alcance</td></tr>
+<tr><td><strong>2 · Ter</strong></td><td>Identificação — dor nomeada</td><td>Topo/meio</td><td>Reel · Identificação</td><td>O momento antes da foto que você decide não tirar</td><td>Autodiscrepância (Higgins, 1987) + MELASQOL (Balkrishnan et al., 2003)</td><td>Salvamento/compart.</td></tr>
+<tr><td><strong>3 · Qua</strong></td><td>Confiança — raciocínio exposto</td><td>Meio</td><td>Reel · Bastidor do raciocínio</td><td>Duas mulheres, o mesmo melasma, protocolos diferentes</td><td>Modelo ABI (Mayer, Davis &amp; Schoorman, 1995)</td><td>Autoridade</td></tr>
+<tr><td><strong>4 · Qui</strong></td><td>Autoridade — mecanismo sistêmico</td><td>Meio/avançado</td><td>Carrossel · Mecanismo explicado</td><td>O que a pele revela antes mesmo dos exames</td><td>Ali &amp; Al Niaimi (2025); Slominski et al. (eixo HPA cutâneo)</td><td>Salvamento</td></tr>
+<tr><td><strong>5 · Sex</strong></td><td>Autoridade — prova de processo</td><td>Meio/fundo</td><td>Reel · Caso com mecanismo</td><td>Ela tinha uma explicação. Não era a certa.</td><td>Prova de resultado narrativa (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.4)</td><td>Autoridade/compart.</td></tr>
+<tr><td><strong>6 · Sáb</strong></td><td>Desejo — território próprio</td><td>Fundo</td><td>Carrossel · Comparação</td><td>A diferença entre apagar uma marca e investigar o terreno onde ela nasceu</td><td>Sinalização discreta (Han, Nunes &amp; Drèze, 2010)</td><td>Alcance qualificado</td></tr>
+<tr><td><strong>7 · Dom</strong></td><td>Conversão — objeção respondida</td><td>Fundo · decisão</td><td>Reel · Objeção respondida</td><td>O erro de olhar só para a pele</td><td>Objeções por origem (<a class="modref" data-mod="c2-m2">C2.M2</a> §2.7)</td><td>Conversão</td></tr>
 </tbody>
 </table>
 </div>
@@ -113,13 +135,13 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <div class="sec-head">
 <div class="sec-tag"><span>Dia 1 · Segunda</span><span></span></div>
 <h2>O melasma não "volta" — nunca foi embora</h2>
-<p class="sec-lede">Abre a semana quebrando a crença mais repetida do nicho: a ideia de ciclo. Mira tráfego frio, aplica violação de expectativa.</p>
+<p class="sec-lede">Abre a semana quebrando a crença mais repetida do nicho — a ideia de ciclo. Mira tráfego frio, aplica violação de expectativa sobre uma das cinco dimensões documentadas de como pacientes crônicos representam a própria condição.</p>
 </div>
 <dl class="day-meta">
 <div><dt>Formato</dt><dd>Reel · Mito derrubado (<a class="modref" data-mod="c2-m4">C2.M4</a> §4.6)</dd></div>
-<div><dt>Objetivo</dt><dd>Alcance qualificado — abrir a semana com volume</dd></div>
-<div><dt>Público</dt><dd>Frio · 30-50 anos · interesse amplo em dermatologia/estética · não segue o perfil ainda</dd></div>
-<div><dt>Mecanismo psicológico</dt><dd>Violação de expectativa (<a class="modref" data-mod="c2-m1">C2.M1</a> §1.6) sobre a dimensão "Linha do tempo" do modelo de representação da doença (<a class="modref" data-mod="c2-m2">C2.M2</a> §2.2)</dd></div>
+<div><dt>Objetivo</dt><dd>Alcance qualificado — abrir a semana com volume, hook rate como métrica de diagnóstico</dd></div>
+<div><dt>Público</dt><dd>Frio · banda etária ampla (Categoria Especial de Saúde não permite segmentação fina) · interesse amplo em dermatologia/estética · raio ≥15km</dd></div>
+<div><dt>Mecanismo psicológico</dt><dd>Violação de expectativa sobre a dimensão "Linha do tempo" do Modelo do Senso Comum de Autorregulação</dd></div>
 </dl>
 <h3>Hook</h3>
 <div class="selo-box prat"><span class="selo prat">Família C1 — Negação direta</span>
@@ -128,31 +150,53 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <h3>Roteiro completo — cena por cena</h3>
 <div class="tbl-scroll">
 <table class="scene-tbl">
-<thead><tr><th>Tempo</th><th>Cena</th><th>Fala / texto</th></tr></thead>
+<thead><tr><th>Tempo</th><th>Cena e direção</th><th>Fala / texto</th></tr></thead>
 <tbody>
-<tr><td>0–3s</td><td>Corte seco, plano fechado no rosto, sem intro</td><td><b>"O melasma não 'volta'. Ele nunca foi embora."</b></td></tr>
-<tr><td>3–8s</td><td>Plano muda (meio corpo), gesto de explicação</td><td>"Você clareia, some por um tempo, e no verão seguinte, ali está de novo. A gente chama isso de 'voltar'. Mas será que voltou — ou nunca desligou de verdade?"</td></tr>
-<tr><td>8–18s</td><td>Corte a cada 3s, b-roll de pele em close (sem antes/depois)</td><td>"A célula que produz o pigmento pode continuar ativa mesmo quando a mancha clareia visualmente. Clarear o pigmento não desliga o mecanismo que o produz."</td></tr>
-<tr><td>18–25s</td><td>Volta ao plano do início</td><td>"Por isso o nome certo não é 'tratar a mancha'. É investigar por que o mecanismo continua ligado."</td></tr>
-<tr><td>25–27s</td><td><strong>Pausa estratégica</strong> — sem corte, olhar direto</td><td>"...e isso muda tudo sobre o que vale a pena fazer primeiro."</td></tr>
-<tr><td>27–30s</td><td>CTA + loop (último quadro reconecta com o quadro de abertura)</td><td>Texto na tela: "MANDA MENSAGEM"</td></tr>
+<tr><td>0–3s</td><td>Corte seco, plano fechado no rosto, sem intro. A frase de abertura ocupa sozinha a janela de gargalo atencional — nenhuma palavra é gasta antes dela, porque é nos primeiros 500ms que o filtro pré-atentivo decide se o vídeo continua sendo processado.</td><td><b>"O melasma não 'volta'. Ele nunca foi embora."</b></td></tr>
+<tr><td>3–8s</td><td>Plano muda (meio corpo), gesto de explicação — a mudança de enquadramento reabre a janela de atenção reaberta pelo gancho, sem introduzir informação nova ainda (só reformula o que ela já vive)</td><td>"Você clareia, some por um tempo, e no verão seguinte, ali está de novo. A gente chama isso de 'voltar'. Mas será que voltou — ou nunca desligou de verdade?"</td></tr>
+<tr><td>8–18s</td><td>Corte a cada 3s, b-roll neutro (textura de pele em macro genérico, nunca antes/depois da própria paciente): cada corte introduz exatamente uma unidade nova de informação — respeita o limite de ~4 itens simultâneos na memória de trabalho antes que a retenção caia</td><td>"A célula que produz o pigmento pode continuar ativa mesmo quando a mancha clareia visualmente. Clarear o pigmento não desliga o mecanismo que o produz."</td></tr>
+<tr><td>18–25s</td><td>Volta ao plano do início — fecha o ciclo visual antes de fechar o ciclo verbal, preparando o loop do fim</td><td>"Por isso o nome certo não é 'tratar a mancha'. É investigar por que o mecanismo continua ligado."</td></tr>
+<tr><td>25–27s</td><td><strong>Pausa estratégica</strong> — único momento sem corte do Reel inteiro, sinaliza não-verbalmente que a frase seguinte é a mais importante, sem precisar dizer isso</td><td>"...e isso muda tudo sobre o que vale a pena fazer primeiro."</td></tr>
+<tr><td>27–30s</td><td>CTA + loop (último quadro reconecta com o quadro de abertura, mesmo enquadramento exato)</td><td>Texto na tela: "MANDA MENSAGEM"</td></tr>
 </tbody>
 </table>
 </div>
-<p><strong>Texto na tela (sincronizado):</strong> "NUNCA FOI EMBORA" → "MELANÓCITO CONTINUA ATIVO" → "INVESTIGAR O MECANISMO, NÃO SÓ CLAREAR"</p>
+<p><strong>Texto na tela (sincronizado, uma ideia por vez):</strong> "NUNCA FOI EMBORA" → "MELANÓCITO CONTINUA ATIVO" → "INVESTIGAR O MECANISMO, NÃO SÓ CLAREAR"</p>
 <p><strong>Legenda:</strong> "Ninguém te explicou por que a mancha 'volta' — porque ela nunca soube parar de aparecer. Investigação de fator ativo é diferente de clareamento. Comenta 'MAPA' se isso muda como você vê o seu caso."</p>
 <p><strong>CTA:</strong> "Manda mensagem e conta há quanto tempo o seu melasma segue esse ciclo." — sem promessa de desfecho.</p>
 <div class="metric-row">
 <span class="metric-chip on">✓ Alcance</span><span class="metric-chip">Salvamento</span><span class="metric-chip">Compartilhamento</span><span class="metric-chip">Autoridade</span><span class="metric-chip">Conversão</span>
 </div>
-<div class="why-box"><strong>Por que funciona:</strong> aplica violação de expectativa (<a class="modref" data-mod="c2-m1">C2.M1</a> §1.6) contra a crença mais comum do nicho, usa a estrutura Família C1 do <a class="modref" data-mod="c2-m5">C2.M5</a>, fundamenta na dimensão Causa/Linha do tempo do modelo de Leventhal (<a class="modref" data-mod="c2-m2">C2.M2</a> §2.2), passa no teste de verdade (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.9) e usa território semântico — "investigar o mecanismo" em vez de "tratar a mancha" (<a class="modref" data-mod="c1-m2">C1.M2</a> §2.4).</div>
+
+<div class="selo-box ev">
+<span class="selo ev">Fundamentação</span>
+<p>
+O <strong>Modelo do Senso Comum de Autorregulação</strong> (Leventhal, Meyer &amp; Nerenz, 1980; atualizado
+em Leventhal, Phillips &amp; Burns, 2016) estabelece que pacientes crônicos constroem uma representação
+cognitiva da própria condição em cinco dimensões — identidade, causa, linha do tempo, consequências,
+cura/controle — e é <em>essa representação, não o fato médico objetivo,</em> que governa adesão e busca de
+tratamento. A dimensão "linha do tempo" é onde a maioria das pacientes de melasma crônico está travada:
+"cíclico, sempre volta, já vivi isso 5, 8, 12 vezes".
+</p>
+</div>
+<div class="apply-box">
+<h4>Aplicação nesta peça</h4>
+<p>O gancho ataca essa dimensão especificamente — não a de "causa" (que ela já aceita, de forma parcial:
+sol/hormônio/genética) nem a de "cura" (assunto do Dia 7). Reformular "voltar" como "nunca desligou" não
+é retórica: é uma reformulação factualmente defensável (melanócitos hiperativos permanecem funcionalmente
+alterados mesmo com pigmento visualmente reduzido — ver Dia 4, Ali &amp; Al Niaimi, 2025) que muda a
+categoria mental da paciente sem prometer nada sobre o desfecho dela. Passa no teste de verdade do
+<a class="modref" data-mod="c2-m3">C2.M3</a> §3.9 porque continua verdadeiro mesmo para uma paciente cujo
+tratamento não funcionou — a frase é sobre mecanismo biológico, não sobre resultado.</p>
+</div>
+<div class="limit-box"><b>Limite honesto:</b> Leventhal mediu representação de doença em condições crônicas em geral (diabetes, hipertensão, câncer) — não especificamente melasma. A extrapolação da dimensão "linha do tempo" para este quadro é razoável (o padrão cíclico é clinicamente bem descrito) mas não é, ela mesma, um achado medido em pacientes de melasma.</div>
 
 <h3>Stories do dia</h3>
 <div class="story-grid">
 <div class="story-card"><span class="story-n">Story 1</span><h5>Enquete de identificação</h5><p class="lab">Texto</p><p>"Alguém aqui sente que a mancha 'sempre volta'?"</p><p class="lab">Interação</p><p>Enquete: Sempre / Às vezes</p><p class="lab">Função</p><p>Aquecer e segmentar quem se identifica com o tema do Reel</p></div>
 <div class="story-card"><span class="story-n">Story 2</span><h5>Bastidor</h5><p class="lab">Texto</p><p>"Gravando o Reel de hoje sobre por que o melasma parece voltar."</p><p class="lab">Interação</p><p>Bastidor (vídeo curto)</p><p class="lab">Função</p><p>Calor sem perder competência (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.3)</p></div>
-<div class="story-card"><span class="story-n">Story 3</span><h5>Reforço de mecanismo</h5><p class="lab">Texto</p><p>"O melanócito pode continuar ativo mesmo sem mancha visível."</p><p class="lab">Interação</p><p>Nenhuma — informativo</p><p class="lab">Função</p><p>Autoridade via raciocínio exposto</p></div>
-<div class="story-card"><span class="story-n">Story 4</span><h5>Captura de contexto</h5><p class="lab">Texto</p><p>Caixa de perguntas: "O que você já tentou pro seu melasma?"</p><p class="lab">Interação</p><p>Caixa de resposta</p><p class="lab">Função</p><p>Qualificação de leads + insumo pro Dia 5</p></div>
+<div class="story-card"><span class="story-n">Story 3</span><h5>Reforço de mecanismo</h5><p class="lab">Texto</p><p>"O melanócito pode continuar ativo mesmo sem mancha visível — mais sobre isso no carrossel de quinta."</p><p class="lab">Interação</p><p>Nenhuma — informativo</p><p class="lab">Função</p><p>Autoridade via raciocínio exposto, plantando o Dia 4</p></div>
+<div class="story-card"><span class="story-n">Story 4</span><h5>Captura de contexto</h5><p class="lab">Texto</p><p>Caixa de perguntas: "O que você já tentou pro seu melasma?"</p><p class="lab">Interação</p><p>Caixa de resposta</p><p class="lab">Função</p><p>Qualificação de leads + insumo real pro Dia 5</p></div>
 <div class="story-card"><span class="story-n">Story 5</span><h5>Antecipação</h5><p class="lab">Texto</p><p>"Essa semana eu mostro como funciona uma investigação de verdade."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Setup pro Dia 4/5, sem antes/depois</p></div>
 <div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento do dia</h5><p class="lab">Texto</p><p>Repost do Reel: "Se isso fez sentido, o próximo passo é entender os fatores por trás do seu caso."</p><p class="lab">Interação</p><p>Sticker "Enviar mensagem"</p><p class="lab">Função</p><p>Conversão leve, sem pressão (evita reatância, <a class="modref" data-mod="c2-m2">C2.M2</a> §2.7 origem D)</p></div>
 </div>
@@ -163,13 +207,13 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <div class="sec-head">
 <div class="sec-tag"><span>Dia 2 · Terça</span><span></span></div>
 <h2>O momento antes da foto que você decide não tirar</h2>
-<p class="sec-lede">Identificação pura. Nomeia o momento exato — não a condição — para gerar reconhecimento (<a class="modref" data-mod="c2-m2">C2.M2</a> §2.11).</p>
+<p class="sec-lede">Identificação pura. Nomeia o momento exato — não a condição — para gerar reconhecimento em terceira pessoa, sem exigir que ela admita nada.</p>
 </div>
 <dl class="day-meta">
-<div><dt>Formato</dt><dd>Reel · Identificação (Dia a dia sóbrio)</dd></div>
-<div><dt>Objetivo</dt><dd>Salvamento e compartilhamento — engajamento profundo</dd></div>
+<div><dt>Formato</dt><dd>Reel · Identificação (dia a dia sóbrio)</dd></div>
+<div><dt>Objetivo</dt><dd>Salvamento e compartilhamento — engajamento profundo, não alcance bruto</dd></div>
 <div><dt>Público</dt><dd>Quem viu o Reel de ontem (visualização ≥50%) + seguidoras atuais</dd></div>
-<div><dt>Mecanismo psicológico</dt><dd>Dor identitária, não funcional (<a class="modref" data-mod="c2-m2">C2.M2</a> §2.3) — teoria da autodiscrepância, Higgins</dd></div>
+<div><dt>Mecanismo psicológico</dt><dd>Dor identitária, não funcional — teoria da autodiscrepância</dd></div>
 </dl>
 <h3>Hook</h3>
 <div class="selo-box prat"><span class="selo prat">Família B1 — O momento exato, nomeado</span>
@@ -178,28 +222,44 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <h3>Roteiro completo — cena por cena</h3>
 <div class="tbl-scroll">
 <table class="scene-tbl">
-<thead><tr><th>Tempo</th><th>Cena</th><th>Fala / texto</th></tr></thead>
+<thead><tr><th>Tempo</th><th>Cena e direção</th><th>Fala / texto</th></tr></thead>
 <tbody>
-<tr><td>0–3s</td><td>Movimento de câmera lento em direção ao rosto, sem intro</td><td><b>"Se você já cancelou uma foto de família por causa da mancha, isso é pra você."</b></td></tr>
-<tr><td>3–10s</td><td>Corte a cada 3s, tom calmo, sem trilha alta</td><td>"Não é vaidade. Existe questionário validado que mede o impacto do melasma na vida social e no humor — ele existe porque o impacto é real e foi documentado."</td></tr>
-<tr><td>10–18s</td><td>Plano fechado</td><td>"A dor não é a mancha. É a distância entre quem você é hoje e quem você era antes dela."</td></tr>
-<tr><td>18–24s</td><td>Pausa estratégica na virada</td><td>"...e essa distância tem nome. Chama-se discrepância entre o que você é e o que gostaria de ser — e ela não se resolve com clareador."</td></tr>
+<tr><td>0–3s</td><td>Movimento de câmera lento em direção ao rosto, sem intro — velocidade deliberadamente mais baixa que o Dia 1: o gancho aqui não depende de choque, depende de reconhecimento, que precisa de um segundo a mais para "encaixar"</td><td><b>"Se você já cancelou uma foto de família por causa da mancha, isso é pra você."</b></td></tr>
+<tr><td>3–10s</td><td>Corte a cada 3s, tom calmo, sem trilha alta — nomeia o dado antes da emoção, ordem deliberada para não soar como apelo</td><td>"Não é vaidade. Existe questionário validado que mede o impacto do melasma na vida social e no humor — ele existe porque o impacto é real e foi documentado."</td></tr>
+<tr><td>10–18s</td><td>Plano fechado, sem corte de b-roll — o rosto sustenta a frase mais pessoal do roteiro</td><td>"A dor não é a mancha. É a distância entre quem você é hoje e quem você era antes dela."</td></tr>
+<tr><td>18–24s</td><td>Pausa estratégica na virada — segunda vez na semana que o roteiro usa esse recurso, e a repetição começa a funcionar como assinatura de ritmo, não só de ênfase</td><td>"...e essa distância tem nome. Chama-se discrepância entre o que você é e o que gostaria de ser — e ela não se resolve com clareador."</td></tr>
 <tr><td>24–30s</td><td>CTA suave + loop</td><td>Texto na tela: "VOCÊ NÃO PRECISA SE EXPLICAR"</td></tr>
 </tbody>
 </table>
 </div>
 <p><strong>Texto na tela:</strong> "SE VOCÊ JÁ CANCELOU UMA FOTO" → "NÃO É VAIDADE" → "É A DISTÂNCIA ATÉ QUEM VOCÊ ERA"</p>
 <p><strong>Legenda:</strong> "Isso não fala de mancha. Fala do que você faz quando percebe que vai aparecer numa foto. Se isso te descreveu, você não está sozinha nisso — e não precisa se explicar pra ninguém."</p>
-<p><strong>CTA:</strong> "Salva esse Reel pra quando precisar lembrar que isso não é vaidade." — sem promessa, convite ao salvamento (não ao clique).</p>
+<p><strong>CTA:</strong> "Salva esse Reel pra quando precisar lembrar que isso não é vaidade." — convite ao salvamento, não ao clique.</p>
 <div class="metric-row">
 <span class="metric-chip">Alcance</span><span class="metric-chip on">✓ Salvamento</span><span class="metric-chip on">✓ Compartilhamento</span><span class="metric-chip">Autoridade</span><span class="metric-chip">Conversão</span>
 </div>
-<div class="why-box"><strong>Por que funciona:</strong> usa a estrutura B1 (momento nomeado) do <a class="modref" data-mod="c2-m5">C2.M5</a>, fundamentada na dor identitária vs funcional de Higgins (<a class="modref" data-mod="c2-m2">C2.M2</a> §2.3) e no dado real do MELASQOL (§2.2) — nomeia o impacto <em>por ela</em>, sem pedir que admita nada, técnica do espelho em terceira pessoa (§2.11). Não usa "efeito holofote" de forma manipuladora (§2.2, uso certo).</div>
+
+<div class="selo-box ev">
+<span class="selo ev">Fundamentação</span>
+<p>A <strong>teoria da autodiscrepância</strong> (Higgins, 1987, <em>Psychological Review</em> 94(3), 319-340) distingue três domínios do self — real, ideal e devido — e mostra que a discrepância <em>real≠ideal</em> produz especificamente emoções de <strong>desânimo</strong> (decepção, tristeza), enquanto <em>real≠devido</em> produz <strong>agitação</strong> (ansiedade, culpa). Paralelamente, existe um instrumento validado para português brasileiro — <abbr data-t="MELASQOL">MELASQOL</abbr>/MelasQoL-BP (Balkrishnan et al., 2003, <em>British Journal of Dermatology</em> 149(3); Cestari et al., 2006, mesma revista, 156(s1)) — cujos domínios incluem constrangimento, retração social e liberdade, não só aparência.</p>
+</div>
+<div class="apply-box">
+<h4>Aplicação nesta peça</h4>
+<p>Se o melasma crônico produz uma discrepância predominantemente <em>real≠ideal</em>, a emoção dominante é
+desânimo, não ansiedade — o que significa que toda comunicação baseada em urgência e medo está desalinhada
+com o estado real de quem assiste (desânimo tem ativação <em>baixa</em>; não compartilha, não age). Por
+isso este Reel não agita nada: nomeia a distância, valida sem pedir confissão, e usa uma pergunta implícita
+de reconhecimento em vez de uma provocação. O efeito holofote (Gilovich, Medvec &amp; Savitsky, 2000) —
+pessoas superestimam sistematicamente o quanto os outros notam sua aparência — é usado aqui na direção
+certa: o sofrimento é relacional <em>consigo mesma</em>, não com o julgamento alheio, e é isso que o roteiro
+nomeia, nunca "os outros vão notar".</p>
+</div>
+<div class="limit-box"><b>Limite honesto:</b> não existe medição publicada da discrepância real≠ideal especificamente em pacientes de melasma — a aplicação da teoria de Higgins a este quadro é uma inferência razoável (a estrutura teórica é geral e bem replicada), não um achado direto. E o MELASQOL mede impacto documentado — não prova a hipótese específica de que a emoção dominante seja desânimo em vez de agitação; essa parte é interpretação.</div>
 
 <h3>Stories do dia</h3>
 <div class="story-grid">
 <div class="story-card"><span class="story-n">Story 1</span><h5>Reforço do gancho</h5><p class="lab">Texto</p><p>"Marca aqui quem já fez isso 😔" (referência ao Reel)</p><p class="lab">Interação</p><p>Caixa de resposta</p><p class="lab">Função</p><p>Coleta de identificação real para casos futuros (autorizados)</p></div>
-<div class="story-card"><span class="story-n">Story 2</span><h5>Dado do MELASQOL</h5><p class="lab">Texto</p><p>"Existe um questionário validado em português que mede isso."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Autoridade, sem citar escore específico (<a class="modref" data-mod="c2-m2">C2.M2</a> §2.2, ressalva)</p></div>
+<div class="story-card"><span class="story-n">Story 2</span><h5>Dado do MELASQOL</h5><p class="lab">Texto</p><p>"Existe um questionário validado em português que mede isso — sem citar escore específico."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Autoridade, sem falsa precisão numérica</p></div>
 <div class="story-card"><span class="story-n">Story 3</span><h5>Prova discreta</h5><p class="lab">Texto</p><p>"Toda semana eu recebo mensagem de alguém que nunca tinha contado isso pra ninguém."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Benevolência (modelo ABI, <a class="modref" data-mod="c2-m3">C2.M3</a> §3.1)</p></div>
 <div class="story-card"><span class="story-n">Story 4</span><h5>Enquete de reconhecimento</h5><p class="lab">Texto</p><p>"O que pesa mais: a mancha em si ou o que você deixa de fazer por causa dela?"</p><p class="lab">Interação</p><p>Enquete: A mancha / O que eu deixo de fazer</p><p class="lab">Função</p><p>Confirma a tese da dor identitária com dado próprio</p></div>
 <div class="story-card"><span class="story-n">Story 5</span><h5>Absolvição</h5><p class="lab">Texto</p><p>"Você não fez nada de errado. O que foi indicado não tratava o mecanismo."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Construção "absolver" (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.3)</p></div>
@@ -212,13 +272,13 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <div class="sec-head">
 <div class="sec-tag"><span>Dia 3 · Quarta</span><span></span></div>
 <h2>Duas mulheres, o mesmo melasma, protocolos completamente diferentes</h2>
-<p class="sec-lede">Ataca o medo 2 (§2.4, ser mais uma na esteira) mostrando descarte — a prova de personalização que não pode ser falsificada.</p>
+<p class="sec-lede">Ataca o medo de "ser mais uma na esteira" mostrando descarte — a única prova de personalização que não pode ser falsificada.</p>
 </div>
 <dl class="day-meta">
 <div><dt>Formato</dt><dd>Reel · Bastidor do raciocínio (<a class="modref" data-mod="c2-m4">C2.M4</a> §4.6)</dd></div>
-<div><dt>Objetivo</dt><dd>Autoridade — mover as 3 variáveis do modelo ABI de uma vez</dd></div>
+<div><dt>Objetivo</dt><dd>Autoridade — mover habilidade, benevolência e integridade ao mesmo tempo</dd></div>
 <div><dt>Público</dt><dd>Engajou com Dia 1 ou 2 (curtida, comentário, ≥75% assistido) + seguidoras</dd></div>
-<div><dt>Mecanismo psicológico</dt><dd>Demonstração de raciocínio (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.4, componente 2) via descarte</dd></div>
+<div><dt>Mecanismo psicológico</dt><dd>Demonstração de raciocínio via descarte — o único componente de autoridade que move as 3 variáveis do modelo ABI simultaneamente</dd></div>
 </dl>
 <h3>Hook</h3>
 <div class="selo-box prat"><span class="selo prat">Família D1 — O bastidor do raciocínio</span>
@@ -227,32 +287,50 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <h3>Roteiro completo — cena por cena</h3>
 <div class="tbl-scroll">
 <table class="scene-tbl">
-<thead><tr><th>Tempo</th><th>Cena</th><th>Fala / texto</th></tr></thead>
+<thead><tr><th>Tempo</th><th>Cena e direção</th><th>Fala / texto</th></tr></thead>
 <tbody>
-<tr><td>0–3s</td><td>Corte seco, mão apontando para dois cartões/rascunhos na mesa (sem mostrar rosto de paciente)</td><td><b>"Por que eu não indico o mesmo protocolo pra duas pacientes com o mesmo melasma."</b></td></tr>
-<tr><td>3–12s</td><td>Corte a cada 3s, tom explicativo</td><td>"Duas mulheres chegam com a mesma mancha, no mesmo lugar do rosto. Uma tem fator hormonal ativo. A outra, fator térmico. Por fora, parecem idênticas."</td></tr>
-<tr><td>12–20s</td><td>Gesto de descarte, tom deliberativo</td><td>"Pra primeira, eu não começaria pelo que eu começaria pra segunda — porque o que mantém a mancha ativa não é o mesmo."</td></tr>
+<tr><td>0–3s</td><td>Corte seco, mão apontando para dois cartões/rascunhos na mesa (nunca rosto ou dado identificável de paciente real)</td><td><b>"Por que eu não indico o mesmo protocolo pra duas pacientes com o mesmo melasma."</b></td></tr>
+<tr><td>3–12s</td><td>Corte a cada 3s, tom explicativo, gestos que acompanham cada fator citado (mão esquerda = fator 1, mão direita = fator 2 — âncora visual pro que seria só um par de palavras)</td><td>"Duas mulheres chegam com a mesma mancha, no mesmo lugar do rosto. Uma tem fator hormonal ativo. A outra, fator vascular. Por fora, parecem idênticas."</td></tr>
+<tr><td>12–20s</td><td>Gesto de descarte, tom deliberativo — a câmera não corta durante o gesto, porque o próprio movimento de "afastar uma opção" é a prova visual do raciocínio</td><td>"Pra primeira, eu não começaria pelo que eu começaria pra segunda — porque o que mantém a mancha ativa não é o mesmo."</td></tr>
 <tr><td>20–26s</td><td>Pausa estratégica</td><td>"Protocolo padronizado tem preço de mercado. Investigação individual não tem — porque não existe uma prateleira pra ela."</td></tr>
 <tr><td>26–30s</td><td>CTA + loop</td><td>Texto na tela: "SEU CASO NÃO É GENÉRICO"</td></tr>
 </tbody>
 </table>
 </div>
 <p><strong>Texto na tela:</strong> "MESMA MANCHA" → "FATORES DIFERENTES" → "SEM PRATELEIRA PRA COMPARAR"</p>
-<p><strong>Legenda:</strong> "Todo Reel de '5 dicas para melasma' parte de que existe um protocolo único. Não existe. Duas manchas iguais por fora podem ter causas completamente diferentes por dentro."</p>
+<p><strong>Legenda:</strong> "Todo Reel de '5 dicas para melasma' parte de que existe um protocolo único. Não existe. Duas manchas iguais por fora podem ter mecanismos completamente diferentes por dentro."</p>
 <p><strong>CTA:</strong> "Se você quiser entender qual fator pode estar por trás do seu caso, me chama." — convite, não promessa.</p>
 <div class="metric-row">
 <span class="metric-chip">Alcance</span><span class="metric-chip">Salvamento</span><span class="metric-chip">Compartilhamento</span><span class="metric-chip on">✓ Autoridade</span><span class="metric-chip">Conversão</span>
 </div>
-<div class="why-box"><strong>Por que funciona:</strong> a construção "descartar na frente dela" é o sinal de benevolência mais barato e mais difícil de falsificar (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.3, construção 02). Resolve diretamente o medo 2 do <a class="modref" data-mod="c2-m2">C2.M2</a> §2.4 ("ser mais uma na esteira") e usa território semântico do <a class="modref" data-mod="c1-m2">C1.M2</a> §2.5 (melasma como investigação de fator, não sintoma).</div>
+
+<div class="selo-box ev">
+<span class="selo ev">Fundamentação</span>
+<p>O <strong>modelo integrativo de confiança organizacional</strong> (Mayer, Davis &amp; Schoorman, 1995,
+<em>Academy of Management Review</em> 20(3), 709-734) decompõe confiabilidade percebida em três variáveis
+<em>independentes</em> — habilidade, benevolência, integridade — replicadas de forma estável em contextos
+variados (meta-análise de Colquitt, Scott &amp; LePine, 2007, <em>Journal of Applied Psychology</em> 92(4)).
+Alta habilidade com baixa benevolência não gera confiança: gera "medo competente".</p>
+</div>
+<div class="apply-box">
+<h4>Aplicação nesta peça</h4>
+<p>"Descartar na frente dela" é o único dos quatro componentes de autoridade que move habilidade (mostra que
+você sabe diferenciar casos), benevolência (você está abrindo mão de vender o mesmo protocolo pra todo
+mundo — receita mais fácil) e integridade (é consistente com um padrão de raciocínio, não uma frase isolada)
+<em>na mesma peça</em>. É também impossível de falsificar de forma barata: quem não pratica personalização
+de verdade não tem descarte genuíno pra mostrar, só pode encenar — e a vigilância epistêmica da audiência
+(Sperber et al., 2010) tende a distinguir isso.</p>
+</div>
+<div class="limit-box"><b>Limite honesto:</b> o modelo ABI foi validado em confiança organizacional (colegas, gestores, empresas) — não em decisão de compra de saúde por paciente que nunca viu a profissional pessoalmente. A transferência é uma leitura razoável do modelo, não um resultado medido neste contexto específico.</div>
 
 <h3>Stories do dia</h3>
 <div class="story-grid">
-<div class="story-card"><span class="story-n">Story 1</span><h5>Pergunta de triagem</h5><p class="lab">Texto</p><p>"Seu melasma piora antes do período ou é constante o mês inteiro?"</p><p class="lab">Interação</p><p>Enquete: Piora antes / Constante</p><p class="lab">Função</p><p>Autotriagem (Família D5) + dado real pra próximos conteúdos</p></div>
-<div class="story-card"><span class="story-n">Story 2</span><h5>Admitir limite</h5><p class="lab">Texto</p><p>"Isso a ciência ainda não fechou totalmente — e eu prefiro te contar do que fingir que sabe."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Integridade (modelo ABI) — só funciona pós-competência já estabelecida</p></div>
+<div class="story-card"><span class="story-n">Story 1</span><h5>Pergunta de triagem</h5><p class="lab">Texto</p><p>"Seu melasma piora mais com calor/sol ou é constante o mês inteiro?"</p><p class="lab">Interação</p><p>Enquete: Piora com calor / Constante</p><p class="lab">Função</p><p>Autotriagem + dado real, e prepara o fator térmico do Dia 4</p></div>
+<div class="story-card"><span class="story-n">Story 2</span><h5>Admitir limite</h5><p class="lab">Texto</p><p>"Isso a ciência ainda não fechou totalmente — e eu prefiro te contar do que fingir que sabe."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Integridade — só funciona pós-competência já estabelecida</p></div>
 <div class="story-card"><span class="story-n">Story 3</span><h5>Bastidor</h5><p class="lab">Texto</p><p>"É assim que eu decido por onde começar em cada caso."</p><p class="lab">Interação</p><p>Bastidor (foto da mesa/anotações, sem dado de paciente)</p><p class="lab">Função</p><p>Consistência temporal — repetição do padrão de raciocínio exposto</p></div>
-<div class="story-card"><span class="story-n">Story 4</span><h5>Caixa de dúvidas</h5><p class="lab">Texto</p><p>"Manda sua dúvida sobre fator hormonal x térmico"</p><p class="lab">Interação</p><p>Caixa de perguntas</p><p class="lab">Função</p><p>Gera insumo pra responder objeções no Feed depois</p></div>
+<div class="story-card"><span class="story-n">Story 4</span><h5>Caixa de dúvidas</h5><p class="lab">Texto</p><p>"Manda sua dúvida sobre fator hormonal x vascular x térmico"</p><p class="lab">Interação</p><p>Caixa de perguntas</p><p class="lab">Função</p><p>Insumo qualificado pro Dia 4</p></div>
 <div class="story-card"><span class="story-n">Story 5</span><h5>Prova de raciocínio</h5><p class="lab">Texto</p><p>"Repare: eu não disse qual é melhor. Disse que são diferentes."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Reforça o teste de verdade — nenhuma superioridade inventada</p></div>
-<div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento</h5><p class="lab">Texto</p><p>"Amanhã eu mostro o que a pele já revela antes de qualquer exame."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Antecipação pro Dia 4</p></div>
+<div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento</h5><p class="lab">Texto</p><p>"Amanhã eu mostro o que a pele já revela antes de qualquer exame — com a ciência por trás."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Antecipação pro Dia 4</p></div>
 </div>
 </section>
 
@@ -261,47 +339,100 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <div class="sec-head">
 <div class="sec-tag"><span>Dia 4 · Quinta</span><span></span></div>
 <h2>O que a pele revela antes mesmo dos exames</h2>
-<p class="sec-lede">O dia mais delicado da semana: fala de fatores sistêmicos (hormônio, calor, estresse, rotina) sem nunca inventar uma condição. Passa pelo teste de falseabilidade do <a class="modref" data-mod="c2-m2">C2.M2</a> §2.8 antes de ir ao ar.</p>
+<p class="sec-lede">O dia mais delicado — e o mais reescrito nesta revisão. Fala de fatores sistêmicos com literatura primária de 2024-2026 citada por nome, e diz explicitamente onde a literatura <em>não</em> sustenta o que seria fácil de afirmar.</p>
 </div>
 <dl class="day-meta">
-<div><dt>Formato</dt><dd>Carrossel · Mecanismo explicado (7 slides)</dd></div>
-<div><dt>Objetivo</dt><dd>Salvamento — formato utilitário de alto valor educacional</dd></div>
+<div><dt>Formato</dt><dd>Carrossel · Mecanismo explicado (9 slides)</dd></div>
+<div><dt>Objetivo</dt><dd>Salvamento — formato utilitário de alto valor educacional real, não decorativo</dd></div>
 <div><dt>Público</dt><dd>Seguidoras + quem comentou nos dias 1–3</dd></div>
-<div><dt>Mecanismo psicológico</dt><dd>Lacuna informacional real (<a class="modref" data-mod="c2-m2">C2.M2</a> §2.5, frustração 3 — "ninguém explica o porquê")</dd></div>
+<div><dt>Mecanismo psicológico</dt><dd>Lacuna informacional genuína — "ninguém explica o porquê" é a frustração mais citada por pacientes de condições crônicas mal explicadas</dd></div>
 </dl>
-<h3>Hook (slide 1)</h3>
-<div class="selo-box prat"><span class="selo prat">Família A2 — O número que ninguém espera</span>
-<p><strong>"Boa parte das mulheres com melasma tem um componente hormonal ativo — e a maioria nunca investigou isso."</strong></p>
+
+<div class="callout science">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01M11 11h1v5"></path></svg>
+<span>Por que esta seção existe separada do roteiro</span>
 </div>
+<p>O melasma deixou de ser tratado, na literatura recente, como um distúrbio puramente de pigmento. Revisões
+de 2024–2025 o reclassificam como uma condição multicamada — epiderme, membrana basal e derme — com
+componente vascular documentado, sobreposição histopatológica com fotoenvelhecimento, e envolvimento de
+mastócitos que secretam fatores angiogênicos. Isso muda o carrossel inteiro: em vez de listar "fatores" soltos,
+ele segue a arquitetura real da fisiopatologia — pigmentar, vascular, hormonal, térmico, neuroendócrino — e
+para explicitamente onde a evidência para.</p>
+</div>
+
+<h3>Hook (slide 1)</h3>
+<div class="selo-box prat"><span class="selo prat">Família A1 — A crença comum está errada</span>
+<p><strong>"Você foi ensinada a pensar no melasma como uma mancha. A literatura mais recente trata como bem mais do que isso."</strong></p>
+</div>
+
 <h3>Roteiro completo — slide por slide</h3>
 <div class="tbl-scroll">
 <table class="scene-tbl">
 <thead><tr><th>Slide</th><th>Conteúdo</th><th>Texto na tela</th></tr></thead>
 <tbody>
 <tr><td>1</td><td>Hook + promessa de conteúdo (sem antes/depois)</td><td>"O QUE A PELE JÁ MOSTRA — ANTES DE QUALQUER EXAME"</td></tr>
-<tr><td>2</td><td>Reformula a pergunta: não "o que fazer com a mancha", mas "por que ela continua ativa"</td><td>"A PERGUNTA CERTA NÃO É 'COMO CLAREAR'"</td></tr>
-<tr><td>3</td><td>Fator 1 — calor/térmico: exposição repetida a fontes de calor (não só sol) mantém melanócito ativo</td><td>"FATOR 1 · CALOR — NÃO É SÓ SOL"</td></tr>
-<tr><td>4</td><td>Fator 2 — hormonal: variações hormonais (gestação, anticoncepcional, ciclo) — já bem estabelecido na literatura de melasma</td><td>"FATOR 2 · HORMONAL — O MAIS DOCUMENTADO"</td></tr>
-<tr><td>5</td><td>Fator 3 — rotina e estresse: rotina de exposição e estresse crônico como fatores agravantes, não causadores isolados <span style="color:var(--text-3);font-style:italic">(marcado como investigação, não diagnóstico)</span></td><td>"FATOR 3 · ROTINA E ESTRESSE PODEM AGRAVAR"</td></tr>
-<tr><td>6</td><td>A linha ética, explícita: "isso não significa que todo mundo tem todos os fatores — significa que vale a pena investigar quais valem pro seu caso"</td><td>"NEM TODO CASO TEM OS MESMOS FATORES"</td></tr>
-<tr><td>7</td><td>CTA + território semântico</td><td>"INVESTIGAÇÃO DE FATOR ATIVO. NÃO SUPOSIÇÃO."</td></tr>
+<tr><td>2</td><td>Reformula a pergunta: não "o que fazer com a mancha", mas "por que o mecanismo continua ativo" — a mesma reformulação do Dia 1, agora expandida</td><td>"A PERGUNTA CERTA NÃO É 'COMO CLAREAR'"</td></tr>
+<tr><td>3</td><td><strong>Fator pigmentar-estrutural</strong>: melanócitos hipertróficos, mais dendríticos, produzindo mais melanina em todas as camadas da epiderme — a alteração é celular, não só visual</td><td>"1 · A CÉLULA QUE PRODUZ O PIGMENTO ESTÁ ESTRUTURALMENTE DIFERENTE"</td></tr>
+<tr><td>4</td><td><strong>Fator vascular</strong>: revisões recentes documentam alterações vasculares dérmicas no melasma — mastócitos secretando fatores que induzem proliferação de vasos. Por isso duas pacientes com pigmento parecido podem responder de forma diferente ao mesmo protocolo</td><td>"2 · MELASMA TEM UM COMPONENTE VASCULAR DOCUMENTADO — NÃO É SÓ PIGMENTO"</td></tr>
+<tr><td>5</td><td><strong>Fator hormonal</strong>: o mais estabelecido da lista — via CRH→POMC→ACTH/melanocortinas, sensível a gestação, anticoncepcional e ciclo</td><td>"3 · HORMONAL — O FATOR MAIS DOCUMENTADO NA LITERATURA"</td></tr>
+<tr><td>6</td><td><strong>Fator térmico</strong>: mecanismo mais recente e menos conhecido do público — calor (não só radiação UV) ativa vias de melanogênese por sinalização celular específica, mesmo sem queimadura visível</td><td>"4 · CALOR ATIVA MELANOGÊNESE POR UMA VIA PRÓPRIA — NÃO É SÓ SOL"</td></tr>
+<tr><td>7</td><td><strong>Fator neuroendócrino/estresse</strong> — apresentado com a nuance real: existe uma via biológica plausível (nervos sensoriais liberando neuropeptídeos em resposta a calor/UV), mas a relação estresse↔melasma em humanos não tem o mesmo nível de evidência que o fator hormonal</td><td>"5 · ESTRESSE TEM VIA BIOLÓGICA PLAUSÍVEL — MAS É O FATOR MENOS ESTABELECIDO"</td></tr>
+<tr><td>8</td><td><strong>O que a literatura NÃO sustenta</strong>, dito de forma explícita e honesta: busca dedicada não encontrou estudo ligando diretamente microbiota intestinal ou síndrome metabólica ao melasma especificamente — existe para outras condições, não (ainda) para esta</td><td>"O QUE EU NÃO VOU AFIRMAR: LIGAÇÃO DIRETA COM INTESTINO OU METABOLISMO — NÃO ESTABELECIDA PARA MELASMA"</td></tr>
+<tr><td>9</td><td>Síntese + território semântico + CTA</td><td>"INVESTIGAÇÃO DE FATOR ATIVO. NÃO SUPOSIÇÃO."</td></tr>
 </tbody>
 </table>
 </div>
-<p><strong>Legenda:</strong> "Cansaço, mancha que não sai e rotina que não muda costumam ser tratados como três assuntos separados. Em parte dos casos — não em todos — eles se conectam. Saber se é o seu caso é investigação, não suposição. Desliza pro mapa completo →"</p>
+<p><strong>Legenda:</strong> "Melasma não é só a mancha que você vê. É uma combinação de fatores — alguns bem estabelecidos, outros ainda em pesquisa — e nem toda paciente tem os mesmos. Desliza pro mapa completo, incluindo o que a ciência ainda não confirma →"</p>
 <p><strong>CTA:</strong> "Se quiser entender quais desses fatores valem investigar no seu caso, me chama no direct." — sem afirmar que ela tem qualquer fator.</p>
 <div class="metric-row">
 <span class="metric-chip">Alcance</span><span class="metric-chip on">✓ Salvamento</span><span class="metric-chip">Compartilhamento</span><span class="metric-chip">Autoridade</span><span class="metric-chip">Conversão</span>
 </div>
-<div class="why-box"><strong>Por que funciona — e por que é seguro:</strong> resolve a frustração 3 do <a class="modref" data-mod="c2-m2">C2.M2</a> §2.5 (lacuna informacional real). O fator hormonal tem base bem estabelecida na literatura de melasma; calor/térmico e rotina/estresse são tratados como fatores a <em>investigar</em>, nunca como diagnóstico — passa no teste de falseabilidade do §2.8 ("qual resultado faria você dizer que não é o caso dela?" tem resposta concreta: se a investigação não encontrar o fator, você diz isso). Nenhuma frase afirma que a leitora tem qualquer condição.</div>
+
+<div class="selo-box ev">
+<span class="selo ev">Fundamentação — literatura primária 2024–2026</span>
+<p><strong>Fator estrutural/vascular:</strong> Ali, L. &amp; Al Niaimi, F. (2025). "Pathogenesis of Melasma
+Explained." <em>International Journal of Dermatology</em>, 64(7), 1201-1212 — revisão que documenta
+alterações epidérmicas, de membrana basal e dérmicas, incluindo vasculares, elastose solar, mastócitos e
+fibroblastos senescentes, e reclassifica o melasma como sobreposto a distúrbio de fotoenvelhecimento.
+Mastócitos secretam VEGF, FGF-2 e TGF-β, fatores que induzem proliferação vascular. Ver também Gu et al.
+(2024/2025), "What lies behind melasma: a review of the related skin microenvironment", mesma revista.</p>
+<p><strong>Fator hormonal:</strong> a via CRH→POMC→ACTH e receptores de melanocortina em melanócitos é
+descrita em detalhe por Slominski e colaboradores no conceito de "eixo hipotálamo-hipófise-adrenal
+cutâneo" (revisado em <em>Endocrine Reviews</em> 34(6); ver também trabalho publicado em <em>American
+Journal of Physiology-Endocrinology and Metabolism</em> sobre CRH estimulando produção de corticosteroides
+em melanócitos via ACTH) — o fator hormonal mais estabelecido da lista, com décadas de literatura acumulada.</p>
+<p><strong>Fator térmico:</strong> pesquisa recente (2025/2026, indexada no PMC) descreve calor modulando
+melanogênese por uma via epigenética específica (WDR5/H3K4me3) que ativa o eixo CX3CL1/CX3CR1 — mecanismo
+molecular concreto para "calor sem queimadura visível" induzir pigmentação, distinto do dano actínico por UV.</p>
+<p><strong>Fator neuroendócrino/estresse:</strong> canais TRP (receptores de potencial transitório) em
+terminações nervosas sensoriais respondem tanto a UV quanto a calor, liberando neuropeptídeos que
+influenciam melanogênese — mecanismo real e publicado. Mas um estudo controlado em modelo animal (Plos One,
+2014, PMC4031121) encontrou que estresse crônico <em>suprimiu</em> elementos do eixo HPA cutâneo e a própria
+melanogênese, o oposto do que a intuição popular ("estresse piora tudo") prevê. A relação não é linear nem
+está resolvida.</p>
+</div>
+<div class="apply-box">
+<h4>Aplicação nesta peça — por que o slide 8 é o mais importante do carrossel</h4>
+<p>O brief original deste projeto pedia menção a "intestino" e "metabolismo" como fatores de investigação.
+A busca dedicada nesta revisão não encontrou literatura ligando esses dois eixos especificamente a melasma —
+existe para outras condições inflamatórias e metabólicas, não (ainda) para este quadro pigmentar
+especificamente. A decisão de conteúdo, seguindo o teste de falseabilidade do
+<a class="modref" data-mod="c2-m2">C2.M2</a> §2.8 ("que resultado te faria dizer que não é o caso dela"), é
+dizer isso <em>na própria peça</em> em vez de omitir silenciosamente. Isso não enfraquece o carrossel — o
+fortalece: uma paciente que já foi enganada por promessas de "desintoxicação" e "detox" reconhece a diferença
+entre alguém que cita mecanismo real com nome e ano, e alguém que usa jargão de bem-estar. É a mesma lógica de
+"admitir limite" que já apareceu no Dia 3, aplicada em escala de carrossel inteiro.</p>
+</div>
+<div class="limit-box"><b>Limite honesto adicional:</b> mesmo os fatores bem documentados (vascular, hormonal, térmico) foram medidos em estudos de mecanismo celular/molecular ou em coortes de pacientes com melasma em geral — nenhum determina que uma paciente específica tem um fator específico sem investigação clínica real. O carrossel comunica <em>que fatores existem na literatura</em>, nunca <em>qual fator uma leitora específica tem</em>.</div>
 
 <h3>Stories do dia</h3>
 <div class="story-grid">
-<div class="story-card"><span class="story-n">Story 1</span><h5>Repost do carrossel</h5><p class="lab">Texto</p><p>"O carrossel de hoje é sobre os fatores por trás da mancha."</p><p class="lab">Interação</p><p>Link para o post</p><p class="lab">Função</p><p>Distribuição</p></div>
-<div class="story-card"><span class="story-n">Story 2</span><h5>Enquete de fator</h5><p class="lab">Texto</p><p>"Seu melasma piora mais com calor, com estresse, ou você não sabe dizer?"</p><p class="lab">Interação</p><p>Enquete de 3 opções (sticker de quiz)</p><p class="lab">Função</p><p>Coleta de dado real + engajamento qualificado</p></div>
-<div class="story-card"><span class="story-n">Story 3</span><h5>Linha ética explícita</h5><p class="lab">Texto</p><p>"Importante: nem todo mundo tem os mesmos fatores. Por isso é investigação, não fórmula."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Reforça integridade — evita leitura de disease mongering</p></div>
-<div class="story-card"><span class="story-n">Story 4</span><h5>Pergunta aberta</h5><p class="lab">Texto</p><p>"O que mais te dá vontade de entender sobre o seu caso: hormônio, rotina ou os dois?"</p><p class="lab">Interação</p><p>Caixa de resposta</p><p class="lab">Função</p><p>Insumo qualificado pra atendimento e pro Dia 5</p></div>
-<div class="story-card"><span class="story-n">Story 5</span><h5>Bastidor de estudo</h5><p class="lab">Texto</p><p>"Toda semana eu reviso literatura nova sobre isso — não é achismo."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Componente credencial + consistência (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.4)</p></div>
+<div class="story-card"><span class="story-n">Story 1</span><h5>Repost do carrossel</h5><p class="lab">Texto</p><p>"O carrossel de hoje é sobre os fatores por trás da mancha — incluindo o que a ciência ainda não confirma."</p><p class="lab">Interação</p><p>Link para o post</p><p class="lab">Função</p><p>Distribuição</p></div>
+<div class="story-card"><span class="story-n">Story 2</span><h5>Enquete de fator</h5><p class="lab">Texto</p><p>"Seu melasma piora mais com calor, com hormônio, ou você não sabe dizer?"</p><p class="lab">Interação</p><p>Enquete de 3 opções (sticker de quiz)</p><p class="lab">Função</p><p>Coleta de dado real + engajamento qualificado</p></div>
+<div class="story-card"><span class="story-n">Story 3</span><h5>Linha ética explícita</h5><p class="lab">Texto</p><p>"Reparem no slide 8: eu disse o que a ciência NÃO confirma. Isso também é informação."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Reforça integridade — transforma a honestidade epistêmica em diferencial visível</p></div>
+<div class="story-card"><span class="story-n">Story 4</span><h5>Pergunta aberta</h5><p class="lab">Texto</p><p>"O que mais te dá vontade de entender sobre o seu caso: hormônio, calor ou o componente vascular?"</p><p class="lab">Interação</p><p>Caixa de resposta</p><p class="lab">Função</p><p>Insumo qualificado pra atendimento e pro Dia 5</p></div>
+<div class="story-card"><span class="story-n">Story 5</span><h5>Bastidor de estudo</h5><p class="lab">Texto</p><p>"Toda semana eu reviso literatura nova sobre isso — o carrossel de hoje cita três estudos de 2024 a 2026."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Componente credencial + consistência (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.4)</p></div>
 <div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento</h5><p class="lab">Texto</p><p>"Amanhã eu conto um caso real — sem antes/depois, só o raciocínio."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Antecipação pro Dia 5</p></div>
 </div>
 </section>
@@ -311,26 +442,26 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <div class="sec-head">
 <div class="sec-tag"><span>Dia 5 · Sexta</span><span></span></div>
 <h2>Ela tinha uma explicação. Não era a certa.</h2>
-<p class="sec-lede">Caso com mecanismo — narrativa, não imagem. Composto e anonimizado; adapte para um caso real autorizado quando disponível (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.8).</p>
+<p class="sec-lede">Caso com mecanismo — narrativa, não imagem. Composto e anonimizado; adapte para um caso real autorizado quando disponível.</p>
 </div>
 <dl class="day-meta">
 <div><dt>Formato</dt><dd>Reel · Caso com mecanismo (<a class="modref" data-mod="c2-m4">C2.M4</a> §4.6)</dd></div>
 <div><dt>Objetivo</dt><dd>Autoridade + compartilhamento — prova de resultado sem antes/depois</dd></div>
 <div><dt>Público</dt><dd>Quem mandou mensagem no Dia 1/3/4 e ainda não agendou</dd></div>
-<div><dt>Mecanismo psicológico</dt><dd>Prova de resultado narrativa, não visual (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.4, componente 3)</dd></div>
+<div><dt>Mecanismo psicológico</dt><dd>Prova de resultado narrativa, não visual — a única forma de prova de resultado que não é comoditizável</dd></div>
 </dl>
 <h3>Hook</h3>
 <div class="selo-box prat"><span class="selo prat">Família D2 — Caso real, no passado</span>
-<p><strong>"Ela achava que era só sol. Investigamos e não era só isso."</strong></p>
+<p><strong>"Ela achava que era só sol. Investigamos e o componente térmico era só parte da história."</strong></p>
 </div>
 <h3>Roteiro completo — cena por cena</h3>
 <div class="tbl-scroll">
 <table class="scene-tbl">
-<thead><tr><th>Tempo</th><th>Cena</th><th>Fala / texto</th></tr></thead>
+<thead><tr><th>Tempo</th><th>Cena e direção</th><th>Fala / texto</th></tr></thead>
 <tbody>
-<tr><td>0–3s</td><td>Corte seco, tom de narrativa</td><td><b>"Ela achava que era só sol. Investigamos e não era só isso."</b></td></tr>
-<tr><td>3–12s</td><td>Corte a cada 3s, sem mostrar rosto/imagem da paciente</td><td>"Já tinha usado protetor, clareador, dois peelings. A mancha sempre voltava no mesmo padrão, na mesma época do ano."</td></tr>
-<tr><td>12–20s</td><td>Tom mais baixo, explicativo</td><td>"A investigação encontrou um fator que ela nunca tinha sido perguntada sobre. Não era o único fator — mas era o que estava sendo ignorado."</td></tr>
+<tr><td>0–3s</td><td>Corte seco, tom de narrativa — voz mais baixa que os dias anteriores, sinalizando não-verbalmente "isso é uma história, não um argumento"</td><td><b>"Ela achava que era só sol. Investigamos e o componente térmico era só parte da história."</b></td></tr>
+<tr><td>3–12s</td><td>Corte a cada 3s, sem mostrar rosto/imagem da paciente em nenhum momento</td><td>"Já tinha usado protetor, clareador, dois peelings. A mancha sempre voltava no mesmo padrão, na mesma época do ano."</td></tr>
+<tr><td>12–20s</td><td>Tom mais baixo, explicativo — ritmo desacelera propositalmente na parte mais técnica, dando tempo de processamento antes da virada</td><td>"A investigação encontrou um segundo fator que ela nunca tinha sido perguntada sobre. Não era o único — mas era o que estava sendo ignorado."</td></tr>
 <tr><td>20–26s</td><td>Pausa estratégica</td><td>"O protocolo mudou o alvo, não só a fórmula. E o resultado, aqui, não é o ponto — o ponto é que existia uma pergunta que nunca tinha sido feita."</td></tr>
 <tr><td>26–30s</td><td>CTA + loop</td><td>Texto na tela: "QUE PERGUNTA NÃO FIZERAM PRA VOCÊ?"</td></tr>
 </tbody>
@@ -342,13 +473,32 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <div class="metric-row">
 <span class="metric-chip">Alcance</span><span class="metric-chip">Salvamento</span><span class="metric-chip on">✓ Compartilhamento</span><span class="metric-chip on">✓ Autoridade</span><span class="metric-chip">Conversão</span>
 </div>
-<div class="why-box"><strong>Por que funciona:</strong> narrativa de processo, não imagem de desfecho — o formato "história com mecanismo" é o único tipo de prova de resultado que não é comoditizável (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.4, componente 3). Nenhum dado identificável, nenhum antes/depois — em conformidade com Categoria Especial de Saúde (<a class="modref" data-mod="c1-m4">C1.M4</a>) mesmo se este Reel for impulsionado depois.</div>
+
+<div class="selo-box ev">
+<span class="selo ev">Fundamentação</span>
+<p>Narrativa de processo em vez de imagem de desfecho é o único dos quatro componentes de autoridade
+descritos por Mayer, Davis &amp; Schoorman (1995) que não é comoditizável: duas clínicas podem mostrar a
+mesma foto de melasma clareado, mas só uma consegue narrar <em>por que</em> clareou. Isso está alinhado com
+a assimetria de risco documentada por Slovic (1987, <em>Science</em> 236) — risco percebido é maior quando o
+processo é desconhecido e não-observável, independentemente da probabilidade real; contar o processo reduz
+exatamente essa dimensão de "desconhecimento", não a de "pavor".</p>
+</div>
+<div class="apply-box">
+<h4>Aplicação nesta peça</h4>
+<p>O "segundo fator" mencionado no roteiro é deliberadamente inespecífico — não afirma qual dos fatores do Dia
+4 (vascular, hormonal, térmico) foi, porque isso tornaria o caso verificável/desmentível e, mais importante,
+sugeriria que existe um fator "escondido" universal, o que contradiz o slide 8 do Dia 4. A força da peça está
+na estrutura do raciocínio ("uma pergunta nunca feita"), não no fator específico — nenhum dado identificável
+de paciente aparece, em conformidade com a Categoria Especial de Anúncio de Saúde mesmo se este Reel for
+impulsionado depois.</p>
+</div>
+<div class="limit-box"><b>Limite honesto:</b> por ser um caso composto/ilustrativo, esta peça não é prova de eficácia de nada — é prova de <em>processo de raciocínio</em>. Ao adaptar para um caso real, a autorização e a anonimização (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.8) não são formalidade — são a diferença entre relato ético e exposição.</div>
 
 <h3>Stories do dia</h3>
 <div class="story-grid">
 <div class="story-card"><span class="story-n">Story 1</span><h5>Continuação do caso</h5><p class="lab">Texto</p><p>"Quer saber que fator era? Manda mensagem que eu conto o raciocínio (sem expor identidade)."</p><p class="lab">Interação</p><p>Caixa de resposta / DM</p><p class="lab">Função</p><p>Conversão qualificada</p></div>
-<div class="story-card"><span class="story-n">Story 2</span><h5>Enquete de reflexão</h5><p class="lab">Texto</p><p>"Alguma vez um profissional te perguntou sobre rotina, estresse ou hormônio antes de te indicar um creme?"</p><p class="lab">Interação</p><p>Enquete: Sim / Não</p><p class="lab">Função</p><p>Confirma a frustração 3 (§2.5) com dado próprio</p></div>
-<div class="story-card"><span class="story-n">Story 3</span><h5>Limite claro</h5><p class="lab">Texto</p><p>"Nem todo caso tem uma resposta única. Às vezes a investigação não encontra fator nenhum — e isso também é informação."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Admitir limite (medo 8, §2.4) — evita promessa implícita</p></div>
+<div class="story-card"><span class="story-n">Story 2</span><h5>Enquete de reflexão</h5><p class="lab">Texto</p><p>"Alguma vez um profissional te perguntou sobre calor, hormônio ou rotina antes de te indicar um creme?"</p><p class="lab">Interação</p><p>Enquete: Sim / Não</p><p class="lab">Função</p><p>Confirma a lacuna informacional com dado próprio</p></div>
+<div class="story-card"><span class="story-n">Story 3</span><h5>Limite claro</h5><p class="lab">Texto</p><p>"Nem todo caso tem uma resposta única. Às vezes a investigação não encontra fator claro — e isso também é informação."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Admitir limite — evita promessa implícita</p></div>
 <div class="story-card"><span class="story-n">Story 4</span><h5>Bastidor</h5><p class="lab">Texto</p><p>"Essa é a parte do trabalho que ninguém vê: as perguntas antes do protocolo."</p><p class="lab">Interação</p><p>Bastidor</p><p class="lab">Função</p><p>Consistência temporal</p></div>
 <div class="story-card"><span class="story-n">Story 5</span><h5>Prova social discreta</h5><p class="lab">Texto</p><p>"Recebo isso quase toda semana: 'ninguém tinha me perguntado isso antes.'"</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Benevolência + consistência</p></div>
 <div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento de semana útil</h5><p class="lab">Texto</p><p>"Amanhã é sábado — dia mais leve, mas ainda sobre o que muda tudo."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Transição de tom pro fim de semana</p></div>
@@ -366,7 +516,7 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <div><dt>Formato</dt><dd>Carrossel · Comparação de abordagens (5 slides)</dd></div>
 <div><dt>Objetivo</dt><dd>Alcance qualificado — visitas de perfil, não curtida vazia</dd></div>
 <div><dt>Público</dt><dd>Seguidoras + engajamento acumulado da semana</dd></div>
-<div><dt>Mecanismo psicológico</dt><dd>Território semântico (<a class="modref" data-mod="c1-m2">C1.M2</a> §2.4) + luxo silencioso (§2.3)</dd></div>
+<div><dt>Mecanismo psicológico</dt><dd>Território semântico + sinalização discreta de status</dd></div>
 </dl>
 <h3>Hook (slide 1)</h3>
 <div class="selo-box prat"><span class="selo prat">Família C2 — Comparação lado a lado</span>
@@ -379,7 +529,7 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <tbody>
 <tr><td>1</td><td>Hook — a comparação central, sem nomear concorrente</td><td>"APAGAR A MARCA × INVESTIGAR O TERRENO"</td></tr>
 <tr><td>2</td><td>Coluna "Apagar": rápido, comparável, sem nome próprio — clareador, procedimento avulso</td><td>"APAGAR: RESOLVE O QUE JÁ APARECEU"</td></tr>
-<tr><td>3</td><td>Coluna "Investigar": mais lento, território próprio — mapa de fatores, conduta integrativa</td><td>"INVESTIGAR: PERGUNTA POR QUE CONTINUA"</td></tr>
+<tr><td>3</td><td>Coluna "Investigar": mais lento, território próprio — mapa de fatores (vascular, hormonal, térmico), conduta integrativa</td><td>"INVESTIGAR: PERGUNTA POR QUE CONTINUA"</td></tr>
 <tr><td>4</td><td>Síntese sóbria, sem ataque</td><td>"NENHUMA DAS DUAS ESTÁ ERRADA. SÃO PERGUNTAS DIFERENTES."</td></tr>
 <tr><td>5</td><td>Território próprio nomeado + convite de baixa fricção</td><td>"INVESTIGAÇÃO DE FATOR ATIVO — É ASSIM QUE EU CHAMO"</td></tr>
 </tbody>
@@ -390,15 +540,32 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <div class="metric-row">
 <span class="metric-chip on">✓ Alcance</span><span class="metric-chip on">✓ Salvamento</span><span class="metric-chip">Compartilhamento</span><span class="metric-chip">Autoridade</span><span class="metric-chip">Conversão</span>
 </div>
-<div class="why-box"><strong>Por que funciona:</strong> comparação de mecanismo, nunca de concorrente — luxo silencioso nunca nomeia quem faz diferente, só descreve o que você faz (<a class="modref" data-mod="c2-m5">C2.M5</a> §5.4, quando falha). Sem CTA de conversão no fim de semana: coerente com o padrão de sinalização discreta do <a class="modref" data-mod="c1-m2">C1.M2</a> §2.3 — menos pressão, mais território.</div>
+
+<div class="selo-box ev">
+<span class="selo ev">Fundamentação</span>
+<p>Pesquisa sobre sinalização de status por marca (Han, Nunes &amp; Drèze, 2010, <em>Journal of Marketing</em>
+74(4), 15-30) distingue sinalização proeminente (busca reconhecimento de quem não avalia qualidade por
+outros meios) de sinalização discreta (reconhecível só por quem já entende) — a segunda é a que combina com
+autoridade técnica. Território semântico — usar vocabulário próprio em vez do vocabulário genérico do nicho —
+é princípio clássico de posicionamento de mercado: duas ofertas com o mesmo vocabulário competem na mesma
+prateleira mental, e a única variável de desempate acessível é preço.</p>
+</div>
+<div class="apply-box">
+<h4>Aplicação nesta peça</h4>
+<p>A comparação nunca nomeia "quem faz diferente" — descreve mecanismo, não concorrente, e evita a queda mais
+comum do formato (soar como ataque). Sem CTA de conversão no fim de semana é decisão deliberada de
+sinalização discreta: menos pressão em troca de mais território — o oposto do padrão do nicho, que tende a
+manter push constante todos os dias da semana.</p>
+</div>
+<div class="limit-box"><b>Limite honesto:</b> Han, Nunes &amp; Drèze mediram sinalização de status via produto físico (bolsa, relógio) — a extrapolação para "linguagem de conteúdo" preserva a estrutura do achado (sinal caro de decodificar vs. sinal barato), mas não é o mesmo domínio medido.</div>
 
 <h3>Stories do dia</h3>
 <div class="story-grid">
 <div class="story-card"><span class="story-n">Story 1</span><h5>Repost do carrossel</h5><p class="lab">Texto</p><p>"O carrossel de hoje é mais uma reflexão do que uma explicação técnica."</p><p class="lab">Interação</p><p>Link</p><p class="lab">Função</p><p>Distribuição de fim de semana</p></div>
-<div class="story-card"><span class="story-n">Story 2</span><h5>Dia a dia sóbrio</h5><p class="lab">Texto</p><p>Rotina de sábado, sem emoji, sem trend — café, leitura de artigo</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Calor sem perder competência, tom de fim de semana</p></div>
+<div class="story-card"><span class="story-n">Story 2</span><h5>Dia a dia sóbrio</h5><p class="lab">Texto</p><p>Rotina de sábado, sem emoji, sem trend — café, leitura de artigo científico</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Calor sem perder competência, tom de fim de semana</p></div>
 <div class="story-card"><span class="story-n">Story 3</span><h5>Recorte de comentário</h5><p class="lab">Texto</p><p>Print de um comentário real da semana (com autorização), sem depoimento de resultado</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Prova social discreta, sem virar "review"</p></div>
 <div class="story-card"><span class="story-n">Story 4</span><h5>Enquete leve</h5><p class="lab">Texto</p><p>"Qual dos conteúdos dessa semana mais fez sentido pra você?"</p><p class="lab">Interação</p><p>Enquete com 4 opções (dias 1–4)</p><p class="lab">Função</p><p>Dado real sobre qual tema repetir no próximo ciclo</p></div>
-<div class="story-card"><span class="story-n">Story 5</span><h5>Bastidor de estudo</h5><p class="lab">Texto</p><p>"Separando artigos pra ler no fim de semana — parte do trabalho que ninguém vê."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Consistência temporal, sem venda</p></div>
+<div class="story-card"><span class="story-n">Story 5</span><h5>Bastidor de estudo</h5><p class="lab">Texto</p><p>"Separando os artigos que citei essa semana pra quem quiser ler a fonte original."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Consistência temporal, sem venda</p></div>
 <div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento</h5><p class="lab">Texto</p><p>"Amanhã fecho a semana com o erro mais comum que eu vejo em quem trata melasma."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Antecipação pro Dia 7</p></div>
 </div>
 </section>
@@ -408,13 +575,13 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <div class="sec-head">
 <div class="sec-tag"><span>Dia 7 · Domingo</span><span></span></div>
 <h2>O erro de olhar só para a pele</h2>
-<p class="sec-lede">Fecha a semana respondendo a objeção mais comum ("já tratei e não resolveu") e convida à consulta de investigação, sem prometer desfecho.</p>
+<p class="sec-lede">Fecha a semana respondendo à objeção mais comum ("já tratei e não resolveu") e convida à consulta de investigação, sem prometer desfecho.</p>
 </div>
 <dl class="day-meta">
 <div><dt>Formato</dt><dd>Reel · Objeção respondida (<a class="modref" data-mod="c2-m4">C2.M4</a> §4.6)</dd></div>
 <div><dt>Objetivo</dt><dd>Conversão — mensagens/agendamentos qualificados</dd></div>
 <div><dt>Público</dt><dd>Quem engajou em ≥2 conteúdos da semana (custom audience de engajamento)</dd></div>
-<div><dt>Mecanismo psicológico</dt><dd>Origem A da objeção — falha de mecanismo percebida (<a class="modref" data-mod="c2-m2">C2.M2</a> §2.7)</dd></div>
+<div><dt>Mecanismo psicológico</dt><dd>Origem A da objeção — falha de mecanismo percebida, que só se resolve no conteúdo, nunca na hora da conversa</dd></div>
 </dl>
 <h3>Hook</h3>
 <div class="selo-box prat"><span class="selo prat">Família D5 — Convite à autotriagem</span>
@@ -423,10 +590,10 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <h3>Roteiro completo — cena por cena</h3>
 <div class="tbl-scroll">
 <table class="scene-tbl">
-<thead><tr><th>Tempo</th><th>Cena</th><th>Fala / texto</th></tr></thead>
+<thead><tr><th>Tempo</th><th>Cena e direção</th><th>Fala / texto</th></tr></thead>
 <tbody>
-<tr><td>0–3s</td><td>Corte seco, tom direto</td><td><b>"Você já foi a mais de 3 profissionais pelo mesmo motivo? Isso é um padrão, não coincidência."</b></td></tr>
-<tr><td>3–12s</td><td>Corte a cada 3s</td><td>"Cada um olhou pra pele. Nenhum perguntou sobre rotina, hormônio, estresse ou o que mudou no seu corpo nesses anos. O erro mais comum em melasma é tratar só o que aparece."</td></tr>
+<tr><td>0–3s</td><td>Corte seco, tom direto — o mais confrontativo (no sentido de "direto ao ponto") dos 7 ganchos, reservado de propósito para o último dia, quando a audiência já tem contexto acumulado pra não soar agressivo</td><td><b>"Você já foi a mais de 3 profissionais pelo mesmo motivo? Isso é um padrão, não coincidência."</b></td></tr>
+<tr><td>3–12s</td><td>Corte a cada 3s</td><td>"Cada um olhou pra pele. Nenhum perguntou sobre calor, hormônio, ou o componente vascular que a semana toda a gente conversou aqui. O erro mais comum em melasma é tratar só o que aparece."</td></tr>
 <tr><td>12–20s</td><td>Tom mais pausado</td><td>"Não é que a pele minta. É que ela é o último capítulo de uma história que começa antes."</td></tr>
 <tr><td>20–26s</td><td>Pausa estratégica na virada</td><td>"Investigar o organismo como sistema não é prometer resolver tudo. É parar de tratar só o sintoma que aparece por último."</td></tr>
 <tr><td>26–30s</td><td>CTA + loop</td><td>Texto na tela: "COMEÇA PELA PERGUNTA CERTA"</td></tr>
@@ -435,20 +602,37 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 </div>
 <p><strong>Texto na tela:</strong> "MAIS DE 3 PROFISSIONAIS?" → "TODOS OLHARAM SÓ PRA PELE" → "A PELE É O ÚLTIMO CAPÍTULO"</p>
 <p><strong>Legenda:</strong> "Se toda vez que você tratou o melasma, alguém só olhou pra mancha — talvez o próximo passo não seja mais um clareador. É uma consulta que investiga o que sustenta o quadro, sem prometer resolver tudo. Manda mensagem pra entender como funciona."</p>
-<p><strong>CTA:</strong> "Manda mensagem pra entender como funciona uma consulta de investigação." — convite claro, zero promessa de desfecho, passa no teste do caso que deu errado.</p>
+<p><strong>CTA:</strong> "Manda mensagem pra entender como funciona uma consulta de investigação." — convite claro, zero promessa de desfecho.</p>
 <div class="metric-row">
 <span class="metric-chip">Alcance</span><span class="metric-chip">Salvamento</span><span class="metric-chip">Compartilhamento</span><span class="metric-chip">Autoridade</span><span class="metric-chip on">✓ Conversão</span>
 </div>
-<div class="why-box"><strong>Por que funciona:</strong> ataca a origem A da objeção — falha de mecanismo percebida, que segundo o <a class="modref" data-mod="c2-m2">C2.M2</a> §2.7 só se resolve no conteúdo, semanas antes da conversa, nunca na hora. É exatamente o que essa semana inteira construiu. Fecha o arco Atração→Conversão citando território semântico (investigação vs sintoma) sem prometer resultado — o CTA passa no teste de verdade do <a class="modref" data-mod="c2-m3">C2.M3</a> §3.9.</div>
+
+<div class="selo-box ev">
+<span class="selo ev">Fundamentação</span>
+<p>Objeção rastreada por origem, não por conteúdo verbal: a mesma frase ("já tratei e não resolveu") tem
+mecanismos diferentes dependendo se nasce de falha de mecanismo percebida, medo não resolvido, questão de
+legitimidade ou reatância — e cada origem exige tratamento oposto. A origem "falha de mecanismo" (ela nunca
+viu diferença real entre o que já tentou e o que você propõe) só se resolve <em>antes</em> da conversa, no
+conteúdo — nunca durante a objeção em si.</p>
+</div>
+<div class="apply-box">
+<h4>Aplicação nesta peça — e por que ela só funciona no domingo, depois dos outros 6 dias</h4>
+<p>Este Reel isolado, publicado sem os 6 anteriores, seria genérico — "olhe além da pele" é, sozinho, um
+conselho raso. O que dá substância é que toda a semana já demonstrou <em>o que</em> significa olhar além da
+pele: componente vascular (Dia 4), fator hormonal (Dia 4), fator térmico (Dia 3 e 4), história de um caso real
+(Dia 5). O Dia 7 não introduz conteúdo novo — fecha o arco citando o que já foi construído, e é exatamente
+essa reciclagem que sinaliza consistência temporal em vez de siga um roteiro de vendas genérico.</p>
+</div>
+<div class="limit-box"><b>Limite honesto:</b> o CTA convida à consulta sem prometer que a investigação encontrará qualquer fator específico — inclusive porque, como o Dia 4 deixou explícito, nem todo caso tem uma resposta clara. Isso é deliberado: reduz conversão de curto prazo, protege a integridade da oferta a médio prazo.</div>
 
 <h3>Stories do dia</h3>
 <div class="story-grid">
-<div class="story-card"><span class="story-n">Story 1</span><h5>Recapitulação da semana</h5><p class="lab">Texto</p><p>"Essa semana: por que a mancha 'volta', o que ela custa emocionalmente, por que dois casos são diferentes, os fatores por trás, um caso real, e o erro mais comum."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Recontextualiza tudo antes do convite final</p></div>
+<div class="story-card"><span class="story-n">Story 1</span><h5>Recapitulação da semana</h5><p class="lab">Texto</p><p>"Essa semana: por que a mancha 'volta', o que ela custa emocionalmente, por que dois casos são diferentes, os fatores vascular/hormonal/térmico, um caso real, e o erro mais comum."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Recontextualiza tudo antes do convite final</p></div>
 <div class="story-card"><span class="story-n">Story 2</span><h5>Pergunta de autotriagem</h5><p class="lab">Texto</p><p>"Você já foi a mais de 3 profissionais pelo mesmo motivo?"</p><p class="lab">Interação</p><p>Enquete: Sim / Não</p><p class="lab">Função</p><p>Segmenta quem está no estágio de decisão</p></div>
-<div class="story-card"><span class="story-n">Story 3</span><h5>Reforço sem pressão</h5><p class="lab">Texto</p><p>"Sem pressa nenhuma — isso não é uma decisão de hoje."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Restaura liberdade, evita reatância (§2.7 origem D)</p></div>
+<div class="story-card"><span class="story-n">Story 3</span><h5>Reforço sem pressão</h5><p class="lab">Texto</p><p>"Sem pressa nenhuma — isso não é uma decisão de hoje."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Restaura liberdade, evita reatância</p></div>
 <div class="story-card"><span class="story-n">Story 4</span><h5>Convite direto</h5><p class="lab">Texto</p><p>"Se você chegou até aqui na semana, me manda mensagem — sem compromisso."</p><p class="lab">Interação</p><p>Sticker "Enviar mensagem"</p><p class="lab">Função</p><p>Conversão principal do dia</p></div>
 <div class="story-card"><span class="story-n">Story 5</span><h5>Admitir limite final</h5><p class="lab">Texto</p><p>"Nem toda investigação encontra um fator claro. Isso também é uma resposta."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Fecha a semana sem prometer garantia</p></div>
-<div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento de ciclo</h5><p class="lab">Texto</p><p>"Semana que vem eu volto com o mesmo padrão — pilar de aquisição, autoridade e conversão."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Sinaliza consistência temporal para a próxima semana</p></div>
+<div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento de ciclo</h5><p class="lab">Texto</p><p>"Semana que vem eu volto com o mesmo padrão — aquisição, autoridade e conversão."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Sinaliza consistência temporal para a próxima semana</p></div>
 </div>
 </section>
 
@@ -457,47 +641,78 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <div class="sec-head">
 <div class="sec-tag"><span>Fechamento</span><span></span></div>
 <h2>Estratégia de conversão</h2>
-<p class="sec-lede">O que fazer com cada peça depois de publicada — orgânico, autoridade, consulta e mídia paga, seguindo a arquitetura do <a class="modref" data-mod="c1-m4">C1.M4</a>.</p>
+<p class="sec-lede">Reconstruída nesta revisão com a arquitetura real de campanha (<a class="modref" data-mod="c1-m4">C1.M4</a>) e o modelo de 6 camadas de intenção do remarketing (<a class="modref" data-mod="c1-m7">C1.M7</a>) — não mais um esquema genérico de "públicos".</p>
 </div>
+
 <h3>Função de cada dia no funil</h3>
 <div class="tbl-scroll">
 <table>
 <thead><tr><th>Dia</th><th>Aquece</th><th>Gera autoridade</th><th>Leva à consulta</th><th>Vira anúncio</th></tr></thead>
 <tbody>
-<tr><td>1</td><td>✓✓✓</td><td>✓</td><td></td><td>✓ — bom hook rate, sem antes/depois, pronto pra Categoria Especial de Saúde</td></tr>
-<tr><td>2</td><td>✓✓</td><td>✓</td><td></td><td>✓ — alto salvamento costuma sinalizar qualidade de anúncio ao leilão</td></tr>
-<tr><td>3</td><td>✓</td><td>✓✓✓</td><td>✓</td><td>Secundário — melhor como remarketing de vídeo</td></tr>
-<tr><td>4</td><td></td><td>✓✓</td><td>✓</td><td>Não recomendado como anúncio frio — carrossel educativo funciona melhor como remarketing de conteúdo</td></tr>
-<tr><td>5</td><td></td><td>✓✓✓</td><td>✓✓</td><td>Remarketing — reforça decisão de quem já engajou</td></tr>
-<tr><td>6</td><td>✓</td><td>✓</td><td></td><td>Não recomendado — conteúdo de reputação, não de resposta direta</td></tr>
+<tr><td>1</td><td>✓✓✓</td><td>✓</td><td></td><td>✓ — bom hook rate esperado, sem antes/depois, pronto para Categoria Especial</td></tr>
+<tr><td>2</td><td>✓✓</td><td>✓</td><td></td><td>✓ — alto salvamento costuma sinalizar qualidade de anúncio ao leilão (<a class="modref" data-mod="c2-m4">C2.M4</a> §4.1)</td></tr>
+<tr><td>3</td><td>✓</td><td>✓✓✓</td><td>✓</td><td>Secundário — melhor como remarketing de vídeo (camada 3, ver abaixo)</td></tr>
+<tr><td>4</td><td></td><td>✓✓</td><td>✓</td><td>Não recomendado como anúncio frio — carrossel denso funciona melhor como remarketing de conteúdo pra quem já engajou</td></tr>
+<tr><td>5</td><td></td><td>✓✓✓</td><td>✓✓</td><td>Remarketing — reforça decisão de quem já engajou, nunca aquisição fria</td></tr>
+<tr><td>6</td><td>✓</td><td>✓</td><td></td><td>Não recomendado — conteúdo de reputação, sem CTA de resposta direta</td></tr>
 <tr><td>7</td><td></td><td>✓</td><td>✓✓✓</td><td>Remarketing de conversão — só para quem já viu ≥2 peças da semana</td></tr>
 </tbody>
 </table>
 </div>
-<h3>Públicos de Meta Ads recomendados</h3>
+
+<h3>Públicos por camada de intenção (modelo de 6 camadas do <a class="modref" data-mod="c1-m7">C1.M7</a> §7.2)</h3>
 <div class="callout warn">
 <div class="callout-head">
 <svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
-<span>Categoria Especial de Anúncio de Saúde</span>
+<span>Categoria Especial de Anúncio de Saúde — correção desta revisão</span>
 </div>
-<p>Nenhum público abaixo usa inferência de condição de saúde para segmentação — só comportamento de engajamento e demografia ampla, conforme exigido pela Categoria Especial (<a class="modref" data-mod="c1-m4">C1.M4</a>).</p>
+<p>A versão anterior desta entrega recomendava um público <strong>lookalike</strong>. Isso estava errado: a
+Categoria Especial de Anúncio de Saúde <strong>desativa lookalike e Special Ad Audiences</strong>, trava a
+faixa etária em banda ampla (18–65+) e exige raio mínimo de 15km — sem exceção, e a partir de 2026 a Meta
+aplica a categoria mesmo automaticamente via detecção multimodal do próprio criativo, então tratá-la como
+certa é a única postura segura (<a class="modref" data-mod="c1-m4">C1.M4</a> §4.5). A tabela abaixo já reflete
+essa correção — nenhum público usa lookalike ou segmentação por condição de saúde.</p>
 </div>
 <div class="tbl-scroll">
 <table>
-<thead><tr><th>Público</th><th>Composição</th><th>Recebe</th></tr></thead>
+<thead><tr><th>#</th><th>Camada de intenção</th><th>Quem é</th><th>Janela de retenção</th><th>Recebe</th></tr></thead>
 <tbody>
-<tr><td><strong>Frio — amplo</strong></td><td>Mulheres 30-50, localização de atuação, interesses amplos (dermatologia, estética, bem-estar) — sem detailed targeting de condição</td><td>Dia 1 e Dia 6 (aquisição/reputação)</td></tr>
-<tr><td><strong>Engajamento de vídeo</strong></td><td>≥50% assistido em qualquer Reel dos últimos 30 dias</td><td>Dia 2, 3 e 4 (aprofundamento)</td></tr>
-<tr><td><strong>Visitantes de perfil/Stories</strong></td><td>Interagiu com Stories ou visitou o perfil nos últimos 14–30 dias</td><td>Dia 5</td></tr>
-<tr><td><strong>Custom audience de contato</strong></td><td>Lista de WhatsApp/CRM que já conversou e não fechou (opt-in confirmado)</td><td>Dia 7 — remarketing de conversão</td></tr>
-<tr><td><strong>Lookalike</strong></td><td>1–3% semelhante à base de pacientes que já fecharam (upload via CRM, sem dado de saúde explícito)</td><td>Testar com Dia 1 e Dia 3, nunca com Dia 4 (conteúdo sensível demais pra frio)</td></tr>
+<tr><td>1</td><td>Alcançados</td><td>Viram o anúncio/Reel, sem interação</td><td>7–30 dias conforme volume</td><td>Dia 1 (aquisição fria, público amplo por interesse + geolocalização)</td></tr>
+<tr><td>2</td><td>Engajados</td><td>Curtiram, comentaram ou salvaram qualquer peça da semana</td><td>30 dias</td><td>Dia 3 e Dia 4 (aprofundamento)</td></tr>
+<tr><td>3</td><td>Assistiram quase tudo</td><td>≥75% do Reel — hold rate alto</td><td>14–30 dias</td><td>Dia 2, 3 e 5 (identificação e autoridade)</td></tr>
+<tr><td>4</td><td>Visitaram a Landing Page/perfil</td><td>Clicaram no link, chegaram na página ou visitaram o perfil</td><td>14–30 dias</td><td>Dia 5 e Dia 6 (confiança e reputação)</td></tr>
+<tr><td>5</td><td>Iniciaram conversa, não fecharam</td><td>Já no CRM do WhatsApp, sem agendamento — trabalhado 1-a-1 pelo <a class="modref" data-mod="c1-m5">C1.M5</a>, não por mídia paga</td><td>—</td><td>Dia 7 (remarketing de conversão, só se o CRM confirmar que ainda não fechou)</td></tr>
+<tr><td>6</td><td>Consultaram, não fecharam</td><td>Maior intenção sem venda — trabalhado 1-a-1 pelo <a class="modref" data-mod="c1-m6">C1.M6</a></td><td>—</td><td>Fora do escopo desta semana de conteúdo — funil de não-fechamento tem sistema próprio</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout gold">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.6-6.2 4.6 2.4-7.4L2 9.4h7.6z"></path></svg>
+<span>Camadas 5 e 6 não recebem anúncio</span>
+</div>
+<p>Misturar remarketing de mídia paga com quem já está no WhatsApp/consultório desperdiça orçamento em quem já
+está sendo trabalhado por outro canal (<a class="modref" data-mod="c1-m7">C1.M7</a> §7.2). Esta semana de
+conteúdo alimenta as camadas 1 a 4; a partir da camada 5, o trabalho é humano, não anúncio.</p>
+</div>
+
+<h3>Estrutura de campanha e orçamento (<a class="modref" data-mod="c1-m4">C1.M4</a> §4.3–4.4)</h3>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Decisão</th><th>Recomendação para esta semana</th></tr></thead>
+<tbody>
+<tr><td>Estrutura de orçamento</td><td>ABO (orçamento por conjunto) nos primeiros 7 dias, testando Dia 1 vs. Dia 6 como criativos de aquisição fria — cada um recebe verba mínima garantida pra gerar sinal, sem a Meta concentrar tudo num só antes de haver dado</td></tr>
+<tr><td>Fase de aprendizado</td><td>Não editar nenhum conjunto até acumular <strong>~50 eventos de otimização numa janela de 7 dias</strong> — editar antes reinicia o processo e geralmente piora o custo por conversão no curto prazo</td></tr>
+<tr><td>Migração pra escala</td><td>Depois de identificar o(s) conjunto(s) vencedor(es) com volume mínimo de conversão, migrar para Advantage+ Campaign Budget (antigo CBO) — nunca antes de ter dado histórico</td></tr>
+<tr><td>Orçamento total</td><td>Definido pela planilha de CAC máximo do <a class="modref" data-mod="c1-m3">C1.M3</a> §3.3 — nunca "quanto sobra"</td></tr>
+<tr><td>Exclusão</td><td>Excluir quem já converteu (agendou consulta) de todos os conjuntos, sempre</td></tr>
 </tbody>
 </table>
 </div>
 </section>
 
 <!-- ============================================================ AUDITORIA DE QUALIDADE ============================================================ -->
-<section class="sec reveal" style="border-bottom:0">
+<section class="sec reveal">
 <div class="sec-head">
 <div class="sec-tag"><span>Controle de qualidade</span><span></span></div>
 <h2>Auditoria de qualidade — os 5 testes</h2>
@@ -507,14 +722,15 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <table>
 <thead><tr><th>Teste</th><th>Verdict</th><th>Evidência</th></tr></thead>
 <tbody>
-<tr><td>Parece igual ao Instagram comum?</td><td class="t-ok">Não</td><td>Nenhum dos 7 ganchos usa "você sabia que" / "N dicas para" — todos exigem contexto da Universidade Premium para existir</td></tr>
-<tr><td>Poderia ser publicado por qualquer profissional?</td><td class="t-ok">Não</td><td>Território semântico próprio ("investigação de fator ativo") em 5 dos 7 dias — não é vocabulário genérico do nicho</td></tr>
-<tr><td>Transmite diferenciação?</td><td class="t-ok">Sim</td><td>Dia 3 e Dia 6 comparam abordagens sem citar concorrente, mostrando mecanismo próprio</td></tr>
-<tr><td>Gera identificação antes da venda?</td><td class="t-ok">Sim</td><td>Dias 1, 2 e 4 não pedem nada — só nomeiam experiência real antes de qualquer CTA de conversão (que só aparece no Dia 7)</td></tr>
-<tr><td>Fortalece posicionamento de especialista?</td><td class="t-ok">Sim</td><td>4 dos 7 ganchos usam Família D (autoridade) ou demonstração de raciocínio — nunca credencial pura</td></tr>
+<tr><td>Parece igual ao Instagram comum?</td><td class="t-ok">Não</td><td>Nenhum dos 7 ganchos usa "você sabia que" / "N dicas para" — todos exigem contexto da Universidade Premium para existir; o Dia 4 cita 3 papers de 2024-2026 por nome, o que nenhum concorrente do nicho faz</td></tr>
+<tr><td>Poderia ser publicado por qualquer profissional?</td><td class="t-ok">Não</td><td>Território semântico próprio ("investigação de fator ativo") em 5 dos 7 dias, mais a honestidade epistêmica explícita do Dia 4 (o que a literatura NÃO sustenta) — nenhum concorrente publicaria essa ressalva porque reduz a venda no curto prazo</td></tr>
+<tr><td>Transmite diferenciação?</td><td class="t-ok">Sim</td><td>Dia 3 e Dia 6 comparam abordagens sem citar concorrente; Dia 4 reclassifica a própria categoria da doença (não é "mancha", é fenômeno vascular+hormonal+térmico) usando literatura de 2025</td></tr>
+<tr><td>Gera identificação antes da venda?</td><td class="t-ok">Sim</td><td>Dias 1, 2 e 4 não pedem nada — só nomeiam experiência real e fundamentam com citação antes de qualquer CTA de conversão (que só aparece no Dia 7)</td></tr>
+<tr><td>Fortalece posicionamento de especialista?</td><td class="t-ok">Sim</td><td>4 dos 7 ganchos usam Família D (autoridade) ou demonstração de raciocínio; o bloco de fundamentação com citação primária em cada dia é, por si só, um sinal de autoridade que quase nenhum concorrente do nicho tem estrutura pra replicar</td></tr>
 </tbody>
 </table>
 </div>
+
 <h3>Checagem de repetição (regra do <a class="modref" data-mod="c2-m5">C2.M5</a> §5.6)</h3>
 <div class="tbl-scroll">
 <table>
@@ -531,6 +747,36 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 </table>
 </div>
 <p style="color:var(--text-3);font-size:var(--fs-sm)">Família D se repete 3× (dias 3, 5, 7) com estruturas diferentes dentro da família (D1, D2, D5) — aceitável porque cada uma usa uma estrutura distinta; para um ciclo de 4 semanas, o <a class="modref" data-mod="c2-m8">C2.M8</a> §8.3 recomenda variar mais entre semanas.</p>
+</section>
+
+<!-- ============================================================ BIBLIOGRAFIA ============================================================ -->
+<section class="sec reveal" style="border-bottom:0">
+<div class="sec-head">
+<div class="sec-tag"><span>Referências</span><span></span></div>
+<h2>Bibliografia consolidada</h2>
+<p class="sec-lede">Toda citação usada nos boxes de fundamentação, num só lugar — inclusive as que sustentam o que <em>não</em> foi afirmado. Consultado via busca em 21/07/2026; melasma é literatura ativa, revisar a cada trimestre.</p>
+</div>
+<ol class="refs">
+<li>Leventhal, H., Meyer, D. &amp; Nerenz, D. (1980). <em>The common sense representation of illness danger.</em> In Rachman (ed.), Contributions to Medical Psychology, vol. 2.</li>
+<li>Leventhal, H., Phillips, L. A. &amp; Burns, E. (2016). <em>The Common-Sense Model of Self-Regulation: a dynamic framework.</em> Journal of Behavioral Medicine, 39(6), 935-946.</li>
+<li>Higgins, E. T. (1987). <em>Self-discrepancy: A theory relating self and affect.</em> Psychological Review, 94(3), 319-340.</li>
+<li>Balkrishnan, R. et al. (2003). <em>Development and validation of a health-related quality of life instrument for women with melasma.</em> British Journal of Dermatology, 149(3), 572-577.</li>
+<li>Cestari, T. F., Hexsel, D., Viegas, M. L. et al. (2006). <em>Validation of a melasma quality of life questionnaire for Brazilian Portuguese language: the MelasQoL-BP study.</em> British Journal of Dermatology, 156(s1), 13-20.</li>
+<li>Gilovich, T., Medvec, V. H. &amp; Savitsky, K. (2000). <em>The spotlight effect in social judgment.</em> Journal of Personality and Social Psychology, 78(2), 211-222.</li>
+<li>Mayer, R. C., Davis, J. H. &amp; Schoorman, F. D. (1995). <em>An integrative model of organizational trust.</em> Academy of Management Review, 20(3), 709-734.</li>
+<li>Colquitt, J. A., Scott, B. A. &amp; LePine, J. A. (2007). <em>Trust, trustworthiness, and trust propensity: a meta-analytic test.</em> Journal of Applied Psychology, 92(4), 909-927.</li>
+<li>Sperber, D. et al. (2010). <em>Epistemic vigilance.</em> Mind &amp; Language, 25(4), 359-393.</li>
+<li><strong>Ali, L. &amp; Al Niaimi, F. (2025). <em>Pathogenesis of Melasma Explained.</em> International Journal of Dermatology, 64(7), 1201-1212.</strong> — base do fator vascular/estrutural do Dia 4.</li>
+<li>Gu et al. (2024/2025). <em>What lies behind melasma: a review of the related skin microenvironment.</em> International Journal of Dermatology.</li>
+<li>Slominski, A. et al. <em>Key Role of CRF in the Skin Stress Response System</em> e trabalhos relacionados sobre o eixo hipotálamo-hipófise-adrenal cutâneo (CRH-POMC-ACTH-melanocortinas). Endocrine Reviews 34(6); American Journal of Physiology-Endocrinology and Metabolism.</li>
+<li>Pesquisa indexada no PMC (2025/2026) sobre modulação de melanogênese induzida por calor via via WDR5/H3K4me3 e eixo CX3CL1/CX3CR1 — base do fator térmico do Dia 4.</li>
+<li>Chronic Stress Suppresses the Expression of Cutaneous HPA Axis Elements and Melanogenesis. PLOS One (2014), PMC4031121 — base da nuance epistêmica sobre estresse no Dia 4.</li>
+<li>Slovic, P. (1987). <em>Perception of risk.</em> Science, 236(4799), 280-285.</li>
+<li>Han, Y. J., Nunes, J. C. &amp; Drèze, X. (2010). <em>Signaling status with luxury goods: The role of brand prominence.</em> Journal of Marketing, 74(4), 15-30.</li>
+<li>Witte, K. (1992). <em>Putting the fear back into fear appeals: The extended parallel process model.</em> Communication Monographs, 59(4), 329-349.</li>
+<li>Moynihan, R., Heath, I. &amp; Henry, D. (2002). <em>Selling sickness: the pharmaceutical industry and disease mongering.</em> BMJ, 324(7342), 886-891.</li>
+<li><strong>Busca dedicada por "melasma + microbiota intestinal / síndrome metabólica / resistência à insulina" não retornou literatura ligando esses eixos especificamente a melasma</strong> — existe para outras condições inflamatórias/metabólicas, não para este quadro. Registrado aqui por transparência, não como citação de apoio.</li>
+</ol>
 </section>
 
 </div>
