@@ -177,7 +177,7 @@ kbd{font-family:var(--mono);font-size:.68em;background:var(--elevated-2);border:
 .topbar{position:fixed;top:0;left:0;right:0;height:var(--topbar-h);z-index:115;
   background:var(--topbar-bg);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft);
   display:flex;align-items:center;gap:var(--sp-3);padding:0 var(--sp-4)}
-.tb-burger{display:none;width:34px;height:34px;background:none;border:1px solid var(--line);border-radius:var(--radius);
+.tb-burger{display:flex;width:34px;height:34px;background:none;border:1px solid var(--line);border-radius:var(--radius);
   cursor:pointer;align-items:center;justify-content:center;flex-shrink:0}
 .tb-burger svg{stroke:var(--gold);width:16px;height:16px}
 .tb-brand{display:flex;align-items:baseline;gap:.5rem;border:0;flex-shrink:0;width:calc(var(--sidebar-w) - var(--sp-4) - var(--sp-3))}
@@ -200,7 +200,8 @@ kbd{font-family:var(--mono);font-size:.68em;background:var(--elevated-2);border:
 /* --- Sidebar --- */
 .sidebar{position:fixed;top:var(--topbar-h);left:0;bottom:0;width:var(--sidebar-w);z-index:110;
   background:var(--surface);border-right:1px solid var(--line);display:flex;flex-direction:column;
-  transition:transform .3s var(--ease)}
+  transition:transform .3s var(--ease);transform:translateX(-100%);box-shadow:var(--shadow-sb)}
+.sidebar.open{transform:none}
 .sb-prog{padding:var(--sp-4) var(--sp-4) var(--sp-3);border-bottom:1px solid var(--line-soft)}
 .sb-prog-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.4rem}
 .sb-prog-lab{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);font-family:var(--mono)}
@@ -255,7 +256,7 @@ kbd{font-family:var(--mono);font-size:.68em;background:var(--elevated-2);border:
 .scrim.show{display:block;opacity:1}
 
 /* --- Main --- */
-.main{margin-left:var(--sidebar-w);padding-top:var(--topbar-h);min-height:100vh}
+.main{margin-left:0;padding-top:var(--topbar-h);min-height:100vh}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--sp-6)}
 
 /* --- Aviso de storage (fallback file://) --- */
@@ -671,12 +672,8 @@ td strong{color:var(--text);font-weight:500}
 @media (max-width:1100px){ :root{--sidebar-w:255px;--fs-3xl:2.8rem;--fs-2xl:2.1rem} }
 @media (max-width:900px){
   :root{--fs-3xl:2.3rem;--fs-2xl:1.8rem;--fs-xl:1.5rem}
-  .tb-burger{display:flex}
   .tb-brand{width:auto}
   .tb-brand span{display:none}
-  .sidebar{transform:translateX(-100%);width:280px;box-shadow:var(--shadow-sb)}
-  .sidebar.open{transform:none}
-  .main{margin-left:0}
   .wrap{padding:0 var(--sp-4)}
   .sec{padding:var(--sp-7) 0}
   .vs{grid-template-columns:1fr}
