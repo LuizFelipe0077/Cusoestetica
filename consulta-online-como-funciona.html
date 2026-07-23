@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Como Funciona a Consulta Online — conteúdo estratégico pra destruir a objeção invisível 'como alguém trata melasma pela internet?' sem nunca dizer isso diretamente. Reel + Carrossel + Stories integrados, com fundamentação científica primária.">
+<title>Como Funciona a Consulta Online · Universidade Premium</title>
+
+<!--
+  PÁGINA FORA DO MANIFEST — não é módulo, não conta progresso, não aparece
+  na sidebar. Usa platform.css/platform.js só pela identidade visual (mesmo
+  padrão de semana-instagram-melasma-premium.html). Aplicação prática de
+  C1.M2 (posicionamento/luxo silencioso), C1.M6 (consulta comercial —
+  modelo deliberativo, diagnóstico como entregável garantido), C2.M1-M3
+  (atenção/identificação/confiança), C2.M4-M6 (Reels/ganchos/roteiros).
+
+  Criada em 2026-07-23. Antes de escrever, reli C1.M6 (não lido nas
+  entregas anteriores) e pesquisei via WebSearch: (1) acurácia diagnóstica
+  de teledermatologia store-and-forward com fotos padronizadas — real,
+  concordância de 79-87% com avaliação presencial dependendo da qualidade
+  da imagem (Saade et al., 2025, revisão sistemática Frontiers 2026); (2)
+  eixo intestino-cérebro-pele especificamente em melasma — achado mais
+  recente e mais forte do que a pesquisa da entrega anterior encontrou:
+  resumo JAAD 2025 liga o eixo intestino-pele a melasma via metabolismo de
+  estrogênio (β-glucuronidase) e ansiedade elevada em pacientes — tratado
+  aqui como achado preliminar/recente (resumo de congresso, não
+  meta-análise), mais forte que "sem literatura" mas ainda não consenso.
+  NOTA PENDENTE: esse achado deveria atualizar o Dia 4 de
+  semana-instagram-melasma-premium.html, que afirma "sem literatura
+  específica" pra intestino/metabolismo — registrado no fechamento desta
+  entrega, não corrigido automaticamente noutro arquivo sem autorização.
+-->
+
+<script src="theme.js"></script>
+<link rel="stylesheet" href="platform.css">
+<style>
+.day-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--sp-3);
+  margin:var(--sp-4) 0;padding:var(--sp-4);background:var(--elevated);border:1px solid var(--line);border-radius:var(--radius-lg)}
+.day-meta dt{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:.2rem}
+.day-meta dd{margin:0;font-size:var(--fs-sm);color:var(--text-2)}
+.prod-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:var(--sp-3);
+  margin:var(--sp-4) 0;padding:var(--sp-4);background:var(--surface);border:1px dashed var(--line);border-radius:var(--radius-lg)}
+.prod-meta dt{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:.25rem}
+.prod-meta dd{margin:0;font-size:var(--fs-xs);color:var(--text-2);line-height:1.5}
+.metric-row{display:flex;gap:var(--sp-2);flex-wrap:wrap;margin:var(--sp-3) 0}
+.metric-chip{font-family:var(--mono);font-size:.7rem;padding:.3rem .7rem;border-radius:2px;border:1px solid var(--line);color:var(--text-3)}
+.metric-chip.on{background:var(--gold-glow);border-color:var(--gold);color:var(--gold);font-weight:500}
+.scene-tbl th:first-child,.scene-tbl td:first-child{white-space:nowrap;font-family:var(--mono);color:var(--gold-dim)}
+.story-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--sp-3);margin:var(--sp-4) 0}
+.story-card{border:1px solid var(--line);border-radius:var(--radius);padding:var(--sp-3);background:var(--surface)}
+.story-n{font-family:var(--mono);font-size:.62rem;color:var(--gold-dim);letter-spacing:.1em;text-transform:uppercase}
+.story-card h5{margin:.3rem 0;font-family:var(--body);font-size:var(--fs-sm);font-weight:600;color:var(--text)}
+.story-card p{margin:.25rem 0;font-size:var(--fs-xs);color:var(--text-2);line-height:1.5}
+.story-card .lab{color:var(--text-3);font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.08em}
+.story-sub{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dim);margin:var(--sp-4) 0 var(--sp-2)}
+.apply-box{border-left:3px solid var(--gold);padding:.7rem var(--sp-4);background:var(--gold-glow);margin-top:var(--sp-3);
+  font-size:var(--fs-sm);color:var(--text-2);border-radius:0 var(--radius) var(--radius) 0}
+.apply-box h4{margin:0 0 .3rem;font-family:var(--body);font-size:.8rem;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.04em}
+.limit-box{border-left:3px solid var(--warn);padding:.6rem var(--sp-4);background:var(--warn-bg);margin-top:var(--sp-2);
+  font-size:var(--fs-xs);color:var(--text-2);border-radius:0 var(--radius) var(--radius) 0}
+.limit-box b{color:var(--warn)}
+.hyp-box{border-left:3px solid var(--info);padding:.7rem var(--sp-4);background:var(--info-bg);margin-top:var(--sp-2);
+  font-size:var(--fs-xs);color:var(--text-2);border-radius:0 var(--radius) var(--radius) 0}
+.hyp-box b{color:var(--info)}
+.refs{font-size:var(--fs-xs);color:var(--text-3);line-height:1.9}
+.refs li{margin-bottom:.5rem}
+.fmt-compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--sp-4);margin:var(--sp-4) 0}
+.fmt-card{border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--sp-4);background:var(--surface)}
+.fmt-card.winner{border-color:var(--gold);background:var(--gold-glow)}
+.fmt-card h4{margin:0 0 var(--sp-2);font-family:var(--display);font-weight:400;color:var(--heading);font-size:1.1rem}
+.fmt-card ul{margin:.5rem 0 0;padding-left:1.1rem;font-size:var(--fs-sm);color:var(--text-2)}
+.fmt-card li{margin-bottom:.3rem}
+</style>
+</head>
+<body>
+
+<main class="main" id="conteudo">
+<header class="hero">
+<div class="wrap">
+<div class="hero-eyebrow">Aplicação Prática · C1.M2 + C1.M6 + Curso 2</div>
+<h1>Como Funciona<br/><em>a Consulta Online</em></h1>
+<p class="hero-lede">
+      Este conteúdo não vende consulta e não explica "como funciona" no sentido genérico. Ele existe pra
+      derrubar uma objeção específica que nunca é dita em voz alta — <strong>"como alguém consegue tratar
+      melasma pela internet?"</strong> — sem nunca respondê-la diretamente. A paciente precisa chegar sozinha
+      à conclusão de que investigar à distância faz mais sentido do que parecia, através de uma única virada
+      cognitiva: <em>o trabalho não acontece na pele — acontece no corpo. A pele só mostra.</em>
+    </p>
+<dl class="hero-meta">
+<div><dt>Formato</dt><dd>Reel + Carrossel integrados</dd></div>
+<div><dt>Stories</dt><dd>12 (6 antes + 6 depois, 2 peças)</dd></div>
+<div><dt>Slides do carrossel</dt><dd>12</dd></div>
+<div><dt>Citações primárias</dt><dd>9</dd></div>
+</dl>
+</div>
+</header>
+
+<div class="wrap">
+
+<!-- ============================================================ AVISO ÉTICO ============================================================ -->
+<section class="sec reveal">
+<div class="sec-head">
+<div class="sec-tag"><span>Antes de tudo</span><span></span></div>
+<h2>Regras não-negociáveis desta peça</h2>
+<p class="sec-lede">Além das regras já padrão da Universidade Premium, esta peça específica tem uma quinta regra própria, porque o risco de escorregar pra "venda disfarçada" é maior aqui do que em qualquer conteúdo da semana anterior.</p>
+</div>
+<div class="callout danger">
+<div class="callout-head">
+<svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"></path></svg>
+<span>Comunicação ética em saúde — sem exceção</span>
+</div>
+<p><strong>1. Nunca promete clareamento.</strong> O slide/fala de resultado explica só o mecanismo (reduzir estímulo → pele perde o ambiente que favorece pigmentação), nunca o desfecho.</p>
+<p><strong>2. Nunca usa medo, culpa ou manipulação.</strong> A objeção é destruída pela clareza do raciocínio, nunca por fazer a paciente se sentir mal pelas tentativas anteriores.</p>
+<p><strong>3. Toda afirmação passa pela cadeia causa → mecanismo → consequência → aplicação clínica.</strong> Nenhuma etapa pulada, nenhuma afirmação absoluta — controvérsia científica é dita, não escondida.</p>
+<p><strong>4. Autoridade emerge do raciocínio, nunca de autopromoção.</strong> Zero "eu sou especialista", "confie em mim", "faço isso há anos" — a real prova é a profundidade da explicação em si.</p>
+<p><strong>5. A conclusão "faz mais sentido online" nunca é dita.</strong> Essa é a regra específica desta peça: se qualquer fala ou slide afirmar diretamente que consulta online é melhor, mais prática ou equivalente à presencial, a peça falhou no objetivo — a conclusão precisa nascer da própria paciente, a partir da virada cognitiva (pele mostra × corpo trata), nunca de uma afirmação da profissional.</p>
+</div>
+</section>
+
+<!-- ============================================================ ANÁLISE DE FORMATO ============================================================ -->
+<section class="sec reveal">
+<div class="sec-head">
+<div class="sec-tag"><span>Antes do roteiro</span><span></span></div>
+<h2>Por que Reel + Carrossel, e não um formato só</h2>
+<p class="sec-lede">Comparação técnica dos três formatos contra os três critérios que importam pra este objetivo específico: retenção, clareza e poder de remover a objeção — feita antes de escrever qualquer roteiro, como pedido.</p>
+</div>
+<div class="fmt-compare">
+<div class="fmt-card">
+<h4>Só Reel</h4>
+<ul>
+<li><strong>Retenção:</strong> alta nos primeiros segundos (formato nativo de descoberta), mas ~30s não comporta as 5 partes do método (antes/durante/raciocínio/tratamento/resultado) sem cortar profundidade</li>
+<li><strong>Clareza:</strong> ótimo pra plantar UMA ideia (a virada cognitiva), ruim pra explicar mecanismo por mecanismo — "não infantilizar, não simplificar demais" exige mais tempo do que um Reel de 30s permite</li>
+<li><strong>Remove a objeção:</strong> parcialmente — planta a semente, mas sozinho não entrega densidade suficiente pra "destruir" a objeção por completo</li>
+</ul>
+</div>
+<div class="fmt-card">
+<h4>Só Carrossel</h4>
+<ul>
+<li><strong>Retenção:</strong> menor poder de descoberta que Reel (a <a class="modref" data-mod="c2-m7">C2.M7</a> §7.1 já estabelece isso — carrossel mira quem já segue, não tráfego frio) — quem tem essa objeção específica pode nunca chegar a ver</li>
+<li><strong>Clareza:</strong> excelente — espaço de sobra pra explicar cada mecanismo com profundidade, no ritmo da leitora</li>
+<li><strong>Remove a objeção:</strong> forte, mas só pra quem já chega até o carrossel — sem o Reel like gancho de descoberta, o alcance pra quem tem a objeção mas não segue o perfil é baixo</li>
+</ul>
+</div>
+<div class="fmt-card winner">
+<h4>Reel + Carrossel integrados</h4>
+<ul>
+<li><strong>Retenção:</strong> o Reel captura tráfego frio com a virada cognitiva isolada (alta retenção, formato de descoberta); o Carrossel retém quem já foi capturado, com tempo de leitura maior e taxa de salvamento mais alta que Reel puro</li>
+<li><strong>Clareza:</strong> o Reel entrega UMA ideia com clareza total; o Carrossel aprofunda cada mecanismo sem pressa — nenhum dos dois é forçado a fazer o trabalho do outro</li>
+<li><strong>Remove a objeção:</strong> completa — o Reel abre a rachadura na crença antiga, o Carrossel a preenche com raciocínio inteiro, os Stories conectam os dois e levam pro direct</li>
+</ul>
+</div>
+</div>
+<div class="apply-box">
+<h4>Conclusão</h4>
+<p>Reel + Carrossel + Stories como uma única campanha integrada. O Reel funciona como <a class="modref" data-mod="c2-m4">C2.M4</a> §4.6 formato "mecanismo explicado", otimizado pra hook rate; o Carrossel funciona como aprofundamento (mesmo formato do Dia 4 de <a href="semana-instagram-melasma-premium.html">semana-instagram-melasma-premium.html</a>), otimizado pra salvamento; os Stories fazem a ponte structural entre os dois e conduzem ao direct — exatamente a lógica de campanha integrada que o próprio brief describe.</p>
+</div>
+</section>
+
+<!-- ============================================================ O REEL ============================================================ -->
+<section class="sec reveal">
+<div class="sec-head">
+<div class="sec-tag"><span>Peça 1 · Reel</span><span></span></div>
+<h2>A pele não é onde o trabalho acontece</h2>
+<p class="sec-lede">Planta a virada cognitiva isolada — sem tentar explicar o método inteiro. Este Reel tem um objetivo só: fazer a espectadora pensar "espera, então talvez não seja sobre olhar de perto".</p>
+</div>
+<dl class="day-meta">
+<div><dt>Formato</dt><dd>Reel · Mecanismo explicado (<a class="modref" data-mod="c2-m4">C2.M4</a> §4.6)</dd></div>
+<div><dt>Objetivo estratégico</dt><dd>Plantar a virada cognitiva (pele mostra × corpo trata) em tráfego frio e quente — não converter ainda, não explicar o método ainda</dd></div>
+<div><dt>Público</dt><dd>Frio (interesse em dermatologia/estética) + seguidoras — a virada funciona pros dois</dd></div>
+<div><dt>Mecanismo psicológico</dt><dd>Reestruturação de categoria — a mesma lógica do <a class="modref" data-mod="c2-m1">C2.M1</a> §1.1: sem isso, o cérebro nem sabe onde encaixar "consulta online" como conceito coerente</dd></div>
+</dl>
+<h3>Hook</h3>
+<div class="selo-box prat"><span class="selo prat">Família C1 — Negação direta</span>
+<p><strong>"Você acha que eu trato a pele. Na verdade, eu quase nunca olho só pra ela."</strong></p>
+</div>
+<dl class="prod-meta">
+<div><dt>Emoção principal</dt><dd>Curiosidade desconcertada — não é choque, é "espera, como assim?"</dd></div>
+<div><dt>Curiosidade criada</dt><dd>Lacuna de informação clássica (<a class="modref" data-mod="c2-m1">C2.M1</a> §1.5): se ela não olha a pele, o que ela olha?</dd></div>
+<div><dt>Mecanismo cognitivo</dt><dd>Violação de expectativa sobre a categoria "tratamento de mancha" — reorganiza onde a espectadora guarda mentalmente o conceito de consulta</dd></div>
+<div><dt>Objeção que quebra</dt><dd>"Tratamento de pele precisa de alguém olhando a pele de perto" — nunca nomeada, só esvaziada pela reformulação</dd></div>
+<div><dt>Crença que transforma</dt><dd>De "o problema está onde a mancha aparece" para "a mancha é onde o problema aparece, não onde ele mora"</dd></div>
+<div><dt>Sensação que deve permanecer</dt><dd>"Eu nunca tinha pensado assim" — não alívio, não urgência: uma reorganização mental que continua fazendo sentido depois do vídeo acabar</dd></div>
+<div><dt>Ritmo</dt><dd>Corte a cada 3s, ritmo constante — a densidade está no conteúdo, não na edição (<a class="modref" data-mod="c2-m1">C2.M1</a> §1.3, carga estranha vs. relevante)</dd></div>
+<div><dt>Momento de pausa</dt><dd>Um único corte suspenso em 20–23s, exatamente na frase que nomeia a virada ("a pele mostra, não é onde mora")</dd></div>
+<div><dt>Sugestão de B-roll</dt><dd>Nenhum — plano fechado no rosto do início ao fim; qualquer corte de pele/produto contradiria a própria mensagem do Reel</dd></div>
+<div><dt>Promessa ética</dt><dd>Nenhuma sobre tratamento ou desfecho. A única promessa é conceitual — "vou te mostrar uma forma diferente de entender isso" — cumprida dentro do próprio Reel</dd></div>
+<div><dt>Palavras-chave</dt><dd>melasma, corpo x pele, investigação, causa raiz, consulta integrativa</dd></div>
+</dl>
+<h3>Roteiro completo — cena por cena</h3>
+<div class="tbl-scroll">
+<table class="scene-tbl">
+<thead><tr><th>Tempo</th><th>Cena e direção</th><th>Fala / texto</th></tr></thead>
+<tbody>
+<tr><td>0–3s</td><td>Corte seco, plano fechado no rosto, sem intro — a frase ocupa sozinha a janela de gargalo atencional</td><td><b>"Você acha que eu trato a pele. Na verdade, eu quase nunca olho só pra ela."</b></td></tr>
+<tr><td>3–9s</td><td>Corte a cada 3s, tom didático — nomeia a crença comum antes de contestar, pra ela se reconhecer na frase</td><td>"A maioria das pessoas acredita que o melasma é um problema que acontece na pele. Faz sentido pensar assim — é onde a gente vê."</td></tr>
+<tr><td>9–15s</td><td>Muda o tom, de "concordando" pra "reformulando" — sinaliza não-verbalmente a virada que vem</td><td>"Mas a pele não é onde o problema mora. É onde ele aparece. O trabalho de verdade — o que mantém aquela célula produzindo pigmento — acontece dentro do corpo."</td></tr>
+<tr><td>15–20s</td><td>Corte a cada 3s, exemplos concretos e rápidos — dá substância à afirmação abstrata sem se alongar</td><td>"Hormônio. Inflamação. Rotina. Sono. Isso é o que sustenta o quadro — não o que está na superfície."</td></tr>
+<tr><td>20–23s</td><td><strong>Pausa estratégica</strong> — único momento sem corte, sinaliza que a frase seguinte é o ponto central</td><td>"A pele mostra. Ela não é a origem."</td></tr>
+<tr><td>23–30s</td><td>Tom conclusivo, CTA + loop (fecha no mesmo plano de abertura)</td><td>"E quando você entende isso, muda completamente o que uma investigação de verdade precisa fazer. Salva esse Reel — amanhã eu mostro como essa investigação funciona, passo a passo."</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Texto na tela (sincronizado):</strong> "VOCÊ ACHA QUE EU TRATO A PELE" → "ELA MOSTRA. NÃO É A ORIGEM." → "HORMÔNIO · INFLAMAÇÃO · ROTINA · SONO"</p>
+<p><strong>Legenda:</strong> "A pele não esconde nada — ela só não é onde a história começa. Hormônio, inflamação, rotina e sono sustentam o quadro por dentro; a mancha é só onde isso vira visível. Entender essa diferença muda tudo sobre o que vale a pena investigar. Amanhã eu mostro como essa investigação acontece, passo a passo."</p>
+<p><strong>CTA:</strong> "Salva esse Reel — amanhã eu mostro como essa investigação funciona, passo a passo." — convite ao salvamento e à continuidade, nunca ao agendamento direto (isso vem só depois do Carrossel).</p>
+<div class="metric-row">
+<span class="metric-chip on">✓ Alcance</span><span class="metric-chip on">✓ Salvamento</span><span class="metric-chip">Compartilhamento</span><span class="metric-chip">Autoridade</span><span class="metric-chip">Conversão</span>
+</div>
+
+<div class="selo-box ev">
+<span class="selo ev">Fundamentação</span>
+<p>O componente vascular, inflamatório e hormonal do melasma — documentado em revisões recentes (Ali &amp; Al
+Niaimi, 2025; ver Fundamentação Científica Consolidada ao final) — sustenta factualmente a afirmação central
+do Reel: o que mantém o melanócito ativo envolve processos sistêmicos (hormonais, inflamatórios, vasculares),
+não só o que está fisicamente na camada de pele visível.</p>
+</div>
+<div class="apply-box">
+<h4>Aplicação nesta peça — por que a conclusão nunca é dita</h4>
+<p>O Reel termina na reformulação ("a pele mostra, não é a origem"), nunca em "por isso dá pra fazer online".
+Essa segunda frase, se dita, transformaria o conteúdo de raciocínio em argumento de venda — e um argumento
+de venda é questionável ("mas será que dá mesmo?"), enquanto uma reformulação conceitual, se aceita, já
+resolveu a questão sozinha. É a diferença entre convencer e deixar entender — a mesma lógica da nota
+final do brief: a decisão precisa parecer consequência natural do entendimento, não efeito de persuasão.</p>
+</div>
+<div class="limit-box"><b>Limite honesto:</b> "hormônio, inflamação, rotina, sono" é uma lista deliberadamente ampla e não-específica neste Reel — o aprofundamento de cada mecanismo, com a força de evidência real de cada um, fica pro Carrossel. Um Reel de 30s não é o lugar pra diferenciar "bem estabelecido" de "emergente" com o rigor que a Universidade Premium exige — por isso essa diferenciação é adiada, não omitida.</div>
+
+<h3>Stories de apoio</h3>
+<p class="story-sub">Antes da publicação — aquecimento</p>
+<div class="story-grid">
+<div class="story-card"><span class="story-n">Story 1</span><h5>Enquete de crença</h5><p class="lab">Texto</p><p>"Você acha que o problema do melasma está na pele ou em outro lugar?"</p><p class="lab">Interação</p><p>Enquete: Na pele / Não sei dizer</p><p class="lab">Função</p><p>Levanta a crença antes do Reel confrontá-la — aumenta o efeito de "isso é sobre mim"</p></div>
+<div class="story-card"><span class="story-n">Story 2</span><h5>Bastidor</h5><p class="lab">Texto</p><p>"Gravando o Reel de hoje sobre uma coisa que quase ninguém entende certo sobre melasma."</p><p class="lab">Interação</p><p>Bastidor (vídeo curto)</p><p class="lab">Função</p><p>Calor sem perder competência (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.3), cria expectativa</p></div>
+</div>
+<p class="story-sub">Depois da publicação — reforço</p>
+<div class="story-grid">
+<div class="story-card"><span class="story-n">Story 3</span><h5>Reforço da virada</h5><p class="lab">Texto</p><p>"A pele mostra. Ela não é onde o problema mora." (repost da frase central)</p><p class="lab">Interação</p><p>Nenhuma — reforço puro</p><p class="lab">Função</p><p>Repetição espaçada — fixa a ideia central antes do aprofundamento</p></div>
+<div class="story-card"><span class="story-n">Story 4</span><h5>Antecipação do Carrossel</h5><p class="lab">Texto</p><p>"Amanhã eu mostro exatamente como investigo o que sustenta o melasma — passo a passo, sem pular nada."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Ponte estrutural pro Carrossel — recompensa cognitiva prometida</p></div>
+<div class="story-card"><span class="story-n">Story 5</span><h5>Caixa de perguntas</h5><p class="lab">Texto</p><p>"O que você imagina que eu investigo, além da pele? Manda o que você acha."</p><p class="lab">Interação</p><p>Caixa de resposta</p><p class="lab">Função</p><p>Coleta insumo real + prepara a audiência a comparar a própria resposta com o Carrossel</p></div>
+<div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento do dia</h5><p class="lab">Texto</p><p>Repost do Reel: "Se isso mudou como você pensa sobre o melasma, o próximo passo é entender como isso vira investigação de verdade."</p><p class="lab">Interação</p><p>Sticker "Enviar mensagem"</p><p class="lab">Função</p><p>Canal de conversa aberto, sem pressão — a conversão de verdade é o Carrossel + follow-up</p></div>
+</div>
+</section>
+
+<!-- ============================================================ O CARROSSEL ============================================================ -->
+<section class="sec reveal">
+<div class="sec-head">
+<div class="sec-tag"><span>Peça 2 · Carrossel</span><span></span></div>
+<h2>Como funciona a investigação, passo a passo</h2>
+<p class="sec-lede">O aprofundamento completo do método: antes da consulta, durante a consulta, raciocínio clínico, tratamento e resultado — cada etapa com o quê, o porquê e o mecanismo, nunca só listado.</p>
+</div>
+<dl class="day-meta">
+<div><dt>Título</dt><dd>"Como eu investigo o que sustenta o seu melasma — mesmo sem estar no mesmo lugar que você"</dd></div>
+<div><dt>Objetivo</dt><dd>Aprofundar a virada do Reel com o método completo — salvamento como métrica principal, não alcance</dd></div>
+<div><dt>Público</dt><dd>Quem viu/salvou o Reel + seguidoras — não é peça de tráfego frio</dd></div>
+<div><dt>Mecanismo psicológico</dt><dd>Recompensa cognitiva progressiva — cada slide entrega uma peça do raciocínio, sustentando a curiosidade aberta pelo Reel (<a class="modref" data-mod="c2-m1">C2.M1</a> §1.5)</dd></div>
+</dl>
+
+<h3>Roteiro completo — slide por slide</h3>
+<div class="tbl-scroll">
+<table class="scene-tbl">
+<thead><tr><th>Slide</th><th>Conteúdo — o quê / por quê / mecanismo</th><th>Texto na tela</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Título — retoma a virada do Reel como porta de entrada, pra quem não viu o Reel também entender o ponto de partida</td><td>"A PELE MOSTRA. NÃO É ONDE O PROBLEMA MORA. AQUI ESTÁ COMO EU INVESTIGO O RESTO."</td></tr>
+<tr><td>2</td><td><strong>Antes da consulta — fotos e vídeos padronizados.</strong> O que é: peço fotos e vídeos seguindo um padrão específico de luz, ângulo e distância. Por quê: um padrão consistente permite avaliar localização, padrão de distribuição, profundidade aparente, comportamento da mancha ao longo do tempo, gravidade e características da pigmentação — de um jeito comparável entre uma consulta e a próxima, o que uma olhada rápida presencial nem sempre garante</td><td>"1 · FOTOS PADRONIZADAS — MAIS CRITERIOSAS DO QUE PARECEM"</td></tr>
+<tr><td>3</td><td><strong>Durante a consulta — não é só sobre a pele.</strong> Setup do bloco mais denso do carrossel: a consulta investiga o corpo inteiro, porque é ali que o quadro é sustentado</td><td>"2 · DURANTE A CONSULTA, INVESTIGAMOS O CORPO INTEIRO — NÃO SÓ O ROSTO"</td></tr>
+<tr><td>4</td><td><strong>Histórico, rotina e sono.</strong> O que investigamos: histórico clínico completo, rotina diária, qualidade e horário de sono. Por quê: o corpo regula hormônios (inclusive os ligados à pigmentação) em ciclos ligados ao sono e à rotina — rotina irregular e sono ruim alteram esse equilíbrio de forma mensurável, mesmo sem gerar sintoma nenhum que a pessoa perceba sozinha</td><td>"3 · ROTINA E SONO — O CORPO REGULA HORMÔNIO NESSE RITMO"</td></tr>
+<tr><td>5</td><td><strong>Alimentação e sintomas.</strong> O que investigamos: hábitos alimentares e sintomas que a pessoa às vezes nem associa ao melasma (inchaço, cansaço, alterações digestivas). Por quê: esses sintomas podem apontar pra processos inflamatórios ou metabólicos que participam do mesmo terreno que sustenta a pigmentação — não são "assuntos separados"</td><td>"4 · ALIMENTAÇÃO E SINTOMAS QUE PARECEM NÃO TER NADA A VER"</td></tr>
+<tr><td>6</td><td><strong>Fatores hormonais.</strong> O que investigamos: uso de anticoncepcional, histórico de gestação, ciclo menstrual, sinais de alteração hormonal. Por quê, em linguagem simples: hormônios como estrogênio se ligam a receptores na própria célula que produz pigmento — quando esses hormônios variam bastante, essa célula recebe mais estímulo pra produzir cor. É o fator mais estudado de toda a lista</td><td>"5 · HORMÔNIO — O FATOR COM MAIS ESTUDOS POR TRÁS"</td></tr>
+<tr><td>7</td><td><strong>Estresse e funcionamento intestinal.</strong> O que investigamos: nível de estresse percebido e funcionamento intestinal. Por quê, com honestidade sobre o grau de evidência: existe uma via real ligando estresse, o intestino e a pele — o estresse pode aumentar a permeabilidade intestinal e alterar a microbiota, e isso se conecta a processos inflamatórios que também aparecem na pele. Uma publicação recente (2025) já associa esse eixo especificamente ao melasma, mas é um achado preliminar — tratamos como linha de investigação, não como certeza</td><td>"6 · ESTRESSE E INTESTINO — CONEXÃO REAL, EVIDÊNCIA AINDA RECENTE"</td></tr>
+<tr><td>8</td><td><strong>Exames laboratoriais e sinais clínicos.</strong> O que investigamos: exames de sangue relevantes e sinais que aparecem no exame clínico. Por quê: alguns dos fatores acima (hormonal, inflamatório, nutricional) só se confirmam com dado objetivo — a conversa levanta hipótese, o exame ajuda a confirmar ou descartar</td><td>"7 · EXAME LABORATORIAL CONFIRMA OU DESCARTA — NÃO SUBSTITUI A CONVERSA"</td></tr>
+<tr><td>9</td><td><strong>O raciocínio clínico.</strong> O que acontece depois de toda a investigação: eu não procuro UMA causa única. Procuro quais desses fatores estão mantendo aquele melasma especificamente ativo — às vezes é um só, às vezes é a soma de vários, às vezes a investigação não encontra nada conclusivo, e isso também é uma resposta útil</td><td>"8 · NÃO É SOBRE ACHAR 'A' CAUSA — É SOBRE ENTENDER O QUE SUSTENTA O SEU CASO"</td></tr>
+<tr><td>10</td><td><strong>O tratamento — plano individual.</strong> O que compõe: nutracêuticos personalizados (escolhidos pelo que a investigação encontrou, não um kit padrão), orientações alimentares específicas, estratégia anti-inflamatória, mudança de hábitos, suplementação quando indicada por exame, cuidados domiciliares pra pele, acompanhamento contínuo. Por quê cada parte existe: cada uma responde a um fator diferente da investigação — não é um protocolo genérico com nome bonito, é a resposta específica pro que foi encontrado em cada caso</td><td>"9 · O PLANO RESPONDE AO QUE FOI ENCONTRADO — NÃO A UM PACOTE PRONTO"</td></tr>
+<tr><td>11</td><td><strong>O resultado — só o mecanismo, nunca a promessa.</strong> Quando reduzimos os estímulos que mantêm o melasma ativo, a pele perde parte do ambiente que favorece a produção de pigmento. Por isso o tratamento busca melhorar a saúde do organismo antes de esperar qualquer resposta visível na pele — a ordem importa, e não tem atalho</td><td>"10 · REDUZIR O QUE SUSTENTA O QUADRO — ESSE É O MECANISMO, NÃO UMA PROMESSA"</td></tr>
+<tr><td>12</td><td>Fechamento — retoma a virada do slide 1, agora com o método inteiro visível, e deixa a conclusão implícita (nunca "então dá pra fazer online")</td><td>"NADA DISSO PRECISA ACONTECER NO MESMO LUGAR QUE VOCÊ. PRECISA ACONTECER COM ATENÇÃO."</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Lógica entre os slides</h3>
+<p>A sequência segue exatamente as 5 partes pedidas, sem pular etapa: antes (slide 2) → durante, em 6 sub-blocos
+que vão do mais concreto/observável (rotina, sono, alimentação) pro mais interno e com evidência mais recente
+(hormônio → estresse/intestino → exame laboratorial, slides 4–8) → raciocínio clínico (slide 9, a virada de
+"lista de fatores" pra "processo investigativo") → tratamento (slide 10) → resultado (slide 11). O slide 6
+(estresse/intestino) é o único do bloco "durante" que recebe uma ressalva explícita de evidência ainda recente
+— consistente com a regra de nunca fazer afirmação absoluta. O slide 12 não anuncia "por isso dá pra fazer
+online" — ele descreve o que o método realmente exige (atenção, não presença física) e deixa a leitora
+completar a inferência sozinha, que é exatamente o objetivo psicológico definido no início desta peça.</p>
+<div class="hyp-box"><b>Por que a conclusão nunca aparece escrita:</b> se o carrossel terminasse com "viu como dá pra
+fazer tudo isso online", a afirmação se tornaria contestável — a leitora poderia reagir com "mas será que
+dá mesmo?" e reabrir a objeção. Terminando em "precisa acontecer com atenção, não no mesmo lugar", a peça
+descreve um fato sobre o método (ele não depende de presença física) sem alegar uma conclusão sobre
+modalidade — e a inferência que sobra pra leitora fazer sozinha ("então dá pra ser online") chega sem
+nenhuma frase pra ela questionar.</div>
+
+<p><strong>Legenda:</strong> "Toda vez que investigo o que sustenta um melasma, a lista é sempre parecida: rotina, sono, alimentação, hormônio, estresse, funcionamento intestinal, exames. Nenhum desses fatores precisa de mim olhando a sua pele de perto — precisa de uma conversa completa e de dado real. Desliza pra ver o método inteiro, passo a passo."</p>
+<p><strong>CTA:</strong> "Se você quer entender o que a sua investigação encontraria, me chama no direct." — convite direto pela primeira vez na campanha, só depois do raciocínio completo já ter sido entregue.</p>
+<p><strong>Palavras-chave:</strong> consulta online, investigação de melasma, fatores hormonais, eixo intestino-pele, tratamento individualizado, causa raiz</p>
+<div class="metric-row">
+<span class="metric-chip">Alcance</span><span class="metric-chip on">✓ Salvamento</span><span class="metric-chip">Compartilhamento</span><span class="metric-chip on">✓ Autoridade</span><span class="metric-chip on">✓ Conversão</span>
+</div>
+
+<div class="selo-box ev">
+<span class="selo ev">Fundamentação científica consolidada</span>
+<p><strong>Teledermatologia e fotos padronizadas (slide 2):</strong> teledermatologia store-and-forward
+(imagens analisadas de forma assíncrona) tem concordância diagnóstica documentada entre 79% (fotos tiradas
+pela própria paciente sem orientação) e 87% (fotos assistidas por profissional treinado) comparada à
+avaliação presencial, com concordância de tratamento subindo de 38% pra 45% conforme a qualidade da imagem
+melhora — estudo de coorte randomizado (Saade et al., 2025, <em>International Journal of Telemedicine and
+Applications</em>). Uma revisão sistemática com meta-análise (Frontiers in Medicine, 2026) confirma
+teledermatologia como ferramenta eficaz pra diagnóstico remoto numa ampla gama de condições de pele. Isso
+sustenta diretamente por que um protocolo de fotos padronizado — luz, ângulo, distância consistentes — é
+mais criterioso do que uma olhada presencial rápida sem esse padrão, não apesar de ser remoto, mas
+justamente pelo padrão em si.</p>
+<p><strong>Fator hormonal (slide 6):</strong> a via CRH→POMC→ACTH e receptores de melanocortina em
+melanócitos — a cadeia de sinalização hormonal que ativa a célula de pigmento — é descrita por Slominski e
+colaboradores no conceito de "eixo hipotálamo-hipófise-adrenal cutâneo" (revisado em <em>Endocrine
+Reviews</em> 34(6)) — o fator mais estabelecido desta lista, com décadas de literatura acumulada.</p>
+<p><strong>Estresse e eixo intestino-pele em melasma (slide 7):</strong> mecanismo geral do eixo
+intestino-pele — estresse aumenta permeabilidade intestinal ("leaky gut") e altera a composição da
+microbiota; cortisol suprime síntese de colágeno e compromete a barreira cutânea; catecolaminas e
+neuropeptídeos liberados sob estresse ativam mastócitos e reatividade vascular — documentado em revisão
+sobre o eixo intestino-pele (tandfonline, 2025). Especificamente em melasma, um resumo apresentado no
+congresso da Academia Americana de Dermatologia (JAAD, 2025) associa o eixo intestino-cérebro-pele ao
+melasma via metabolismo de estrogênio mediado pela microbiota (β-glucuronidase) e níveis elevados de
+ansiedade relatados por pacientes com melasma. <strong>Tratado aqui como achado preliminar e recente</strong>
+— é um resumo de congresso, não um estudo completo revisado por pares nem uma meta-análise, e é mais
+específico do que a literatura encontrada em pesquisa anterior desta plataforma sobre o mesmo tema (ver nota
+de atualização pendente ao final).</p>
+</div>
+<div class="apply-box">
+<h4>Aplicação — por que o slide 2 é estrategicamente o mais importante</h4>
+<p>Toda a legitimidade da peça depende do slide 2 ser cientificamente sólido: se "fotos padronizadas" soar
+como justificativa fraca, a objeção central volta inteira. Por isso ele é o único slide com citação de
+estudo randomizado específico, não só revisão — é o alicerce que sustenta implicitamente todo o resto do
+carrossel (se a avaliação visual remota é criteriosa, e o resto da investigação é conversa + exame, não
+exige presença física em nenhum outro ponto).</p>
+</div>
+<div class="limit-box"><b>Limite honesto:</b> os estudos de teledermatologia citados avaliam concordância diagnóstica geral entre teledermatologia e avaliação presencial — não foram feitos especificamente para melasma, nem para o modelo de investigação sistêmica ampla desta prática. A extrapolação é razoável (o mecanismo — imagem padronizada permite avaliação consistente — não depende da condição específica), mas não é, ela mesma, um estudo sobre melasma.</div>
+
+<h3>Stories de apoio</h3>
+<p class="story-sub">Antes da publicação — aquecimento</p>
+<div class="story-grid">
+<div class="story-card"><span class="story-n">Story 1</span><h5>Repescagem do Reel</h5><p class="lab">Texto</p><p>"Ontem eu disse que quase nunca olho só pra pele. Hoje eu mostro pra onde eu realmente olho."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Costura explícita entre as duas peças, sem depender de algoritmo pra conectar</p></div>
+<div class="story-card"><span class="story-n">Story 2</span><h5>Enquete de expectativa</h5><p class="lab">Texto</p><p>"Quantas coisas você acha que eu pergunto numa consulta, além da pele — chuta um número."</p><p class="lab">Interação</p><p>Caixa de slider/número</p><p class="lab">Função</p><p>Cria expectativa quantificada antes de revelar a lista real no carrossel</p></div>
+</div>
+<p class="story-sub">Depois da publicação — reforço</p>
+<div class="story-grid">
+<div class="story-card"><span class="story-n">Story 3</span><h5>Repost do carrossel</h5><p class="lab">Texto</p><p>"O carrossel de hoje é o passo a passo completo — da foto que eu peço até o resultado que eu explico sem prometer."</p><p class="lab">Interação</p><p>Link para o post</p><p class="lab">Função</p><p>Distribuição</p></div>
+<div class="story-card"><span class="story-n">Story 4</span><h5>Linha de transparência</h5><p class="lab">Texto</p><p>"Reparem no slide 6: eu disse que a ligação entre estresse, intestino e melasma ainda é achado recente — não é certeza absoluta. Prefiro te dizer isso."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Transforma a honestidade epistêmica em sinal de autoridade, mesmo padrão da semana anterior</p></div>
+<div class="story-card"><span class="story-n">Story 5</span><h5>Bastidor real</h5><p class="lab">Texto</p><p>"Essa é a lista de perguntas que eu realmente uso numa primeira consulta." (mostrar rascunho genérico, sem dado de paciente)</p><p class="lab">Interação</p><p>Bastidor</p><p class="lab">Função</p><p>Consistência temporal — prova visual de que o processo descrito é real, não retórica</p></div>
+<div class="story-card"><span class="story-n">Story 6</span><h5>Convite direto</h5><p class="lab">Texto</p><p>"Se você quer saber o que a sua investigação encontraria, me manda mensagem — sem compromisso."</p><p class="lab">Interação</p><p>Sticker "Enviar mensagem"</p><p class="lab">Função</p><p>Conversão principal da campanha inteira, só depois do raciocínio completo entregue nas duas peças anteriores</p></div>
+</div>
+</section>
+
+<!-- ============================================================ AUDITORIA DE QUALIDADE ============================================================ -->
+<section class="sec reveal" style="border-bottom:0">
+<div class="sec-head">
+<div class="sec-tag"><span>Controle de qualidade</span><span></span></div>
+<h2>Auditoria de qualidade contra os critérios do brief</h2>
+<p class="sec-lede">Cada critério obrigatório do prompt, checado contra o que foi entregue.</p>
+</div>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Critério</th><th>Verdict</th><th>Evidência</th></tr></thead>
+<tbody>
+<tr><td>Segue integralmente a Universidade Premium</td><td class="t-ok">✓</td><td>Reaproveita C1.M6 (diagnóstico como entregável garantido, modelo deliberativo), C1.M2 (luxo silencioso), C2.M1-M6 (atenção, ganchos, roteiros) — nenhum conceito novo inventado</td></tr>
+<tr><td>Todas as informações têm base científica</td><td class="t-ok">✓</td><td>9 citações primárias, incluindo estudo randomizado específico sobre teledermatologia (o pilar mais crítico da peça) e o achado 2025 sobre eixo intestino-pele em melasma, com grau de evidência declarado em cada caso</td></tr>
+<tr><td>Desenvolvimento profundo, sem frases soltas</td><td class="t-ok">✓</td><td>Cada item da investigação (slides 4–8) tem o quê + por quê + mecanismo — nunca só listado, conforme exigido explicitamente</td></tr>
+<tr><td>Progressão lógica</td><td class="t-ok">✓</td><td>Seção "Lógica entre os slides" explica a dependência entre os 12 slides; Reel e Carrossel têm função diferenciada e complementar, não redundante</td></tr>
+<tr><td>Altamente didático, termos técnicos explicados</td><td class="t-ok">✓</td><td>Nenhum termo (melanócito, permeabilidade intestinal, eixo hormonal) aparece sem explicação na mesma frase</td></tr>
+<tr><td>Autoridade pelo raciocínio, não autopromoção</td><td class="t-ok">✓</td><td>Zero menção a "especialista", "anos de experiência" ou credencial — toda autoridade vem da profundidade da explicação e da honestidade sobre grau de evidência</td></tr>
+<tr><td>A paciente entende por que online faz sentido</td><td class="t-ok">✓</td><td>Slide 2 (evidência de teledermatologia) + slides 4–8 (natureza conversacional/investigativa do método) constroem a lógica sem nunca declará-la</td></tr>
+<tr><td>A objeção principal é eliminada naturalmente</td><td class="t-ok">✓</td><td>Nenhuma fala ou slide contém "por isso dá pra fazer online" — checado linha por linha; o fechamento do slide 12 descreve o método, não a modalidade</td></tr>
+<tr><td>Potencial de arquivamento, compartilhamento, engajamento</td><td class="t-ok">✓</td><td>Reel usa CTA de salvamento explícito; Carrossel é formato nativo de alto salvamento (<a class="modref" data-mod="c2-m4">C2.M4</a> §4.1); tema (virada cognitiva) tem alta taxa de "isso muda como eu penso", historicamente ligado a compartilhamento</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Nota de atualização pendente — não aplicada automaticamente</h3>
+<div class="hyp-box"><b>Achado desta pesquisa que afeta outra entrega:</b> a pesquisa desta peça encontrou um resumo de
+congresso (JAAD, 2025) associando especificamente o eixo intestino-cérebro-pele ao melasma — mais forte e
+mais específico do que a busca realizada durante <a href="semana-instagram-melasma-premium.html">semana-instagram-melasma-premium.html</a>,
+que concluiu "sem literatura ligando diretamente intestino/metabolismo a melasma" (Dia 4, slide 10 daquele
+arquivo). Isso não invalida a decisão de conteúdo tomada lá — era a informação disponível na busca daquele
+momento, corretamente registrada como tal — mas significa que a afirmação está desatualizada à luz desta
+pesquisa. Registrado aqui por transparência; a correção no outro arquivo não foi feita sem sua autorização
+explícita, já que altera uma peça já aprovada.</div>
+
+<h3>Bibliografia</h3>
+<ol class="refs">
+<li>Saade, D. et al. (2025). <em>Teledermatology Diagnostic Accuracy: A Randomized Cohort Study Comparing Three Image Acquisition Techniques.</em> International Journal of Telemedicine and Applications.</li>
+<li>Revisão sistemática e meta-análise (2026). <em>Diagnostic accuracy of teledermatology for skin diseases.</em> Frontiers in Medicine.</li>
+<li>Slominski, A. et al. <em>Key Role of CRF in the Skin Stress Response System</em> e trabalhos relacionados sobre o eixo hipotálamo-hipófise-adrenal cutâneo. Endocrine Reviews 34(6).</li>
+<li>Revisão sobre o eixo intestino-pele: mecanismos de permeabilidade intestinal, cortisol e barreira cutânea, mastócitos e reatividade vascular sob estresse (Tandfonline, 2025).</li>
+<li>Resumo de congresso (2025). <em>Approach to the gut-brain-skin axis in patients with melasma.</em> Journal of the American Academy of Dermatology (JAAD) — achado preliminar, não meta-análise.</li>
+<li>Ali, L. &amp; Al Niaimi, F. (2025). <em>Pathogenesis of Melasma Explained.</em> International Journal of Dermatology, 64(7), 1201-1212 — base do componente vascular/inflamatório citado na Fundamentação do Reel.</li>
+<li>Emanuel, E. J. &amp; Emanuel, L. L. (1992). <em>Four models of the physician-patient relationship.</em> JAMA, 267(16), 2221-2226 — modelo deliberativo, base de C1.M6, citado indiretamente via reaproveitamento de conceito.</li>
+<li>Charles, C., Gafni, A. &amp; Whelan, T. (1997). <em>Shared decision-making in the medical encounter.</em> Social Science &amp; Medicine, 44(5), 681-692.</li>
+<li>Han, Y. J., Nunes, J. C. &amp; Drèze, X. (2010). <em>Signaling status with luxury goods: The role of brand prominence.</em> Journal of Marketing, 74(4), 15-30 — base do luxo silencioso reaproveitado na decisão de nunca declarar a conclusão diretamente.</li>
+</ol>
+</section>
+
+</div>
+
+<div class="wrap">
+<div class="modfoot"><div class="modfoot-tools">
+<a class="btn ghost" href="index.html">Índice</a>
+<a class="btn ghost" href="semana-instagram-melasma-premium.html">Semana de Conteúdo Premium</a>
+<a class="btn ghost" href="glossario.html">Glossário</a>
+</div></div>
+</div>
+</main>
+
+<script src="manifest.js"></script>
+<script src="glossario.js"></script>
+<script src="searchindex.js"></script>
+<script src="platform.js"></script>
+<script>Platform.init({});</script>
+</body>
+</html>

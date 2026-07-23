@@ -27,6 +27,44 @@
   removido; (4) estratégia de conversão reconstruída com o modelo real de
   6 camadas de intenção do C1.M7 e as janelas de retenção documentadas;
   (5) bibliografia consolidada ao final.
+
+  Revisão 2026-07-22 (v3 — prompt mestre): o dono trouxe um brief ainda mais
+  exigente e pediu explicitamente micronutrientes, cortisol e fígado como
+  fatores do discurso de investigação, além de campos de produção separados
+  (emoção predominante, ritmo, pausas, b-roll) e stories divididos em
+  antes/depois da publicação. Pesquisa adicional via WebSearch confirmou:
+  vitamina D e zinco têm estudos preliminares de associação (não causais) com
+  melasma; cortisol/estresse tem mecanismo biologicamente plausível (eixo
+  HPA) mas evidência direta em melasma ainda mais fraca que os fatores do
+  Dia 4; e "fígado" é tratado por fontes dermatológicas mainstream como
+  concepção equivocada (confusão histórica com "liver spots" = lentigo
+  solar). Perguntado explicitamente, o dono escolheu manter fígado no
+  discurso da semana como hipótese própria da prática clínica dele, com
+  ressalva clara de que não é consenso da literatura — tratado no Dia 4 como
+  nota de transparência, não como fato científico estabelecido.
+
+  Revisão 2026-07-23 (v4 — feedback roteiro a roteiro do dono): os 7 roteiros
+  foram julgados superficiais e soltos, sem desfecho. Reescrita completa dos
+  7 dias com as correções específicas pedidas: Dia 1 esclarece que melasma
+  não tem cura e explica a diferença entre clarear (resolve o pigmento já
+  formado) e tratar (resolve o que sustenta a célula ativa); Dia 2 ganhou um
+  desfecho real — parar de minimizar o que se sente é o primeiro passo, não
+  "salvar o Reel" solto; Dia 3 usa o método do órgão de choque do dono
+  (localização da mancha aponta pra onde investigar) com exemplo concreto
+  (mesmo órgão de choque, causas de tireoide × vesícula) em vez de "fator
+  hormonal x vascular" abstrato — por instrução explícita do dono, esse
+  método não é hedgeado contra a dermatologia convencional, é apresentado
+  como o método clínico dele; Dia 4 foi reconstruído do zero: de "fatores
+  fisiopatológicos" pra "sinais observáveis" (profundidade da mancha,
+  localização, barreira da pele, resposta ao sol, hormônio, cortisol,
+  micronutrientes), cada um com o quê/por quê/o que significa em linguagem
+  leiga; Dia 5 nomeia um fator concreto (tireoide, exemplo ilustrativo) e
+  fecha sobre qual pergunta não foi feita; Dia 6 ganhou o slide que faltava,
+  explicando quando apagar basta e quando melasma exige investigar; Dia 7
+  explica por completo as duas últimas falas ("último capítulo" e "parar de
+  tratar o sintoma") em vez de deixá-las na metáfora sem explicação. Princípio
+  aplicado a todos os 7: cada peça precisa fazer sentido sozinha, porque
+  quem assiste pode não ter visto os outros dias da semana.
 -->
 
 <script src="theme.js"></script>
@@ -36,6 +74,15 @@
   margin:var(--sp-4) 0;padding:var(--sp-4);background:var(--elevated);border:1px solid var(--line);border-radius:var(--radius-lg)}
 .day-meta dt{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:.2rem}
 .day-meta dd{margin:0;font-size:var(--fs-sm);color:var(--text-2)}
+.prod-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:var(--sp-3);
+  margin:var(--sp-4) 0;padding:var(--sp-4);background:var(--surface);border:1px dashed var(--line);border-radius:var(--radius-lg)}
+.prod-meta dt{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:.25rem}
+.prod-meta dd{margin:0;font-size:var(--fs-xs);color:var(--text-2);line-height:1.5}
+.hyp-box{border-left:3px solid var(--info);padding:.7rem var(--sp-4);background:var(--info-bg);margin-top:var(--sp-2);
+  font-size:var(--fs-xs);color:var(--text-2);border-radius:0 var(--radius) var(--radius) 0}
+.hyp-box b{color:var(--info)}
+.story-sub{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dim);
+  margin:var(--sp-4) 0 var(--sp-2)}
 .metric-row{display:flex;gap:var(--sp-2);flex-wrap:wrap;margin:var(--sp-3) 0}
 .metric-chip{font-family:var(--mono);font-size:.7rem;padding:.3rem .7rem;border-radius:2px;border:1px solid var(--line);color:var(--text-3)}
 .metric-chip.on{background:var(--gold-glow);border-color:var(--gold);color:var(--gold);font-weight:500}
@@ -79,7 +126,7 @@
 <div><dt>Dias</dt><dd>7</dd></div>
 <div><dt>Reels/Carrosséis</dt><dd>7</dd></div>
 <div><dt>Stories</dt><dd>42</dd></div>
-<div><dt>Citações primárias</dt><dd>19</dd></div>
+<div><dt>Citações primárias</dt><dd>22</dd></div>
 </dl>
 </div>
 </header>
@@ -118,52 +165,80 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <table>
 <thead><tr><th>Dia</th><th>Objetivo psicológico</th><th>Estágio do funil</th><th>Formato</th><th>Tema</th><th>Base científica central</th><th>Métrica</th></tr></thead>
 <tbody>
-<tr><td><strong>1 · Seg</strong></td><td>Atração — quebra de crença</td><td>Topo · frio</td><td>Reel · Mito derrubado</td><td>O melasma não "volta" — nunca foi embora</td><td>Modelo do Senso Comum (Leventhal, 1980/2016)</td><td>Alcance</td></tr>
-<tr><td><strong>2 · Ter</strong></td><td>Identificação — dor nomeada</td><td>Topo/meio</td><td>Reel · Identificação</td><td>O momento antes da foto que você decide não tirar</td><td>Autodiscrepância (Higgins, 1987) + MELASQOL (Balkrishnan et al., 2003)</td><td>Salvamento/compart.</td></tr>
-<tr><td><strong>3 · Qua</strong></td><td>Confiança — raciocínio exposto</td><td>Meio</td><td>Reel · Bastidor do raciocínio</td><td>Duas mulheres, o mesmo melasma, protocolos diferentes</td><td>Modelo ABI (Mayer, Davis &amp; Schoorman, 1995)</td><td>Autoridade</td></tr>
-<tr><td><strong>4 · Qui</strong></td><td>Autoridade — mecanismo sistêmico</td><td>Meio/avançado</td><td>Carrossel · Mecanismo explicado</td><td>O que a pele revela antes mesmo dos exames</td><td>Ali &amp; Al Niaimi (2025); Slominski et al. (eixo HPA cutâneo)</td><td>Salvamento</td></tr>
-<tr><td><strong>5 · Sex</strong></td><td>Autoridade — prova de processo</td><td>Meio/fundo</td><td>Reel · Caso com mecanismo</td><td>Ela tinha uma explicação. Não era a certa.</td><td>Prova de resultado narrativa (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.4)</td><td>Autoridade/compart.</td></tr>
-<tr><td><strong>6 · Sáb</strong></td><td>Desejo — território próprio</td><td>Fundo</td><td>Carrossel · Comparação</td><td>A diferença entre apagar uma marca e investigar o terreno onde ela nasceu</td><td>Sinalização discreta (Han, Nunes &amp; Drèze, 2010)</td><td>Alcance qualificado</td></tr>
+<tr><td><strong>1 · Seg</strong></td><td>Atração — clarear × tratar</td><td>Topo · frio</td><td>Reel · Mito derrubado</td><td>Clarear a mancha não é a mesma coisa que tratar o melasma</td><td>Melasma sem cura definitiva + componente vascular/inflamatório (Ali &amp; Al Niaimi, 2025)</td><td>Alcance</td></tr>
+<tr><td><strong>2 · Ter</strong></td><td>Identificação — pare de minimizar</td><td>Topo/meio</td><td>Reel · Identificação</td><td>Pare de minimizar o que você sente por causa do melasma</td><td>Autodiscrepância (Higgins, 1987) + MELASQOL (Balkrishnan et al., 2003)</td><td>Salvamento/compart.</td></tr>
+<tr><td><strong>3 · Qua</strong></td><td>Confiança — raciocínio exposto</td><td>Meio</td><td>Reel · Bastidor do raciocínio</td><td>Mesma mancha, mesmo lugar do rosto — causas completamente diferentes</td><td>Modelo ABI (Mayer, Davis &amp; Schoorman, 1995) + método do órgão de choque</td><td>Autoridade</td></tr>
+<tr><td><strong>4 · Qui</strong></td><td>Autoridade — sinais observáveis</td><td>Meio/avançado</td><td>Carrossel · Mecanismo explicado</td><td>Os sinais que a sua pele já mostra, antes de qualquer exame</td><td>Ali &amp; Al Niaimi (2025); Slominski et al. (eixo HPA cutâneo)</td><td>Salvamento</td></tr>
+<tr><td><strong>5 · Sex</strong></td><td>Autoridade — prova de processo</td><td>Meio/fundo</td><td>Reel · Caso com mecanismo</td><td>Todo mundo perguntou sobre o protetor solar. Ninguém perguntou sobre a tireoide.</td><td>Prova de resultado narrativa (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.4)</td><td>Autoridade/compart.</td></tr>
+<tr><td><strong>6 · Sáb</strong></td><td>Desejo — território próprio</td><td>Fundo</td><td>Carrossel · Comparação</td><td>Apagar e investigar não competem — respondem perguntas diferentes</td><td>Sinalização discreta (Han, Nunes &amp; Drèze, 2010)</td><td>Alcance qualificado</td></tr>
 <tr><td><strong>7 · Dom</strong></td><td>Conversão — objeção respondida</td><td>Fundo · decisão</td><td>Reel · Objeção respondida</td><td>O erro de olhar só para a pele</td><td>Objeções por origem (<a class="modref" data-mod="c2-m2">C2.M2</a> §2.7)</td><td>Conversão</td></tr>
 </tbody>
 </table>
 </div>
+<h3>Por que essa ordem, e não outra</h3>
+<p>Nenhum dia é intercambiável — cada um só funciona na posição em que está porque depende do que o anterior
+já construiu, e prepara especificamente o seguinte. <strong>Dia 1</strong> precisa vir primeiro porque é o
+único gancho pensado pra tráfego 100% frio (sem exigir nenhum contexto prévio) — e planta a dimensão "linha
+do tempo" que o <strong>Dia 7</strong> retoma no fechamento. <strong>Dia 2</strong> só funciona depois do Dia
+1 porque identificação pede uma audiência que já parou uma vez pra essa conta; ele não gera alcance, gera o
+público de "assistiu ≥50%" que <strong>Dia 3</strong> usa como base. <strong>Dia 3</strong> é a primeira peça
+de autoridade, e precisa vir no meio da semana — cedo demais e a audiência não teria contexto emocional
+(Dia 2) pra valorizar o raciocínio exposto; tarde demais e a semana perderia a chance de aprofundar antes do
+carrossel denso do <strong>Dia 4</strong>. O <strong>Dia 4</strong> é o pico de densidade da semana — só pode
+vir depois que Dias 1–3 já estabeleceram confiança suficiente pra sustentar um carrossel de 11 slides com
+citação; publicado no Dia 1, ele afundaria por falta de contexto. O <strong>Dia 5</strong> depende
+diretamente do Dia 4: o caso citado só faz sentido pra quem já viu o mapa de fatores. <strong>Dia 6</strong>
+deliberadamente desacelera o ritmo de conversão (fim de semana, luxo silencioso) e usa os fatores do Dia 4
+como vocabulário já estabelecido, sem precisar reexplicar. O <strong>Dia 7</strong> fecha citando os seis
+dias anteriores explicitamente — é o único dia que não introduz conteúdo novo, porque sua força inteira vem
+de reciclar o que já foi construído, e é exatamente essa reciclagem que sinaliza consistência temporal
+(<a class="modref" data-mod="c2-m3">C2.M3</a> §3.4, componente 4) em vez de sete peças soltas competindo pela
+mesma venda.</p>
 </section>
 
 <!-- ============================================================ DIA 1 ============================================================ -->
 <section class="sec reveal">
 <div class="sec-head">
 <div class="sec-tag"><span>Dia 1 · Segunda</span><span></span></div>
-<h2>O melasma não "volta" — nunca foi embora</h2>
-<p class="sec-lede">Abre a semana quebrando a crença mais repetida do nicho — a ideia de ciclo. Mira tráfego frio, aplica violação de expectativa sobre uma das cinco dimensões documentadas de como pacientes crônicos representam a própria condição.</p>
+<h2>Clarear a mancha não é a mesma coisa que tratar o melasma</h2>
+<p class="sec-lede">Reescrito depois de revisão do dono: a v3 dizia "nunca foi embora" de um jeito vago demais — dava pra entender como promessa de cura. Esta versão é explícita sobre o que <em>não</em> muda (melasma não tem cura definitiva) e o que muda (a diferença real entre clarear e tratar), com uma cadeia causal específica: procedimento remove pigmento → não desliga o que mantém a célula ativa → se o desequilíbrio interno continuar, a célula continua produzindo cor. Autocontido: faz sentido sozinho, mesmo pra quem não vir os outros 6 dias.</p>
 </div>
 <dl class="day-meta">
 <div><dt>Formato</dt><dd>Reel · Mito derrubado (<a class="modref" data-mod="c2-m4">C2.M4</a> §4.6)</dd></div>
 <div><dt>Objetivo</dt><dd>Alcance qualificado — abrir a semana com volume, hook rate como métrica de diagnóstico</dd></div>
 <div><dt>Público</dt><dd>Frio · banda etária ampla (Categoria Especial de Saúde não permite segmentação fina) · interesse amplo em dermatologia/estética · raio ≥15km</dd></div>
-<div><dt>Mecanismo psicológico</dt><dd>Violação de expectativa sobre a dimensão "Linha do tempo" do Modelo do Senso Comum de Autorregulação</dd></div>
+<div><dt>Mecanismo psicológico</dt><dd>Distinção de categoria (clarear × tratar) — quebra a confusão mais comum do nicho entre desfecho estético visível e resolução da causa</dd></div>
 </dl>
 <h3>Hook</h3>
 <div class="selo-box prat"><span class="selo prat">Família C1 — Negação direta</span>
-<p><strong>"O melasma não 'volta'. Ele nunca foi embora — só parou de aparecer."</strong></p>
+<p><strong>"Clarear a mancha e tratar o melasma não são a mesma coisa — e é por isso que ela volta."</strong></p>
 </div>
+<dl class="prod-meta">
+<div><dt>Emoção predominante</dt><dd>Clareza que alivia — não é "má notícia disfarçada", é "finalmente entendi por que aconteceu comigo", sem culpa</dd></div>
+<div><dt>Ritmo</dt><dd>Corte a cada 3s até o segundo 25 — ritmo constante, sem acelerar, para não competir com a densidade da explicação (<a class="modref" data-mod="c2-m4">C2.M4</a> §4.3)</dd></div>
+<div><dt>Momento de pausa</dt><dd>Um único corte suspenso em 22–24s, no momento em que nomeia o que sustenta a célula ativa — a frase mais importante do roteiro</dd></div>
+<div><dt>Sugestão de B-roll</dt><dd>Textura de pele em macro genérico (banco próprio, nunca antes/depois de paciente); nenhuma imagem de produto ou de procedimento</dd></div>
+<div><dt>Objeção que quebra / crença que transforma</dt><dd>Quebra "esse procedimento não funcionou, porque a mancha voltou" → transforma para "o procedimento fez a parte dele (tirou o pigmento); o que faltou foi tratar o que sustenta a célula ativa"</dd></div>
+<div><dt>Promessa ética</dt><dd>Nenhuma promessa de desfecho ou de cura — pelo contrário, o roteiro afirma explicitamente que não existe cura definitiva. A única promessa é de explicação, cumprida dentro do próprio Reel</dd></div>
+<div><dt>Palavras-chave</dt><dd>melasma, clarear vs tratar, célula ativa, desequilíbrio interno, investigação</dd></div>
+</dl>
 <h3>Roteiro completo — cena por cena</h3>
 <div class="tbl-scroll">
 <table class="scene-tbl">
 <thead><tr><th>Tempo</th><th>Cena e direção</th><th>Fala / texto</th></tr></thead>
 <tbody>
-<tr><td>0–3s</td><td>Corte seco, plano fechado no rosto, sem intro. A frase de abertura ocupa sozinha a janela de gargalo atencional — nenhuma palavra é gasta antes dela, porque é nos primeiros 500ms que o filtro pré-atentivo decide se o vídeo continua sendo processado.</td><td><b>"O melasma não 'volta'. Ele nunca foi embora."</b></td></tr>
-<tr><td>3–8s</td><td>Plano muda (meio corpo), gesto de explicação — a mudança de enquadramento reabre a janela de atenção reaberta pelo gancho, sem introduzir informação nova ainda (só reformula o que ela já vive)</td><td>"Você clareia, some por um tempo, e no verão seguinte, ali está de novo. A gente chama isso de 'voltar'. Mas será que voltou — ou nunca desligou de verdade?"</td></tr>
-<tr><td>8–18s</td><td>Corte a cada 3s, b-roll neutro (textura de pele em macro genérico, nunca antes/depois da própria paciente): cada corte introduz exatamente uma unidade nova de informação — respeita o limite de ~4 itens simultâneos na memória de trabalho antes que a retenção caia</td><td>"A célula que produz o pigmento pode continuar ativa mesmo quando a mancha clareia visualmente. Clarear o pigmento não desliga o mecanismo que o produz."</td></tr>
-<tr><td>18–25s</td><td>Volta ao plano do início — fecha o ciclo visual antes de fechar o ciclo verbal, preparando o loop do fim</td><td>"Por isso o nome certo não é 'tratar a mancha'. É investigar por que o mecanismo continua ligado."</td></tr>
-<tr><td>25–27s</td><td><strong>Pausa estratégica</strong> — único momento sem corte do Reel inteiro, sinaliza não-verbalmente que a frase seguinte é a mais importante, sem precisar dizer isso</td><td>"...e isso muda tudo sobre o que vale a pena fazer primeiro."</td></tr>
-<tr><td>27–30s</td><td>CTA + loop (último quadro reconecta com o quadro de abertura, mesmo enquadramento exato)</td><td>Texto na tela: "MANDA MENSAGEM"</td></tr>
+<tr><td>0–3s</td><td>Corte seco, plano fechado no rosto, sem intro. A frase de abertura ocupa sozinha a janela de gargalo atencional — nenhuma palavra é gasta antes dela.</td><td><b>"Clarear a mancha e tratar o melasma não são a mesma coisa — e é por isso que ela volta."</b></td></tr>
+<tr><td>3–8s</td><td>Plano muda (meio corpo), tom direto — reconhece o fato médico primeiro, sem rodeio, porque confusão sobre isso é o que mais gera frustração</td><td>"Hoje a gente sabe que o melasma não tem cura definitiva. Isso não muda. Mas isso não significa que clarear a pele não funciona — significa que clarear e tratar são coisas diferentes."</td></tr>
+<tr><td>8–15s</td><td>Corte a cada 3s, tom explicativo, gesto de "camada" (mão indicando superfície vs. profundidade)</td><td>"Quando você faz um procedimento estético e a mancha clareia, o pigmento que já estava ali foi resolvido. Isso é real, isso funciona. Mas a célula que produz esse pigmento continua lá."</td></tr>
+<tr><td>15–22s</td><td>Corte a cada 3s, ritmo levemente mais lento — introduz a peça central do raciocínio</td><td>"Essa célula continua ativa porque ela está sendo sustentada por um desequilíbrio interno — uma inflamação, por exemplo. O procedimento não desliga isso. Ele trata o que já apareceu."</td></tr>
+<tr><td>22–24s</td><td><strong>Pausa estratégica</strong> — único momento sem corte do Reel inteiro, sinaliza não-verbalmente que a frase seguinte fecha o raciocínio</td><td>"Enquanto esse desequilíbrio continuar, a célula continua produzindo cor. E é isso que parece 'a mancha voltando'."</td></tr>
+<tr><td>24–30s</td><td>Volta ao plano do início (loop), CTA</td><td>"Investigar é descobrir o que está sustentando essa célula ativa. Manda mensagem e conta se sua mancha já voltou depois de algum procedimento."</td></tr>
 </tbody>
 </table>
 </div>
-<p><strong>Texto na tela (sincronizado, uma ideia por vez):</strong> "NUNCA FOI EMBORA" → "MELANÓCITO CONTINUA ATIVO" → "INVESTIGAR O MECANISMO, NÃO SÓ CLAREAR"</p>
-<p><strong>Legenda:</strong> "Ninguém te explicou por que a mancha 'volta' — porque ela nunca soube parar de aparecer. Investigação de fator ativo é diferente de clareamento. Comenta 'MAPA' se isso muda como você vê o seu caso."</p>
-<p><strong>CTA:</strong> "Manda mensagem e conta há quanto tempo o seu melasma segue esse ciclo." — sem promessa de desfecho.</p>
+<p><strong>Texto na tela (sincronizado, uma ideia por vez):</strong> "MELASMA NÃO TEM CURA DEFINITIVA" → "CLAREAR ≠ TRATAR" → "A CÉLULA CONTINUA ATIVA SE O DESEQUILÍBRIO CONTINUAR"</p>
+<p><strong>Legenda:</strong> "O procedimento clareou e depois a mancha voltou? Não foi falha do procedimento — foi porque ele resolve o que já apareceu, não o que mantém a célula produzindo pigmento. Melasma não tem cura definitiva, mas clarear e tratar são coisas diferentes, e vale entender qual das duas você já fez."</p>
+<p><strong>CTA:</strong> "Manda mensagem e conta se sua mancha já voltou depois de algum procedimento." — sem promessa de desfecho, pergunta sobre experiência real dela.</p>
 <div class="metric-row">
 <span class="metric-chip on">✓ Alcance</span><span class="metric-chip">Salvamento</span><span class="metric-chip">Compartilhamento</span><span class="metric-chip">Autoridade</span><span class="metric-chip">Conversão</span>
 </div>
@@ -171,34 +246,37 @@ conteúdo, reaplique os cinco antes de publicar.</p>
 <div class="selo-box ev">
 <span class="selo ev">Fundamentação</span>
 <p>
-O <strong>Modelo do Senso Comum de Autorregulação</strong> (Leventhal, Meyer &amp; Nerenz, 1980; atualizado
-em Leventhal, Phillips &amp; Burns, 2016) estabelece que pacientes crônicos constroem uma representação
-cognitiva da própria condição em cinco dimensões — identidade, causa, linha do tempo, consequências,
-cura/controle — e é <em>essa representação, não o fato médico objetivo,</em> que governa adesão e busca de
-tratamento. A dimensão "linha do tempo" é onde a maioria das pacientes de melasma crônico está travada:
-"cíclico, sempre volta, já vivi isso 5, 8, 12 vezes".
+Que melasma não tem cura definitiva, apenas controle, é fato clínico estabelecido e consensual em
+dermatologia — recorrência é a regra, não a exceção, mesmo após resposta inicial boa a tratamento. O
+componente vascular e inflamatório documentado em revisões recentes (ver Dia 4, Ali &amp; Al Niaimi, 2025)
+sustenta a lógica de que fatores que mantêm o melanócito — a célula que produz o pigmento — ativado podem
+persistir mesmo depois de um procedimento estético remover o pigmento já depositado.
 </p>
 </div>
 <div class="apply-box">
 <h4>Aplicação nesta peça</h4>
-<p>O gancho ataca essa dimensão especificamente — não a de "causa" (que ela já aceita, de forma parcial:
-sol/hormônio/genética) nem a de "cura" (assunto do Dia 7). Reformular "voltar" como "nunca desligou" não
-é retórica: é uma reformulação factualmente defensável (melanócitos hiperativos permanecem funcionalmente
-alterados mesmo com pigmento visualmente reduzido — ver Dia 4, Ali &amp; Al Niaimi, 2025) que muda a
-categoria mental da paciente sem prometer nada sobre o desfecho dela. Passa no teste de verdade do
-<a class="modref" data-mod="c2-m3">C2.M3</a> §3.9 porque continua verdadeiro mesmo para uma paciente cujo
-tratamento não funcionou — a frase é sobre mecanismo biológico, não sobre resultado.</p>
+<p>A correção mais importante desta versão: o roteiro anterior podia soar como se estivesse prometendo que
+"investigar" resolve o que os procedimentos não resolvem — isso seria promessa de desfecho. A versão atual
+separa duas afirmações diferentes: (1) melasma não tem cura definitiva — fato, sem ressalva; (2) clarear e
+tratar são conceitualmente diferentes — distinção educativa, não promessa. O roteiro nunca diz que
+investigar "resolve" — diz que investigar é descobrir o que sustenta a célula ativa, o que passa no teste
+de verdade do <a class="modref" data-mod="c2-m3">C2.M3</a> §3.9 mesmo para uma paciente cuja investigação
+não encontrou fator nenhum.</p>
 </div>
-<div class="limit-box"><b>Limite honesto:</b> Leventhal mediu representação de doença em condições crônicas em geral (diabetes, hipertensão, câncer) — não especificamente melasma. A extrapolação da dimensão "linha do tempo" para este quadro é razoável (o padrão cíclico é clinicamente bem descrito) mas não é, ela mesma, um achado medido em pacientes de melasma.</div>
+<div class="limit-box"><b>Limite honesto:</b> "desequilíbrio interno" e "inflamação" são termos genéricos usados aqui para não antecipar o mapa completo de fatores do Dia 4 — o Reel do Dia 1 não afirma qual desequilíbrio, só que a categoria existe e é biologicamente plausível pelo componente inflamatório já documentado em melasma.</div>
 
-<h3>Stories do dia</h3>
+<h3>Stories de apoio</h3>
+<p class="story-sub">Antes da publicação — aquecimento</p>
 <div class="story-grid">
-<div class="story-card"><span class="story-n">Story 1</span><h5>Enquete de identificação</h5><p class="lab">Texto</p><p>"Alguém aqui sente que a mancha 'sempre volta'?"</p><p class="lab">Interação</p><p>Enquete: Sempre / Às vezes</p><p class="lab">Função</p><p>Aquecer e segmentar quem se identifica com o tema do Reel</p></div>
-<div class="story-card"><span class="story-n">Story 2</span><h5>Bastidor</h5><p class="lab">Texto</p><p>"Gravando o Reel de hoje sobre por que o melasma parece voltar."</p><p class="lab">Interação</p><p>Bastidor (vídeo curto)</p><p class="lab">Função</p><p>Calor sem perder competência (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.3)</p></div>
-<div class="story-card"><span class="story-n">Story 3</span><h5>Reforço de mecanismo</h5><p class="lab">Texto</p><p>"O melanócito pode continuar ativo mesmo sem mancha visível — mais sobre isso no carrossel de quinta."</p><p class="lab">Interação</p><p>Nenhuma — informativo</p><p class="lab">Função</p><p>Autoridade via raciocínio exposto, plantando o Dia 4</p></div>
+<div class="story-card"><span class="story-n">Story 1</span><h5>Enquete de identificação</h5><p class="lab">Texto</p><p>"Você já clareou o melasma com algum procedimento e ele voltou depois?"</p><p class="lab">Interação</p><p>Enquete: Sim, voltou / Nunca clareei</p><p class="lab">Função</p><p>Aquecer e segmentar quem se identifica com o tema, antes de o Reel existir no feed dela</p></div>
+<div class="story-card"><span class="story-n">Story 2</span><h5>Bastidor</h5><p class="lab">Texto</p><p>"Gravando o Reel de hoje sobre a diferença entre clarear e tratar o melasma."</p><p class="lab">Interação</p><p>Bastidor (vídeo curto)</p><p class="lab">Função</p><p>Calor sem perder competência (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.3), cria expectativa de publicação</p></div>
+</div>
+<p class="story-sub">Depois da publicação — reforço</p>
+<div class="story-grid">
+<div class="story-card"><span class="story-n">Story 3</span><h5>Reforço de mecanismo</h5><p class="lab">Texto</p><p>"A célula que produz o pigmento (melanócito) continua ali mesmo depois do procedimento — o que muda é se o que a mantém ativa foi tratado ou não."</p><p class="lab">Interação</p><p>Nenhuma — informativo</p><p class="lab">Função</p><p>Autoridade via raciocínio exposto, plantando o Dia 4</p></div>
 <div class="story-card"><span class="story-n">Story 4</span><h5>Captura de contexto</h5><p class="lab">Texto</p><p>Caixa de perguntas: "O que você já tentou pro seu melasma?"</p><p class="lab">Interação</p><p>Caixa de resposta</p><p class="lab">Função</p><p>Qualificação de leads + insumo real pro Dia 5</p></div>
-<div class="story-card"><span class="story-n">Story 5</span><h5>Antecipação</h5><p class="lab">Texto</p><p>"Essa semana eu mostro como funciona uma investigação de verdade."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Setup pro Dia 4/5, sem antes/depois</p></div>
-<div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento do dia</h5><p class="lab">Texto</p><p>Repost do Reel: "Se isso fez sentido, o próximo passo é entender os fatores por trás do seu caso."</p><p class="lab">Interação</p><p>Sticker "Enviar mensagem"</p><p class="lab">Função</p><p>Conversão leve, sem pressão (evita reatância, <a class="modref" data-mod="c2-m2">C2.M2</a> §2.7 origem D)</p></div>
+<div class="story-card"><span class="story-n">Story 5</span><h5>Antecipação</h5><p class="lab">Texto</p><p>"Essa semana eu mostro como funciona uma investigação de verdade — o que sustenta a célula ativa, caso a caso."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Setup pro Dia 4/5, sem antes/depois</p></div>
+<div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento do dia</h5><p class="lab">Texto</p><p>Repost do Reel: "Se isso fez sentido, o próximo passo é entender o que está sustentando a célula ativa no seu caso."</p><p class="lab">Interação</p><p>Sticker "Enviar mensagem"</p><p class="lab">Função</p><p>Conversão leve, sem pressão (evita reatância, <a class="modref" data-mod="c2-m2">C2.M2</a> §2.7 origem D)</p></div>
 </div>
 </section>
 
@@ -206,19 +284,28 @@ tratamento não funcionou — a frase é sobre mecanismo biológico, não sobre 
 <section class="sec reveal">
 <div class="sec-head">
 <div class="sec-tag"><span>Dia 2 · Terça</span><span></span></div>
-<h2>O momento antes da foto que você decide não tirar</h2>
-<p class="sec-lede">Identificação pura. Nomeia o momento exato — não a condição — para gerar reconhecimento em terceira pessoa, sem exigir que ela admita nada.</p>
+<h2>Pare de minimizar o que você sente por causa do melasma</h2>
+<p class="sec-lede">Reescrito depois de revisão do dono: a v3 nomeava a dor emocional mas não fechava com uma mensagem clara — cortava pra "salva esse Reel" sem dizer <em>o que fazer</em> com o que acabou de ser nomeado. Esta versão tem um desfecho explícito: o passo antes de qualquer decisão sobre tratamento é parar de minimizar pra si mesma o que você sente. Mensagem única, do início ao fim: isso que você sente é real, tem nome, e merece ser levado a sério por você primeiro.</p>
 </div>
 <dl class="day-meta">
 <div><dt>Formato</dt><dd>Reel · Identificação (dia a dia sóbrio)</dd></div>
 <div><dt>Objetivo</dt><dd>Salvamento e compartilhamento — engajamento profundo, não alcance bruto</dd></div>
 <div><dt>Público</dt><dd>Quem viu o Reel de ontem (visualização ≥50%) + seguidoras atuais</dd></div>
-<div><dt>Mecanismo psicológico</dt><dd>Dor identitária, não funcional — teoria da autodiscrepância</dd></div>
+<div><dt>Mecanismo psicológico</dt><dd>Dor identitária, não funcional — teoria da autodiscrepância, com fechamento que transforma reconhecimento em permissão pra não minimizar</dd></div>
 </dl>
 <h3>Hook</h3>
 <div class="selo-box prat"><span class="selo prat">Família B1 — O momento exato, nomeado</span>
 <p><strong>"Se você já cancelou uma foto de família por causa da mancha, isso é pra você."</strong></p>
 </div>
+<dl class="prod-meta">
+<div><dt>Emoção predominante</dt><dd>Reconhecimento silencioso — desânimo reconhecido, nunca agitação. Não é para chocar, é para "encaixar"</dd></div>
+<div><dt>Ritmo</dt><dd>Mais lento que o Dia 1: cortes a cada 3–4s, sem pressa — a mensagem é sobre distância emocional, ritmo acelerado destruiria o tom</dd></div>
+<div><dt>Momento de pausa</dt><dd>19–23s, na virada em que nomeia a discrepância — e uma segunda, mais curta, em 26–28s, na frase de fechamento (a peça agora tem duas pausas, porque tem duas ideias que precisam de espaço: o nome do que ela sente, e o que fazer com isso)</dd></div>
+<div><dt>Sugestão de B-roll</dt><dd>Nenhum — plano fechado no rosto do início ao fim a partir dos 10s; qualquer corte de b-roll quebraria a intimidade que a peça constrói</dd></div>
+<div><dt>Objeção que quebra / crença que transforma</dt><dd>Quebra "isso é vaidade, eu deveria estar acima disso, é só uma mancha" → transforma para "o que eu sinto é documentado e real — minimizar isso pra mim mesma não ajuda em nada"</dd></div>
+<div><dt>Promessa ética</dt><dd>Nenhuma sobre tratamento. A promessa é só de validação — "o que você sente tem nome e é real" — cumprida inteiramente dentro do Reel, sem depender de nenhuma ação posterior</dd></div>
+<div><dt>Palavras-chave</dt><dd>melasma, autoestima, impacto emocional, MELASQOL, identidade</dd></div>
+</dl>
 <h3>Roteiro completo — cena por cena</h3>
 <div class="tbl-scroll">
 <table class="scene-tbl">
@@ -226,15 +313,17 @@ tratamento não funcionou — a frase é sobre mecanismo biológico, não sobre 
 <tbody>
 <tr><td>0–3s</td><td>Movimento de câmera lento em direção ao rosto, sem intro — velocidade deliberadamente mais baixa que o Dia 1: o gancho aqui não depende de choque, depende de reconhecimento, que precisa de um segundo a mais para "encaixar"</td><td><b>"Se você já cancelou uma foto de família por causa da mancha, isso é pra você."</b></td></tr>
 <tr><td>3–10s</td><td>Corte a cada 3s, tom calmo, sem trilha alta — nomeia o dado antes da emoção, ordem deliberada para não soar como apelo</td><td>"Não é vaidade. Existe questionário validado que mede o impacto do melasma na vida social e no humor — ele existe porque o impacto é real e foi documentado."</td></tr>
-<tr><td>10–18s</td><td>Plano fechado, sem corte de b-roll — o rosto sustenta a frase mais pessoal do roteiro</td><td>"A dor não é a mancha. É a distância entre quem você é hoje e quem você era antes dela."</td></tr>
-<tr><td>18–24s</td><td>Pausa estratégica na virada — segunda vez na semana que o roteiro usa esse recurso, e a repetição começa a funcionar como assinatura de ritmo, não só de ênfase</td><td>"...e essa distância tem nome. Chama-se discrepância entre o que você é e o que gostaria de ser — e ela não se resolve com clareador."</td></tr>
-<tr><td>24–30s</td><td>CTA suave + loop</td><td>Texto na tela: "VOCÊ NÃO PRECISA SE EXPLICAR"</td></tr>
+<tr><td>10–19s</td><td>Plano fechado, sem corte de b-roll — o rosto sustenta a frase mais pessoal do roteiro</td><td>"A dor não é a mancha. É a distância entre quem você é hoje e quem você era antes dela — a vontade de evitar foto, de ficar de lado, de esperar passar."</td></tr>
+<tr><td>19–23s</td><td><strong>Pausa 1</strong> — nomeia o conceito, sem pressa</td><td>"Essa distância tem nome. Se chama discrepância entre quem você é e quem gostaria de ser. E ela é real — não é frescura, não é drama."</td></tr>
+<tr><td>23–26s</td><td>Tom muda de "explicativo" pra "diretivo" — é a virada de mensagem, do reconhecimento pra o que fazer com ele</td><td>"O primeiro passo não é decidir o que fazer com a mancha. É parar de minimizar pra você mesma o que você sente por causa dela."</td></tr>
+<tr><td>26–28s</td><td><strong>Pausa 2</strong> — mais curta, fecha o raciocínio</td><td>"Isso não é fraqueza. É reconhecer um impacto que já foi medido e documentado."</td></tr>
+<tr><td>28–30s</td><td>CTA + loop</td><td>Texto na tela: "ISSO É REAL. NÃO MINIMIZE."</td></tr>
 </tbody>
 </table>
 </div>
-<p><strong>Texto na tela:</strong> "SE VOCÊ JÁ CANCELOU UMA FOTO" → "NÃO É VAIDADE" → "É A DISTÂNCIA ATÉ QUEM VOCÊ ERA"</p>
-<p><strong>Legenda:</strong> "Isso não fala de mancha. Fala do que você faz quando percebe que vai aparecer numa foto. Se isso te descreveu, você não está sozinha nisso — e não precisa se explicar pra ninguém."</p>
-<p><strong>CTA:</strong> "Salva esse Reel pra quando precisar lembrar que isso não é vaidade." — convite ao salvamento, não ao clique.</p>
+<p><strong>Texto na tela:</strong> "SE VOCÊ JÁ CANCELOU UMA FOTO" → "ESSA DISTÂNCIA TEM NOME" → "PARE DE MINIMIZAR O QUE VOCÊ SENTE"</p>
+<p><strong>Legenda:</strong> "Isso não fala de mancha. Fala do que você faz quando percebe que vai aparecer numa foto. Existe um nome pra essa distância entre quem você é hoje e quem você era antes — e reconhecer isso, sem minimizar, é o primeiro passo antes de qualquer decisão sobre tratamento."</p>
+<p><strong>CTA:</strong> "Salva esse Reel pra parar de minimizar isso da próxima vez que sentir." — o salvamento é a própria ação que a mensagem pede, não um pedido solto.</p>
 <div class="metric-row">
 <span class="metric-chip">Alcance</span><span class="metric-chip on">✓ Salvamento</span><span class="metric-chip on">✓ Compartilhamento</span><span class="metric-chip">Autoridade</span><span class="metric-chip">Conversão</span>
 </div>
@@ -244,26 +333,31 @@ tratamento não funcionou — a frase é sobre mecanismo biológico, não sobre 
 <p>A <strong>teoria da autodiscrepância</strong> (Higgins, 1987, <em>Psychological Review</em> 94(3), 319-340) distingue três domínios do self — real, ideal e devido — e mostra que a discrepância <em>real≠ideal</em> produz especificamente emoções de <strong>desânimo</strong> (decepção, tristeza), enquanto <em>real≠devido</em> produz <strong>agitação</strong> (ansiedade, culpa). Paralelamente, existe um instrumento validado para português brasileiro — <abbr data-t="MELASQOL">MELASQOL</abbr>/MelasQoL-BP (Balkrishnan et al., 2003, <em>British Journal of Dermatology</em> 149(3); Cestari et al., 2006, mesma revista, 156(s1)) — cujos domínios incluem constrangimento, retração social e liberdade, não só aparência.</p>
 </div>
 <div class="apply-box">
-<h4>Aplicação nesta peça</h4>
-<p>Se o melasma crônico produz uma discrepância predominantemente <em>real≠ideal</em>, a emoção dominante é
-desânimo, não ansiedade — o que significa que toda comunicação baseada em urgência e medo está desalinhada
-com o estado real de quem assiste (desânimo tem ativação <em>baixa</em>; não compartilha, não age). Por
-isso este Reel não agita nada: nomeia a distância, valida sem pedir confissão, e usa uma pergunta implícita
-de reconhecimento em vez de uma provocação. O efeito holofote (Gilovich, Medvec &amp; Savitsky, 2000) —
-pessoas superestimam sistematicamente o quanto os outros notam sua aparência — é usado aqui na direção
-certa: o sofrimento é relacional <em>consigo mesma</em>, não com o julgamento alheio, e é isso que o roteiro
-nomeia, nunca "os outros vão notar".</p>
+<h4>Aplicação nesta peça — qual é a mensagem real</h4>
+<p>A correção mais importante desta versão: o roteiro anterior nomeava a discrepância e terminava ali, sem
+dizer o que fazer com essa informação — a v3 saltava direto pra "salva esse Reel" sem nexo com o que tinha
+acabado de ser dito. Esta versão fecha o raciocínio: nomear o sentimento não é o fim, é o começo, e o que
+vem depois de nomear é <em>parar de minimizar</em>, não decidir sobre tratamento (isso é conversa pra outro
+dia da semana). É esse o motivo do Reel existir — não "engajamento por engajamento", mas dar uma coisa
+concreta e usável pra quem assiste: permissão pra levar a sério o que ela sente, hoje, independente de
+qualquer decisão futura. O efeito holofote (Gilovich, Medvec &amp; Savitsky, 2000) — pessoas superestimam
+o quanto os outros notam sua aparência — reforça por que a validação certa não é "ninguém repara", e sim
+"o que você sente é sobre você mesma, e isso já basta pra ser real".</p>
 </div>
 <div class="limit-box"><b>Limite honesto:</b> não existe medição publicada da discrepância real≠ideal especificamente em pacientes de melasma — a aplicação da teoria de Higgins a este quadro é uma inferência razoável (a estrutura teórica é geral e bem replicada), não um achado direto. E o MELASQOL mede impacto documentado — não prova a hipótese específica de que a emoção dominante seja desânimo em vez de agitação; essa parte é interpretação.</div>
 
-<h3>Stories do dia</h3>
+<h3>Stories de apoio</h3>
+<p class="story-sub">Antes da publicação — aquecimento</p>
 <div class="story-grid">
-<div class="story-card"><span class="story-n">Story 1</span><h5>Reforço do gancho</h5><p class="lab">Texto</p><p>"Marca aqui quem já fez isso 😔" (referência ao Reel)</p><p class="lab">Interação</p><p>Caixa de resposta</p><p class="lab">Função</p><p>Coleta de identificação real para casos futuros (autorizados)</p></div>
-<div class="story-card"><span class="story-n">Story 2</span><h5>Dado do MELASQOL</h5><p class="lab">Texto</p><p>"Existe um questionário validado em português que mede isso — sem citar escore específico."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Autoridade, sem falsa precisão numérica</p></div>
-<div class="story-card"><span class="story-n">Story 3</span><h5>Prova discreta</h5><p class="lab">Texto</p><p>"Toda semana eu recebo mensagem de alguém que nunca tinha contado isso pra ninguém."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Benevolência (modelo ABI, <a class="modref" data-mod="c2-m3">C2.M3</a> §3.1)</p></div>
-<div class="story-card"><span class="story-n">Story 4</span><h5>Enquete de reconhecimento</h5><p class="lab">Texto</p><p>"O que pesa mais: a mancha em si ou o que você deixa de fazer por causa dela?"</p><p class="lab">Interação</p><p>Enquete: A mancha / O que eu deixo de fazer</p><p class="lab">Função</p><p>Confirma a tese da dor identitária com dado próprio</p></div>
+<div class="story-card"><span class="story-n">Story 1</span><h5>Dado do MELASQOL</h5><p class="lab">Texto</p><p>"Existe um questionário validado em português que mede o impacto emocional do melasma — sem citar escore específico."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Planta o dado antes do Reel, autoridade sem falsa precisão numérica</p></div>
+<div class="story-card"><span class="story-n">Story 2</span><h5>Enquete de reconhecimento</h5><p class="lab">Texto</p><p>"O que pesa mais: a mancha em si ou o que você deixa de fazer por causa dela?"</p><p class="lab">Interação</p><p>Enquete: A mancha / O que eu deixo de fazer</p><p class="lab">Função</p><p>Levanta a tese da dor identitária com dado próprio, antes do Reel confirmar</p></div>
+</div>
+<p class="story-sub">Depois da publicação — reforço</p>
+<div class="story-grid">
+<div class="story-card"><span class="story-n">Story 3</span><h5>Reforço do gancho</h5><p class="lab">Texto</p><p>"Marca aqui quem já fez isso 😔" (referência ao Reel)</p><p class="lab">Interação</p><p>Caixa de resposta</p><p class="lab">Função</p><p>Coleta de identificação real para casos futuros (autorizados)</p></div>
+<div class="story-card"><span class="story-n">Story 4</span><h5>Prova discreta</h5><p class="lab">Texto</p><p>"Toda semana eu recebo mensagem de alguém que nunca tinha contado isso pra ninguém."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Benevolência (modelo ABI, <a class="modref" data-mod="c2-m3">C2.M3</a> §3.1)</p></div>
 <div class="story-card"><span class="story-n">Story 5</span><h5>Absolvição</h5><p class="lab">Texto</p><p>"Você não fez nada de errado. O que foi indicado não tratava o mecanismo."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Construção "absolver" (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.3)</p></div>
-<div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento</h5><p class="lab">Texto</p><p>Repost do Reel com sticker de resposta livre: "conta pra mim, sem compromisso"</p><p class="lab">Interação</p><p>Caixa de resposta</p><p class="lab">Função</p><p>Abre canal de conversa de baixa fricção</p></div>
+<div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento</h5><p class="lab">Texto</p><p>Repost do Reel com sticker de resposta livre: "conta pra mim, sem compromisso — e amanhã eu te mostro por que duas pessoas com o mesmo diagnóstico podem precisar de coisas diferentes."</p><p class="lab">Interação</p><p>Caixa de resposta</p><p class="lab">Função</p><p>Abre canal de conversa de baixa fricção e faz a ponte explícita pro Dia 3</p></div>
 </div>
 </section>
 
@@ -271,65 +365,86 @@ nomeia, nunca "os outros vão notar".</p>
 <section class="sec reveal">
 <div class="sec-head">
 <div class="sec-tag"><span>Dia 3 · Quarta</span><span></span></div>
-<h2>Duas mulheres, o mesmo melasma, protocolos completamente diferentes</h2>
-<p class="sec-lede">Ataca o medo de "ser mais uma na esteira" mostrando descarte — a única prova de personalização que não pode ser falsificada.</p>
+<h2>Mesma mancha, mesmo lugar do rosto — causas completamente diferentes</h2>
+<p class="sec-lede">Reescrito depois de revisão do dono: a v3 dizia "fator hormonal" vs. "fator vascular" de um jeito vago, sem mostrar o raciocínio de verdade. Esta versão usa o método real: a localização da mancha aponta pra qual órgão investigar (o "órgão de choque") — mas duas pacientes com o mesmo órgão de choque podem ter causas de origem completamente diferentes por trás dele. Exemplo concreto, não fator genérico.</p>
 </div>
 <dl class="day-meta">
 <div><dt>Formato</dt><dd>Reel · Bastidor do raciocínio (<a class="modref" data-mod="c2-m4">C2.M4</a> §4.6)</dd></div>
 <div><dt>Objetivo</dt><dd>Autoridade — mover habilidade, benevolência e integridade ao mesmo tempo</dd></div>
 <div><dt>Público</dt><dd>Engajou com Dia 1 ou 2 (curtida, comentário, ≥75% assistido) + seguidoras</dd></div>
-<div><dt>Mecanismo psicológico</dt><dd>Demonstração de raciocínio via descarte — o único componente de autoridade que move as 3 variáveis do modelo ABI simultaneamente</dd></div>
+<div><dt>Mecanismo psicológico</dt><dd>Demonstração de raciocínio via exemplo concreto — o único componente de autoridade que move as 3 variáveis do modelo ABI simultaneamente</dd></div>
 </dl>
 <h3>Hook</h3>
 <div class="selo-box prat"><span class="selo prat">Família D1 — O bastidor do raciocínio</span>
-<p><strong>"Por que eu não indico o mesmo protocolo pra duas pacientes com o mesmo melasma."</strong></p>
+<p><strong>"Duas mulheres. A mesma mancha, exatamente no mesmo lugar do rosto. E os motivos por trás são completamente diferentes."</strong></p>
 </div>
+<dl class="prod-meta">
+<div><dt>Emoção predominante</dt><dd>Confiança técnica — a audiência deve sentir "ela está pensando alto, com um caso real", não "ela está se vendendo"</dd></div>
+<div><dt>Ritmo</dt><dd>Corte a cada 3s, gestos sincronizados com cada fator citado — o corpo demonstra o raciocínio, não só a fala</dd></div>
+<div><dt>Momento de pausa</dt><dd>Dois momentos sem corte: a virada do exemplo (14–18s, câmera parada) e a virada final (22–26s) — o raciocínio exposto precisa de espaço duas vezes</dd></div>
+<div><dt>Sugestão de B-roll</dt><dd>Mapa de rosto genérico (sem identificação de paciente) marcando a mesma região nas duas pacientes citadas, só como apoio visual — nunca ficha ou dado identificável real</dd></div>
+<div><dt>Objeção que quebra / crença que transforma</dt><dd>Quebra "mesmo lugar da mancha = mesmo problema = mesmo protocolo" → transforma para "o lugar é só o ponto de partida da investigação, não a resposta"</dd></div>
+<div><dt>Promessa ética</dt><dd>Nenhuma. Promete só demonstrar como o raciocínio funciona — não que o caso da espectadora seguirá o mesmo caminho de nenhuma das duas pacientes citadas (exemplo composto, não caso real identificável)</dd></div>
+<div><dt>Palavras-chave</dt><dd>órgão de choque, investigação individualizada, localização da mancha, protocolo personalizado</dd></div>
+</dl>
 <h3>Roteiro completo — cena por cena</h3>
 <div class="tbl-scroll">
 <table class="scene-tbl">
 <thead><tr><th>Tempo</th><th>Cena e direção</th><th>Fala / texto</th></tr></thead>
 <tbody>
-<tr><td>0–3s</td><td>Corte seco, mão apontando para dois cartões/rascunhos na mesa (nunca rosto ou dado identificável de paciente real)</td><td><b>"Por que eu não indico o mesmo protocolo pra duas pacientes com o mesmo melasma."</b></td></tr>
-<tr><td>3–12s</td><td>Corte a cada 3s, tom explicativo, gestos que acompanham cada fator citado (mão esquerda = fator 1, mão direita = fator 2 — âncora visual pro que seria só um par de palavras)</td><td>"Duas mulheres chegam com a mesma mancha, no mesmo lugar do rosto. Uma tem fator hormonal ativo. A outra, fator vascular. Por fora, parecem idênticas."</td></tr>
-<tr><td>12–20s</td><td>Gesto de descarte, tom deliberativo — a câmera não corta durante o gesto, porque o próprio movimento de "afastar uma opção" é a prova visual do raciocínio</td><td>"Pra primeira, eu não começaria pelo que eu começaria pra segunda — porque o que mantém a mancha ativa não é o mesmo."</td></tr>
-<tr><td>20–26s</td><td>Pausa estratégica</td><td>"Protocolo padronizado tem preço de mercado. Investigação individual não tem — porque não existe uma prateleira pra ela."</td></tr>
-<tr><td>26–30s</td><td>CTA + loop</td><td>Texto na tela: "SEU CASO NÃO É GENÉRICO"</td></tr>
+<tr><td>0–3s</td><td>Corte seco, gesto apontando pra região específica num mapa de rosto genérico (nunca rosto ou dado identificável de paciente real)</td><td><b>"Duas mulheres. A mesma mancha, exatamente no mesmo lugar do rosto. E os motivos por trás são completamente diferentes."</b></td></tr>
+<tr><td>3–8s</td><td>Corte a cada 3s, tom explicativo — introduz o conceito antes do exemplo, pra quem nunca ouviu isso não se perder</td><td>"Na investigação que eu faço, o lugar onde a mancha aparece no rosto aponta pra qual órgão pode estar em desequilíbrio — é o que eu chamo de órgão de choque. Mas isso é só o primeiro passo."</td></tr>
+<tr><td>8–14s</td><td>Gesto que separa "duas mãos, dois casos" — âncora visual pro exemplo que vem a seguir</td><td>"As duas pacientes desse exemplo tinham a mancha no mesmo lugar — a região que aponta pro intestino como órgão de choque."</td></tr>
+<tr><td>14–18s</td><td><strong>Pausa 1</strong> — câmera parada na virada do exemplo, sem corte</td><td>"Só que, na investigação, uma tinha uma disfunção de tireoide por trás. A outra, uma alteração depois de retirar a vesícula. Mesmo órgão de choque. Causas de origem completamente diferentes."</td></tr>
+<tr><td>18–22s</td><td>Tom conclusivo, retoma o gesto de "separar" do início</td><td>"E é por isso que eu não trato as duas do mesmo jeito — porque o que mantém cada uma ativa não é o mesmo."</td></tr>
+<tr><td>22–26s</td><td><strong>Pausa 2</strong> — fecha o raciocínio</td><td>"O lugar da mancha me diz onde olhar. Não me diz o que eu vou encontrar."</td></tr>
+<tr><td>26–30s</td><td>CTA + loop</td><td>Texto na tela: "MESMO LUGAR NÃO É MESMA CAUSA"</td></tr>
 </tbody>
 </table>
 </div>
-<p><strong>Texto na tela:</strong> "MESMA MANCHA" → "FATORES DIFERENTES" → "SEM PRATELEIRA PRA COMPARAR"</p>
-<p><strong>Legenda:</strong> "Todo Reel de '5 dicas para melasma' parte de que existe um protocolo único. Não existe. Duas manchas iguais por fora podem ter mecanismos completamente diferentes por dentro."</p>
-<p><strong>CTA:</strong> "Se você quiser entender qual fator pode estar por trás do seu caso, me chama." — convite, não promessa.</p>
+<p><strong>Texto na tela:</strong> "MESMA MANCHA, MESMO LUGAR" → "ÓRGÃO DE CHOQUE = ONDE OLHAR, NÃO O QUE VOU ENCONTRAR" → "CAUSAS DIFERENTES, CONDUTAS DIFERENTES"</p>
+<p><strong>Legenda:</strong> "Todo Reel de '5 dicas para melasma' parte de que existe um protocolo único. Não existe. O lugar onde a mancha aparece indica qual órgão investigar — mas duas pessoas com a mancha no mesmo lugar podem ter causas de origem completamente diferentes por trás desse mesmo órgão. É por isso que a conduta muda de paciente pra paciente."</p>
+<p><strong>CTA:</strong> "Se você quiser entender o que pode estar por trás do lugar onde a sua mancha aparece, me chama." — convite, não promessa.</p>
 <div class="metric-row">
 <span class="metric-chip">Alcance</span><span class="metric-chip">Salvamento</span><span class="metric-chip">Compartilhamento</span><span class="metric-chip on">✓ Autoridade</span><span class="metric-chip">Conversão</span>
 </div>
 
+<div class="selo-box prat">
+<span class="selo prat">Prática — método próprio</span>
+<p>A correspondência entre a localização da mancha e o órgão de choque a investigar é o método clínico da
+profissional. O exemplo das duas pacientes (tireoide × vesícula) é ilustrativo, não um caso real
+identificável.</p>
+</div>
 <div class="selo-box ev">
-<span class="selo ev">Fundamentação</span>
+<span class="selo ev">Fundamentação — sobre a estrutura de confiança da peça</span>
 <p>O <strong>modelo integrativo de confiança organizacional</strong> (Mayer, Davis &amp; Schoorman, 1995,
 <em>Academy of Management Review</em> 20(3), 709-734) decompõe confiabilidade percebida em três variáveis
 <em>independentes</em> — habilidade, benevolência, integridade — replicadas de forma estável em contextos
 variados (meta-análise de Colquitt, Scott &amp; LePine, 2007, <em>Journal of Applied Psychology</em> 92(4)).
-Alta habilidade com baixa benevolência não gera confiança: gera "medo competente".</p>
+Um exemplo concreto e específico (não um par de fatores abstratos) é o que move as três ao mesmo tempo: mostra
+habilidade (ela sabe diferenciar), benevolência (ela não empurra protocolo padrão) e integridade (é
+consistente com um padrão real de raciocínio clínico).</p>
 </div>
 <div class="apply-box">
 <h4>Aplicação nesta peça</h4>
-<p>"Descartar na frente dela" é o único dos quatro componentes de autoridade que move habilidade (mostra que
-você sabe diferenciar casos), benevolência (você está abrindo mão de vender o mesmo protocolo pra todo
-mundo — receita mais fácil) e integridade (é consistente com um padrão de raciocínio, não uma frase isolada)
-<em>na mesma peça</em>. É também impossível de falsificar de forma barata: quem não pratica personalização
-de verdade não tem descarte genuíno pra mostrar, só pode encenar — e a vigilância epistêmica da audiência
-(Sperber et al., 2010) tende a distinguir isso.</p>
+<p>A correção mais importante desta versão: "fator hormonal" vs. "fator vascular" era abstrato demais — dois
+rótulos sem conexão visível com o raciocínio real da investigação. O exemplo específico (mesmo órgão de
+choque, causas de tireoide e de vesícula) é o que faz a demonstração de raciocínio funcionar de verdade,
+porque dá pra <em>ver</em> a diferença entre "onde investigar" e "o que a investigação encontra" — a
+distinção central da peça.</p>
 </div>
-<div class="limit-box"><b>Limite honesto:</b> o modelo ABI foi validado em confiança organizacional (colegas, gestores, empresas) — não em decisão de compra de saúde por paciente que nunca viu a profissional pessoalmente. A transferência é uma leitura razoável do modelo, não um resultado medido neste contexto específico.</div>
 
-<h3>Stories do dia</h3>
+<h3>Stories de apoio</h3>
+<p class="story-sub">Antes da publicação — aquecimento</p>
 <div class="story-grid">
-<div class="story-card"><span class="story-n">Story 1</span><h5>Pergunta de triagem</h5><p class="lab">Texto</p><p>"Seu melasma piora mais com calor/sol ou é constante o mês inteiro?"</p><p class="lab">Interação</p><p>Enquete: Piora com calor / Constante</p><p class="lab">Função</p><p>Autotriagem + dado real, e prepara o fator térmico do Dia 4</p></div>
-<div class="story-card"><span class="story-n">Story 2</span><h5>Admitir limite</h5><p class="lab">Texto</p><p>"Isso a ciência ainda não fechou totalmente — e eu prefiro te contar do que fingir que sabe."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Integridade — só funciona pós-competência já estabelecida</p></div>
-<div class="story-card"><span class="story-n">Story 3</span><h5>Bastidor</h5><p class="lab">Texto</p><p>"É assim que eu decido por onde começar em cada caso."</p><p class="lab">Interação</p><p>Bastidor (foto da mesa/anotações, sem dado de paciente)</p><p class="lab">Função</p><p>Consistência temporal — repetição do padrão de raciocínio exposto</p></div>
-<div class="story-card"><span class="story-n">Story 4</span><h5>Caixa de dúvidas</h5><p class="lab">Texto</p><p>"Manda sua dúvida sobre fator hormonal x vascular x térmico"</p><p class="lab">Interação</p><p>Caixa de perguntas</p><p class="lab">Função</p><p>Insumo qualificado pro Dia 4</p></div>
-<div class="story-card"><span class="story-n">Story 5</span><h5>Prova de raciocínio</h5><p class="lab">Texto</p><p>"Repare: eu não disse qual é melhor. Disse que são diferentes."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Reforça o teste de verdade — nenhuma superioridade inventada</p></div>
+<div class="story-card"><span class="story-n">Story 1</span><h5>Pergunta de triagem</h5><p class="lab">Texto</p><p>"Sua mancha aparece mais nas maçãs do rosto, na testa ou no queixo?"</p><p class="lab">Interação</p><p>Enquete de 3 opções</p><p class="lab">Função</p><p>Autotriagem + dado real, planta o tema da localização antes do Reel existir</p></div>
+<div class="story-card"><span class="story-n">Story 2</span><h5>Caixa de dúvidas</h5><p class="lab">Texto</p><p>"Manda sua dúvida sobre por que o lugar da mancha importa na investigação — respondo no Reel de hoje."</p><p class="lab">Interação</p><p>Caixa de perguntas</p><p class="lab">Função</p><p>Cria expectativa específica, insumo real pro roteiro do dia</p></div>
+</div>
+<p class="story-sub">Depois da publicação — reforço</p>
+<div class="story-grid">
+<div class="story-card"><span class="story-n">Story 3</span><h5>Reforço do método</h5><p class="lab">Texto</p><p>"O órgão de choque é o ponto de partida da investigação — nunca a conclusão sozinha."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Integridade — reforça a distinção "onde olhar" x "o que eu vou encontrar"</p></div>
+<div class="story-card"><span class="story-n">Story 4</span><h5>Bastidor</h5><p class="lab">Texto</p><p>"É assim que eu decido por onde começar em cada caso."</p><p class="lab">Interação</p><p>Bastidor (foto da mesa/mapa de rosto, sem dado de paciente)</p><p class="lab">Função</p><p>Consistência temporal — repetição do padrão de raciocínio exposto</p></div>
+<div class="story-card"><span class="story-n">Story 5</span><h5>Prova de raciocínio</h5><p class="lab">Texto</p><p>"Repare: eu não disse qual causa é pior. Disse que são diferentes, e por isso a conduta muda."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Reforça o teste de verdade — nenhuma superioridade inventada</p></div>
 <div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento</h5><p class="lab">Texto</p><p>"Amanhã eu mostro o que a pele já revela antes de qualquer exame — com a ciência por trás."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Antecipação pro Dia 4</p></div>
 </div>
 </section>
@@ -338,11 +453,11 @@ de verdade não tem descarte genuíno pra mostrar, só pode encenar — e a vigi
 <section class="sec reveal">
 <div class="sec-head">
 <div class="sec-tag"><span>Dia 4 · Quinta</span><span></span></div>
-<h2>O que a pele revela antes mesmo dos exames</h2>
-<p class="sec-lede">O dia mais delicado — e o mais reescrito nesta revisão. Fala de fatores sistêmicos com literatura primária de 2024-2026 citada por nome, e diz explicitamente onde a literatura <em>não</em> sustenta o que seria fácil de afirmar.</p>
+<h2>Os sinais que a sua pele já mostra, antes de qualquer exame</h2>
+<p class="sec-lede">Reescrito por inteiro depois de revisão do dono: "nem eu que sou especialista entendi" foi o veredito sobre a versão anterior — fatores fisiopatológicos abstratos demais, sem dizer concretamente o que a pele mostra. Esta versão troca "fatores" por <strong>sinais visíveis e observáveis</strong>, cada um com o "por quê" explicado em linguagem simples, na ordem em que uma pessoa leiga consegue de fato acompanhar.</p>
 </div>
 <dl class="day-meta">
-<div><dt>Formato</dt><dd>Carrossel · Mecanismo explicado (9 slides)</dd></div>
+<div><dt>Formato</dt><dd>Carrossel · Mecanismo explicado (12 slides)</dd></div>
 <div><dt>Objetivo</dt><dd>Salvamento — formato utilitário de alto valor educacional real, não decorativo</dd></div>
 <div><dt>Público</dt><dd>Seguidoras + quem comentou nos dias 1–3</dd></div>
 <div><dt>Mecanismo psicológico</dt><dd>Lacuna informacional genuína — "ninguém explica o porquê" é a frustração mais citada por pacientes de condições crônicas mal explicadas</dd></div>
@@ -351,88 +466,124 @@ de verdade não tem descarte genuíno pra mostrar, só pode encenar — e a vigi
 <div class="callout science">
 <div class="callout-head">
 <svg fill="none" stroke-width="1.5" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01M11 11h1v5"></path></svg>
-<span>Por que esta seção existe separada do roteiro</span>
+<span>A lógica desta versão: sinal observável primeiro, mecanismo depois</span>
 </div>
-<p>O melasma deixou de ser tratado, na literatura recente, como um distúrbio puramente de pigmento. Revisões
-de 2024–2025 o reclassificam como uma condição multicamada — epiderme, membrana basal e derme — com
-componente vascular documentado, sobreposição histopatológica com fotoenvelhecimento, e envolvimento de
-mastócitos que secretam fatores angiogênicos. Isso muda o carrossel inteiro: em vez de listar "fatores" soltos,
-ele segue a arquitetura real da fisiopatologia — pigmentar, vascular, hormonal, térmico, neuroendócrino — e
-para explicitamente onde a evidência para.</p>
+<p>Cada slide segue a mesma estrutura de 3 passos: <strong>(1) o que dá pra observar</strong> na própria pele
+— sem jargão — <strong>(2) por que isso acontece</strong>, numa frase que qualquer leiga entende, e
+<strong>(3) o que isso significa</strong> pra decisão de investigar ou não. Nenhum slide introduz um termo
+técnico sem explicar o que ele quer dizer na mesma frase. A ordem vai do mais visível/fácil de observar
+(profundidade da mancha, localização, textura da pele) pro mais interno e menos certo (hormônio, cortisol,
+micronutrientes) — e o carrossel avisa quando a certeza começa a cair.</p>
 </div>
 
 <h3>Hook (slide 1)</h3>
 <div class="selo-box prat"><span class="selo prat">Família A1 — A crença comum está errada</span>
-<p><strong>"Você foi ensinada a pensar no melasma como uma mancha. A literatura mais recente trata como bem mais do que isso."</strong></p>
+<p><strong>"Antes de qualquer exame, a sua própria pele já dá sinais sobre o que está por trás do melasma. Aqui estão eles."</strong></p>
 </div>
 
 <h3>Roteiro completo — slide por slide</h3>
 <div class="tbl-scroll">
 <table class="scene-tbl">
-<thead><tr><th>Slide</th><th>Conteúdo</th><th>Texto na tela</th></tr></thead>
+<thead><tr><th>Slide</th><th>Conteúdo — o que é / por quê / o que significa</th><th>Texto na tela</th></tr></thead>
 <tbody>
-<tr><td>1</td><td>Hook + promessa de conteúdo (sem antes/depois)</td><td>"O QUE A PELE JÁ MOSTRA — ANTES DE QUALQUER EXAME"</td></tr>
-<tr><td>2</td><td>Reformula a pergunta: não "o que fazer com a mancha", mas "por que o mecanismo continua ativo" — a mesma reformulação do Dia 1, agora expandida</td><td>"A PERGUNTA CERTA NÃO É 'COMO CLAREAR'"</td></tr>
-<tr><td>3</td><td><strong>Fator pigmentar-estrutural</strong>: melanócitos hipertróficos, mais dendríticos, produzindo mais melanina em todas as camadas da epiderme — a alteração é celular, não só visual</td><td>"1 · A CÉLULA QUE PRODUZ O PIGMENTO ESTÁ ESTRUTURALMENTE DIFERENTE"</td></tr>
-<tr><td>4</td><td><strong>Fator vascular</strong>: revisões recentes documentam alterações vasculares dérmicas no melasma — mastócitos secretando fatores que induzem proliferação de vasos. Por isso duas pacientes com pigmento parecido podem responder de forma diferente ao mesmo protocolo</td><td>"2 · MELASMA TEM UM COMPONENTE VASCULAR DOCUMENTADO — NÃO É SÓ PIGMENTO"</td></tr>
-<tr><td>5</td><td><strong>Fator hormonal</strong>: o mais estabelecido da lista — via CRH→POMC→ACTH/melanocortinas, sensível a gestação, anticoncepcional e ciclo</td><td>"3 · HORMONAL — O FATOR MAIS DOCUMENTADO NA LITERATURA"</td></tr>
-<tr><td>6</td><td><strong>Fator térmico</strong>: mecanismo mais recente e menos conhecido do público — calor (não só radiação UV) ativa vias de melanogênese por sinalização celular específica, mesmo sem queimadura visível</td><td>"4 · CALOR ATIVA MELANOGÊNESE POR UMA VIA PRÓPRIA — NÃO É SÓ SOL"</td></tr>
-<tr><td>7</td><td><strong>Fator neuroendócrino/estresse</strong> — apresentado com a nuance real: existe uma via biológica plausível (nervos sensoriais liberando neuropeptídeos em resposta a calor/UV), mas a relação estresse↔melasma em humanos não tem o mesmo nível de evidência que o fator hormonal</td><td>"5 · ESTRESSE TEM VIA BIOLÓGICA PLAUSÍVEL — MAS É O FATOR MENOS ESTABELECIDO"</td></tr>
-<tr><td>8</td><td><strong>O que a literatura NÃO sustenta</strong>, dito de forma explícita e honesta: busca dedicada não encontrou estudo ligando diretamente microbiota intestinal ou síndrome metabólica ao melasma especificamente — existe para outras condições, não (ainda) para esta</td><td>"O QUE EU NÃO VOU AFIRMAR: LIGAÇÃO DIRETA COM INTESTINO OU METABOLISMO — NÃO ESTABELECIDA PARA MELASMA"</td></tr>
-<tr><td>9</td><td>Síntese + território semântico + CTA</td><td>"INVESTIGAÇÃO DE FATOR ATIVO. NÃO SUPOSIÇÃO."</td></tr>
+<tr><td>1</td><td>Hook + promessa de conteúdo (sem antes/depois)</td><td>"OS SINAIS QUE A SUA PELE JÁ MOSTRA"</td></tr>
+<tr><td>2</td><td><strong>Sinal 1 — Profundidade da mancha.</strong> O que é: mancha mais clara e "na superfície" é diferente de mancha mais escura, azulada ou acinzentada, que parece "mais funda" na pele. Por quê: procedimentos estéticos agressivos (peeling ou laser mal indicados pra aquele tipo de pele) podem empurrar o pigmento pra camadas mais profundas, em vez de removê-lo. O que significa: se a sua mancha ficou "mais funda" depois de um procedimento, isso é um sinal de que o procedimento não foi adequado pro seu caso — não que nada funciona</td><td>"1 · A MANCHA É SUPERFICIAL OU PARECE 'MAIS FUNDA'?"</td></tr>
+<tr><td>3</td><td><strong>Sinal 2 — Onde a mancha aparece no rosto.</strong> O que é: a localização (bochecha, testa, queixo, ao redor da boca). Por quê: na investigação que eu faço, cada região aponta pra um órgão diferente a investigar — é o que eu chamo de "órgão de choque". O que significa: o lugar da mancha é o primeiro dado da investigação, não o diagnóstico final — duas pessoas com mancha no mesmo lugar podem ter causas diferentes (ver Dia 3)</td><td>"2 · ONDE NO ROSTO? A LOCALIZAÇÃO APONTA PRA ONDE INVESTIGAR"</td></tr>
+<tr><td>4</td><td><strong>Sinal 3 — Barreira da pele.</strong> O que é: pele ressecada, sensível, que arde ou fica vermelha com facilidade. Por quê: quando a barreira da pele (a camada mais externa, que protege) não está íntegra, a pele fica mais reativa a calor e sol — e calor e sol são dois fatores que ativam a produção de pigmento. O que significa: pele desidratada ou sensibilizada pode estar agravando um melasma que já existe, mesmo sem ser a causa original dele</td><td>"3 · SUA PELE RESSECA OU ARDE FÁCIL? ISSO AGRAVA O QUADRO"</td></tr>
+<tr><td>5</td><td><strong>Sinal 4 — Resposta ao sol.</strong> O que é: a mancha escurece de forma desproporcional depois de qualquer exposição ao sol, mesmo rápida. Por quê: a exposição à radiação solar (e à luz visível, não só UV) ativa diretamente a célula que produz pigmento — quanto mais sensível essa resposta, maior a exposição acumulada ao longo da vida costuma ter sido. O que significa: proteção solar rigorosa não é sobre "achismo de dermato" — é resposta direta a esse sinal</td><td>"4 · ESCURECE MUITO RÁPIDO NO SOL? É RESPOSTA DIRETA À LUZ"</td></tr>
+<tr><td>6</td><td><strong>Sinal 5 — Relação com hormônio.</strong> O que é: piora perto do período menstrual, começou ou piorou na gravidez, ou depois de iniciar anticoncepcional. Por quê, em linguagem simples: hormônios como estrogênio e progesterona "grudam" em receptores na própria célula que produz pigmento — quando esses hormônios variam bastante (gravidez, pílula, ciclo), essa célula recebe mais estímulo pra produzir cor. O que significa: esse é o fator com mais décadas de estudo por trás — o mais estabelecido desta lista inteira</td><td>"5 · PIOROU NA GRAVIDEZ OU COM ANTICONCEPCIONAL? ESSE É O FATOR MAIS ESTUDADO"</td></tr>
+<tr><td>7</td><td><strong>Sinal 6 — Relação com estresse e cortisol.</strong> O que é: você percebe que a mancha piora em períodos de mais estresse, ansiedade ou noites maldormidas. Por quê, em linguagem simples: o cortisol é o hormônio que o corpo libera sob estresse — existe uma via biológica real que liga esse hormônio a inflamação e a sinais que podem estimular a mesma célula de pigmento. O que significa, com honestidade: essa via existe e é plausível, mas é o fator menos estudado desta lista especificamente em melasma — trate como algo a observar no seu caso, não como certeza</td><td>"6 · PIORA NO ESTRESSE? PODE TER RELAÇÃO — É O FATOR MENOS ESTUDADO"</td></tr>
+<tr><td>8</td><td><strong>Sinal 7 — Alimentação e micronutrientes.</strong> O que é: não é bem um "sinal visível", é um dado de investigação — níveis baixos de vitamina D ou zinco no sangue. Por quê: estudos preliminares encontraram esses níveis mais baixos em pessoas com melasma do que em pessoas sem — mas isso é associação, não prova de causa. O que significa: vale investigar em exame de sangue, sem esperar que corrigir sozinho "resolva" o quadro</td><td>"7 · VITAMINA D E ZINCO — ASSOCIAÇÃO OBSERVADA, NÃO CAUSA COMPROVADA"</td></tr>
+<tr><td>9</td><td><strong>Nota de transparência — fígado.</strong> O que é: minha investigação clínica avalia metabolismo hormonal de forma ampla, o que inclui hábitos que afetam a função do fígado. Sendo direta: isso é critério da minha prática, não um achado que a dermatologia estabeleceu como causa direta do melasma. Prefiro te dizer isso do que deixar por implícito</td><td>"8 · FÍGADO: FAZ PARTE DA MINHA INVESTIGAÇÃO — NÃO É CONSENSO CIENTÍFICO, E EU TE DIGO ISSO"</td></tr>
+<tr><td>10</td><td><strong>O que a literatura NÃO sustenta.</strong> Dito de forma explícita: busca dedicada não encontrou estudo ligando diretamente microbiota intestinal ou síndrome metabólica ao melasma especificamente — existe para outras condições, não (ainda) para esta</td><td>"O QUE EU NÃO VOU AFIRMAR: INTESTINO OU METABOLISMO — SEM ESTUDO ESPECÍFICO EM MELASMA"</td></tr>
+<tr><td>11</td><td>Síntese dos 7 sinais em uma frase de resumo, pra quem só olhar esse slide entender a ideia inteira mesmo sem ler os outros</td><td>"NENHUM SINAL SOZINHO EXPLICA TUDO. JUNTOS, ELES APONTAM POR ONDE COMEÇAR"</td></tr>
+<tr><td>12</td><td>Território semântico + CTA</td><td>"INVESTIGAÇÃO DE FATOR ATIVO. NÃO SUPOSIÇÃO."</td></tr>
 </tbody>
 </table>
 </div>
-<p><strong>Legenda:</strong> "Melasma não é só a mancha que você vê. É uma combinação de fatores — alguns bem estabelecidos, outros ainda em pesquisa — e nem toda paciente tem os mesmos. Desliza pro mapa completo, incluindo o que a ciência ainda não confirma →"</p>
-<p><strong>CTA:</strong> "Se quiser entender quais desses fatores valem investigar no seu caso, me chama no direct." — sem afirmar que ela tem qualquer fator.</p>
+<h3>Lógica entre os slides</h3>
+<p>A ordem segue o que é mais fácil de observar sozinha primeiro, e o que exige mais interpretação clínica
+depois: slides 2–5 são sinais que a própria pessoa consegue notar olhando no espelho ou lembrando do próprio
+histórico (profundidade, localização, textura, resposta ao sol); slides 6–7 já pedem uma correlação mais
+elaborada (hormônio, estresse) e o carrossel avisa quando a certeza científica cai (slide 7 é explicitamente
+"o fator menos estudado"); slide 8 é um dado de investigação, não um sinal visível, e também vem com o selo de
+evidência preliminar; slides 9 e 10 são as duas formas de transparência do carrossel — uma admite que um
+fator do próprio discurso clínico não é consenso (fígado), a outra admite que dois fatores do brief original
+simplesmente não têm literatura (intestino/metabolismo); o slide 11 existe especificamente pra quem só vir
+um slide do carrossel isolado (nem sempre a pessoa vê tudo) — resume a mensagem inteira numa frase, sem
+depender dos outros 11 pra fazer sentido. O slide 12 fecha nomeando a categoria ("investigação", não
+"suposição") que já fazia sentido desde o slide 2.</p>
+<div class="hyp-box"><b>Por que o slide 9 (fígado) é diferente do slide 10 (intestino/metabolismo):</b> o slide 10 é uma
+ausência de literatura — a decisão de conteúdo foi simplesmente não afirmar o que a ciência não sustenta. O
+slide 9 é outra coisa: é um fator que faz parte do raciocínio clínico real da profissional, mas que ela
+escolhe rotular explicitamente como prática própria, não como achado da dermatologia. A diferença entre os
+dois é a diferença entre "eu não vou inventar isso" e "eu uso isso, e sou transparente sobre o status
+científico dele" — as duas são formas de integridade, mas não são a mesma coisa, e o carrossel não as
+confunde.</div>
+<p><strong>Legenda:</strong> "A sua pele já mostra sinais antes de qualquer exame de sangue — profundidade da mancha, onde ela aparece, como reage ao sol, se piora com hormônio ou estresse. Nenhum sinal sozinho explica tudo, mas juntos apontam por onde começar a investigar. Desliza pro mapa completo, incluindo o que ainda não tem certeza científica →"</p>
+<p><strong>CTA:</strong> "Se quiser entender o que os sinais da sua pele podem estar apontando, me chama no direct." — sem afirmar que ela tem qualquer fator.</p>
+<p><strong>Palavras-chave:</strong> sinais do melasma, profundidade da mancha, órgão de choque, barreira cutânea, fator hormonal, cortisol, micronutrientes, investigação clínica</p>
 <div class="metric-row">
 <span class="metric-chip">Alcance</span><span class="metric-chip on">✓ Salvamento</span><span class="metric-chip">Compartilhamento</span><span class="metric-chip">Autoridade</span><span class="metric-chip">Conversão</span>
 </div>
 
 <div class="selo-box ev">
 <span class="selo ev">Fundamentação — literatura primária 2024–2026</span>
-<p><strong>Fator estrutural/vascular:</strong> Ali, L. &amp; Al Niaimi, F. (2025). "Pathogenesis of Melasma
-Explained." <em>International Journal of Dermatology</em>, 64(7), 1201-1212 — revisão que documenta
-alterações epidérmicas, de membrana basal e dérmicas, incluindo vasculares, elastose solar, mastócitos e
-fibroblastos senescentes, e reclassifica o melasma como sobreposto a distúrbio de fotoenvelhecimento.
-Mastócitos secretam VEGF, FGF-2 e TGF-β, fatores que induzem proliferação vascular. Ver também Gu et al.
-(2024/2025), "What lies behind melasma: a review of the related skin microenvironment", mesma revista.</p>
-<p><strong>Fator hormonal:</strong> a via CRH→POMC→ACTH e receptores de melanocortina em melanócitos é
-descrita em detalhe por Slominski e colaboradores no conceito de "eixo hipotálamo-hipófise-adrenal
-cutâneo" (revisado em <em>Endocrine Reviews</em> 34(6); ver também trabalho publicado em <em>American
-Journal of Physiology-Endocrinology and Metabolism</em> sobre CRH estimulando produção de corticosteroides
-em melanócitos via ACTH) — o fator hormonal mais estabelecido da lista, com décadas de literatura acumulada.</p>
-<p><strong>Fator térmico:</strong> pesquisa recente (2025/2026, indexada no PMC) descreve calor modulando
-melanogênese por uma via epigenética específica (WDR5/H3K4me3) que ativa o eixo CX3CL1/CX3CR1 — mecanismo
-molecular concreto para "calor sem queimadura visível" induzir pigmentação, distinto do dano actínico por UV.</p>
-<p><strong>Fator neuroendócrino/estresse:</strong> canais TRP (receptores de potencial transitório) em
-terminações nervosas sensoriais respondem tanto a UV quanto a calor, liberando neuropeptídeos que
-influenciam melanogênese — mecanismo real e publicado. Mas um estudo controlado em modelo animal (Plos One,
-2014, PMC4031121) encontrou que estresse crônico <em>suprimiu</em> elementos do eixo HPA cutâneo e a própria
-melanogênese, o oposto do que a intuição popular ("estresse piora tudo") prevê. A relação não é linear nem
-está resolvida.</p>
+<p><strong>Sinal 1 (profundidade) e componente estrutural/vascular:</strong> Ali, L. &amp; Al Niaimi, F.
+(2025). "Pathogenesis of Melasma Explained." <em>International Journal of Dermatology</em>, 64(7),
+1201-1212 — revisão que documenta alterações epidérmicas, de membrana basal e dérmicas, incluindo
+vasculares, elastose solar, mastócitos e fibroblastos senescentes. Procedimentos agressivos mal indicados
+podem gerar hiperpigmentação pós-inflamatória mais profunda — achado clínico amplamente descrito, base do
+alerta do slide 2. Ver também Gu et al. (2024/2025), "What lies behind melasma", mesma revista.</p>
+<p><strong>Sinal 5 (hormônio):</strong> a via CRH→POMC→ACTH e receptores de melanocortina em melanócitos —
+em linguagem simples, a cadeia de sinalização hormonal que "liga" a célula de pigmento — é descrita em
+detalhe por Slominski e colaboradores no conceito de "eixo hipotálamo-hipófise-adrenal cutâneo" (revisado em
+<em>Endocrine Reviews</em> 34(6)) — o fator mais estabelecido desta lista, com décadas de literatura
+acumulada.</p>
+<p><strong>Sinal 4 (resposta ao sol):</strong> pesquisa recente (2025/2026, indexada no PMC) descreve calor
+— não só radiação UV — modulando melanogênese por uma via epigenética específica (WDR5/H3K4me3, eixo
+CX3CL1/CX3CR1) — mecanismo molecular concreto para pigmentação induzida mesmo sem queimadura visível.</p>
+<p><strong>Sinal 6 (cortisol):</strong> canais TRP em terminações nervosas sensoriais respondem a UV e calor,
+liberando neuropeptídeos que influenciam melanogênese — mecanismo real e publicado. Mas um estudo controlado
+em modelo animal (PLOS One, 2014, PMC4031121) encontrou que estresse crônico <em>suprimiu</em> elementos do
+eixo HPA cutâneo e a própria melanogênese — o oposto do que a intuição popular prevê. Não encontramos revisão
+sistemática ou meta-análise específica de cortisol em melasma humano: a maior parte do que circula sobre
+"cortisol causa melasma" tem origem em conteúdo de clínica/blog comercial, não em periódico revisado por
+pares — por isso o slide 7 é rotulado como o menos estudado.</p>
+<p><strong>Sinal 7 (micronutrientes):</strong> estudos de caso-controle encontraram níveis séricos de zinco
+mais baixos em pacientes com melasma comparadas a controles saudáveis, sem correlação com a gravidade do
+quadro; achados preliminares similares existem para vitamina D. Nenhum dos dois é meta-análise ou ensaio de
+suplementação com desfecho em melasma — são estudos observacionais de associação.</p>
+<p><strong>Sobre fígado (slide 9):</strong> não há literatura dermatológica que estabeleça função hepática
+como causa direta de melasma. O que existe é confusão popular de nomenclatura: "liver spots" ("manchas de
+fígado", em inglês) é o apelido popular do lentigo solar — sardas/manchas por dano actínico acumulado — uma
+condição de pele completamente diferente do melasma. Registramos essa checagem aqui por transparência,
+exatamente como fizemos para intestino/metabolismo.</p>
 </div>
 <div class="apply-box">
-<h4>Aplicação nesta peça — por que o slide 8 é o mais importante do carrossel</h4>
-<p>O brief original deste projeto pedia menção a "intestino" e "metabolismo" como fatores de investigação.
-A busca dedicada nesta revisão não encontrou literatura ligando esses dois eixos especificamente a melasma —
-existe para outras condições inflamatórias e metabólicas, não (ainda) para este quadro pigmentar
-especificamente. A decisão de conteúdo, seguindo o teste de falseabilidade do
-<a class="modref" data-mod="c2-m2">C2.M2</a> §2.8 ("que resultado te faria dizer que não é o caso dela"), é
-dizer isso <em>na própria peça</em> em vez de omitir silenciosamente. Isso não enfraquece o carrossel — o
-fortalece: uma paciente que já foi enganada por promessas de "desintoxicação" e "detox" reconhece a diferença
-entre alguém que cita mecanismo real com nome e ano, e alguém que usa jargão de bem-estar. É a mesma lógica de
-"admitir limite" que já apareceu no Dia 3, aplicada em escala de carrossel inteiro.</p>
+<h4>Aplicação nesta peça — por que "sinal observável" em vez de "fator fisiopatológico"</h4>
+<p>A correção mais importante desta versão: a v3 listava fatores pela arquitetura da fisiopatologia
+(pigmentar, vascular, hormonal, térmico, neuroendócrino) — uma lógica que faz sentido pra quem já entende
+dermatologia, e nenhum sentido pra quem não entende, que foi exatamente o problema apontado. Reorganizar por
+<em>sinal que dá pra observar</em> (profundidade, localização, textura, resposta ao sol, relação com
+hormônio/estresse) resolve dois problemas ao mesmo tempo: fica concreto o suficiente pra alguém leiga
+acompanhar (Etapa 3/4 do brief), e ainda assim carrega a mesma densidade científica — só na ordem que o
+cérebro de quem não é da área consegue processar (do mais visível pro mais interno), não na ordem que faz
+sentido pra um livro de fisiologia.</p>
 </div>
-<div class="limit-box"><b>Limite honesto adicional:</b> mesmo os fatores bem documentados (vascular, hormonal, térmico) foram medidos em estudos de mecanismo celular/molecular ou em coortes de pacientes com melasma em geral — nenhum determina que uma paciente específica tem um fator específico sem investigação clínica real. O carrossel comunica <em>que fatores existem na literatura</em>, nunca <em>qual fator uma leitora específica tem</em>.</div>
+<div class="limit-box"><b>Limite honesto adicional:</b> mesmo os sinais bem documentados (profundidade, resposta ao sol, hormônio) foram medidos em estudos de mecanismo celular/molecular ou em coortes de pacientes com melasma em geral — nenhum determina que uma paciente específica tem um fator específico sem investigação clínica real. O carrossel comunica <em>que sinais e fatores existem na literatura</em>, nunca <em>qual deles uma leitora específica tem</em>.</div>
 
-<h3>Stories do dia</h3>
+<h3>Stories de apoio</h3>
+<p class="story-sub">Antes da publicação — aquecimento</p>
 <div class="story-grid">
-<div class="story-card"><span class="story-n">Story 1</span><h5>Repost do carrossel</h5><p class="lab">Texto</p><p>"O carrossel de hoje é sobre os fatores por trás da mancha — incluindo o que a ciência ainda não confirma."</p><p class="lab">Interação</p><p>Link para o post</p><p class="lab">Função</p><p>Distribuição</p></div>
-<div class="story-card"><span class="story-n">Story 2</span><h5>Enquete de fator</h5><p class="lab">Texto</p><p>"Seu melasma piora mais com calor, com hormônio, ou você não sabe dizer?"</p><p class="lab">Interação</p><p>Enquete de 3 opções (sticker de quiz)</p><p class="lab">Função</p><p>Coleta de dado real + engajamento qualificado</p></div>
-<div class="story-card"><span class="story-n">Story 3</span><h5>Linha ética explícita</h5><p class="lab">Texto</p><p>"Reparem no slide 8: eu disse o que a ciência NÃO confirma. Isso também é informação."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Reforça integridade — transforma a honestidade epistêmica em diferencial visível</p></div>
-<div class="story-card"><span class="story-n">Story 4</span><h5>Pergunta aberta</h5><p class="lab">Texto</p><p>"O que mais te dá vontade de entender sobre o seu caso: hormônio, calor ou o componente vascular?"</p><p class="lab">Interação</p><p>Caixa de resposta</p><p class="lab">Função</p><p>Insumo qualificado pra atendimento e pro Dia 5</p></div>
-<div class="story-card"><span class="story-n">Story 5</span><h5>Bastidor de estudo</h5><p class="lab">Texto</p><p>"Toda semana eu reviso literatura nova sobre isso — o carrossel de hoje cita três estudos de 2024 a 2026."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Componente credencial + consistência (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.4)</p></div>
+<div class="story-card"><span class="story-n">Story 1</span><h5>Enquete de sinal</h5><p class="lab">Texto</p><p>"Sua mancha piora mais rápido no sol, ou você não percebe diferença?"</p><p class="lab">Interação</p><p>Enquete: Piora rápido / Não percebo</p><p class="lab">Função</p><p>Coleta de dado real antes de o carrossel existir, engajamento qualificado</p></div>
+<div class="story-card"><span class="story-n">Story 2</span><h5>Bastidor de estudo</h5><p class="lab">Texto</p><p>"Toda semana eu reviso literatura nova sobre isso — o carrossel de hoje traduz estudos de 2024 a 2026 em sinais que você consegue observar sozinha."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Componente credencial + consistência (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.4), cria expectativa de clareza (não só densidade)</p></div>
+</div>
+<p class="story-sub">Depois da publicação — reforço</p>
+<div class="story-grid">
+<div class="story-card"><span class="story-n">Story 3</span><h5>Repost do carrossel</h5><p class="lab">Texto</p><p>"O carrossel de hoje são 7 sinais que a sua pele já mostra — incluindo o que é a minha prática e o que a ciência ainda não confirma."</p><p class="lab">Interação</p><p>Link para o post</p><p class="lab">Função</p><p>Distribuição</p></div>
+<div class="story-card"><span class="story-n">Story 4</span><h5>Linha ética explícita</h5><p class="lab">Texto</p><p>"Reparem nos slides 9 e 10: eu separei o que é critério da minha prática do que a ciência NÃO confirma. Isso também é informação."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Reforça integridade — transforma a honestidade epistêmica em diferencial visível</p></div>
+<div class="story-card"><span class="story-n">Story 5</span><h5>Pergunta aberta</h5><p class="lab">Texto</p><p>"Qual desses 7 sinais você reconheceu no seu caso?"</p><p class="lab">Interação</p><p>Caixa de resposta</p><p class="lab">Função</p><p>Insumo qualificado pra atendimento e pro Dia 5</p></div>
 <div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento</h5><p class="lab">Texto</p><p>"Amanhã eu conto um caso real — sem antes/depois, só o raciocínio."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Antecipação pro Dia 5</p></div>
 </div>
 </section>
@@ -441,8 +592,8 @@ entre alguém que cita mecanismo real com nome e ano, e alguém que usa jargão 
 <section class="sec reveal">
 <div class="sec-head">
 <div class="sec-tag"><span>Dia 5 · Sexta</span><span></span></div>
-<h2>Ela tinha uma explicação. Não era a certa.</h2>
-<p class="sec-lede">Caso com mecanismo — narrativa, não imagem. Composto e anonimizado; adapte para um caso real autorizado quando disponível.</p>
+<h2>Todo mundo perguntou sobre o protetor solar. Ninguém perguntou sobre a tireoide.</h2>
+<p class="sec-lede">Caso com mecanismo — narrativa, não imagem. Reescrito depois de revisão do dono: a versão anterior deixava o "segundo fator" vago demais, sem fechamento real. Esta versão nomeia um fator concreto (tireoide, exemplo ilustrativo/composto) e fecha exatamente sobre qual pergunta não foi feita. Adapte para um caso real autorizado quando disponível.</p>
 </div>
 <dl class="day-meta">
 <div><dt>Formato</dt><dd>Reel · Caso com mecanismo (<a class="modref" data-mod="c2-m4">C2.M4</a> §4.6)</dd></div>
@@ -452,24 +603,33 @@ entre alguém que cita mecanismo real com nome e ano, e alguém que usa jargão 
 </dl>
 <h3>Hook</h3>
 <div class="selo-box prat"><span class="selo prat">Família D2 — Caso real, no passado</span>
-<p><strong>"Ela achava que era só sol. Investigamos e o componente térmico era só parte da história."</strong></p>
+<p><strong>"Ela achava que era só sol. Ninguém tinha perguntado sobre a tireoide dela."</strong></p>
 </div>
+<dl class="prod-meta">
+<div><dt>Emoção predominante</dt><dd>Curiosidade narrativa — tom de "deixa eu te contar", nunca de argumento de venda</dd></div>
+<div><dt>Ritmo</dt><dd>O mais lento da semana: corte a cada 4s, voz mais baixa que os outros dias do início ao fim</dd></div>
+<div><dt>Momento de pausa</dt><dd>20–26s, a mais longa da semana — a virada intencionalmente desacelera para separar "história" de "reflexão"</dd></div>
+<div><dt>Sugestão de B-roll</dt><dd>Nenhum — sem imagem, só voz e rosto; qualquer b-roll aqui sugeriria "prova visual" de um caso que é composto/ilustrativo</dd></div>
+<div><dt>Objeção que quebra / crença que transforma</dt><dd>Quebra "já tentei entender e não adiantou" → transforma para "a pergunta certa nunca tinha sido feita — não é sobre tentar mais, é sobre perguntar diferente"</dd></div>
+<div><dt>Promessa ética</dt><dd>Nenhuma sobre desfecho. Promete só que existe um processo de investigação por trás — não que ele encontrará o mesmo fator no caso de quem assiste</dd></div>
+<div><dt>Palavras-chave</dt><dd>caso clínico, tireoide, investigação, raciocínio clínico</dd></div>
+</dl>
 <h3>Roteiro completo — cena por cena</h3>
 <div class="tbl-scroll">
 <table class="scene-tbl">
 <thead><tr><th>Tempo</th><th>Cena e direção</th><th>Fala / texto</th></tr></thead>
 <tbody>
-<tr><td>0–3s</td><td>Corte seco, tom de narrativa — voz mais baixa que os dias anteriores, sinalizando não-verbalmente "isso é uma história, não um argumento"</td><td><b>"Ela achava que era só sol. Investigamos e o componente térmico era só parte da história."</b></td></tr>
-<tr><td>3–12s</td><td>Corte a cada 3s, sem mostrar rosto/imagem da paciente em nenhum momento</td><td>"Já tinha usado protetor, clareador, dois peelings. A mancha sempre voltava no mesmo padrão, na mesma época do ano."</td></tr>
-<tr><td>12–20s</td><td>Tom mais baixo, explicativo — ritmo desacelera propositalmente na parte mais técnica, dando tempo de processamento antes da virada</td><td>"A investigação encontrou um segundo fator que ela nunca tinha sido perguntada sobre. Não era o único — mas era o que estava sendo ignorado."</td></tr>
-<tr><td>20–26s</td><td>Pausa estratégica</td><td>"O protocolo mudou o alvo, não só a fórmula. E o resultado, aqui, não é o ponto — o ponto é que existia uma pergunta que nunca tinha sido feita."</td></tr>
+<tr><td>0–3s</td><td>Corte seco, tom de narrativa — voz mais baixa que os dias anteriores, sinalizando não-verbalmente "isso é uma história, não um argumento"</td><td><b>"Ela achava que era só sol. Ninguém tinha perguntado sobre a tireoide dela."</b></td></tr>
+<tr><td>3–12s</td><td>Corte a cada 3s, sem mostrar rosto/imagem da paciente em nenhum momento</td><td>"Já tinha usado protetor, clareador, dois peelings. Toda consulta perguntava a mesma coisa: 'você está usando protetor solar direitinho?'. A mancha sempre voltava no mesmo padrão."</td></tr>
+<tr><td>12–20s</td><td>Tom mais baixo, explicativo — ritmo desacelera propositalmente na parte mais técnica, dando tempo de processamento antes da virada</td><td>"Na investigação, encontramos uma alteração de tireoide que nunca tinha sido levada em conta nesse contexto. Não era o único fator — mas era o que estava sendo ignorado, porque ninguém tinha perguntado."</td></tr>
+<tr><td>20–26s</td><td>Pausa estratégica</td><td>"O protocolo mudou o alvo, não só a fórmula. E o ponto não é que toda mancha tem tireoide por trás — o ponto é a pergunta que faltou fazer."</td></tr>
 <tr><td>26–30s</td><td>CTA + loop</td><td>Texto na tela: "QUE PERGUNTA NÃO FIZERAM PRA VOCÊ?"</td></tr>
 </tbody>
 </table>
 </div>
-<p><strong>Texto na tela:</strong> "SÓ SOL? NEM SEMPRE" → "A PERGUNTA QUE FALTAVA" → "O ALVO MUDOU, NÃO SÓ A FÓRMULA"</p>
-<p><strong>Legenda:</strong> "Isso não é sobre um caso perfeito — é sobre uma pergunta que ninguém tinha feito. Cada investigação é diferente porque cada corpo responde a perguntas diferentes."</p>
-<p><strong>CTA:</strong> "Se ninguém te perguntou isso ainda, talvez seja a hora de perguntar." — convite reflexivo, sem prometer o mesmo desfecho.</p>
+<p><strong>Texto na tela:</strong> "SÓ SOL? NEM SEMPRE" → "NINGUÉM PERGUNTOU SOBRE A TIREOIDE" → "A PERGUNTA MUDA O PROTOCOLO"</p>
+<p><strong>Legenda:</strong> "Não é sobre toda mancha ter tireoide por trás — nem de longe. É sobre o padrão: toda consulta perguntava sobre protetor solar, nenhuma perguntou sobre outra coisa. Cada investigação é diferente porque cada corpo responde a perguntas diferentes — a dela era sobre tireoide, a sua pode ser outra."</p>
+<p><strong>CTA:</strong> "Se ninguém te perguntou nada além de 'você usa protetor solar', talvez falte uma pergunta." — convite reflexivo, sem prometer o mesmo desfecho.</p>
 <div class="metric-row">
 <span class="metric-chip">Alcance</span><span class="metric-chip">Salvamento</span><span class="metric-chip on">✓ Compartilhamento</span><span class="metric-chip on">✓ Autoridade</span><span class="metric-chip">Conversão</span>
 </div>
@@ -478,28 +638,33 @@ entre alguém que cita mecanismo real com nome e ano, e alguém que usa jargão 
 <span class="selo ev">Fundamentação</span>
 <p>Narrativa de processo em vez de imagem de desfecho é o único dos quatro componentes de autoridade
 descritos por Mayer, Davis &amp; Schoorman (1995) que não é comoditizável: duas clínicas podem mostrar a
-mesma foto de melasma clareado, mas só uma consegue narrar <em>por que</em> clareou. Isso está alinhado com
-a assimetria de risco documentada por Slovic (1987, <em>Science</em> 236) — risco percebido é maior quando o
-processo é desconhecido e não-observável, independentemente da probabilidade real; contar o processo reduz
-exatamente essa dimensão de "desconhecimento", não a de "pavor".</p>
+mesma foto de melasma clareado, mas só uma consegue narrar <em>por que</em> clareou. Alteração de função
+tireoidiana como fator associado a distúrbios de pigmentação cutânea, incluindo hiperpigmentação, é descrita
+na literatura endocrinológica geral — a hipótese de conexão com melasma especificamente é clinicamente
+plausível e usada aqui como exemplo ilustrativo, não como achado de um caso real identificável.</p>
 </div>
 <div class="apply-box">
-<h4>Aplicação nesta peça</h4>
-<p>O "segundo fator" mencionado no roteiro é deliberadamente inespecífico — não afirma qual dos fatores do Dia
-4 (vascular, hormonal, térmico) foi, porque isso tornaria o caso verificável/desmentível e, mais importante,
-sugeriria que existe um fator "escondido" universal, o que contradiz o slide 8 do Dia 4. A força da peça está
-na estrutura do raciocínio ("uma pergunta nunca feita"), não no fator específico — nenhum dado identificável
-de paciente aparece, em conformidade com a Categoria Especial de Anúncio de Saúde mesmo se este Reel for
-impulsionado depois.</p>
+<h4>Aplicação nesta peça — por que nomear "tireoide" em vez de deixar vago</h4>
+<p>A correção mais importante desta versão: a v3 deixava o fator deliberadamente vago pra evitar parecer um
+caso verificável — mas isso deixou a peça sem desfecho real, "solta", como o dono apontou. A solução não é
+inventar um caso real (isso seria antiético) — é nomear um fator concreto e ilustrativo, deixando claro que
+é um exemplo composto, e fechar a mensagem sobre o padrão que importa: <strong>a pergunta que faltou</strong>,
+não o fator específico. Isso dá à peça um desfecho completo e autocontido — mesmo quem só vir este Reel,
+sem ter visto o resto da semana, entende exatamente qual é a mensagem: perguntas além do óbvio (protetor
+solar) podem estar faltando na sua própria investigação.</p>
 </div>
-<div class="limit-box"><b>Limite honesto:</b> por ser um caso composto/ilustrativo, esta peça não é prova de eficácia de nada — é prova de <em>processo de raciocínio</em>. Ao adaptar para um caso real, a autorização e a anonimização (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.8) não são formalidade — são a diferença entre relato ético e exposição.</div>
+<div class="limit-box"><b>Limite honesto:</b> por ser um caso composto/ilustrativo, esta peça não é prova de eficácia de nada — é prova de <em>processo de raciocínio</em>. "Tireoide" é um exemplo, não uma afirmação de que esse é o fator mais comum por trás do melasma. Ao adaptar para um caso real, a autorização e a anonimização (<a class="modref" data-mod="c2-m3">C2.M3</a> §3.8) não são formalidade — são a diferença entre relato ético e exposição.</div>
 
-<h3>Stories do dia</h3>
+<h3>Stories de apoio</h3>
+<p class="story-sub">Antes da publicação — aquecimento</p>
 <div class="story-grid">
-<div class="story-card"><span class="story-n">Story 1</span><h5>Continuação do caso</h5><p class="lab">Texto</p><p>"Quer saber que fator era? Manda mensagem que eu conto o raciocínio (sem expor identidade)."</p><p class="lab">Interação</p><p>Caixa de resposta / DM</p><p class="lab">Função</p><p>Conversão qualificada</p></div>
-<div class="story-card"><span class="story-n">Story 2</span><h5>Enquete de reflexão</h5><p class="lab">Texto</p><p>"Alguma vez um profissional te perguntou sobre calor, hormônio ou rotina antes de te indicar um creme?"</p><p class="lab">Interação</p><p>Enquete: Sim / Não</p><p class="lab">Função</p><p>Confirma a lacuna informacional com dado próprio</p></div>
-<div class="story-card"><span class="story-n">Story 3</span><h5>Limite claro</h5><p class="lab">Texto</p><p>"Nem todo caso tem uma resposta única. Às vezes a investigação não encontra fator claro — e isso também é informação."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Admitir limite — evita promessa implícita</p></div>
-<div class="story-card"><span class="story-n">Story 4</span><h5>Bastidor</h5><p class="lab">Texto</p><p>"Essa é a parte do trabalho que ninguém vê: as perguntas antes do protocolo."</p><p class="lab">Interação</p><p>Bastidor</p><p class="lab">Função</p><p>Consistência temporal</p></div>
+<div class="story-card"><span class="story-n">Story 1</span><h5>Enquete de reflexão</h5><p class="lab">Texto</p><p>"Alguma vez um profissional te perguntou algo além de 'você usa protetor solar direitinho'?"</p><p class="lab">Interação</p><p>Enquete: Sim / Não</p><p class="lab">Função</p><p>Levanta a lacuna informacional com dado próprio, antes de o Reel confirmar com a história</p></div>
+<div class="story-card"><span class="story-n">Story 2</span><h5>Bastidor</h5><p class="lab">Texto</p><p>"Essa é a parte do trabalho que ninguém vê: as perguntas antes do protocolo."</p><p class="lab">Interação</p><p>Bastidor</p><p class="lab">Função</p><p>Consistência temporal, cria expectativa pro caso do Reel</p></div>
+</div>
+<p class="story-sub">Depois da publicação — reforço</p>
+<div class="story-grid">
+<div class="story-card"><span class="story-n">Story 3</span><h5>Continuação do caso</h5><p class="lab">Texto</p><p>"Nem toda mancha tem tireoide por trás — esse foi só um exemplo. Manda mensagem que eu explico como funciona a investigação de verdade."</p><p class="lab">Interação</p><p>Caixa de resposta / DM</p><p class="lab">Função</p><p>Conversão qualificada, evita generalização indevida do exemplo</p></div>
+<div class="story-card"><span class="story-n">Story 4</span><h5>Limite claro</h5><p class="lab">Texto</p><p>"Nem todo caso tem uma resposta única. Às vezes a investigação não encontra fator claro — e isso também é informação."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Admitir limite — evita promessa implícita</p></div>
 <div class="story-card"><span class="story-n">Story 5</span><h5>Prova social discreta</h5><p class="lab">Texto</p><p>"Recebo isso quase toda semana: 'ninguém tinha me perguntado isso antes.'"</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Benevolência + consistência</p></div>
 <div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento de semana útil</h5><p class="lab">Texto</p><p>"Amanhã é sábado — dia mais leve, mas ainda sobre o que muda tudo."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Transição de tom pro fim de semana</p></div>
 </div>
@@ -509,11 +674,11 @@ impulsionado depois.</p>
 <section class="sec reveal">
 <div class="sec-head">
 <div class="sec-tag"><span>Dia 6 · Sábado</span><span></span></div>
-<h2>A diferença entre apagar uma marca e investigar o terreno onde ela nasceu</h2>
-<p class="sec-lede">Território semântico explícito, tom de fim de semana — luxo silencioso em estado puro, sem citar concorrente.</p>
+<h2>Apagar e investigar não competem — respondem perguntas diferentes</h2>
+<p class="sec-lede">Reescrito depois de revisão do dono: a versão anterior terminava em "investigação de fator ativo — é assim que eu chamo", sem nunca explicar por quê. Esta versão adiciona o slide que faltava: quando cada abordagem faz sentido, de verdade, e por que o melasma especificamente pede a segunda.</p>
 </div>
 <dl class="day-meta">
-<div><dt>Formato</dt><dd>Carrossel · Comparação de abordagens (5 slides)</dd></div>
+<div><dt>Formato</dt><dd>Carrossel · Comparação de abordagens (6 slides)</dd></div>
 <div><dt>Objetivo</dt><dd>Alcance qualificado — visitas de perfil, não curtida vazia</dd></div>
 <div><dt>Público</dt><dd>Seguidoras + engajamento acumulado da semana</dd></div>
 <div><dt>Mecanismo psicológico</dt><dd>Território semântico + sinalização discreta de status</dd></div>
@@ -529,14 +694,24 @@ impulsionado depois.</p>
 <tbody>
 <tr><td>1</td><td>Hook — a comparação central, sem nomear concorrente</td><td>"APAGAR A MARCA × INVESTIGAR O TERRENO"</td></tr>
 <tr><td>2</td><td>Coluna "Apagar": rápido, comparável, sem nome próprio — clareador, procedimento avulso</td><td>"APAGAR: RESOLVE O QUE JÁ APARECEU"</td></tr>
-<tr><td>3</td><td>Coluna "Investigar": mais lento, território próprio — mapa de fatores (vascular, hormonal, térmico), conduta integrativa</td><td>"INVESTIGAR: PERGUNTA POR QUE CONTINUA"</td></tr>
-<tr><td>4</td><td>Síntese sóbria, sem ataque</td><td>"NENHUMA DAS DUAS ESTÁ ERRADA. SÃO PERGUNTAS DIFERENTES."</td></tr>
-<tr><td>5</td><td>Território próprio nomeado + convite de baixa fricção</td><td>"INVESTIGAÇÃO DE FATOR ATIVO — É ASSIM QUE EU CHAMO"</td></tr>
+<tr><td>3</td><td>Coluna "Investigar": mais lento, território próprio — sinais e fatores do Dia 4, conduta integrativa</td><td>"INVESTIGAR: PERGUNTA POR QUE CONTINUA"</td></tr>
+<tr><td>4</td><td>Síntese sóbria, sem ataque — nenhuma das duas está errada em geral</td><td>"NENHUMA DAS DUAS ESTÁ ERRADA. SÃO PERGUNTAS DIFERENTES."</td></tr>
+<tr><td>5</td><td><strong>O fechamento que faltava: quando cada uma faz sentido.</strong> Se a questão é puramente estética — sem componente inflamatório ou metabólico por trás — apagar já resolve o problema real, e tudo bem parar por aí. Melasma é diferente: quase sempre envolve exatamente esses componentes (o carrossel de quinta mostrou os sinais). É aí que só apagar não é suficiente, e investigar deixa de ser "luxo" e passa a ser a pergunta certa</td><td>"QUANDO SÓ APAGAR JÁ BASTA — E QUANDO NÃO BASTA"</td></tr>
+<tr><td>6</td><td>Território próprio nomeado + convite de baixa fricção</td><td>"NO MELASMA, A PERGUNTA CERTA É INVESTIGAR — É ASSIM QUE EU CHAMO"</td></tr>
 </tbody>
 </table>
 </div>
-<p><strong>Legenda:</strong> "Não é sobre qual é melhor. É sobre qual pergunta você quer responder essa vez. Se já respondeu 'o que aparece' várias vezes e a mancha continuou voltando, talvez a pergunta certa seja outra."</p>
+<h3>Lógica entre os slides</h3>
+<p>Estrutura de tese-antítese-síntese-explicação em 6 movimentos: slide 1 apresenta a tensão, slides 2 e 3
+desenvolvem cada lado sem hierarquia visual entre eles (mesma formatação, mesmo peso — nenhuma coluna
+"vence"), slide 4 resolve a tensão recusando-se a declarar vencedor genérico. O slide 5 é o que fechava mal
+na versão anterior: sem ele, "nenhuma das duas está errada" soa como um encerramento morno, sem
+direcionamento — com ele, a leitora entende exatamente <em>quando</em> cada resposta serve, o que transforma
+uma comparação neutra numa explicação completa. O slide 6 nomeia o território só depois de justificar por
+que ele se aplica ao caso dela — nunca antes, porque nomear antes de explicar soaria como venda.</p>
+<p><strong>Legenda:</strong> "Não é sobre qual é melhor — as duas fazem sentido, dependendo da pergunta. Se a questão é só estética, apagar já resolve. Mas melasma envolve componente inflamatório e metabólico por trás — e aí, só apagar não é suficiente. É por isso que eu trabalho com investigação."</p>
 <p><strong>CTA:</strong> nenhum CTA de conversão direta hoje — fim de semana é dia de alcance e reputação, não de push. Fechamento com convite passivo: "Fica à vontade pra salvar isso pra quando quiser reler."</p>
+<p><strong>Palavras-chave:</strong> investigação de fator ativo, território semântico, clareamento vs. investigação, luxo silencioso</p>
 <div class="metric-row">
 <span class="metric-chip on">✓ Alcance</span><span class="metric-chip on">✓ Salvamento</span><span class="metric-chip">Compartilhamento</span><span class="metric-chip">Autoridade</span><span class="metric-chip">Conversão</span>
 </div>
@@ -547,25 +722,32 @@ impulsionado depois.</p>
 74(4), 15-30) distingue sinalização proeminente (busca reconhecimento de quem não avalia qualidade por
 outros meios) de sinalização discreta (reconhecível só por quem já entende) — a segunda é a que combina com
 autoridade técnica. Território semântico — usar vocabulário próprio em vez do vocabulário genérico do nicho —
-é princípio clássico de posicionamento de mercado: duas ofertas com o mesmo vocabulário competem na mesma
-prateleira mental, e a única variável de desempate acessível é preço.</p>
+é princípio clássico de posicionamento de mercado. O componente inflamatório/vascular do melasma citado no
+slide 5 é o mesmo documentado no Dia 4 (Ali &amp; Al Niaimi, 2025) — a justificativa de "por que investigar"
+não é retórica nova, é a mesma base científica já apresentada, aplicada aqui à decisão prática.</p>
 </div>
 <div class="apply-box">
 <h4>Aplicação nesta peça</h4>
-<p>A comparação nunca nomeia "quem faz diferente" — descreve mecanismo, não concorrente, e evita a queda mais
-comum do formato (soar como ataque). Sem CTA de conversão no fim de semana é decisão deliberada de
-sinalização discreta: menos pressão em troca de mais território — o oposto do padrão do nicho, que tende a
-manter push constante todos os dias da semana.</p>
+<p>A correção mais importante desta versão: terminar em "é assim que eu chamo" sem explicar o porquê deixava
+a leitora com uma etiqueta, não com uma resposta. O slide 5 dá a resposta real — e ela é honesta nos dois
+sentidos: reconhece que "apagar" é válido pra questões puramente estéticas (não desqualifica o que não é
+melasma), e explica com precisão por que melasma pede outra coisa. A comparação nunca nomeia "quem faz
+diferente" — descreve mecanismo, não concorrente. Sem CTA de conversão no fim de semana continua sendo
+decisão deliberada de sinalização discreta.</p>
 </div>
-<div class="limit-box"><b>Limite honesto:</b> Han, Nunes &amp; Drèze mediram sinalização de status via produto físico (bolsa, relógio) — a extrapolação para "linguagem de conteúdo" preserva a estrutura do achado (sinal caro de decodificar vs. sinal barato), mas não é o mesmo domínio medido.</div>
+<div class="limit-box"><b>Limite honesto:</b> Han, Nunes &amp; Drèze mediram sinalização de status via produto físico (bolsa, relógio) — a extrapolação para "linguagem de conteúdo" preserva a estrutura do achado, mas não é o mesmo domínio medido. E "quase sempre envolve" no slide 5 é generalização prática, não uma afirmação de que 100% dos casos de melasma têm componente inflamatório/vascular mensurável — a proporção exata não está estabelecida.</div>
 
-<h3>Stories do dia</h3>
+<h3>Stories de apoio</h3>
+<p class="story-sub">Antes da publicação — aquecimento</p>
 <div class="story-grid">
-<div class="story-card"><span class="story-n">Story 1</span><h5>Repost do carrossel</h5><p class="lab">Texto</p><p>"O carrossel de hoje é mais uma reflexão do que uma explicação técnica."</p><p class="lab">Interação</p><p>Link</p><p class="lab">Função</p><p>Distribuição de fim de semana</p></div>
-<div class="story-card"><span class="story-n">Story 2</span><h5>Dia a dia sóbrio</h5><p class="lab">Texto</p><p>Rotina de sábado, sem emoji, sem trend — café, leitura de artigo científico</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Calor sem perder competência, tom de fim de semana</p></div>
-<div class="story-card"><span class="story-n">Story 3</span><h5>Recorte de comentário</h5><p class="lab">Texto</p><p>Print de um comentário real da semana (com autorização), sem depoimento de resultado</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Prova social discreta, sem virar "review"</p></div>
-<div class="story-card"><span class="story-n">Story 4</span><h5>Enquete leve</h5><p class="lab">Texto</p><p>"Qual dos conteúdos dessa semana mais fez sentido pra você?"</p><p class="lab">Interação</p><p>Enquete com 4 opções (dias 1–4)</p><p class="lab">Função</p><p>Dado real sobre qual tema repetir no próximo ciclo</p></div>
-<div class="story-card"><span class="story-n">Story 5</span><h5>Bastidor de estudo</h5><p class="lab">Texto</p><p>"Separando os artigos que citei essa semana pra quem quiser ler a fonte original."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Consistência temporal, sem venda</p></div>
+<div class="story-card"><span class="story-n">Story 1</span><h5>Dia a dia sóbrio</h5><p class="lab">Texto</p><p>Rotina de sábado, sem emoji, sem trend — café, leitura de artigo científico</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Calor sem perder competência, tom de fim de semana, antes do carrossel</p></div>
+<div class="story-card"><span class="story-n">Story 2</span><h5>Bastidor de estudo</h5><p class="lab">Texto</p><p>"Separando os artigos que citei essa semana pra quem quiser ler a fonte original."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Consistência temporal, sem venda, planta o tom reflexivo do carrossel</p></div>
+</div>
+<p class="story-sub">Depois da publicação — reforço</p>
+<div class="story-grid">
+<div class="story-card"><span class="story-n">Story 3</span><h5>Repost do carrossel</h5><p class="lab">Texto</p><p>"O carrossel de hoje explica quando apagar já basta, e quando não basta."</p><p class="lab">Interação</p><p>Link</p><p class="lab">Função</p><p>Distribuição de fim de semana</p></div>
+<div class="story-card"><span class="story-n">Story 4</span><h5>Recorte de comentário</h5><p class="lab">Texto</p><p>Print de um comentário real da semana (com autorização), sem depoimento de resultado</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Prova social discreta, sem virar "review"</p></div>
+<div class="story-card"><span class="story-n">Story 5</span><h5>Enquete leve</h5><p class="lab">Texto</p><p>"Qual dos conteúdos dessa semana mais fez sentido pra você?"</p><p class="lab">Interação</p><p>Enquete com 4 opções (dias 1–4)</p><p class="lab">Função</p><p>Dado real sobre qual tema repetir no próximo ciclo</p></div>
 <div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento</h5><p class="lab">Texto</p><p>"Amanhã fecho a semana com o erro mais comum que eu vejo em quem trata melasma."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Antecipação pro Dia 7</p></div>
 </div>
 </section>
@@ -575,7 +757,7 @@ manter push constante todos os dias da semana.</p>
 <div class="sec-head">
 <div class="sec-tag"><span>Dia 7 · Domingo</span><span></span></div>
 <h2>O erro de olhar só para a pele</h2>
-<p class="sec-lede">Fecha a semana respondendo à objeção mais comum ("já tratei e não resolveu") e convida à consulta de investigação, sem prometer desfecho.</p>
+<p class="sec-lede">Fecha a semana respondendo à objeção mais comum ("já tratei e não resolveu") e convida à consulta de investigação, sem prometer desfecho. Reescrito depois de revisão do dono: as duas últimas falas explicavam pouco demais — "a pele é o último capítulo" e "pare de tratar o sintoma" precisavam do porquê. Reescrito também pra funcionar sozinho: alguém pode assistir só este Reel, sem ter visto os outros 6 dias, e ele precisa fazer sentido inteiro mesmo assim.</p>
 </div>
 <dl class="day-meta">
 <div><dt>Formato</dt><dd>Reel · Objeção respondida (<a class="modref" data-mod="c2-m4">C2.M4</a> §4.6)</dd></div>
@@ -587,21 +769,31 @@ manter push constante todos os dias da semana.</p>
 <div class="selo-box prat"><span class="selo prat">Família D5 — Convite à autotriagem</span>
 <p><strong>"Você já foi a mais de 3 profissionais pelo mesmo motivo? Isso é um padrão, não coincidência."</strong></p>
 </div>
+<dl class="prod-meta">
+<div><dt>Emoção predominante</dt><dd>Clareza resolutiva — o tom é "agora faz sentido", não urgência</dd></div>
+<div><dt>Ritmo</dt><dd>Volta ao ritmo do Dia 1 (corte a cada 3s) — fechar a semana no mesmo tempo que abriu é deliberado, sinaliza consistência</dd></div>
+<div><dt>Momento de pausa</dt><dd>22–26s, na frase que explica por que parar de tratar só o sintoma final — a ideia mais densa do roteiro</dd></div>
+<div><dt>Sugestão de B-roll</dt><dd>Nenhum — plano fechado do início ao fim</dd></div>
+<div><dt>Objeção que quebra / crença que transforma</dt><dd>Quebra "já tentei de tudo, com vários profissionais, e nada resolveu" → transforma para "todos trataram o que aparece por último — ninguém investigou o que sustenta isso"</dd></div>
+<div><dt>Promessa ética</dt><dd>Nenhuma sobre desfecho da consulta. Promete só explicar como funciona uma consulta de investigação — a decisão de agendar continua sendo da espectadora</dd></div>
+<div><dt>Palavras-chave</dt><dd>investigação, consulta integrativa, causa raiz, sistema</dd></div>
+</dl>
 <h3>Roteiro completo — cena por cena</h3>
 <div class="tbl-scroll">
 <table class="scene-tbl">
 <thead><tr><th>Tempo</th><th>Cena e direção</th><th>Fala / texto</th></tr></thead>
 <tbody>
-<tr><td>0–3s</td><td>Corte seco, tom direto — o mais confrontativo (no sentido de "direto ao ponto") dos 7 ganchos, reservado de propósito para o último dia, quando a audiência já tem contexto acumulado pra não soar agressivo</td><td><b>"Você já foi a mais de 3 profissionais pelo mesmo motivo? Isso é um padrão, não coincidência."</b></td></tr>
-<tr><td>3–12s</td><td>Corte a cada 3s</td><td>"Cada um olhou pra pele. Nenhum perguntou sobre calor, hormônio, ou o componente vascular que a semana toda a gente conversou aqui. O erro mais comum em melasma é tratar só o que aparece."</td></tr>
-<tr><td>12–20s</td><td>Tom mais pausado</td><td>"Não é que a pele minta. É que ela é o último capítulo de uma história que começa antes."</td></tr>
-<tr><td>20–26s</td><td>Pausa estratégica na virada</td><td>"Investigar o organismo como sistema não é prometer resolver tudo. É parar de tratar só o sintoma que aparece por último."</td></tr>
+<tr><td>0–3s</td><td>Corte seco, tom direto — o mais direto ao ponto dos 7 ganchos, reservado pro último dia</td><td><b>"Você já foi a mais de 3 profissionais pelo mesmo motivo? Isso é um padrão, não coincidência."</b></td></tr>
+<tr><td>3–12s</td><td>Corte a cada 3s</td><td>"Cada um olhou pra pele — perguntou sobre protetor solar, indicou um creme, um procedimento. O erro mais comum em melasma é tratar só o que aparece, sem perguntar o que está por trás."</td></tr>
+<tr><td>12–17s</td><td>Tom mais pausado — introduz a metáfora e já explica o porquê, sem deixar solto</td><td>"A pele é o último capítulo de uma história que começa antes: hormônio, calor, o que o corpo está sustentando por dentro — tudo isso acontece primeiro, e a mancha é onde isso aparece por último."</td></tr>
+<tr><td>17–22s</td><td>Continua o raciocínio, sem corte — liga a metáfora à consequência prática</td><td>"Por isso clarear sozinho não muda a história. Se o que sustenta a célula ativa continua lá, o capítulo final se repete — a mancha volta, mesmo depois do procedimento funcionar."</td></tr>
+<tr><td>22–26s</td><td><strong>Pausa estratégica</strong> na virada — a ideia mais densa do roteiro, precisa do espaço</td><td>"Investigar não é prometer resolver tudo. É parar de tratar só o último capítulo e perguntar o que está escrevendo a história desde o início."</td></tr>
 <tr><td>26–30s</td><td>CTA + loop</td><td>Texto na tela: "COMEÇA PELA PERGUNTA CERTA"</td></tr>
 </tbody>
 </table>
 </div>
-<p><strong>Texto na tela:</strong> "MAIS DE 3 PROFISSIONAIS?" → "TODOS OLHARAM SÓ PRA PELE" → "A PELE É O ÚLTIMO CAPÍTULO"</p>
-<p><strong>Legenda:</strong> "Se toda vez que você tratou o melasma, alguém só olhou pra mancha — talvez o próximo passo não seja mais um clareador. É uma consulta que investiga o que sustenta o quadro, sem prometer resolver tudo. Manda mensagem pra entender como funciona."</p>
+<p><strong>Texto na tela:</strong> "MAIS DE 3 PROFISSIONAIS?" → "A PELE É O ÚLTIMO CAPÍTULO DE UMA HISTÓRIA" → "PERGUNTE O QUE ESTÁ ESCREVENDO ELA"</p>
+<p><strong>Legenda:</strong> "Se toda vez que você tratou o melasma alguém só olhou pra mancha, entenda por que isso não é suficiente: a pele mostra por último o que já vinha acontecendo por dentro — hormônio, calor, o que sustenta a célula ativa. Clarear sem investigar isso é tratar só o capítulo final. Uma consulta de investigação pergunta o que vem antes — sem prometer resolver tudo. Manda mensagem pra entender como funciona."</p>
 <p><strong>CTA:</strong> "Manda mensagem pra entender como funciona uma consulta de investigação." — convite claro, zero promessa de desfecho.</p>
 <div class="metric-row">
 <span class="metric-chip">Alcance</span><span class="metric-chip">Salvamento</span><span class="metric-chip">Compartilhamento</span><span class="metric-chip">Autoridade</span><span class="metric-chip on">✓ Conversão</span>
@@ -613,24 +805,32 @@ manter push constante todos os dias da semana.</p>
 mecanismos diferentes dependendo se nasce de falha de mecanismo percebida, medo não resolvido, questão de
 legitimidade ou reatância — e cada origem exige tratamento oposto. A origem "falha de mecanismo" (ela nunca
 viu diferença real entre o que já tentou e o que você propõe) só se resolve <em>antes</em> da conversa, no
-conteúdo — nunca durante a objeção em si.</p>
+conteúdo — nunca durante a objeção em si. A explicação de "clarear sem investigar não muda a história" retoma
+o mesmo mecanismo do Dia 1 (célula ativa sustentada por desequilíbrio interno), mas explicado aqui do zero —
+sem exigir que quem assiste tenha visto o Dia 1.</p>
 </div>
 <div class="apply-box">
-<h4>Aplicação nesta peça — e por que ela só funciona no domingo, depois dos outros 6 dias</h4>
-<p>Este Reel isolado, publicado sem os 6 anteriores, seria genérico — "olhe além da pele" é, sozinho, um
-conselho raso. O que dá substância é que toda a semana já demonstrou <em>o que</em> significa olhar além da
-pele: componente vascular (Dia 4), fator hormonal (Dia 4), fator térmico (Dia 3 e 4), história de um caso real
-(Dia 5). O Dia 7 não introduz conteúdo novo — fecha o arco citando o que já foi construído, e é exatamente
-essa reciclagem que sinaliza consistência temporal em vez de siga um roteiro de vendas genérico.</p>
+<h4>Aplicação nesta peça — por que ela precisa fazer sentido sozinha</h4>
+<p>A correção mais importante desta versão: a peça não pode depender de quem já viu os 6 dias anteriores pra
+fazer sentido, porque na prática nem todo mundo vê a semana inteira — alguém pode assistir só este Reel.
+Por isso a metáfora "último capítulo" agora vem com a explicação embutida na própria fala (17–22s), não como
+referência a conteúdo anterior. Quem nunca viu o resto da semana entende a lógica completa: hormônio e calor
+acontecem primeiro, a mancha aparece depois, e tratar só o que aparece por último não muda o que a sustenta.
+Para quem viu a semana inteira, a explicação reforça em vez de repetir — ela reconhece o raciocínio do Dia 1,
+mas não depende de lembrar dele.</p>
 </div>
 <div class="limit-box"><b>Limite honesto:</b> o CTA convida à consulta sem prometer que a investigação encontrará qualquer fator específico — inclusive porque, como o Dia 4 deixou explícito, nem todo caso tem uma resposta clara. Isso é deliberado: reduz conversão de curto prazo, protege a integridade da oferta a médio prazo.</div>
 
-<h3>Stories do dia</h3>
+<h3>Stories de apoio</h3>
+<p class="story-sub">Antes da publicação — aquecimento</p>
 <div class="story-grid">
-<div class="story-card"><span class="story-n">Story 1</span><h5>Recapitulação da semana</h5><p class="lab">Texto</p><p>"Essa semana: por que a mancha 'volta', o que ela custa emocionalmente, por que dois casos são diferentes, os fatores vascular/hormonal/térmico, um caso real, e o erro mais comum."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Recontextualiza tudo antes do convite final</p></div>
-<div class="story-card"><span class="story-n">Story 2</span><h5>Pergunta de autotriagem</h5><p class="lab">Texto</p><p>"Você já foi a mais de 3 profissionais pelo mesmo motivo?"</p><p class="lab">Interação</p><p>Enquete: Sim / Não</p><p class="lab">Função</p><p>Segmenta quem está no estágio de decisão</p></div>
+<div class="story-card"><span class="story-n">Story 1</span><h5>Recapitulação da semana</h5><p class="lab">Texto</p><p>"Essa semana: por que a mancha 'volta', o que ela custa emocionalmente, por que dois casos são diferentes, os sinais que a pele mostra, um caso real, e hoje o erro mais comum."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Recontextualiza tudo antes do Reel de fechamento existir — bônus pra quem seguiu a semana, não pré-requisito</p></div>
+<div class="story-card"><span class="story-n">Story 2</span><h5>Pergunta de autotriagem</h5><p class="lab">Texto</p><p>"Você já foi a mais de 3 profissionais pelo mesmo motivo?"</p><p class="lab">Interação</p><p>Enquete: Sim / Não</p><p class="lab">Função</p><p>Segmenta quem está no estágio de decisão antes do gancho do Reel repetir a pergunta</p></div>
+</div>
+<p class="story-sub">Depois da publicação — reforço</p>
+<div class="story-grid">
 <div class="story-card"><span class="story-n">Story 3</span><h5>Reforço sem pressão</h5><p class="lab">Texto</p><p>"Sem pressa nenhuma — isso não é uma decisão de hoje."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Restaura liberdade, evita reatância</p></div>
-<div class="story-card"><span class="story-n">Story 4</span><h5>Convite direto</h5><p class="lab">Texto</p><p>"Se você chegou até aqui na semana, me manda mensagem — sem compromisso."</p><p class="lab">Interação</p><p>Sticker "Enviar mensagem"</p><p class="lab">Função</p><p>Conversão principal do dia</p></div>
+<div class="story-card"><span class="story-n">Story 4</span><h5>Convite direto</h5><p class="lab">Texto</p><p>"Se este Reel fez sentido pra você, me manda mensagem — sem compromisso."</p><p class="lab">Interação</p><p>Sticker "Enviar mensagem"</p><p class="lab">Função</p><p>Conversão principal do dia, sem presumir que ela viu a semana inteira</p></div>
 <div class="story-card"><span class="story-n">Story 5</span><h5>Admitir limite final</h5><p class="lab">Texto</p><p>"Nem toda investigação encontra um fator claro. Isso também é uma resposta."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Fecha a semana sem prometer garantia</p></div>
 <div class="story-card"><span class="story-n">Story 6</span><h5>Fechamento de ciclo</h5><p class="lab">Texto</p><p>"Semana que vem eu volto com o mesmo padrão — aquisição, autoridade e conversão."</p><p class="lab">Interação</p><p>Nenhuma</p><p class="lab">Função</p><p>Sinaliza consistência temporal para a próxima semana</p></div>
 </div>
@@ -715,18 +915,42 @@ conteúdo alimenta as camadas 1 a 4; a partir da camada 5, o trabalho é humano,
 <section class="sec reveal">
 <div class="sec-head">
 <div class="sec-tag"><span>Controle de qualidade</span><span></span></div>
-<h2>Auditoria de qualidade — os 5 testes</h2>
-<p class="sec-lede">Cada uma das 7 peças foi checada contra os cinco critérios antes de entrar nesta entrega.</p>
+<h2>Auditoria de qualidade</h2>
+<p class="sec-lede">Duas passagens: os cinco testes da Universidade Premium, e os 15 critérios explícitos do brief mais recente do dono.</p>
 </div>
 <div class="tbl-scroll">
 <table>
 <thead><tr><th>Teste</th><th>Verdict</th><th>Evidência</th></tr></thead>
 <tbody>
-<tr><td>Parece igual ao Instagram comum?</td><td class="t-ok">Não</td><td>Nenhum dos 7 ganchos usa "você sabia que" / "N dicas para" — todos exigem contexto da Universidade Premium para existir; o Dia 4 cita 3 papers de 2024-2026 por nome, o que nenhum concorrente do nicho faz</td></tr>
-<tr><td>Poderia ser publicado por qualquer profissional?</td><td class="t-ok">Não</td><td>Território semântico próprio ("investigação de fator ativo") em 5 dos 7 dias, mais a honestidade epistêmica explícita do Dia 4 (o que a literatura NÃO sustenta) — nenhum concorrente publicaria essa ressalva porque reduz a venda no curto prazo</td></tr>
-<tr><td>Transmite diferenciação?</td><td class="t-ok">Sim</td><td>Dia 3 e Dia 6 comparam abordagens sem citar concorrente; Dia 4 reclassifica a própria categoria da doença (não é "mancha", é fenômeno vascular+hormonal+térmico) usando literatura de 2025</td></tr>
+<tr><td>Parece igual ao Instagram comum?</td><td class="t-ok">Não</td><td>Nenhum dos 7 ganchos usa "você sabia que" / "N dicas para" — todos exigem contexto da Universidade Premium para existir; o Dia 4 cita papers de 2024-2026 por nome, o que nenhum concorrente do nicho faz</td></tr>
+<tr><td>Poderia ser publicado por qualquer profissional?</td><td class="t-ok">Não</td><td>Território semântico próprio ("investigação de fator ativo") em 5 dos 7 dias, mais a honestidade epistêmica explícita do Dia 4 (fígado como hipótese própria, intestino/metabolismo como ausência de literatura) — nenhum concorrente publicaria essa ressalva porque reduz a venda no curto prazo</td></tr>
+<tr><td>Transmite diferenciação?</td><td class="t-ok">Sim</td><td>Dia 3 e Dia 6 comparam abordagens sem citar concorrente; Dia 4 reclassifica a própria categoria da doença usando literatura de 2025 e expõe a própria "escada de confiança decrescente" como estrutura</td></tr>
 <tr><td>Gera identificação antes da venda?</td><td class="t-ok">Sim</td><td>Dias 1, 2 e 4 não pedem nada — só nomeiam experiência real e fundamentam com citação antes de qualquer CTA de conversão (que só aparece no Dia 7)</td></tr>
 <tr><td>Fortalece posicionamento de especialista?</td><td class="t-ok">Sim</td><td>4 dos 7 ganchos usam Família D (autoridade) ou demonstração de raciocínio; o bloco de fundamentação com citação primária em cada dia é, por si só, um sinal de autoridade que quase nenhum concorrente do nicho tem estrutura pra replicar</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Os 15 critérios do prompt mestre</h3>
+<div class="tbl-scroll">
+<table>
+<thead><tr><th>Critério</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>Alinhado com a Universidade Premium</td><td class="t-ok">✓ — todo mecanismo psicológico citado aponta pra seção real de C1/C2</td></tr>
+<tr><td>Cientificamente correto</td><td class="t-ok">✓ — 22 citações primárias, cada uma com selo de força de evidência e limite honesto</td></tr>
+<tr><td>Desenvolvimento profundo, progressão lógica</td><td class="t-ok">✓ — bloco "Por que essa ordem" explica a dependência entre os 7 dias; "Lógica entre os slides" explica os 2 carrosséis</td></tr>
+<tr><td>Sem frases soltas</td><td class="t-ok">✓ — cada roteiro tem coluna "cena e direção" explicando a função de cada corte, não só o texto</td></tr>
+<tr><td>Público leigo compreende, termos técnicos explicados</td><td class="t-ok">✓ — nenhum termo (melanócito, HPA, TRP) aparece sem explicação na mesma frase</td></tr>
+<tr><td>Retenção pela qualidade, não por gatilho</td><td class="t-ok">✓ — nenhum CTA usa urgência/escassez; Dia 6 não tem CTA de conversão nenhum, deliberadamente</td></tr>
+<tr><td>Autoridade sem arrogância</td><td class="t-ok">✓ — nenhuma peça usa "eu sou especialista" ou "confie em mim"; autoridade vem do raciocínio exposto e das citações</td></tr>
+<tr><td>Sem promessa de resultado</td><td class="t-ok">✓ — todo CTA passa no teste do C2.M3 §3.9, checado peça a peça</td></tr>
+<tr><td>Sem exageros</td><td class="t-ok">✓ — Dia 4 explicita onde a ciência NÃO sustenta e onde um fator é hipótese própria, não achado</td></tr>
+<tr><td>Sem informação superficial</td><td class="t-ok">✓ — cada dia tem selo-box de fundamentação com citação nomeada + limite honesto</td></tr>
+<tr><td>Sem repetição desnecessária</td><td class="t-ok">✓ — checagem de família de gancho abaixo; nenhuma estrutura repete sem variação</td></tr>
+<tr><td>Emoção predominante, ritmo, pausas, b-roll explícitos</td><td class="t-ok">✓ — bloco "prod-meta" em cada um dos 5 Reels</td></tr>
+<tr><td>Lógica entre os slides nos carrosséis</td><td class="t-ok">✓ — Dias 4 e 6 têm seção dedicada</td></tr>
+<tr><td>Stories antes e depois da publicação</td><td class="t-ok">✓ — todos os 7 dias, 2 stories de aquecimento + 4 de reforço</td></tr>
+<tr><td>Micronutrientes, cortisol e fígado no discurso</td><td class="t-ok">✓ — slides 7, 8 e 9 do Dia 4, cada um com o grau de evidência correto (fraco/preliminar/hipótese própria)</td></tr>
 </tbody>
 </table>
 </div>
@@ -775,6 +999,9 @@ conteúdo alimenta as camadas 1 a 4; a partir da camada 5, o trabalho é humano,
 <li>Han, Y. J., Nunes, J. C. &amp; Drèze, X. (2010). <em>Signaling status with luxury goods: The role of brand prominence.</em> Journal of Marketing, 74(4), 15-30.</li>
 <li>Witte, K. (1992). <em>Putting the fear back into fear appeals: The extended parallel process model.</em> Communication Monographs, 59(4), 329-349.</li>
 <li>Moynihan, R., Heath, I. &amp; Henry, D. (2002). <em>Selling sickness: the pharmaceutical industry and disease mongering.</em> BMJ, 324(7342), 886-891.</li>
+<li>Estudo de caso-controle sobre níveis séricos de zinco em pacientes com melasma vs. controles saudáveis (associação sem correlação com gravidade) — base do fator nutricional, slide 8 do Dia 4.</li>
+<li>Achados preliminares de associação entre melasma e níveis mais baixos de vitamina D sérica — estudos observacionais, mesmo grau de evidência do zinco.</li>
+<li><strong>Checagem sobre "liver spots"/fígado:</strong> fontes dermatológicas mainstream (incluindo Cleveland Clinic) confirmam que "liver spots" é apelido popular do lentigo solar, historicamente atribuído (de forma incorreta) à função hepática, e que melasma não é causado por disfunção hepática — usado para calibrar a nota de transparência do slide 9 do Dia 4.</li>
 <li><strong>Busca dedicada por "melasma + microbiota intestinal / síndrome metabólica / resistência à insulina" não retornou literatura ligando esses eixos especificamente a melasma</strong> — existe para outras condições inflamatórias/metabólicas, não para este quadro. Registrado aqui por transparência, não como citação de apoio.</li>
 </ol>
 </section>
